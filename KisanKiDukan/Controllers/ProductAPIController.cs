@@ -80,7 +80,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet] 
         public IHttpActionResult GetAllProducts(int userId)
         {
             var model = new ProductShowListModel();
@@ -825,6 +825,7 @@ from DeliveryTimeSlot";
                                 CategoryName = c.CategoryName,
                                 Metrics = m.Metrics,
                                 Id = p.Id,
+                                Price = p.Price,
                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                 DiscountPrice = p.DiscountPrice,
                                 ProductDescription = p.ProductDescription,
@@ -957,6 +958,7 @@ from DeliveryTimeSlot";
                                    CategoryName = c.CategoryName,
                                    Metrics = m.Metrics,
                                    Id = p.Id,
+                                   Price = p.Price,
                                    OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                    DiscountPrice = p.DiscountPrice,
                                    ProductDescription = p.ProductDescription,
@@ -1023,6 +1025,7 @@ from DeliveryTimeSlot";
                                         CategoryName = c.CategoryName,
                                         Metrics = m.Metrics,
                                         Id = p.Id,
+                                        Price = p.Price,
                                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                         DiscountPrice = p.DiscountPrice,
                                         ProductDescription = p.ProductDescription,

@@ -111,8 +111,8 @@
                 </div>
                 <div class="form-group">
                     Sub Category * @Html.DropDownListFor(a => a.subId,
-         Enumerable.Empty<SelectListItem>()
-         , "Select", new { @class = "form-control" })
+Enumerable.Empty<SelectListItem>()
+, "Select", new { @class = "form-control" })
                     <span class="red">
                         @Html.ValidationMessageFor(a => a.subId)
                     </span>
@@ -132,6 +132,10 @@
 
                 <div class="form-group">
                     DiscountPrice % @Html.TextBoxFor(a => a.DiscountPrice, new { type = "number", @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
+                </div>
+                <div class="form-group">
+                    OurPrice % @Html.TextBoxFor(a => a.OurPrice, new { type = "number", @class = "form-control" })
                     @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
                 </div>
 

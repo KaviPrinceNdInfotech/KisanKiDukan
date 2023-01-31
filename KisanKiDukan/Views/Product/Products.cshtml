@@ -31,8 +31,8 @@
             <th>Has Variant</th>
             <th>Product Status</th>
             <th>MRP</th>
-            <th>Our Price</th>
             <th>Discount(%)</th>
+            <th>Our Price</th>
             <th>Weight</th>
             <th>Shipping Charge</th>
             <th>Description</th>
@@ -77,8 +77,8 @@
                 </td>
                 <td>@item.Price</td>
                 @*<td>@item.DiscountPrice</td>*@
+                <td>@item.DiscountPrice</td>
                 <td>@item.OurPrice</td>
-               <td>@item.DiscountPrice</td>
                 <td>
                     <span>@item.Quantity</span>&nbsp;<span>
                         @if (!string.IsNullOrEmpty(item.Metrics))
