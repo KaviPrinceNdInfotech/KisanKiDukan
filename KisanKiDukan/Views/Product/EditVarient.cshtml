@@ -1,0 +1,99 @@
+﻿@model KisanKiDukan.Models.DTO.PAvailDTO
+@{
+    ViewBag.Title = "EditVarient";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    legend a {
+        color: inherit;
+    }
+
+    legend.legendStyle {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    fieldset.fsStyle {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: small;
+        font-weight: normal;
+        border: 1px solid #999999;
+        padding: 4px;
+        margin: 5px;
+    }
+
+    legend.legendStyle {
+        font-size: 90%;
+        color: #888888;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    legend {
+        width: auto;
+        border-bottom: 0px;
+    }
+
+
+    .col-lg-1 {
+        width: 25.333333%;
+    }
+</style>
+<h2>Update Varient</h2>
+<div class="form-group">
+    <a href="/Product/Variant?id=@Model.Product_Id" class="btn btn-info">All</a>
+</div>
+<div class="form-group">
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-info text-center">
+            @TempData["msg"]
+        </div>
+    }
+</div>
+
+<div class="form-group">
+@using (Html.BeginForm("EditVarient", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(a => a.Id)
+    @Html.HiddenFor(a => a.Product_Id)
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>Metrics</th>
+                        <th>Market Price</th>
+                        <th>Our Price</th>
+                        <th>Is in Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.TextBoxFor(a => a.Quantity, new { type = "number", @class = "form-control" })</td>
+                        <td>@Html.DropDownListFor(a => a.Metrics_Id, Model.MetricList, "Select", new { @class = "form-control" })</td>
+                        <td>@Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control" })</td>
+                        <td>@Html.TextBoxFor(a => a.OurPrice, new { type = "number", @class = "form-control" })</td>
+                         <td>@Html.CheckBoxFor(a => a.IsAvailable)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <input type="submit" value="submit" class="btn btn-info" />
+    </div>
+}
+</div>
+

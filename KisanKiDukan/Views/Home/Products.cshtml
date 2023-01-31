@@ -1,0 +1,288 @@
+﻿@model KisanKiDukan.Models.ViewModels.ProductDisplayModel
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+</style>
+<script src="/HomLayout/Js/kart.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+@*<h1> Products</h1>*@
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <div class="freshio-breadcrumb">
+            <div class="col-full">
+                <h1 class="breadcrumb-heading">Shop</h1>
+                <nav class="woocommerce-breadcrumb"><a href="https://demo2.pavothemes.com/freshio">Home</a><span class="breadcrumb-separator"> / </span>Shop</nav>
+            </div>
+        </div>
+        <div id="content" class="site-content" tabindex="-1">
+            <div class="col-full">
+                <div class="woocommerce"></div>
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+                        <header class="woocommerce-products-header"></header>
+                        <div class="woocommerce-notices-wrapper"></div>
+                        <div class="freshio-sorting">
+                            <button class="filter-toggle" aria-expanded="false"><i class="freshio-icon-filter"></i><span>Filter</span></button>
+                            <button class="filter-toggle-dropdown" aria-expanded="false"><i class="freshio-icon-filter"></i><span>Filter</span></button>
+                            <p class="woocommerce-result-count">@*Showing 1&ndash;16 of 40 results*@</p>
+                            <div class="gridlist-toggle desktop-hide-down">
+                                <a href="index64cc.html?layout=grid" id="grid" class="active" title="Grid View"><i class="freshio-icon-th-large"></i></a>
+                                <a href="indexef01.html?layout=list" id="list" class="" title="List View"><i class="freshio-icon-th-list"></i></a>
+                            </div>
+                            <form class="woocommerce-ordering" method="get">
+                                <select name="orderby" class="orderby">
+                                    <option value="menu_order" selected="selected">Default sorting</option>
+                                    @*<option value="popularity">Sort by popularity</option>
+                                    <option value="rating">Sort by average rating</option>
+                                    <option value="date">Sort by latest</option>
+                                    <option value="price">Sort by price: low to high</option>
+                                    <option value="price-desc">Sort by price: high to low</option>*@
+                                </select>
+                                <input type="hidden" name="paged" value="1" />
+                            </form>
+                        </div>
+                        <div id="content-wrapper">
+                            <div id="main">
+                                <div id="products">
+                                    <div id="js-product-list">
+                                        <ul class="products columns-4">
+                                            @foreach (var item in Model.Products)
+                                            {
+                                                <div id="productDiv">
+                                                    <li class="product type-product post-271 status-publish first instock product_cat-allium product_tag-bread has-post-thumbnail shipping-taxable purchasable product-type-variable">
+                                                        <div class="product-block">
+                                                            <div class="product-transition">
+                                                                <div class="product-image">
+                                                                    <a href="/Home/ProductDetail?productId=@item.Id">
+                                                                        <img width="450" height="420"
+                                                                             src="~/Images/@item.ProductImage"
+                                                                             data-src="~/Images/@item.ProductImage"
+                                                                             class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                                             alt="" />
+                                                                        </a>
+                                                                </div>
+                                                                @if (item.IsStock == true)
+                                                                {
+                                                                    <span class="stock-label" style="background-color:white; color:green;">In Stock</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="stock-label" style="background-color:white; color:red;">Out Of Stock</span>
+                                                                }
+                                                                <div class="group-action">
+                                                                    <div class="shop-action">
+                                                                        <button class="woosw-btn woosw-btn-271" data-id="271">Add to wishlist</button><button class="wooscp-btn wooscp-btn-271" data-id="271">Compare</button>
+                                                                        <button class="woosq-btn woosq-btn-271" data-id="271" data-effect="mfp-3d-unfold">Quick view</button>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                                            </div>
+                                                            <div class="star-rating">
+                                                                <span style="width: 76%;">Rated <strong class="rating">3.80</strong> out of 5</span>
+                                                            </div>
+                                                            <h3 class="woocommerce-loop-product__title"><a href="/Home/ProductDetail?productId=@item.Id">@item.ProductName</a></h3>
+                                                            <span class="price">
+                                                                @*<span class="woocommerce-Price-amount amount">
+                                                                        <bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>210.00</bdi>
+                                                                    </span>
+                                                                    &ndash;*@
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>@item.Price</bdi>
+                                                                </span>
+                                                            </span>
+                                                            <!--=======Variant start=======-->
+                                                            @if (item.IsVariant)
+                                                            {
+                                                                <select id="variants" onchange="prodAvailable(this)">
+                                                                    @foreach (var v in item.Variants)
+                                                                    {
+                                                                        <option value="@v.Metric_Id" productId="@item.Id" weight="@v.Weight" isAvail="@if (v.IsStock) {<text>1</text> } else {<text>0</text> }">
+                                                                            @v.Weight @v.Metric - Rs. @v.Price
+                                                                        </option>
+                                                                    }
+                                                                </select>
+                                                            }
+                                                            else
+                                                            {
+                                                                <select id="variants" style="display:none;">
+                                                                    <option value="@item.Metric_Id" productId="@item.Id" weight="@item.Quantity"></option>
+                                                                </select>
+                                                                <div style="height:2.4px;">
+                                                                </div>
+                                                            }
+                                                            <!--========Variant end========-->
+                                                            @if (item.IsStock == true)
+                                                            {
+                                                                <a href="#" class="button product_type_variable add_to_cart_button" title="Add to Cart" prodId="@item.Id" id="btnCart" onclick="addToCart(this)">Add to cart</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="#" class="button product_type_variable add_to_cart_button" title="Add to Cart" prodId="@item.Id" id="btnCart">Add to cart</a>
+                                                            }
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="woocommerce-pagination">
+                            <ul class="page-numbers">
+                                <li><span aria-current="page" class="page-numbers current">1</span></li>
+                                <li><a class="page-numbers" href="page/2/index.html">2</a></li>
+                                <li><a class="page-numbers" href="page/3/index.html">3</a></li>
+                                <li>
+                                    <a class="next page-numbers" href="page/2/index.html"><span>NEXT</span><i class="freshio-icon freshio-icon-angle-double-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </main>
+                </div>
+                <div id="secondary" class="widget-area">
+                    <div id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories">
+                        <span class="gamma widget-title">Explore</span>
+                        <ul class="product-categories">
+                            <li class="cat-item cat-item-186"><a href="../product-category/allium/index.html">Allium</a> <span class="count">(5)</span></li>
+                            <li class="cat-item cat-item-181"><a href="../product-category/beverages/index.html">Beverages</a> <span class="count">(5)</span></li>
+                            <li class="cat-item cat-item-182"><a href="../product-category/dairy-bread-eggs/index.html">Dairy Bread &amp; Eggs</a> <span class="count">(6)</span></li>
+                            <li class="cat-item cat-item-183"><a href="../product-category/fruits-vegetables/index.html">Fruits &amp; Vegetables</a> <span class="count">(7)</span></li>
+                            <li class="cat-item cat-item-180"><a href="../product-category/grocery-staples/index.html">Grocery &amp; Staples</a> <span class="count">(7)</span></li>
+                            <li class="cat-item cat-item-179"><a href="../product-category/health-wellness/index.html">Health &amp; Wellness</a> <span class="count">(3)</span></li>
+                            <li class="cat-item cat-item-184"><a href="../product-category/leafy-green/index.html">Leafy Green</a> <span class="count">(4)</span></li>
+                            <li class="cat-item cat-item-185"><a href="../product-category/package-foods/index.html">Package Foods</a> <span class="count">(5)</span></li>
+                            <li class="cat-item cat-item-15"><a href="../product-category/uncategorized/index.html">Uncategorized</a> <span class="count">(36)</span></li>
+                        </ul>
+                    </div>
+                    <div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter">
+                        <span class="gamma widget-title">Price</span>
+                        <form method="get" action="https://demo2.pavothemes.com/freshio/shop/">
+                            <div class="price_slider_wrapper">
+                                <div class="price_slider" style="display: none;"></div>
+                                <div class="price_slider_amount" data-step="10">
+                                    <input type="text" id="min_price" name="min_price" value="10" data-min="10" placeholder="Min price" /> <input type="text" id="max_price" name="max_price" value="1000" data-max="1000" placeholder="Max price" />
+                                    <button type="submit" class="button">Filter</button>
+                                    <div class="price_label" style="display: none;">Price: <span class="from"></span> &mdash; <span class="to"></span></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="freshio_woocommerce_layered_nav-2" class="widget woocommerce freshio_widget_layered_nav woocommerce-widget-layered-nav">
+                        <span class="gamma widget-title">Color</span>
+                        <ul class="inline woocommerce-widget-layered-nav-list">
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="indexf641.html?filter_color=blue"><span class="color-label" style="background: #1e73be;"></span><span class="color-name">Blue</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="index288e.html?filter_color=dark"><span class="color-label" style="background: #000000;"></span><span class="color-name">Dark</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="indexebac.html?filter_color=gray"><span class="color-label" style="background: #dddddd;"></span><span class="color-name">Gray</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="indexe36b.html?filter_color=green"><span class="color-label" style="background: #81d742;"></span><span class="color-name">Green</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="indexd611.html?filter_color=orange"><span class="color-label" style="background: #dd9933;"></span><span class="color-name">Orange</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="index7d44.html?filter_color=purple"><span class="color-label" style="background: #8224e3;"></span><span class="color-name">Purple</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="index6e6e.html?filter_color=red"><span class="color-label" style="background: #dd3333;"></span><span class="color-name">Red</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="indexae77.html?filter_color=white"><span class="color-label" style="background: #ffffff;"></span><span class="color-name">White</span></a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
+                                <a rel="nofollow" class="freshio-color-type" href="index416b.html?filter_color=yellow"><span class="color-label" style="background: #eeee22;"></span><span class="color-name">Yellow</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="woocommerce_product_tag_cloud-2" class="widget woocommerce widget_product_tag_cloud">
+                        <span class="gamma widget-title">Product tags</span>
+                        <div class="tagcloud">
+                            <a href="../product-tag/bread/index.html" class="tag-cloud-link tag-link-200 tag-link-position-1" style="font-size: 8pt;">bread</a>
+                            <a href="../product-tag/fruits/index.html" class="tag-cloud-link tag-link-197 tag-link-position-2" style="font-size: 8pt;">fruits</a>
+                            <a href="../product-tag/healthy/index.html" class="tag-cloud-link tag-link-203 tag-link-position-3" style="font-size: 8pt;">healthy</a>
+                            <a href="../product-tag/juices/index.html" class="tag-cloud-link tag-link-198 tag-link-position-4" style="font-size: 8pt;">juices</a>
+                            <a href="../product-tag/meat/index.html" class="tag-cloud-link tag-link-199 tag-link-position-5" style="font-size: 8pt;">meat</a>
+                            <a href="../product-tag/natural/index.html" class="tag-cloud-link tag-link-201 tag-link-position-6" style="font-size: 8pt;">natural</a>
+                            <a href="../product-tag/organic/index.html" class="tag-cloud-link tag-link-202 tag-link-position-7" style="font-size: 8pt;">organic</a>
+                            <a href="../product-tag/tomato/index.html" class="tag-cloud-link tag-link-204 tag-link-position-8" style="font-size: 8pt;">tomato</a>
+                            <a href="../product-tag/vegetables/index.html" class="tag-cloud-link tag-link-196 tag-link-position-9" style="font-size: 8pt;">vegetables</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

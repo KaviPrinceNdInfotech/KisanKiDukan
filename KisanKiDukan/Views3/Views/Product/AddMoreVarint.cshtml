@@ -1,0 +1,113 @@
+@model KisanKiDukan.Models.ViewModels.ProductModel
+@{
+    ViewBag.Title = "AddMoreVarint";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    legend a {
+        color: inherit;
+    }
+
+    legend.legendStyle {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    fieldset.fsStyle {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: small;
+        font-weight: normal;
+        border: 1px solid #999999;
+        padding: 4px;
+        margin: 5px;
+    }
+
+    legend.legendStyle {
+        font-size: 90%;
+        color: #888888;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    legend {
+        width: auto;
+        border-bottom: 0px;
+    }
+
+
+    .col-lg-1 {
+        width: 25.333333%;
+    }
+</style>
+<div class="form-group">
+    <a href="/Product/Variant?id=@Model.Id" class="btn btn-info"> Back </a>
+</div>
+
+<div class="form-group">
+    @if(TempData["msg"]!=null)
+    {
+        <div class="alert alert-info text-center">
+            @TempData["msg"]
+        </div>
+    }
+</div>
+@using(Html.BeginForm("AddMoreVarint", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(a=>a.Id)
+<div>
+    <fieldset class="fsStyle">
+        <legend class="legendStyle">
+            <a data-toggle="collapse" data-target="#demo" href="#"> Add More Varient</a>
+        </legend>
+
+        <div class="collapse in" id="demo" style="width:100%">
+            <span id="addNewabt" class="btn btn-info">
+                + Add new
+            </span>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered" id="attrTable">
+                        <thead>
+                            <tr style="color:black;">
+                                <th>Weight</th>
+                                <th>Metrics</th>
+                                <th>Market Price</th>
+                                <th>Our Price</th>
+                                <th>IsInStock</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.TextBoxFor(a => a.PAvail[0].Quantity, new { type = "number", @class = "form-control" })</td>
+                                <td>@Html.DropDownListFor(a => a.PAvail[0].Metrics_Id, Model.MetricList, "Select", new { @class = "form-control" })</td>
+                                <td>@Html.TextBoxFor(a => a.PAvail[0].Price, new { type = "number", @class = "form-control" })</td>
+                                <td>@Html.TextBoxFor(a => a.PAvail[0].OurPrice, new { type = "number", @class = "form-control" })</td>
+                                <td>@Html.CheckBoxFor(a=>a.PAvail[0].IsAvailable)</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="form-group">
+    <input type="submit" value="submit" class="btn btn-info btn-block" />
+</div>
+}
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/bulkEntry.js"></script>
+<script src="/js/product.js"></script>

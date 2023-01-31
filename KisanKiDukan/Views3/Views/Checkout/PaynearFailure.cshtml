@@ -1,0 +1,48 @@
+﻿@model KisanKiDukan.Models.ViewModels.PaynearFailure
+@{
+    ViewBag.Title = "PaynearFailure";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+@*<h2>PaynearFailure</h2>*@
+<DIV id="content">
+    <DIV class="row-container">
+        <DIV class="container-fluid"></DIV>
+    </DIV>
+    <DIV class="row-container">
+        <DIV class="container-fluid">
+            <DIV class="content-inner row-fluid">
+                <DIV class="span9" id="component">
+                    <main role="main">
+                        <DIV class="productdetails-view productdetails productdetails-default">
+                            <DIV class="back-to-category">
+                                <A class="btn product-details" style="width: 100%;"
+                                   href="#">
+                                    <SPAN>
+                                        <I class="fa fa-reply"></I>PaymentResponse
+                                    </SPAN>
+                                </A>
+                            </DIV>
+                        </DIV>
+                        <DIV class="features_items">
+                            <table class="table" style="width:60%">
+                                <tr>
+                                    <th>Order Id</th>
+                                    <td>@Model.referenceNo</td>
+                                </tr>
+                                <tr>
+                                    <th>Amount</th>
+                                    <td>@Model.amount</td>
+                                </tr>
+                                <tr>
+                                    <th>Response Message</th>
+                                    <td>@Model.responseMessage</td>
+                                </tr>
+                            </table>
+                        </DIV>
+                    </main>
+                </DIV>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+

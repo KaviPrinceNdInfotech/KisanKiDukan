@@ -1,0 +1,74 @@
+﻿@model KisanKiDukan.Models.DTO.VendorDTO
+@{
+    ViewBag.Title = "Update Vendor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .row {
+        margin-top: 1% !important;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a => a.Id)
+    @Html.HiddenFor(a => a.EmailId)
+    @Html.HiddenFor(a => a.LoginMaster_Id)
+    @Html.HiddenFor(a=>a.RegistrationDate)
+    <div style="width:50%">
+
+        <div class="row r">
+            <div class="col-md-12">
+                <a href="/Vendor/All" class="btn btn-info">Show all</a>
+            </div>
+        </div>
+
+        <div class="row r">
+            <div class="col-md-12">
+                <h2>Register Vendor</h2>
+            </div>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="row r">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        @TempData["msg"]
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row r">
+            <div class="col-md-12">
+                <div class="form-group">
+                    Vendor Name *
+                    @Html.TextBoxFor(a => a.VendorName, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.VendorName)
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    Contact Person
+                    @Html.TextBoxFor(a => a.ContactPerson, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.ContactPerson)
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    Mobile Number *
+                    @Html.TextBoxFor(a => a.ContactNumber, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.ContactPerson)
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

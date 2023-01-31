@@ -1,0 +1,430 @@
+@model KisanKiDukan.Models.ViewModels.ProductDisplayModel
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+<script src="/HomLayout/Js/kart.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style>
+    button.btn.btn-normal{
+        background-color:#f97c2d;
+        cursor: pointer;
+    }
+    button.btn.btn-normal:hover{
+        color:none;
+    }
+</style>
+@*<h2>ProductDetail</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Product Detail</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">product</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-pt-space bg-light" id="content-wrapper">
+    <div id="main">
+        <div id="products">
+            <div id="js-product-list">
+                <div class="collection-wrapper">
+                    <div class="custom-container">
+                        <div class="row">
+                            <div class="col-lg-5" style="height: 550px;">
+                                <div class="product-slick no-arrow">
+                                    <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-0"></div>
+                                    <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-1"></div>
+                                    <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-2"></div>
+                                    <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-3"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="slider-nav">
+                                            <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-0"></div>
+                                            <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-1"></div>
+                                            <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-2"></div>
+                                            <div><img src="~/Images/@Model.ProductDetail.ProductImage" alt="" class="img-fluid  image_zoom_cls-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 rtl-text" id="productDiv">
+                                <div id="productDiv">
+                                    <div class="product-right">
+                                        <h2>@Model.ProductDetail.ProductName</h2>
+                                        <h4>@*<del>Rs. 459.00</del><span>% off</span>*@</h4>
+                                        <h3>Rs. @Model.ProductDetail.Price</h3>
+                                        <div class="product-description border-product">
+                                            <h6 class="product-title size-text">Metrics <span><a href="" data-toggle="modal" data-target="#sizemodal"></a></span></h6>
+                                            @if (Model.AvailableVarients != null)
+                                            {
+                                                <div class="size-box">
+                                                    <!--=======Variant start=======-->
+                                                    @if (Model.ProductDetail.IsVariant)
+                                                    {
+                                                        <select id="variants" onchange="prodAvailable(this)" style="height: 35px;width: 156px;">
+                                                            @foreach (var v in Model.ProductDetail.Variants)
+                                                            {
+                                                                <option value="@v.Metric_Id" productId="@Model.ProductDetail.Id" weight="@v.Weight" isAvail="@if (v.IsStock) {<text>1</text> } else {<text>0</text> }">
+                                                                    @v.Weight @v.Metric - Rs. @v.Price
+                                                                </option>
+                                                            }
+                                                        </select>
+                                                    }
+                                                    else
+                                                    {
+                                                        <select id="variants" style="display:none;">
+                                                            <option value="@Model.ProductDetail.Metric_Id" productId="@Model.ProductDetail.Id" weight="@Model.ProductDetail.Quantity"></option>
+                                                        </select>
+                                                    }
+                                                    <!--========Variant end========-->
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="size-box">
+                                                    <span>@Model.ProductDetail.Quantity @Model.ProductDetail.Metrics</span>
+                                                </div>
+                                            }
+                                            <h6 class="product-title">quantity</h6>
+                                            <div class="qty-box">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
+                                                    <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-buttons">
+                                            @if (Model.ProductDetail.IsStock == true)
+                                            {
+                                                <button class="btn btn-normal" title="Add to cart" prodId="@Model.ProductDetail.Id" id="btnCart" onclick="addToCart(this)">add to cart</button>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-normal" title="Add to cart" prodId="@Model.ProductDetail.Id" id="btnCart">add to cart</button>
+                                            }
+                                            @*<button href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</button>
+                                                <button href="#" class="btn btn-normal">buy now</button>*@
+                                        </div>
+                                        <div class="border-product">
+                                            <h6 class="product-title">product details</h6>
+                                            <p>@Model.ProductDetail.ProductDescription</p>
+                                        </div>
+                                        <div class="border-product">
+                                            <div class="product-icon">
+                                                <ul class="product-social">
+                                                    <li><a href="https://www.facebook.com/kisankishop"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="https://kisankidukaan.in/"><i class="fa fa-google-plus"></i></a></li>
+                                                    <li><a href="https://twitter.com/dukaankisan"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="https://www.instagram.com/kisankidukan/"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="https://www.youtube.com/channel/UCsATXvG1IpM1dOPmX9G_0Ug?view_as=subscriber"><i class="fa fa-youtube"></i></a></li>
+                                                </ul>
+                                                <form class="d-inline-block">
+                                                    <span class="wishlist-btn">
+                                                        <span style="color:orange">&nbsp;&nbsp;Vendor Name :</span>&nbsp;
+                                                        <span class="title-font" style="color:black"><b>@Model.ProductDetail.VendorName</b></span>
+                                                    </span>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="border-product ">
+                                            <h6 class="product-title">Time Reminder</h6>
+                                            <div class="timer">
+                                                <p id="demo">
+                                                    @*<span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>*@
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+<!-- product-tab starts -->
+<section class="tab-product tab-exes" style="margin-top:15%;">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 ">
+                <div class="creative-card creative-inner">
+                    <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Description</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-top-tab" data-toggle="tab" href="#top-profile" role="tab" aria-selected="false">Details</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-selected="false">Video</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">@if (user != ""){ <text>Write Review</text> }</a>
+                            <div class="material-border"></div>
+                        </li>
+                    </ul>
+                    <div class="tab-content nav-material" id="top-tabContent">
+                        <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
+                            <p>@Model.ProductDetail.ProductDescription</p>
+                        </div>
+                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+                            <p> @Model.ProductDetail.ProductDescription </p>
+                            <div class="single-product-tables">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>@Model.ProductDetail.CategoryName</td>
+                                            <td>@Model.ProductDetail.ProductName</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Color</td>
+                                            <td>Brown</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Material</td>
+                                            <td>@Model.ProductDetail.ProductName</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table>
+                                    <tbody>
+                                        @if (Model.AvailableVarients != null)
+                                        {
+                                            <tr>
+                                                <td>Weight</td>
+                                                @foreach (var item in Model.AvailableVarients)
+                                                {
+                                                    <td>@item.Weight @item.Metric</td>
+                                                }
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td>Weight</td>
+                                                <td>@Model.ProductDetail.Quantity @Model.ProductDetail.Metrics</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                            <div class="mt-4 text-center">
+                                <iframe width="560" height="315" type="video/mp4" src="https://www.youtube.com/watch?v=0yQEvW9BVgM" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <iframe width="560" height="315" type="video/mp4" src="https://youtu.be/pjGJEpeKfWY" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
+                            @using (Html.BeginForm("ProductReview", "Home", FormMethod.Post, new { @class = "theme-form" }))
+                            {
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="media">
+                                            <label>Rating</label>
+                                            <div class="media-body ml-3">
+                                                <div class="rating three-star">
+                                                    <label class="fa fa-star" aria-hidden="true" id="st1" value="1"></label>
+                                                    <label class="fa fa-star" aria-hidden="true" id="st2" value="2"></label>
+                                                    <label class="fa fa-star" aria-hidden="true" id="st3" value="3"></label>
+                                                    <label class="fa fa-star" aria-hidden="true" id="st4" value="4"></label>
+                                                    <label class="fa fa-star" aria-hidden="true" id="st5" value="5"></label>
+                                                    @Html.TextBoxFor(a=>a.ReviewDetail.Rating, new { type = "hidden", Id = "rating" })
+                                                    @Html.TextBoxFor(a => a.ReviewDetail.ProductId, new { type = "hidden", Value=Model.ProductDetail.Id, Id= Model.ProductDetail.Id })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="name">Name</label>
+                                        @Html.TextBoxFor(a => a.ReviewDetail.Name, new { Type="text", placeholder = "Enter Your name", @required = "required", @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email">Email</label>
+                                        @Html.TextBoxFor(a => a.ReviewDetail.EmailId, new { Type = "email", placeholder = "Email", @required = "required", @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="review">Review Title</label>
+                                        @Html.TextBoxFor(a => a.ReviewDetail.ReviewTitle, new { Type = "text", placeholder = "Enter your Review Subjects", @required = "required", @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="review">Review Description</label>
+                                        @Html.TextAreaFor(a => a.ReviewDetail.ReviewDesc, 10, 30, new { placeholder = "Wrire Your Testimonial Here", @class = "form-control", @required = "required" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-normal" type="submit" style="">Submit Your Review</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product-tab ends -->
+<!-- related products -->
+<section class="section-big-py-space  ratio_asos bg-light">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12 product-related">
+                <h2>related products</h2>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 product">
+                <div class="product-slide no-arrow">
+                    @foreach (var item in Model.Products)
+                    {
+                    <div>
+                        <div class="product-box">
+                            <div class="product-imgbox">
+                                <div class="product-front">
+                                    <img src="~/Images/@item.ProductImage" class="img-fluid  " alt="product" style="height:367.92px;max-width:286px;min-width:286px;">
+                                </div>
+                                <div class="product-back">
+                                    <a href="/Home/ProductDetail?productId=@item.Id">
+                                        <img src="~/Images/@item.ProductImage" class="img-fluid  " alt="product" style="height:367.92px;max-width:286px;min-width:286px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-detail detail-center ">
+                                <div class="detail-title">
+                                    <div class="detail-left">
+                                        <div class="rating-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <a href="">
+                                            <h6 class="price-title">
+                                                @item.ProductName
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <div class="detail-right">
+                                        @if (item.IsStock == true)
+                                        {
+                                        <div class="price">
+                                            <div class="price" style="background-color:white; color:green;">In Stock</div>
+                                        </div>
+                                        }
+                                        else
+                                        {
+                                        <div class="price">
+                                            <div class="price" style="background-color:white; color:red;">Out of Stock</div>
+                                        </div>
+                                        }
+                                        @*<div class="check-price">
+                                                Rs. 56.21
+                                            </div>*@
+                                        <div class="price">
+                                            <div class="price">
+                                                Rs. @item.Price
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="icon-detail">
+                                    @if (item.IsStock == true)
+                                    {
+                                    <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
+                                        <i class="ti-bag"></i>
+                                    </button>
+                                    }
+                                    else
+                                    {
+                                    <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
+                                        <i class="ti-bag"></i>
+                                    </button>
+                                    }
+                                    <a href="javascript:void(0)" title="Add to Wishlist">
+                                        <i class="ti-heart" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                        <i class="ti-search" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="compare.html" title="Compare">
+                                        <i class="fa fa-exchange" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- related products -->
+
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"> </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    $(document).ready(function () {
+          $("#st1").click(function() {
+              $(".fa-star").css("color", "lightgrey");
+              $("#st1").css("color", "orange");
+              var rate = $("#st1").attr('value');
+              $("#rating").val(parseInt(rate));
+              debugger
+          });
+          $("#st2").click(function() {
+              $(".fa-star").css("color", "lightgrey");
+              $("#st1, #st2").css("color", "orange");
+              var rate = $("#st2").attr('value');
+              $("#rating").val(parseInt(rate));
+
+          });
+          $("#st3").click(function() {
+              $(".fa-star").css("color", "lightgrey")
+              $("#st1, #st2, #st3").css("color", "orange");
+              var rate = $("#st3").attr('value');
+              $("#rating").val(parseInt(rate));
+
+          });
+          $("#st4").click(function() {
+              $(".fa-star").css("color", "lightgrey");
+              $("#st1, #st2, #st3, #st4").css("color", "orange");
+              var rate = $("#st4").attr('value');
+              $("#rating").val(parseInt(rate));
+
+          });
+          $("#st5").click(function() {
+              $(".fa-star").css("color", "lightgrey");
+              $("#st1, #st2, #st3, #st4, #st5").css("color", "orange");
+              var rate = $("#st5").attr('value');
+              $("#rating").val(parseInt(rate));
+
+          });
+        });
+</script>  

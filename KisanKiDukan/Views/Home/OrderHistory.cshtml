@@ -1,0 +1,81 @@
+﻿@model KisanKiDukan.Models.ViewModels.CustomerOrderModel
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    //int c = 0;
+    //double total = 0;
+}
+@*<style>
+    .row {
+        margin-top: 1%;
+    }
+</style>*@
+<h2>Your Orders</h2>
+@*<div style="margin-left:2%;margin-top:2%">
+    <h2>Your Orders</h2>
+    <hr />
+    @if (Model.Data.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Order NO</th>
+                            <th>Order Date</th>
+                            <th>Shipping Address</th>
+                            <th>Alternate No</th>
+                            <th>Total Item</th>
+                            <th>Pay Mode</th>
+                            <th>IsCancel</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Data.OrderByDescending(a => a.OrderDate))
+                        {
+                            <tr>
+                                <th>@item.Id</th>
+                                <th>@item.OrderDate.ToShortDateString()</th>
+                                <td>@item.Address</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Total_Items</td>
+                                <td>@item.PaymentMode</td>
+                                <td style="text-transform:uppercase">
+                                    @if (item.IsCancel.Equals(true))
+                                    {
+                                        <span style="font-size:17px;color:red;font-weight:bold">cancelled</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="font-size:17px;color:#1aa10f;font-weight:bold">ordered</span>
+                                    }
+                                </td>
+                                <td><a href="/Home/OrderDetail?Id=@item.Id" class="btn btn-primary">View Detail</a></td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+                <ul class="pagination">
+                    @for (int i = 1; i <= Model.NumberOfPages; i++)
+                    {
+                        if (Model.Page == i)
+                        {
+                            <li class="active"><a href="/Home/OrderHistory?page=@i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Home/OrderHistory?page=@i">@i</a></li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h4>No orders found</h4>
+    }
+</div>*@

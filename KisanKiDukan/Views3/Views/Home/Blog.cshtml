@@ -1,0 +1,102 @@
+@model KisanKiDukan.Models.DTO.BlogMasterDTO
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>blog</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space blog-page ratio2_3">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 col-md-7">
+                @foreach (var a in Model.Blog)
+                {
+                <div class="row blog-media">
+                    <div class="col-xl-6">
+                        <div class="blog-left">
+                            <a href="/@Url.Encode((a.Url))"><img src="@a.BlogImage" class="img-fluid  " alt=""></a>
+                            <div class="date-label">
+                                @a.Date.Value.Date.ToShortDateString()
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="blog-right">
+                            <div>
+                                <a href="/@Url.Encode((a.Url))"><h4>@a.Heading</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>@a.Short</p><br />
+                                <p><a href="~/@Url.Encode((a.Url))">Continew Reading...</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-5 order-sec">
+                <div class="blog-sidebar">
+                    <div class="theme-card">
+                        <h4>Recent Blog</h4>
+                        <ul class="recent-blog">
+                            @foreach (var item in Model.Blog.Take(5))
+                            {
+                            <li>
+                                <div class="media">
+                                    <img class="img-fluid " src="@item.BlogImage" alt="Generic placeholder image">
+                                    <div class="media-body align-self-center">
+                                        <h6>@item.Date.Value.Date.ToShortDateString()</h6>
+                                        <p>5 hits</p>
+                                    </div>
+                                </div>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <h4>Popular Blog</h4>
+                        <ul class="popular-blog">
+                            @foreach (var item in Model.Blog.Skip(1).Take(5))
+                            {
+                            <li>
+                                <div class="media">
+                                    <div class="blog-date"><span>@item.Date.Value.Date.ToShortDateString() </span><span></span></div>
+                                    <div class="media-body align-self-center">
+                                        <h6>@item.Heading</h6>
+                                        <p>10 hits</p>
+                                    </div>
+                                </div>
+                                <p>@item.Short</p>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->

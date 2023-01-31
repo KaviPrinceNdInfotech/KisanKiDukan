@@ -1,0 +1,26 @@
+﻿@model KisanKiDukan.Models.DTO.promotionalbannerDTO
+@{
+    ViewBag.Title = "Pbaner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="form-group">
+    @if (TempData["msg"] != null)
+    {
+        <span>@TempData["msg"]</span>
+    }
+</div>
+@using (Html.BeginForm("Pbaner", "OfferBanner", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div style="width:50%;margin:auto">
+        <h4>Promotional Banner</h4>
+        <div class="form-group">
+            Image *
+            @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control",required= "required" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/OfferBanner/ShowPBanner">Show All</a>
+        </div>
+    </div>
+}
+

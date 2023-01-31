@@ -1,0 +1,140 @@
+@model KisanKiDukan.Models.DTO.BlogMasterDTO
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+@*<h2>Blog Details</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>blog detail</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">blog-detail</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="blog-detail-page section-big-py-space ratio2_3">
+    <div class="container">
+        <div class="row section-big-pb-space">
+            <div class="col-sm-12 blog-detail">
+                <div class="creative-card">
+                    <img src="@Model.BlogImage" class="img-fluid w-100 " alt="blog">
+                    <h3>@Model.Heading</h3>
+                    <ul class="post-social">
+                        <li>@Model.Date.Value.Date.ToShortDateString()</li>
+                        <li>Posted By : Admin Admin</li>
+                        <li><i class="fa fa-heart"></i> 5 Hits</li>
+                        <li><i class="fa fa-comments"></i> 10 Comment</li>
+                    </ul>
+                    <p>@Html.Raw(Model.Description)</p>
+                </div>
+            </div>
+        </div>
+        <div class="row section-big-pb-space blog-advance ">
+            <div class="col-lg-6 ">
+                <div class="creative-card">
+                    <img src="../assets/images/blog/1.jpg" class="img-fluid " alt="blog">
+                    <ul>
+                        <li>Donec ut metus sit amet elit consectetur  vel turpis.</li>
+                        <li>Aenean in mi eu elit mollis tincidunt.</li>
+                        <li>Etiam blandit metus vitae purus lacinia ultricies.</li>
+                        <li>Nunc quis nulla sagittis, tempus metus.</li>
+                        <li>In scelerisque libero ut mi ornare, neque pulvinar.</li>
+                        <li>Morbi molestie lacus blandit interdum sodales.</li>
+                        <li>Curabitur eleifend velit molestie eleifend interdum.</li>
+                        <li>Vestibulum fringilla tortor et lorem sagittis,</li>
+                        <li>In scelerisque libero ut mi ornare, neque pulvinar.</li>
+                        <li>Morbi molestie lacus blandit interdum sodales.</li>
+                        <li>Curabitur eleifend velit molestie eleifend interdum.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="creative-card">
+                    <img src="../assets/images/blog/2.jpg" class="img-fluid  " alt="blog">
+                    <p>Nulla quam turpis, commodo et placerat eu, mollis ut odio. Donec pellentesque egestas consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc at urna dolor. Mauris odio nisi, rhoncus ac justo eget, lacinia iaculis lectus. </p>
+                    <p class="mt-2">Nulla quam turpis, commodo et placerat eu, mollis ut odio. Donec pellentesque egestas consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc at urna dolor. Mauris odio nisi,  rhoncus ac justo eget, lacinia iaculis lectus. rhoncus ac justo eget, lacinia iaculis lectus.</p>
+                    <p class="mt-2">Nulla quam turpis, commodo et placerat eu, mollis ut odio. Donec pellentesque egestas consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row section-big-pb-space">
+            <div class="col-sm-12 ">
+                <div class="creative-card">
+                    <ul class="comment-section">
+                        <li>
+                            <div class="media">
+                                <img src="../assets/images/avtar/1.jpg" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h6>Mark Jecno <span>( 12 Jannuary 2018 at 1:30AM )</span></h6>
+                                    <p>Donec rhoncus massa quis nibh imperdiet dictum. Vestibulum id est sit amet felis fringilla bibendum at at leo. Proin molestie ac nisi eu laoreet. Integer faucibus enim nec ullamcorper tempor. Aenean nec felis dui.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <img src="../assets/images/avtar/2.jpg" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h6>Mark Jecno <span>( 12 Jannuary 2018 at 1:30AM )</span></h6>
+                                    <p>Donec rhoncus massa quis nibh imperdiet dictum. Vestibulum id est sit amet felis fringilla bibendum at at leo. Proin molestie ac nisi eu laoreet. Integer faucibus enim nec ullamcorper tempor. Aenean nec felis dui.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <img src="../assets/images/avtar/3.jpg" alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <h6>Mark Jecno <span>( 12 Jannuary 2018 at 1:30AM )</span></h6>
+                                    <p>Donec rhoncus massa quis nibh imperdiet dictum. Vestibulum id est sit amet felis fringilla bibendum at at leo. Proin molestie ac nisi eu laoreet. Integer faucibus enim nec ullamcorper tempor. Aenean nec felis dui.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row blog-contact">
+            <div class="col-sm-12  ">
+                <div class="creative-card">
+                    <h2>Leave Your Comment</h2>
+                    <form class="theme-form">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="exampleFormControlTextarea1">Comment</label>
+                                <textarea class="form-control" placeholder="Write Your Comment" id="exampleFormControlTextarea1" rows="6"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-normal" type="submit">Post Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->
+
+
+

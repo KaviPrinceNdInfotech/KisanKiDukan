@@ -1,0 +1,57 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.VendorPincode>
+@{
+    ViewBag.Title = "AllVendorPincode";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>AllVendorPincode</h2>*@
+<div style="width:50%">
+    <div class="row r">
+        <div class="col-md-12">
+            <a class="btn btn-info" href="/PincodeMaster/AddVendorPincode">Add More</a>
+        </div>
+    </div>
+    <div class="row r" style="height:450px;overflow:auto">
+        <div class="col-md-12">
+            <h3>Pincodes</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>Action</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.city</td>
+                        <td>@item.pincode</td>
+                        <td>
+                            <span class="btn btn-danger" onclick="deleteRecord('/PincodeMaster/DeleteVendorPin?id=@item.id')">Delete</span>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </div>
+</div>
+
+@*<script src="/js/jquery-2.1.4.min.js"></script>*@
+<script>
+    function deleteRecord(url) {
+        if (window.confirm("Do you want to delete??")) {
+            $.get(url).then(function (data) {
+                if (data == "ok") {
+                    var currentUrl = window.location.href;
+                    window.location.href = currentUrl;
+                }
+                else {
+                    alert("Error on deleting data.");
+                }
+
+            })
+        }
+    }
+</script>
+
+
+

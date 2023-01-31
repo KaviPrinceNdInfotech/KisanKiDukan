@@ -1,0 +1,114 @@
+@model KisanKiDukan.Models.ViewModels.DiscountInfoModel
+@{
+    ViewBag.Title = "ProductDiscount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int id = Convert.ToInt32(this.Request.QueryString["id"]);
+}
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+    }
+
+    legend a {
+        color: black;
+    }
+
+    legend.legendStyle {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    fieldset.fsStyle {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: small;
+        font-weight: normal;
+        border: 1px solid #999999;
+        padding: 4px;
+        margin: 5px;
+    }
+
+    legend.legendStyle {
+        font-size: 90%;
+        color: #888888;
+        font-weight: bold;
+    }
+
+    legend {
+        width: auto;
+        border-bottom: 0px;
+    }
+
+    .col-lg-1 {
+        width: 25.333333%;
+    }
+</style>
+<h2>Product Discount</h2>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/Product/Products" class="btn btn-primary">Back</a>
+			<a href="/Product/ShowDiscountInfo?ProductId=@Model.ProductId" class="btn btn-primary">Show Discounts</a>
+        </div>
+   </div>
+}
+@using (Html.BeginForm("ProductDiscount", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(a => a.ProductId)
+    <div>
+        <fieldset class="fsStyle">
+            <legend class="legendStyle">
+                <a data-toggle="collapse" data-target="#demo1" href="#"> ProductDiscount </a>
+            </legend>
+            <div class="collapse in" id="demo1" style="width:80%; color: black;">
+                <div class="form-group">
+                    @if (TempData["msg"] != null)
+                    {
+                        <div class="alert alert-info text-center">
+                            @TempData["msg"]
+                        </div>
+                    }
+                </div>
+                <div class="form-group">
+                    Product Name * @Html.TextBoxFor(a => a.ProductName, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Product Price * @Html.TextBoxFor(a => a.Price, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Discount Type *
+                    @Html.DropDownListFor(a => a.DiscVal_Id, Model.DiscountValues, "--Select Discount Type--", new {id="dval", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Discount Value *
+                    @Html.TextBoxFor(a => a.Discount, new { id="dprice", @placeholder = "10% or Price", type = "text", @class = "form-control" })
+                    <span style="color:red">@Html.ValidationMessageFor(a => a.Discount)</span>
+                </div>
+                <div class="form-group">
+                    Start Date
+                    @Html.TextBoxFor(a => a.StartDate, new { type = "date", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    End Date
+                    @Html.TextBoxFor(a => a.EndDate, new { type = "date", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Description
+                    @Html.TextAreaFor(a => a.Description, new { type = "text", @class = "form-control" })
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-info btn-block" />
+    </div>
+}
+<script src="~/HomLayout/Js/jquery-2.1.4.min.js"></script>
+<script src="~/HomLayout/Js/bulkEntry.js"></script>
+<script src="~/HomLayout/Js/product.js"></script>
+

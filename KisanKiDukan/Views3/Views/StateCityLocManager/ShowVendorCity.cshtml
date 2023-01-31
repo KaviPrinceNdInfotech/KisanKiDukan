@@ -1,0 +1,31 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.VenderCity>
+@{
+    ViewBag.Title = "ShowVendorCity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>ShowVendorCity</h2>*@
+<div style="width:60%">
+    <h4>Cities</h4>
+    <a href="/StateCityLocManager/AddVendorCity" class="btn btn-primary">Add more</a>
+    <table class="table table-striped">
+        <tr>
+            <th>City Name</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CityList</td>
+                <td>
+                    @*<a href="/Category/Edit?id=@item.Id" class="btn btn-info">Edit</a>*@
+                    @*<a href="/StateCityLocManager/DeleteCity?id=@item.Id" class="btn btn-danger">Delete</a>*@
+                    @if (User.IsInRole("Vendor"))
+                    {
+                        <a href="/StateCityLocManager/DeleteVendorCity?id=@item.Id" class="btn btn-danger">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

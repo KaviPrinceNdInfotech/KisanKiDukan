@@ -1,0 +1,122 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.ProductBrand>
+@{
+    ViewBag.Title = "ShowRecords";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>ShowRecords</h2>*@
+<div class="col-lg-12">
+    <h2 class="page-header">Brand</h2>
+</div>
+<div class="form-group">
+    <a href="/Brand/Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Brand</a>
+</div>
+<div style="width:100%">
+
+    <table class="table  table-bordered" id="brand">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Page-Url</th>
+                <th>Logo</th>
+                <th>Status</th>
+                <th>Feature</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var v in Model)
+                {
+                    <tr>
+                        <td>@v.BrandName</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(v.Page_Url))
+                            {
+                                <span>@v.Page_Url</span>
+                            }
+                        </td>
+                        <td>
+                        @if (!string.IsNullOrEmpty(v.BrandLogo))
+                        {
+                            <span><img src="~/BrandLogo/@v.BrandLogo" width="150" height="150" /></span>
+                        }
+                        </td>
+                        <td>
+                            @if (v.IsActive)
+                            {
+                                <span class="btn btn-success" onclick="changeStatus('/Brand/ChangeStatus?id=@v.Id')">Active</span>
+                            }
+                            else
+                            {
+                                <span class="btn btn-danger" onclick="changeStatus('/Brand/ChangeStatus?id=@v.Id')">In-active</span>
+                            }
+                        </td>
+                        <td>
+                        @if (v.IsFeature)
+                        {
+                            <span class="btn btn-success" onclick="changeFeature('/Brand/ChangeFeature?id=@v.Id')">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="btn btn-danger" onclick="changeFeature('/Brand/ChangeFeature?id=@v.Id')">No</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="/Brand/Edit?id=@v.Id" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                        <span class="btn btn-danger" onclick="deleteRecord('/Brand/Delete?id=@v.Id')"><i class="fa fa-trash-o"></i></span>
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    @*<link href="/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>*@
+    <script type="text/javascript">
+    $("#brand").dataTable();
+    </script>
+    <script>
+    function changeStatus(url) {
+        if (window.confirm('do you want to change status?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+
+    function changeFeature(url) {
+        if (window.confirm('do you want to change feature?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+
+    function deleteRecord(url) {
+        if (window.confirm('do you want to delete?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+    </script>
+</div>
+

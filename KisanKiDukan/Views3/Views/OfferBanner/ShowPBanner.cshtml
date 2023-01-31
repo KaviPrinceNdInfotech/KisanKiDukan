@@ -1,0 +1,60 @@
+﻿@model KisanKiDukan.Models.ViewModels.pbannershowmodel
+@{
+    ViewBag.Title = "ShowPBanner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sn = 0;
+}
+<div class="form-group"><a href="/OfferBanner/Pbaner" class="btn btn-primary">Add more</a></div>
+<div style="width:100%">
+    <h4>Offer Promotional Banner</h4>
+    @if (Model.ProBanner.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Image</th>
+                
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.ProBanner)
+            {
+                sn++;
+                <tr>
+                    <td>@sn</td>
+                    <td>
+                        @if (string.IsNullOrEmpty(item.promotionalbannerpath))
+                        {
+                            <span>No image</span>
+                        }
+                        else
+                        {
+                            <img style="width:250px;height:150px" src="/Images/@item.promotionalbannerpath">
+                        }
+                    </td>
+                    <td>
+                        <a href="/OfferBanner/PBDelete?id=@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.NumberOfPages; i++)
+            {
+                if (Model.Page == i)
+                {
+                    <li class="active"><a href="/OfferBanner/ShowBanner?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="/OfferBanner/ShowBanner?page=@i">@i</a></li>
+                }
+            }
+
+        </ul>
+    }
+    else
+    {
+        <h4>No records found</h4>
+    }
+</div>
+

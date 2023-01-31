@@ -1,0 +1,363 @@
+﻿@model KisanKiDukan.Models.Domain.Vendor
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reciept</title>
+    <link href="~/Layout/RecieptLayout/reciept.css" rel="stylesheet" />
+    <link href="~/Layout/RecieptLayout/bootstrap.css" rel="stylesheet" />
+    <link href="~/Layout/RecieptLayout/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style media="print">
+        .no-print {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+        <div class="hd1">
+            <div class="hd1_1">
+                <p style="color:red;">Seller Registration</p><br />
+                <p style="color:red;">ID :IN-XXXXXXXXX</p><br />
+            </div>
+            <div class="hd1_2">
+                <input type="button" onclick="window.print()" class="no-print btn btn-info" value="print" />
+            </div>
+        </div>
+        <div class="inner1">
+            <p>
+                Please note that this form contains the details about your account and commercials for the services
+                provided by Kisan Ki Dukaan to you. Please sign this document and return to us along with specified
+                documents for processing.
+            </p>
+        </div>
+        <div class="inner3">
+            <div>
+                <p style="color:red;font-size:16px; font-weight:500;">Business Details</p>
+            </div>
+        </div>
+        <div class="inner4">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:40%">Business/Trading Name</td>
+                    <td style="width:30%">@Model.CompanyName</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Legal Name</td>
+                    <td style="width:30%">@Model.LegalCompanyName</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Business Filing Status/Legal Status</td>
+                    <td style="width:30%">@Model.BusinessFilingStatus</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">PAN Details</td>
+                    <td style="width:30%">@Model.PAN_No</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Registered Address</td>
+                    <td style="width:30%">@Model.RegisteredAddress</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Operating Address</td>
+                    <td style="width:30%">@Model.OperatingAddress</td>
+                </tr>
+            </table>
+            <div class="inner3">
+                <div style="padding-top:10px;">
+                    <p style="color:red; font-size:16px; font-weight:500;">Contact Person Details</p>
+                </div>
+            </div>
+            <table style="width:100%">
+                <tr>
+                    <td style="width:40%">Name</td>
+                    <td style="width:30%">@Model.VendorName</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Email ID</td>
+                    <td style="width:30%">@Model.EmailId</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Mobile No.</td>
+                    <td style="width:30%">@Model.ContactNumber</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Landline</td>
+                    <td style="width:30%">@Model.ContactNumber</td>
+                </tr>
+            </table>
+            <div class="inner3">
+                <div style="padding-top:10px;">
+                    <p style="color:red;font-size:16px; font-weight:500;">Bank Account Details</p>
+                </div>
+            </div>
+            <table style="width:100%">
+                <tr>
+                    <td style="width:40%">Pay To Name</td>
+                    <td style="width:30%">@Model.PayToName</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Bank Name</td>
+                    <td style="width:30%">@Model.BankName</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Account Number</td>
+                    <td style="width:30%">@Model.AccountNumber</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Branch Address</td>
+                    <td style="width:30%">@Model.BranchAddress</td>
+                </tr>
+            </table>
+            <div class="inner3">
+                <div style="padding-top:10px;">
+                    <p style="color:red;font-size:16px; font-weight:500;">
+                        Commercial Details<br />
+                        Merchant shall pay to Kisan KI Dukaan
+                    </p>
+                </div>
+            </div>
+            <table style="width:100%">
+                <tr>
+                    <th>S. No.</th>
+                    <th>PARTICULARS</th>
+                    <th>FEE</th>
+                </tr>
+                <tr>
+                    <td style="width:5%">1</td>
+                    <td style="width:35%">Annual Maintenance Charge (AMC)*</td>
+                    <td style="width:30%">Waived Off</td>
+                </tr>
+                <tr>
+                    <td style="width:5%">2</td>
+                    <td style="width:35%">Security Deposit (interest free refundable)</td>
+                    <td style="width:30%">Waived Off</td>
+                </tr>
+                <tr>
+                    <td style="width:5%">3</td>
+                    <td style="width:35%">System Integration Fee</td>
+                    <td style="width:30%">Waived Off</td>
+                </tr>
+                <tr>
+                    <td style="width:5%">4</td>
+                    <td style="width:35%">Commission on product selling </td>
+                    <td style="width:30%">8%</td>
+                </tr>
+                <tr>
+                    <td style="width:5%">5</td>
+                    <td style="width:35%">Payment Gateway Charge</td>
+                    <td style="width:30%">2%</td>
+                </tr>
+                <tr>
+                    <td style="width:5%">6</td>
+                    <td style="width:35%">Delivery Charge </td>
+                    <td style="width:30%">TBA</td>
+                </tr>
+            </table>
+        </div>
+        <div class="inner5">
+            <p style="color:red;font-size:16px;padding-top:10px; font-weight:500;">Conditions of Contract</p>
+            <ol>
+                <li>All fees are exclusive of Tax and any other taxes/ levies, if any. </li>
+                <li>Any waiver of AMC* shall be only for the first year commencing from Effective Date.</li>
+                <li>
+                    You confirm that the information provided at the time of registration on the App, including the
+                    Buyer’s GST and TIN credentials (where applicable), are true, accurate and not misleading as on
+                    each date that a transaction is undertaken through the App. You agree to provide such further
+                    information as may be required by the Supplier as a result of an order placed by you on the App.
+                </li>
+                <li>Food Safety and Standards Authority of India (FSSAI) Registration Certificate;</li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Terms of Use</p>
+            <p style="margin-left:25px;">
+                This online platform is owned and operated by N D Infotech (“we/us/our/Company”), a company incorporated
+                under the Companies Act, ---- with its registered office at S 97, Sector 12, Noida. These Terms of Use
+                (“Terms of Use”), which shall be deemed to include the Privacy Policy set out in Clause 3 below, govern
+                access to and use of this online platform (“Platform”). All visitors/users (“Party/Visitor/User”) to
+                the Platform are advised to read and understand the Terms of Use carefully.
+            </p>
+            <p style="color:red;font-size:16px; font-weight:500;">Access to the Platform</p>
+            <ol>
+                <li>
+                    In order to use the Platform to transact with the Company, you must be a retailer, industrial,
+                    commercial, institutional or other professional business user or other wholesaler/related
+                    subordinated service providers holding license to undertake commercial/retail trade (including TIN,
+                    sales tax registration, S&E registration etc.).
+                </li>
+                <li>
+                    Your access or use of the Platform implies acceptance of these Terms of Use and constitutes a
+                    legal agreement between you and the Company. If you do not agree with the Terms of Use of the
+                    Platform, please do not use or further access the Platform.
+                </li>
+                <li>
+                    In the event of conflict between the terms of a separate agreement between you and the Company,
+                    and these Terms of Use, the terms of such agreements will prevail and govern so long as they relate
+                    to matters specifically referenced herein and these Terms of Use will apply with respect to all
+                    other matters.
+                </li>
+                <li>
+                    These Terms of Use herein are subject to change from time to time by the Company without notice.
+                    It is strongly recommended that you periodically review the Terms of Use as available on the
+                    Platform. Further, we have the right to restrict the access to the whole or part of the Platform.
+                </li>
+                <li>
+                    All rights that are not expressly granted to you under these Terms of Use are reserved.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Privacy of Information</p>
+            <ol>
+                <li>
+                    As part of the registration process on the Platform, the Company may collect the personally identifiable
+                    information about the Buyer. The Company respects your privacy and values the trust you place in it. Set out
+                    below is the Company’s ‘Privacy Policy’ which details the manner in which information relating to you is
+                    collected, used and disclosed.
+                </li>
+                <li>
+                    We collect and store information you provide on the Platform for processing orders, and payments relating
+                    thereto, and providing other services such as delivery services, information on products, promotions, and
+                    other services that we believe may be of interest to you. By providing information to us, you consent to
+                    our collecting and storing information provided by you. You have the option of not divulging any specific
+                    information that you wish for us not to collect, store and/or use. However, the same may restrict your
+                    ability to use certain parts of the Platform and to use/access some services available on the Platform.
+                </li>
+                <li>
+                    Information collected may be used by us to comply with applicable laws, rules and regulations; to provide you with information and offers on services, updates, promotions, and on related, affiliated or associated service providers and partners that we believe would be of interest to you; to assist you in retrieval of passwords; to customize your experience in using the Platform; to enforce the Terms of Use; and to otherwise use the same as you may agree from time to time.
+                </li>
+                <li>
+                    Where any service requested by you involves a third party, such information as is reasonably necessary for the third party to carry out the service request may be shared with such third party.
+                </li>
+                <li>
+                    We may also use the information provided by you to send you, or to enable third party partners and associates to send you, offers based on your interests and prior activity, including targeted banner advertisements, administrative notices, services offerings, and communications relevant to your use of the Platform. By accepting the Terms of Use, you expressly agree to receive this information. If you do not wish to receive these communications, we encourage you to unsubscribe / opt out of the receipt of the specified communications through your profile.
+                </li>
+                <li>
+                    We use data collection devices such as "Cookies" on certain pages of the Platform to help analyze our web page flow, measure promotional effectiveness, and promote trust and safety. "Cookies" are small files placed on your hard drive that assist us in providing our services. We offer certain features that are only available through the use of a "cookie". Cookies can also help us provide information that is targeted to your interests. Most cookies are "session cookies," meaning that they are automatically deleted from your hard drive at the end of a session. You are always free to decline our cookies based on your browser preferences.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Our rights in relation to the Platform</p>
+            <ol>
+                <li>
+                    We have the right to discontinue or change or amend the Platform and any of its offerings at any time, without liability to you.
+                </li>
+                <li>
+                    We may prohibit, suspend or limit access to the Platform for any reason whatsoever, at any time, at our discretion.
+                </li>
+                <li>
+                    You agree and understand that we shall not be liable for any claim based on any termination and/or suspension of information related to services on the Platform.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Intellectual Property Rights</p>
+            <ol>
+                <li>
+                    The Company, its affiliates and its suppliers expressly reserve all intellectual property rights in all text, programs, products, processes, technology, images, content and other materials which appear on this Platform. Access to or use of the Platform does not confer and should not be considered as conferring upon anyone any license to the Company or any third party’s intellectual property rights. All rights, including copyright, in and to the Platform are owned by or licensed to the Company.
+                </li>
+                <li>
+                    You may not delete or change any copyright symbol, trademark or other proprietary details provided on the Platform. You agree that any use of the information displayed on the Platform may infringe the intellectual property rights of the Company, its affiliates or its suppliers for which you shall be liable to indemnify us, and such unauthorised use shall attract necessary action under applicable law.
+                </li>
+                <li>
+                    The access and use of the Platform does not include the right to copy or reproduce the information of our Platform on any other platform or medium, without our prior written permission.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Disclaimers and Limitation of Liability</p>
+            <ol>
+                <li>
+                    You agree and understand that the use of the Platform is at your own risk. The Platform is being made available to you on an “as is” and “as available” basis without providing any warranties, guaranties or conditions as to the usage. We further expressly disclaim any warranties or representations (express or implied) in respect of quality, suitability, accuracy, reliability, performance, safety, merchantability, fitness for a particular purpose or the content (including product information and/or specifications) on the Platform.
+                </li>
+                <li>
+                    You also agree and understand that the information displayed on the Platform is for information and shall not to amount to or be deemed to be endorsement of any product or service under any circumstances.
+                </li>
+                <li>
+                    To the extent permitted by applicable law, we disclaim our liability against any loss, damage, expenses, liabilities, claim, injury caused due to the failure of performance, omission, defect, deletion, interruption, error, delay, virus, communication, unauthorised access, theft, destruction, alteration or use of records, whether due to breach of contract, negligence, tort or due to other cause of actions.
+                </li>
+                <li>
+                    Further, in no circumstances shall we be responsible for any loss of profits, goodwill, revenue, consequential, exemplary, punitive damages or any financial or indirect loss arising out of or in connection with access or use of the Platform.
+                </li>
+                <li>
+                    The Company is not responsible for the content of any third party sites and does not make any representations regarding the content or accuracy of material on such sites. If you decide to access a link of any third party Platforms, you do so entirely at your own risk and expense
+                </li>
+                <li>
+                    To protect against the loss, misuse and alteration of the information under its control, the Company has in place certain physical, electronic and managerial procedures. Although the Company endeavours to safeguard the confidentiality of your personally identifiable information, transmissions made by means of the Internet cannot be made absolutely secure. By using the Platform, you agree that the Company will have no liability for disclosure of your information due to errors in transmission and/or unauthorized acts of third parties.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Indemnity</p>
+            <ol>
+                <li>
+                    You agree to defend, indemnify and hold harmless the Company, its employees, directors, officers, agents and their successors and assigns from and against any and all claims, liabilities, damages, losses, costs and expenses, including attorney's fees, caused by or arising out of or in relation to claims arising from or connected with a breach of the Terms of Use or any misstatement or breach of any representations or warranties made by you under these Terms of Use or under any conditions on the Platform accepted by you, or of any applicable law or the rights of any third parties. This clause shall survive the expiry or termination of these Terms of Use.
+                </li>
+            </ol>
+            <p style="color:red;font-size:16px; font-weight:500;">Miscellaneous</p>
+            <ol>
+                <li>
+                    The Terms of Use shall not be construed so as to create a partnership or joint venture between you and us. Nothing in the Terms of Use shall be construed so as to constitute you and us as agents of one another.
+                </li>
+                <li>
+                    The rights and remedies herein provided are cumulative and none is exclusive of any other, or of any rights or remedies that any of us may otherwise have at law or in equity.
+                </li>
+                <li>
+                    These Terms of Use shall be deemed duly executed and shall become effective and binding upon you and us when you access the Platform.
+                </li>
+            </ol>
+        </div>
+        <div class="inner6">
+            <div class="inner6_1">
+
+            </div>
+            <div class="inner6_2">
+
+            </div>
+        </div>
+        <div class="inner7">
+            <div class="inner7_1">
+                Signature
+            </div>
+            <div class="inner7_2">
+                Organization Stamp
+            </div>
+        </div>
+        <div class="inner7">
+            <p style="padding:35px;">
+                Name & Date:
+            </p>
+        </div>
+        <div style="padding:20px;"></div>
+        <div class="inner7">
+            <p style="padding:35px;color:red;font-size:16px;font-style:normal;">
+                Approval - To be filled by Kisan Ki dukaan officials only
+            </p>
+        </div>
+        <div style="padding:40px;">
+
+        </div>
+        <div class="inner6">
+            <div class="inner6_1">
+
+            </div>
+            <div class="inner6_2">
+
+            </div>
+        </div>
+        <div class="inner7">
+            <div class="inner7_1">
+                Signature
+            </div>
+            <div class="inner7_2">
+                Organization Stamp
+            </div>
+        </div>
+        <div class="inner7">
+            <p style="padding:35px;">
+                Name & Date:
+            </p>
+        </div>
+        <div style="margin-top:50px;">
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>

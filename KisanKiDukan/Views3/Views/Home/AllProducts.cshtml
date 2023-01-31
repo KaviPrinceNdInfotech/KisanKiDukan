@@ -1,0 +1,338 @@
+@model KisanKiDukan.Models.ViewModels.ProductDisplayModel
+@{
+    ViewBag.Title = "AllProducts";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+<style>
+    .slick-list.draggable{height: max-content;}
+</style>
+@*<h1>AllProducts</h1>*@
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Category Products</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home &nbsp; </a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">&nbsp; @Model.CategoryName</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-pt-space ratio_asos bg-light" id="content-wrapper">
+    <div id="main">
+        <div id="products">
+            <div id="js-product-list">
+                <div class="collection-wrapper">
+                    <div class="custom-container">
+                        <div class="row">
+                            <div class="col-sm-3 collection-filter category-page-side">
+                                <!-- side-bar colleps block stat -->
+                                <div class="collection-filter-block creative-card creative-inner category-side">
+                                    <!-- brand filter start -->
+                                    <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
+                                    <div class="collection-collapse-block open">
+                                        <h3 class="collapse-block-title mt-0">brand</h3>
+                                        <div class="collection-collapse-block-content">
+                                                                                        <div class="collection-brand-filter">
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <a href="/Home/NewArrivalProduct">
+                                                        <label class="custom-control-label" for="zara">New arrival</label>
+                                                    </a>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <a href="/Home/OrganicProduct">
+                                                        <label class="custom-control-label" for="vera-moda">Organic Product</label>
+                                                    </a>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <a href="/Home/Reccomendedproduct">
+                                                        <label class="custom-control-label" for="forever-21">Reccomended Product</label>
+                                                    </a>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <a href="/Home/HotDealProduct">
+                                                        <label class="custom-control-label" for="roadster">Hot Deal</label>
+                                                    </a>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <a href="/Home/SpecialProducts">
+                                                        <label class="custom-control-label" for="only">Special Product</label>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- color filter start here -->
+                                    <div class="collection-collapse-block open">
+                                        <h3 class="collapse-block-title">offers</h3>
+                                        <div class="collection-collapse-block-content">
+                                            <div class="color-selector">
+                                                <ul>
+                                                    @*<li class="color-1 active"></li>
+                                                    <li class="color-2"></li>
+                                                    <li class="color-3"></li>
+                                                    <li class="color-4"></li>
+                                                    <li class="color-5"></li>
+                                                    <li class="color-6"></li>
+                                                    <li class="color-7"></li>*@
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- price filter start here -->
+                                    <div class="collection-collapse-block border-0 open">
+                                        <h3 class="collapse-block-title">price</h3>
+                                        <div class="collection-collapse-block-content">
+                                            <div class="collection-brand-filter">
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="hundred">
+                                                    <label class="custom-control-label" for="hundred">Rs. 10 - Rs. 500</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="twohundred">
+                                                    <label class="custom-control-label" for="twohundred">Rs. 500 - Rs. 1000</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="threehundred">
+                                                    <label class="custom-control-label" for="threehundred">Rs. 1000 - Rs. 2000</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="fourhundred">
+                                                    <label class="custom-control-label" for="fourhundred">Rs. 2000 - Rs. 4000</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="fourhundredabove">
+                                                    <label class="custom-control-label" for="fourhundredabove">Rs. 4000 above</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- silde-bar colleps block end here -->
+                                <!-- side-bar single product slider start -->
+                                <div class="theme-card creative-card creative-inner">
+                                    <h5 class="title-border">new product</h5>
+                                    <div class="offer-slider slide-1">
+                                        @{ int flag = 0;}
+                                        @for (int i = 0; i < 3; i++)
+                                        {
+                                        <div>
+                                            @foreach (var item in Model.Products.Skip(flag).Take(3))
+                                            {
+                                            <div class="media">
+                                                <a href="/Home/ProductDetail?productId=@item.Id"><img class="img-fluid " src="~/Images/@item.ProductImage" alt="" style="width:140px;"></a>
+                                                <div class="media-body align-self-center">
+                                                    <div class="rating">
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                    </div>
+                                                    <a href="/Home/ProductDetail?productId=@item.Id"><h6>@item.ProductName</h6></a>
+                                                    <h4>Rs. @item.Price</h4>
+                                                </div>
+                                            </div>
+                                            }
+                                        </div>
+                                            flag = flag + 3;
+                                        }
+                                    </div>
+                                </div>
+                                <!-- side-bar single product slider end -->
+                                <!-- side-bar banner start here -->
+                                <div class="collection-sidebar-banner">
+                                    <a href=""><img src="~/Images/2021116155456756754567567567545675675675.jpg" class="img-fluid " alt=""></a>
+                                </div>
+                                <!-- side-bar banner end here -->
+                                <div class="theme-card creative-card creative-inner">
+                                    <h5 class="title-border">Top product</h5>
+                                    <div class="offer-slider slide-1">
+                                        flag=10;
+                                        @for (int i = 0; i < 2; i++)
+                                        {
+                                        <div>
+                                            @foreach (var item in Model.Products.Skip(flag).Take(2))
+                                            {
+                                            <div class="media">
+                                                <a href="/Home/ProductDetail?productId=@item.Id"><img class="img-fluid " src="~/Images/@item.ProductImage" alt="" style="width:140px;"></a>
+                                                <div class="media-body align-self-center">
+                                                    <div class="rating">
+                                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                    </div>
+                                                    <a href="/Home/ProductDetail?productId=@item.Id"><h6>@item.ProductName</h6></a>
+                                                    <h4>Rs. @item.Price</h4>
+                                                </div>
+                                            </div>
+                                            }
+                                        </div>
+                                            flag = flag + 2;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collection-content col">
+                                <div class="page-main-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="top-banner-wrapper">
+                                                <a href="#"><img src="~/Images/@Model.CategoryImage" class="img-fluid  w-100" alt="cat-banner"></a>
+                                                <div class="top-banner-content small-section">
+                                                    <h4>@Model.CategoryName</h4>
+                                                    <h5></h5>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="collection-product-wrapper">
+                                                <div class="product-top-filter"></div>
+                                                <div class="product-wrapper-grid category-6">
+                                                    <div class="row">
+                                                        @foreach (var item in Model.Products)
+                                                        {
+                                                            <div class="col-xl-2 col-lg-3 col-md-4 col-6 col-grid-box" style="max-width:217px;">
+                                                                <div class="product" id="productDiv">
+                                                                    <div class="product-box">
+                                                                        <div class="product-imgbox">
+                                                                            <div class="product-front">
+                                                                                <a href="/Home/ProductDetail?productId=@item.Id">
+                                                                                    <img src="~/Images/@item.ProductImage" class="img-fluid" alt="product" style="height:170px; width:auto; min-width:227px;">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="product-back">
+                                                                                <a href="/Home/ProductDetail?productId=@item.Id">
+                                                                                    <img src="~/Images/@item.ProductImage" class="img-fluid" alt="product" style="height:170px; width:auto; min-width:227px;">
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-detail detail-center ">
+                                                                            <div class="detail-title">
+                                                                                <div class="detail-left">
+                                                                                    <div class="rating-star">
+                                                                                        <i class="fa fa-star"></i>
+                                                                                        <i class="fa fa-star"></i>
+                                                                                        <i class="fa fa-star"></i>
+                                                                                        <i class="fa fa-star"></i>
+                                                                                        <i class="fa fa-star"></i>
+                                                                                    </div>
+                                                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                                                                                    <a href="">
+                                                                                        <h6 class="price-title">
+                                                                                            @item.ProductName
+                                                                                        </h6>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <!--=======Variant start=======-->
+                                                                                @if (item.IsVariant)
+                                                                                {
+
+                                                                                    <select hidden id="variants" onchange="prodAvailable(this)">
+                                                                                        @foreach (var v in item.Variants)
+                                                                                        {
+                                                                                            <option value="@v.Metric_Id" productId="@item.Id" weight="@v.Weight" isAvail="@if (v.IsStock) {<text>1</text> } else {<text>0</text> }">
+                                                                                                @v.Weight @v.Metric - Rs. @v.Price
+                                                                                            </option>
+                                                                                        }
+                                                                                    </select>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <select hidden id="variants" style="display:none;">
+                                                                                        <option value="@item.Metric_Id" productId="@item.Id" weight="@item.Quantity"></option>
+                                                                                    </select>
+                                                                                }
+                                                                                <!--========Variant end========-->
+                                                                                <div class="detail-right">
+                                                                                    @if (item.IsStock == true)
+                                                                                    {
+                                                                                        <div class="on-sale4" style="background-color:white; color:green;">In Stock</div>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <div class="on-sale4" style="background-color:white; color:red;">Out of Stock</div>
+                                                                                    }
+                                                                                    <div class="price">
+                                                                                        <div class="price">
+                                                                                            Rs. @item.Price
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="icon-detail">
+                                                                                <button>
+                                                                                    @if (item.IsStock == true)
+                                                                                    {
+                                                                                        <i class="ti-bag" title="Add to cart" prodId="@item.Id" id="btnCart" onclick="addToCart(this)"></i>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <i class="ti-bag" title="Add to cart" prodId="@item.Id" id="btnCart"></i>
+                                                                                    }
+                                                                                </button>
+                                                                                <a href="javascript:void(0)" title="Add to Wishlist">
+                                                                                    <i class="ti-heart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                                                    <i class="ti-search" aria-hidden="true"></i>
+                                                                                </a>
+                                                                                <a href="compare.html" title="Compare">
+                                                                                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="product-pagination">
+                                                    <div class="theme-paggination-block">
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                                                <nav aria-label="Page navigation">
+                                                                    <ul class="pagination">
+                                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span> <span class="sr-only">Previous</span></a></li>
+                                                                        @for (int i = 1; i <= Model.NumberOfPages; i++)
+                                                                        {
+                                                                            if (Model.Page == i)
+                                                                            {
+                                                                                <li class="page-item active"><a class="page-link" href="~/Home/AllProducts?categoryId=@Model.Category_Id&page=@i">@i</a></li>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <li class="page-item"><a class="page-link" href="~/Home/AllProducts?categoryId=@Model.Category_Id&page=@i">@i</a></li>
+                                                                            }
+                                                                        }
+                                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span> <span class="sr-only">Next</span></a></li>
+                                                                    </ul>
+                                                                </nav>
+                                                            </div>
+                                                            <div class="col-xl-6 col-md-6 col-sm-12">
+                                                                <div class="product-search-count-bottom">
+                                                                    <h5>Showing Products 1-24 of 10 Result</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section End -->

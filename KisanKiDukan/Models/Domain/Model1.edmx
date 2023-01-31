@@ -1,0 +1,2563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="admin_KisanKiDukanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bulkorder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="300" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="6" />
+          <Property Name="Message" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ADCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentCategory" Type="int" />
+          <Property Name="CategoryImage" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsFeature" Type="bit" Nullable="false" />
+          <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ADProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="float" />
+          <Property Name="ADImage" Type="nvarchar(max)" />
+          <Property Name="VendorId" Type="int" />
+        </EntityType>
+        <EntityType Name="ADProductDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADProductId" Type="int" />
+          <Property Name="ADImages" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ADSubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="CatImage" Type="nvarchar(max)" />
+          <Property Name="UpToText" Type="nvarchar" MaxLength="50" />
+          <Property Name="MainCat_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="BannerImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BannerPath" Type="nvarchar(max)" />
+          <Property Name="OfferValue" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SortOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="BlogCategory_Id" Type="int" />
+          <Property Name="Author" Type="nvarchar" MaxLength="200" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="Publish" Type="date" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blog_Id" Type="int" Nullable="false" />
+          <Property Name="CommentAuthor" Type="nvarchar" MaxLength="200" />
+          <Property Name="CommentDate" Type="datetime" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="AuthorEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="BlogImage" Type="nvarchar(max)" />
+          <Property Name="Heading" Type="nvarchar(max)" />
+          <Property Name="Short" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BusinessStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessFStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentCategory" Type="int" />
+          <Property Name="CategoryImage" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsFeature" Type="bit" Nullable="false" />
+          <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CentralStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="Store_Id" Type="int" />
+          <Property Name="Metric_Id" Type="int" />
+          <Property Name="wheight" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="100" />
+          <Property Name="State_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContentPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Menu_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="Email_Id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="300" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="6" />
+          <Property Name="Mebr_Amount" Type="float" />
+          <Property Name="IsPremiumMember" Type="bit" />
+          <Property Name="PremiumMemberOn" Type="datetime" />
+          <Property Name="otp" Type="int" />
+          <Property Name="Email_Otp" Type="int" />
+          <Property Name="Isverify" Type="bit" />
+        </EntityType>
+        <EntityType Name="DeliveryChargeMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryCharge" Type="float" Nullable="false" />
+          <Property Name="MinAmt" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="TimeDay" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="DeliveryOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="DeliveryPincode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DeliveryTimeSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="SlotCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiscountInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="DiscVal_Id" Type="int" />
+          <Property Name="Discount" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="DiscountType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiscountValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="DownPyment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="MeritalStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" />
+          <Property Name="PinCode" Type="int" />
+          <Property Name="PAN/Aadhar Number" Type="nvarchar" MaxLength="100" />
+          <Property Name="MonthlyIncome" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="product_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Sys_Ip" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KartDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kart_Id" Type="int" Nullable="false" />
+          <Property Name="Product_Id" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Metric_Id" Type="int" />
+          <Property Name="IsVariant" Type="bit" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="VendorId" Type="int" />
+          <Property Name="KartSysIp" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LoginMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Percentage" Type="float" Nullable="false" />
+          <Property Name="BenifitAmount" Type="float" Nullable="false" />
+          <Property Name="DistributionMonth" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="350" />
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Metric">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Metrics" Type="varchar" MaxLength="20" />
+          <Property Name="MetricCode" Type="int" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="OrderStatus_Id" Type="int" Nullable="false" />
+          <Property Name="PaymentType_Id" Type="int" Nullable="false" />
+          <Property Name="PaymentStatus" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="30" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="PaymentMode" Type="varchar" MaxLength="50" />
+          <Property Name="Transaction_No" Type="bigint" Nullable="false" />
+          <Property Name="IsCancel" Type="bit" Nullable="false" />
+          <Property Name="DeliveryDate" Type="date" />
+          <Property Name="IsDelivered" Type="bit" Nullable="false" />
+          <Property Name="IsReturned" Type="bit" Nullable="false" />
+          <Property Name="DeliveryOption_Id" Type="int" />
+          <Property Name="PrivateNote" Type="nvarchar(max)" />
+          <Property Name="DeliveryCharges" Type="float" Nullable="false" />
+          <Property Name="StatusUpdateDate" Type="datetime" />
+          <Property Name="ScheduleDate" Type="datetime" />
+          <Property Name="SlotCode" Type="int" />
+          <Property Name="TimeSlot" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsOffline" Type="bit" Nullable="false" />
+          <Property Name="Store_Id" Type="int" />
+          <Property Name="Invoice_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="350" />
+          <Property Name="VendorId" Type="int" />
+          <Property Name="IsOrdered" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="IsDelivered" Type="bit" Nullable="false" />
+          <Property Name="IfReturned" Type="bit" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Order_Id" Type="int" Nullable="false" />
+          <Property Name="FinalPrice" Type="float" Nullable="false" />
+          <Property Name="DiscountValue" Type="float" Nullable="false" />
+          <Property Name="ServiceTax" Type="float" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Metrics" Type="varchar" MaxLength="20" />
+          <Property Name="Category_Id" Type="int" Nullable="false" />
+          <Property Name="IsCancel" Type="bit" Nullable="false" />
+          <Property Name="OrderStatus_Id" Type="int" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="CancellationDate" Type="datetime" />
+          <Property Name="StatusUpdateDate" Type="datetime" />
+          <Property Name="VendorId" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="150" />
+          <Property Name="StatusCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OtherMultipaleImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="OtheVenderId" Type="int" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentMode" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="premiumMembershipAmount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ValidTill" Type="int" />
+          <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category_Id" Type="int" />
+          <Property Name="ProductImage" Type="nvarchar" MaxLength="200" />
+          <Property Name="Price" Type="float" />
+          <Property Name="ProductDescription" Type="nvarchar(max)" />
+          <Property Name="Metric_Id" Type="int" />
+          <Property Name="IsStock" Type="bit" Nullable="false" />
+          <Property Name="OfferValue" Type="int" />
+          <Property Name="OfferType" Type="int" />
+          <Property Name="Page_Url" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsReplacement" Type="bit" Nullable="false" />
+          <Property Name="ReplacementTC" Type="nvarchar(max)" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="IsFeatured" Type="bit" Nullable="false" />
+          <Property Name="IsFreeShipping" Type="bit" Nullable="false" />
+          <Property Name="ShippingCharge" Type="float" Nullable="false" />
+          <Property Name="IsReviewsAllow" Type="bit" Nullable="false" />
+          <Property Name="SKU" Type="nvarchar" MaxLength="200" />
+          <Property Name="Brand_Id" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DiscountCode_Id" Type="int" />
+          <Property Name="OurPrice" Type="float" />
+          <Property Name="IsVariant" Type="bit" Nullable="false" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="100" />
+          <Property Name="HsnCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsRecomend" Type="bit" Nullable="false" />
+          <Property Name="PremiumAmount" Type="float" />
+          <Property Name="SubId" Type="int" />
+          <Property Name="IsHotdeals" Type="bit" />
+          <Property Name="IsFeatureProduct" Type="bit" />
+          <Property Name="IsSpecial" Type="bit" />
+          <Property Name="VendorId" Type="int" />
+          <Property Name="CGST" Type="float" />
+          <Property Name="SGST" Type="float" />
+          <Property Name="IGST" Type="float" />
+          <Property Name="DiscountPrice" Type="float" />
+          <Property Name="AvailPincode" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_Availability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="Metrics_Id" Type="int" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="IsAvailable" Type="bit" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="OurPrice" Type="float" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Product_Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsLead" Type="bit" />
+          <Property Name="AttrValue_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="150" />
+          <Property Name="BrandLogo" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsFeature" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" Nullable="false" />
+          <Property Name="Tittle" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReviewDate" Type="datetime" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AdminComment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="promotionalbanner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="promotionalbannerpath" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="RefferalMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Refer_Id" Type="int" Nullable="false" />
+          <Property Name="User_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Login_Id" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="ReviewTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ReviewDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubmitDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ShippingAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="BlockNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="LoginMaster_Id" Type="int" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="CatImage" Type="nvarchar(max)" />
+          <Property Name="UpToText" Type="nvarchar" MaxLength="50" />
+          <Property Name="MainCat_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="VenderCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityList" Type="nvarchar(max)" />
+          <Property Name="State_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="VenderLocality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalityList" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VenderState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateList" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginMaster_Id" Type="int" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="city" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalCompanyName" Type="nvarchar(max)" />
+          <Property Name="BusinessFilingStatus" Type="nvarchar(max)" />
+          <Property Name="PAN_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="RegisteredAddress" Type="nvarchar(max)" />
+          <Property Name="OperatingAddress" Type="nvarchar(max)" />
+          <Property Name="PayToName" Type="nvarchar" MaxLength="200" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IFSC_Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="BranchAddress" Type="nvarchar(max)" />
+          <Property Name="PanCard" Type="nvarchar(max)" />
+          <Property Name="AddressProof" Type="nvarchar(max)" />
+          <Property Name="CancelCheque" Type="nvarchar(max)" />
+          <Property Name="SignedDocument" Type="nvarchar(max)" />
+          <Property Name="GovtCertificate" Type="nvarchar(max)" />
+          <Property Name="FoodLicence" Type="nvarchar(max)" />
+          <Property Name="BusinessDocumnet" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="VendorPincode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="pincode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wallet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Mebr_Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ADProduct__ADPro__5669C4BE">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADProduct__ADPro__575DE8F7">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADProduct__ADPro__58520D30">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADProduct__ADPro__679450C0">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADProduct__ADPro__6E414E4F">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__59463169">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5A3A55A2">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5B2E79DB">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5C229E14">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5D16C24D">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5E0AE686">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5EFF0ABF">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__5FF32EF8">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__60E75331">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__61DB776A">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__688874F9">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__697C9932">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__6F357288">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__702996C1">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getCSExistProductBy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="int" Mode="In" />
+          <Parameter Name="storeId" Type="int" Mode="In" />
+          <Parameter Name="wheight" Type="int" Mode="In" />
+          <Parameter Name="metricCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetQtyInKart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="client_id" Type="int" Mode="In" />
+          <Parameter Name="product_id" Type="int" Mode="In" />
+          <Parameter Name="metric_id" Type="int" Mode="In" />
+          <Parameter Name="volume" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetQtyInKartDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="client_id" Type="int" Mode="In" />
+          <Parameter Name="product_id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="admin_KisanKiDukanModelStoreContainer">
+          <EntitySet Name="Bulkorder" EntityType="Self.Bulkorder" Schema="admin_KisaanKiDukaan" store:Type="Tables" />
+          <EntitySet Name="ADCategory" EntityType="Self.ADCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADProduct" EntityType="Self.ADProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADProductDetail" EntityType="Self.ADProductDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADSubCategory" EntityType="Self.ADSubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BannerImage" EntityType="Self.BannerImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogMaster" EntityType="Self.BlogMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessStatus" EntityType="Self.BusinessStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CentralStore" EntityType="Self.CentralStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContentPage" EntityType="Self.ContentPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryChargeMaster" EntityType="Self.DeliveryChargeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryLocation" EntityType="Self.DeliveryLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryOption" EntityType="Self.DeliveryOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryPincode" EntityType="Self.DeliveryPincode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryTimeSlot" EntityType="Self.DeliveryTimeSlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscountInfo" EntityType="Self.DiscountInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscountType" EntityType="Self.DiscountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DownPyment" EntityType="Self.DownPyment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enquiry" EntityType="Self.Enquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kart" EntityType="Self.Kart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KartDetail" EntityType="Self.KartDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginMaster" EntityType="Self.LoginMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Membership" EntityType="Self.Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Metric" EntityType="Self.Metric" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtherMultipaleImage" EntityType="Self.OtherMultipaleImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="premiumMembershipAmount" EntityType="Self.premiumMembershipAmount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Availability" EntityType="Self.Product_Availability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductBrand" EntityType="Self.ProductBrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductReview" EntityType="Self.ProductReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="promotionalbanner" EntityType="Self.promotionalbanner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefferalMember" EntityType="Self.RefferalMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShippingAddress" EntityType="Self.ShippingAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VenderCity" EntityType="Self.VenderCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VenderLocality" EntityType="Self.VenderLocality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VenderState" EntityType="Self.VenderState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorPincode" EntityType="Self.VendorPincode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wallet" EntityType="Self.Wallet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADProduct__ADPro__5669C4BE" Association="Self.FK__ADProduct__ADPro__5669C4BE">
+            <End Role="ADProduct" EntitySet="ADProduct" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADProduct__ADPro__575DE8F7" Association="Self.FK__ADProduct__ADPro__575DE8F7">
+            <End Role="ADProduct" EntitySet="ADProduct" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADProduct__ADPro__58520D30" Association="Self.FK__ADProduct__ADPro__58520D30">
+            <End Role="ADProduct" EntitySet="ADProduct" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADProduct__ADPro__679450C0" Association="Self.FK__ADProduct__ADPro__679450C0">
+            <End Role="ADProduct" EntitySet="ADProduct" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADProduct__ADPro__6E414E4F" Association="Self.FK__ADProduct__ADPro__6E414E4F">
+            <End Role="ADProduct" EntitySet="ADProduct" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__59463169" Association="Self.FK__City__State_Id__59463169">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5A3A55A2" Association="Self.FK__City__State_Id__5A3A55A2">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5B2E79DB" Association="Self.FK__City__State_Id__5B2E79DB">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5C229E14" Association="Self.FK__City__State_Id__5C229E14">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5D16C24D" Association="Self.FK__City__State_Id__5D16C24D">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5E0AE686" Association="Self.FK__City__State_Id__5E0AE686">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5EFF0ABF" Association="Self.FK__City__State_Id__5EFF0ABF">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__5FF32EF8" Association="Self.FK__City__State_Id__5FF32EF8">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__60E75331" Association="Self.FK__City__State_Id__60E75331">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__61DB776A" Association="Self.FK__City__State_Id__61DB776A">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__688874F9" Association="Self.FK__City__State_Id__688874F9">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__697C9932" Association="Self.FK__City__State_Id__697C9932">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__6F357288" Association="Self.FK__City__State_Id__6F357288">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__702996C1" Association="Self.FK__City__State_Id__702996C1">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="admin_KisanKiDukanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCategory" Type="Int32" />
+          <Property Name="CategoryImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Page_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsFeature" Type="Boolean" Nullable="false" />
+          <Property Name="UpToText" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ADProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="ADImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VendorId" Type="Int32" />
+          <NavigationProperty Name="ADProductDetails" Relationship="Self.FK__ADProduct__ADPro__4C6B5938" FromRole="ADProduct" ToRole="ADProductDetail" />
+        </EntityType>
+        <EntityType Name="ADProductDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADProductId" Type="Int32" />
+          <Property Name="ADImages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ADProduct" Relationship="Self.FK__ADProduct__ADPro__4C6B5938" FromRole="ADProductDetail" ToRole="ADProduct" />
+        </EntityType>
+        <EntityType Name="ADSubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CatImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpToText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MainCat_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BannerImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BannerPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfferValue" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogCategory_Id" Type="Int32" />
+          <Property Name="Author" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Publish" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blog_Id" Type="Int32" Nullable="false" />
+          <Property Name="CommentAuthor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="AuthorEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BlogMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Short" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BusinessStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessFStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCategory" Type="Int32" />
+          <Property Name="CategoryImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Page_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsFeature" Type="Boolean" Nullable="false" />
+          <Property Name="UpToText" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CentralStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Store_Id" Type="Int32" />
+          <Property Name="Metric_Id" Type="Int32" />
+          <Property Name="wheight" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="Self.FK__City__State_Id__4D5F7D71" FromRole="City" ToRole="State" />
+          <NavigationProperty Name="State1" Relationship="Self.FK__City__State_Id__4E53A1AA" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="ContentPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Menu_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pincode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Mebr_Amount" Type="Double" />
+          <Property Name="IsPremiumMember" Type="Boolean" />
+          <Property Name="PremiumMemberOn" Type="DateTime" Precision="3" />
+          <Property Name="otp" Type="Int32" />
+          <Property Name="Email_Otp" Type="Int32" />
+          <Property Name="Isverify" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DeliveryChargeMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryCharge" Type="Double" Nullable="false" />
+          <Property Name="MinAmt" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeDay" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DeliveryOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DeliveryPincode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pincode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DeliveryTimeSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="SlotCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DownPyment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MeritalStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="Int32" />
+          <Property Name="PAN_Aadhar_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MonthlyIncome" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="product_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Sys_Ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KartDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kart_Id" Type="Int32" Nullable="false" />
+          <Property Name="Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Metric_Id" Type="Int32" />
+          <Property Name="IsVariant" Type="Boolean" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
+          <Property Name="VendorId" Type="Int32" />
+          <Property Name="KartSysIp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Percentage" Type="Double" Nullable="false" />
+          <Property Name="BenifitAmount" Type="Double" Nullable="false" />
+          <Property Name="DistributionMonth" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Metric">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metrics" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetricCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="OrderStatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="PaymentType_Id" Type="Int32" Nullable="false" />
+          <Property Name="PaymentStatus" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="PinCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transaction_No" Type="Int64" Nullable="false" />
+          <Property Name="IsCancel" Type="Boolean" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+          <Property Name="IsReturned" Type="Boolean" Nullable="false" />
+          <Property Name="DeliveryOption_Id" Type="Int32" />
+          <Property Name="PrivateNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryCharges" Type="Double" Nullable="false" />
+          <Property Name="StatusUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleDate" Type="DateTime" Precision="3" />
+          <Property Name="SlotCode" Type="Int32" />
+          <Property Name="TimeSlot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsOffline" Type="Boolean" Nullable="false" />
+          <Property Name="Store_Id" Type="Int32" />
+          <Property Name="Invoice_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="VendorId" Type="Int32" />
+          <Property Name="IsOrdered" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+          <Property Name="IfReturned" Type="Boolean" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Order_Id" Type="Int32" Nullable="false" />
+          <Property Name="FinalPrice" Type="Double" Nullable="false" />
+          <Property Name="DiscountValue" Type="Double" Nullable="false" />
+          <Property Name="ServiceTax" Type="Double" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Metrics" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Category_Id" Type="Int32" Nullable="false" />
+          <Property Name="IsCancel" Type="Boolean" Nullable="false" />
+          <Property Name="OrderStatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="CancellationDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="VendorId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OtherMultipaleImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtheVenderId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentMode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="premiumMembershipAmount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ValidTill" Type="Int32" />
+          <Property Name="UpToText" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category_Id" Type="Int32" />
+          <Property Name="ProductImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Metric_Id" Type="Int32" />
+          <Property Name="IsStock" Type="Boolean" Nullable="false" />
+          <Property Name="OfferValue" Type="Int32" />
+          <Property Name="OfferType" Type="Int32" />
+          <Property Name="Page_Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsReplacement" Type="Boolean" Nullable="false" />
+          <Property Name="ReplacementTC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+          <Property Name="IsFreeShipping" Type="Boolean" Nullable="false" />
+          <Property Name="ShippingCharge" Type="Double" Nullable="false" />
+          <Property Name="IsReviewsAllow" Type="Boolean" Nullable="false" />
+          <Property Name="SKU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Brand_Id" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DiscountCode_Id" Type="Int32" />
+          <Property Name="OurPrice" Type="Double" />
+          <Property Name="IsVariant" Type="Boolean" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HsnCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsRecomend" Type="Boolean" Nullable="false" />
+          <Property Name="PremiumAmount" Type="Double" />
+          <Property Name="SubId" Type="Int32" />
+          <Property Name="IsHotdeals" Type="Boolean" />
+          <Property Name="IsFeatureProduct" Type="Boolean" />
+          <Property Name="IsSpecial" Type="Boolean" />
+          <Property Name="VendorId" Type="Int32" />
+          <Property Name="CGST" Type="Double" />
+          <Property Name="SGST" Type="Double" />
+          <Property Name="IGST" Type="Double" />
+          <Property Name="DiscountPrice" Type="Double" />
+          <Property Name="AvailPincode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Product_Availability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="Metrics_Id" Type="Int32" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="OurPrice" Type="Double" />
+          <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product_Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsLead" Type="Boolean" />
+          <Property Name="AttrValue_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BrandLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Page_Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsFeature" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="Tittle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AdminComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="promotionalbanner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="promotionalbannerpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RefferalMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Refer_Id" Type="Int32" Nullable="false" />
+          <Property Name="User_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Id" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__City__State_Id__4D5F7D71" FromRole="State" ToRole="City" />
+          <NavigationProperty Name="Cities1" Relationship="Self.FK__City__State_Id__4E53A1AA" FromRole="State" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginMaster_Id" Type="Int32" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CatImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpToText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MainCat_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VenderCity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VenderLocality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalityList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VenderState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateList" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginMaster_Id" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LegalCompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessFilingStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PAN_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RegisteredAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperatingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PayToName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IFSC_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BranchAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PanCard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressProof" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancelCheque" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SignedDocument" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GovtCertificate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FoodLicence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessDocumnet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wallet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Mebr_Amount" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ADProduct__ADPro__4C6B5938">
+          <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+          <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ADProductDetail">
+              <PropertyRef Name="ADProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__4D5F7D71">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__State_Id__4E53A1AA">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="State_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADCategories" EntityType="Self.ADCategory" />
+          <EntitySet Name="ADProducts" EntityType="Self.ADProduct" />
+          <EntitySet Name="ADProductDetails" EntityType="Self.ADProductDetail" />
+          <EntitySet Name="ADSubCategories" EntityType="Self.ADSubCategory" />
+          <EntitySet Name="BannerImages" EntityType="Self.BannerImage" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
+          <EntitySet Name="BlogMasters" EntityType="Self.BlogMaster" />
+          <EntitySet Name="BusinessStatus" EntityType="Self.BusinessStatu" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CentralStores" EntityType="Self.CentralStore" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="ContentPages" EntityType="Self.ContentPage" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="DeliveryChargeMasters" EntityType="Self.DeliveryChargeMaster" />
+          <EntitySet Name="DeliveryLocations" EntityType="Self.DeliveryLocation" />
+          <EntitySet Name="DeliveryOptions" EntityType="Self.DeliveryOption" />
+          <EntitySet Name="DeliveryPincodes" EntityType="Self.DeliveryPincode" />
+          <EntitySet Name="DeliveryTimeSlots" EntityType="Self.DeliveryTimeSlot" />
+          <EntitySet Name="DownPyments" EntityType="Self.DownPyment" />
+          <EntitySet Name="Enquiries" EntityType="Self.Enquiry" />
+          <EntitySet Name="Karts" EntityType="Self.Kart" />
+          <EntitySet Name="KartDetails" EntityType="Self.KartDetail" />
+          <EntitySet Name="LoginMasters" EntityType="Self.LoginMaster" />
+          <EntitySet Name="Memberships" EntityType="Self.Membership" />
+          <EntitySet Name="Metrics" EntityType="Self.Metric" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="OtherMultipaleImages" EntityType="Self.OtherMultipaleImage" />
+          <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+          <EntitySet Name="premiumMembershipAmounts" EntityType="Self.premiumMembershipAmount" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Product_Availability" EntityType="Self.Product_Availability" />
+          <EntitySet Name="Product_Image" EntityType="Self.Product_Image" />
+          <EntitySet Name="ProductBrands" EntityType="Self.ProductBrand" />
+          <EntitySet Name="ProductReviews" EntityType="Self.ProductReview" />
+          <EntitySet Name="promotionalbanners" EntityType="Self.promotionalbanner" />
+          <EntitySet Name="RefferalMembers" EntityType="Self.RefferalMember" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="Stores" EntityType="Self.Store" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="VenderCities" EntityType="Self.VenderCity" />
+          <EntitySet Name="VenderLocalities" EntityType="Self.VenderLocality" />
+          <EntitySet Name="VenderStates" EntityType="Self.VenderState" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <EntitySet Name="Wallets" EntityType="Self.Wallet" />
+          <AssociationSet Name="FK__ADProduct__ADPro__4C6B5938" Association="Self.FK__ADProduct__ADPro__4C6B5938">
+            <End Role="ADProduct" EntitySet="ADProducts" />
+            <End Role="ADProductDetail" EntitySet="ADProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__4D5F7D71" Association="Self.FK__City__State_Id__4D5F7D71">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__State_Id__4E53A1AA" Association="Self.FK__City__State_Id__4E53A1AA">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <FunctionImport Name="getCSExistProductBy" ReturnType="Collection(admin_KisanKiDukanModel.getCSExistProductBy_Result)">
+            <Parameter Name="productId" Mode="In" Type="Int32" />
+            <Parameter Name="storeId" Mode="In" Type="Int32" />
+            <Parameter Name="wheight" Mode="In" Type="Int32" />
+            <Parameter Name="metricCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="DiscountInfoes" EntityType="admin_KisanKiDukanModel.DiscountInfo" />
+          <EntitySet Name="DiscountTypes" EntityType="admin_KisanKiDukanModel.DiscountType" />
+          <EntitySet Name="Reviews" EntityType="admin_KisanKiDukanModel.Review" />
+          <EntitySet Name="ShippingAddresses" EntityType="admin_KisanKiDukanModel.ShippingAddress" />
+          <EntitySet Name="VendorPincodes" EntityType="admin_KisanKiDukanModel.VendorPincode" />
+          <EntitySet Name="Bulkorders" EntityType="admin_KisanKiDukanModel.Bulkorder" />
+        </EntityContainer>
+        <ComplexType Name="getCSExistProductBy_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Product_Id" Nullable="false" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+          <Property Type="Int32" Name="Store_Id" Nullable="true" />
+          <Property Type="Int32" Name="Metric_Id" Nullable="true" />
+          <Property Type="Int32" Name="wheight" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="DiscountInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="DiscVal_Id" Type="Int32" />
+          <Property Name="Discount" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DiscountType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiscountValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewTitle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ShippingAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BlockNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VendorPincode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pincode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="vendorId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bulkorder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pincode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="admin_KisanKiDukanModelStoreContainer" CdmEntityContainer="DbEntities">
+          <EntitySetMapping Name="ADCategories">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ADCategory">
+              <MappingFragment StoreEntitySet="ADCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="ParentCategory" ColumnName="ParentCategory" />
+                <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Page_Url" ColumnName="Page_Url" />
+                <ScalarProperty Name="IsFeature" ColumnName="IsFeature" />
+                <ScalarProperty Name="UpToText" ColumnName="UpToText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADProducts">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ADProduct">
+              <MappingFragment StoreEntitySet="ADProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ADTitle" ColumnName="ADTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ADImage" ColumnName="ADImage" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADProductDetails">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ADProductDetail">
+              <MappingFragment StoreEntitySet="ADProductDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ADProductId" ColumnName="ADProductId" />
+                <ScalarProperty Name="ADImages" ColumnName="ADImages" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADSubCategories">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ADSubCategory">
+              <MappingFragment StoreEntitySet="ADSubCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CatImage" ColumnName="CatImage" />
+                <ScalarProperty Name="UpToText" ColumnName="UpToText" />
+                <ScalarProperty Name="MainCat_Id" ColumnName="MainCat_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BannerImages">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.BannerImage">
+              <MappingFragment StoreEntitySet="BannerImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BannerPath" ColumnName="BannerPath" />
+                <ScalarProperty Name="OfferValue" ColumnName="OfferValue" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="BlogCategory_Id" ColumnName="BlogCategory_Id" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Publish" ColumnName="Publish" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="CommentAuthor" ColumnName="CommentAuthor" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="AuthorEmail" ColumnName="AuthorEmail" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogMasters">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.BlogMaster">
+              <MappingFragment StoreEntitySet="BlogMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+                <ScalarProperty Name="Heading" ColumnName="Heading" />
+                <ScalarProperty Name="Short" ColumnName="Short" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessStatus">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.BusinessStatu">
+              <MappingFragment StoreEntitySet="BusinessStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BusinessFStatus" ColumnName="BusinessFStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="ParentCategory" ColumnName="ParentCategory" />
+                <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Page_Url" ColumnName="Page_Url" />
+                <ScalarProperty Name="IsFeature" ColumnName="IsFeature" />
+                <ScalarProperty Name="UpToText" ColumnName="UpToText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CentralStores">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.CentralStore">
+              <MappingFragment StoreEntitySet="CentralStore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Store_Id" ColumnName="Store_Id" />
+                <ScalarProperty Name="Metric_Id" ColumnName="Metric_Id" />
+                <ScalarProperty Name="wheight" ColumnName="wheight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentPages">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ContentPage">
+              <MappingFragment StoreEntitySet="ContentPage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Isverify" ColumnName="Isverify" />
+                <ScalarProperty Name="Email_Otp" ColumnName="Email_Otp" />
+                <ScalarProperty Name="otp" ColumnName="otp" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="Mebr_Amount" ColumnName="Mebr_Amount" />
+                <ScalarProperty Name="IsPremiumMember" ColumnName="IsPremiumMember" />
+                <ScalarProperty Name="PremiumMemberOn" ColumnName="PremiumMemberOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryChargeMasters">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DeliveryChargeMaster">
+              <MappingFragment StoreEntitySet="DeliveryChargeMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DeliveryCharge" ColumnName="DeliveryCharge" />
+                <ScalarProperty Name="MinAmt" ColumnName="MinAmt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryLocations">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DeliveryLocation">
+              <MappingFragment StoreEntitySet="DeliveryLocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="TimeDay" ColumnName="TimeDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryOptions">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DeliveryOption">
+              <MappingFragment StoreEntitySet="DeliveryOption">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryPincodes">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DeliveryPincode">
+              <MappingFragment StoreEntitySet="DeliveryPincode">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryTimeSlots">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DeliveryTimeSlot">
+              <MappingFragment StoreEntitySet="DeliveryTimeSlot">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="SlotCode" ColumnName="SlotCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DownPyments">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DownPyment">
+              <MappingFragment StoreEntitySet="DownPyment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MeritalStatus" ColumnName="MeritalStatus" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="PAN_Aadhar_Number" ColumnName="PAN/Aadhar Number" />
+                <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+                <ScalarProperty Name="product_Id" ColumnName="product_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enquiries">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Enquiry">
+              <MappingFragment StoreEntitySet="Enquiry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Karts">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Kart">
+              <MappingFragment StoreEntitySet="Kart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Sys_Ip" ColumnName="Sys_Ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KartDetails">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.KartDetail">
+              <MappingFragment StoreEntitySet="KartDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kart_Id" ColumnName="Kart_Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Metric_Id" ColumnName="Metric_Id" />
+                <ScalarProperty Name="IsVariant" ColumnName="IsVariant" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="KartSysIp" ColumnName="KartSysIp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginMasters">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.LoginMaster">
+              <MappingFragment StoreEntitySet="LoginMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memberships">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Membership">
+              <MappingFragment StoreEntitySet="Membership">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="BenifitAmount" ColumnName="BenifitAmount" />
+                <ScalarProperty Name="DistributionMonth" ColumnName="DistributionMonth" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metrics">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Metric">
+              <MappingFragment StoreEntitySet="Metric">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Metrics" ColumnName="Metrics" />
+                <ScalarProperty Name="MetricCode" ColumnName="MetricCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="IsOrdered" ColumnName="IsOrdered" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="OrderStatus_Id" ColumnName="OrderStatus_Id" />
+                <ScalarProperty Name="PaymentType_Id" ColumnName="PaymentType_Id" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+                <ScalarProperty Name="Transaction_No" ColumnName="Transaction_No" />
+                <ScalarProperty Name="IsCancel" ColumnName="IsCancel" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="DeliveryOption_Id" ColumnName="DeliveryOption_Id" />
+                <ScalarProperty Name="PrivateNote" ColumnName="PrivateNote" />
+                <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+                <ScalarProperty Name="StatusUpdateDate" ColumnName="StatusUpdateDate" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="SlotCode" ColumnName="SlotCode" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="IsOffline" ColumnName="IsOffline" />
+                <ScalarProperty Name="Store_Id" ColumnName="Store_Id" />
+                <ScalarProperty Name="Invoice_No" ColumnName="Invoice_No" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+                <ScalarProperty Name="IfReturned" ColumnName="IfReturned" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+                <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+                <ScalarProperty Name="DiscountValue" ColumnName="DiscountValue" />
+                <ScalarProperty Name="ServiceTax" ColumnName="ServiceTax" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Metrics" ColumnName="Metrics" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="IsCancel" ColumnName="IsCancel" />
+                <ScalarProperty Name="OrderStatus_Id" ColumnName="OrderStatus_Id" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+                <ScalarProperty Name="StatusUpdateDate" ColumnName="StatusUpdateDate" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtherMultipaleImages">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.OtherMultipaleImage">
+              <MappingFragment StoreEntitySet="OtherMultipaleImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="OtheVenderId" ColumnName="OtheVenderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTypes">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="premiumMembershipAmounts">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.premiumMembershipAmount">
+              <MappingFragment StoreEntitySet="premiumMembershipAmount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ValidTill" ColumnName="ValidTill" />
+                <ScalarProperty Name="UpToText" ColumnName="UpToText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="AvailPincode" ColumnName="AvailPincode" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="Metric_Id" ColumnName="Metric_Id" />
+                <ScalarProperty Name="IsStock" ColumnName="IsStock" />
+                <ScalarProperty Name="OfferValue" ColumnName="OfferValue" />
+                <ScalarProperty Name="OfferType" ColumnName="OfferType" />
+                <ScalarProperty Name="Page_Url" ColumnName="Page_Url" />
+                <ScalarProperty Name="IsReplacement" ColumnName="IsReplacement" />
+                <ScalarProperty Name="ReplacementTC" ColumnName="ReplacementTC" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+                <ScalarProperty Name="IsFreeShipping" ColumnName="IsFreeShipping" />
+                <ScalarProperty Name="ShippingCharge" ColumnName="ShippingCharge" />
+                <ScalarProperty Name="IsReviewsAllow" ColumnName="IsReviewsAllow" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Brand_Id" ColumnName="Brand_Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DiscountCode_Id" ColumnName="DiscountCode_Id" />
+                <ScalarProperty Name="OurPrice" ColumnName="OurPrice" />
+                <ScalarProperty Name="IsVariant" ColumnName="IsVariant" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="HsnCode" ColumnName="HsnCode" />
+                <ScalarProperty Name="IsRecomend" ColumnName="IsRecomend" />
+                <ScalarProperty Name="PremiumAmount" ColumnName="PremiumAmount" />
+                <ScalarProperty Name="SubId" ColumnName="SubId" />
+                <ScalarProperty Name="IsHotdeals" ColumnName="IsHotdeals" />
+                <ScalarProperty Name="IsFeatureProduct" ColumnName="IsFeatureProduct" />
+                <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Availability">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product_Availability">
+              <MappingFragment StoreEntitySet="Product_Availability">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Metrics_Id" ColumnName="Metrics_Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="OurPrice" ColumnName="OurPrice" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Image">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product_Image">
+              <MappingFragment StoreEntitySet="Product_Image">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="IsLead" ColumnName="IsLead" />
+                <ScalarProperty Name="AttrValue_Id" ColumnName="AttrValue_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductBrands">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ProductBrand">
+              <MappingFragment StoreEntitySet="ProductBrand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Page_Url" ColumnName="Page_Url" />
+                <ScalarProperty Name="IsFeature" ColumnName="IsFeature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductReviews">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ProductReview">
+              <MappingFragment StoreEntitySet="ProductReview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Tittle" ColumnName="Tittle" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="promotionalbanners">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.promotionalbanner">
+              <MappingFragment StoreEntitySet="promotionalbanner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="promotionalbannerpath" ColumnName="promotionalbannerpath" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefferalMembers">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.RefferalMember">
+              <MappingFragment StoreEntitySet="RefferalMember">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Refer_Id" ColumnName="Refer_Id" />
+                <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="LoginMaster_Id" ColumnName="LoginMaster_Id" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CatImage" ColumnName="CatImage" />
+                <ScalarProperty Name="UpToText" ColumnName="UpToText" />
+                <ScalarProperty Name="MainCat_Id" ColumnName="MainCat_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenderCities">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.VenderCity">
+              <MappingFragment StoreEntitySet="VenderCity">
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CityList" ColumnName="CityList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenderLocalities">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.VenderLocality">
+              <MappingFragment StoreEntitySet="VenderLocality">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocalityList" ColumnName="LocalityList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenderStates">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.VenderState">
+              <MappingFragment StoreEntitySet="VenderState">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StateList" ColumnName="StateList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="LoginMaster_Id" ColumnName="LoginMaster_Id" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LegalCompanyName" ColumnName="LegalCompanyName" />
+                <ScalarProperty Name="BusinessFilingStatus" ColumnName="BusinessFilingStatus" />
+                <ScalarProperty Name="PAN_No" ColumnName="PAN_No" />
+                <ScalarProperty Name="RegisteredAddress" ColumnName="RegisteredAddress" />
+                <ScalarProperty Name="OperatingAddress" ColumnName="OperatingAddress" />
+                <ScalarProperty Name="PayToName" ColumnName="PayToName" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="IFSC_Code" ColumnName="IFSC_Code" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+                <ScalarProperty Name="PanCard" ColumnName="PanCard" />
+                <ScalarProperty Name="AddressProof" ColumnName="AddressProof" />
+                <ScalarProperty Name="CancelCheque" ColumnName="CancelCheque" />
+                <ScalarProperty Name="SignedDocument" ColumnName="SignedDocument" />
+                <ScalarProperty Name="GovtCertificate" ColumnName="GovtCertificate" />
+                <ScalarProperty Name="FoodLicence" ColumnName="FoodLicence" />
+                <ScalarProperty Name="BusinessDocumnet" ColumnName="BusinessDocumnet" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wallets">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Wallet">
+              <MappingFragment StoreEntitySet="Wallet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Mebr_Amount" ColumnName="Mebr_Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getCSExistProductBy" FunctionName="admin_KisanKiDukanModel.Store.getCSExistProductBy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="admin_KisanKiDukanModel.getCSExistProductBy_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Store_Id" ColumnName="Store_Id" />
+                <ScalarProperty Name="Metric_Id" ColumnName="Metric_Id" />
+                <ScalarProperty Name="wheight" ColumnName="wheight" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DiscountInfoes">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DiscountInfo">
+              <MappingFragment StoreEntitySet="DiscountInfo">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="DiscVal_Id" ColumnName="DiscVal_Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscountTypes">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.DiscountType">
+              <MappingFragment StoreEntitySet="DiscountType">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DiscountValue" ColumnName="DiscountValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="ReviewDesc" ColumnName="ReviewDesc" />
+                <ScalarProperty Name="ReviewTitle" ColumnName="ReviewTitle" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShippingAddresses">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ShippingAddress">
+              <MappingFragment StoreEntitySet="ShippingAddress">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="BlockNo" ColumnName="BlockNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorPincodes">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.VendorPincode">
+              <MappingFragment StoreEntitySet="VendorPincode">
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bulkorders">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Bulkorder">
+              <MappingFragment StoreEntitySet="Bulkorder">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,96 @@
+﻿@model KisanKiDukan.Models.ViewModels.VendorListVm
+@{
+    ViewBag.Title = "Vendor List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    #main {
+        margin: auto;
+        width: 100%;
+    }
+</style>
+
+<div id="main">
+    <h2>Vendors</h2>
+  
+    @using (Html.BeginForm())
+    {
+        <div class="row r">
+            <div class="col-md-6">
+                <input type="text" placeholder="Search by Name/Mobile/Company" class="form-control" name="term" />
+            </div>
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-info" value="Find" />
+                <a class="btn btn-info" href="/Vendor/All">Show all</a>
+                <a class="btn btn-info" href="/Vendor/Add">+ Add More</a>
+            </div>
+        </div>
+    }
+
+    <div class="row r r">
+        <div class="col-md-12" style="overflow:scroll;height:350px">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Contact Person</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Registration Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Vendors)
+                    {
+                        <tr>
+                            <td>@item.VendorName</td>
+                            <td>@item.ContactPerson</td>
+                            <td>@item.EmailId</td>
+                            <td>@item.ContactNumber</td>
+                            <td>@item.RegistrationDate.ToString("dd-MMM-yyyy")</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+                            <span class="btn btn-danger" onclick="deleteRecord('/Vendor/Delete?id=@item.Id')">Delete</span>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row r r">
+        <div class="col-md-12">
+            <ul class="pagination">
+                @for (int i = 1; i <= Model.NumberOfPages; i++)
+                {
+                    <li class="@if (i == Model.Page) {<text>active</text> }">
+                        <a href="/Vendor/All?term=@Model.Term&page=@i">@i</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/jquery-2.1.4.min.js"></script>
+<script>
+    function deleteRecord(url)
+    {
+        if(window.confirm('do you want to delete?'))
+        {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+</script>
+

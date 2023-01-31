@@ -1,0 +1,70 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.DeliveryOption>
+@{
+    ViewBag.Title = "Delivery Option";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    #main {
+        margin: auto;
+        width: 70%;
+    }
+</style>
+<div id="main">
+    <h2>Delivery Option</h2>
+   <div class="form-group">
+       <a class="btn btn-info" href="/DeliveryOption/Add">+ Add More</a>
+   </div>
+    <div class="row r r">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.OptionName</td>
+
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+                                    <span class="btn btn-danger" onclick="deleteRecord('/DeliveryOption/Delete?id=@item.Id')">Delete</span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<link href="/css/dataTables.css" rel="stylesheet" />
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>*@
+
+<script>
+    $("#myTable").dataTable();
+
+    function deleteRecord(url)
+    {
+        if(window.confirm('do you want to delete?'))
+        {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+</script>
+

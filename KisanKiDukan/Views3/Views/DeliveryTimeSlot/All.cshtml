@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KisanKiDukan.Models.DTO.DeliveryTimeSlotModel>
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="width:50%">
+    <div class="row r">
+        <div class="col-md-12">
+            <a class="btn btn-info" href="/DeliveryTimeSlot/Add">Add More</a>
+        </div>
+    </div>
+    <div class="row r" style="height:450px;overflow:auto">
+        <div class="col-md-12">
+            <h3>Delivery Time Slots</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>Slot Code</th>
+                    <th>Timing</th>
+                    <th>Action</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.SlotCode</td>
+                        <td>@item.TimeSlot</td>
+                        <td>
+                            <span class="btn btn-danger" onclick="deleteRecord('/DeliveryTimeSlot/Delete?id=@item.Id')">Delete</span>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<script src="/js/jquery-2.1.4.min.js"></script>*@
+<script>
+    function deleteRecord(url) {
+        if (window.confirm("Do you want to delete??")) {
+            $.get(url).then(function (data) {
+                if (data == "ok") {
+                    var currentUrl = window.location.href;
+                    window.location.href = currentUrl;
+                }
+                else {
+                    alert("Error on deleting data.");
+                }
+            })
+        }
+    }
+</script>

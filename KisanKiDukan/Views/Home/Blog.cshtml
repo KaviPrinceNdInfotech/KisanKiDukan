@@ -1,0 +1,229 @@
+﻿@model KisanKiDukan.Models.DTO.BlogMasterDTO
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+</style>
+<script src="~/HomLayout/hjs/elementor-frontendaff7.js?ver=1.6.0"></script>
+<script src="~/HomLayout/hjs/frontend.min339e.js?ver=2.9.9"></script>
+<script src="~/HomLayout/hjs/share-link.min339e.js?ver=2.9.9"></script>
+<script src="~/HomLayout/hjs/swiper.min48f5.js?ver=5.3.6"></script>
+<script src="~/HomLayout/hjs/waypoints.min05da.js?ver=4.0.2"></script>
+<script src="~/HomLayout/hjs/dialog.minae9e.js?ver=4.7.6"></script>
+<script src="~/HomLayout/hjs/core.min35d0.js?ver=1.12.1"></script>
+<script src="~/HomLayout/hjs/frontend.minc27b.js?ver=2.10.3"></script>
+
+@*<h2>Blog</h2>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">Our Blog</h1>
+        <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>Blog</nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div class="woocommerce"></div>
+        <div id="primary" class="content-area" style="width: 69%;">
+            <main id="main" class="site-main">
+                <div class="row" data-elementor-columns="2" data-elementor-columns-tablet="2" data-elementor-columns-mobile="1">
+                    @foreach (var a in Model.Blog)
+                    {
+                        <div class="column-item post-style-2">
+                        <div class="post-inner">
+                            <div class="post-thumbnail">
+                                <a href="~/@Url.Encode((a.Url))">
+                                    <img src="@a.BlogImage"
+                                         data-src="@a.BlogImage"
+                                         class="lazyload attachment-freshio-post-grid size-freshio-post-grid wp-post-image"
+                                         alt="" style="width:420px;height:260px;"/>
+                                </a>
+                                <span class="categories-link">
+                                    <span class="screen-reader-text">Categories</span><a href="#" rel="category tag">Healthy Foods</a>
+                                    <a href="#" rel="category tag">Lifestyle</a>
+                                </span>
+                            </div>
+                            <div class="entry-header">
+                                <div class="entry-meta">
+                                    <span class="posted-on">
+                                        <a href="~/@Url.Encode((a.Url))" rel="bookmark">
+                                            <time class="entry-date published" datetime="2019-12-28T03:46:40+00:00">@a.Date.Value.Date.ToShortDateString()</time>
+                                            @*<time class="updated" datetime="2020-09-09T06:33:20+00:00">September 9, 2020</time>*@
+                                        </a>
+                                    </span>
+                                    <span class="post-author">
+                                        <span>by <a href="../author/admin/index.html" rel="author">admin</a></span>
+                                    </span>
+                                    <span class="total-comments"><span>6</span></span>
+                                </div>
+                                <h3 class="entry-title"><a href="~/@Url.Encode((a.Url))" rel="bookmark">@a.Heading</a></h3>
+                                <div class="entry-content"><p>@a.Short</p></div>
+                                <div class="entry-content"><a href="~/@Url.Encode((a.Url))" rel="bookmark">Continue Reading..</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <nav id="post-navigation" class="navigation pagination">
+                    <h2 class="screen-reader-text">Posts navigation</h2>
+                    <div class="nav-links">
+                        <ul class="page-numbers">
+                            <li><span aria-current="page" class="page-numbers current">1</span></li>
+                            <li><a class="page-numbers" href="page/2/indexd714.html?blog-style=grid">2</a></li>
+                            <li><a class="page-numbers" href="page/3/indexd714.html?blog-style=grid">3</a></li>
+                            <li><a class="next page-numbers" href="page/2/indexd714.html?blog-style=grid">Next</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </main>
+        </div>
+        <div id="secondary" class="widget-area">
+            <div id="search-2" class="widget widget_search">
+                <form method="get" class="search-form" action="#">
+                    <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" /> </label>
+                    <input type="submit" class="search-submit" value="Search" />
+                </form>
+            </div>
+            <div id="categories-3" class="widget widget_categories">
+                <span class="gamma widget-title">Blog Categories</span>
+                <ul>
+                    <li class="cat-item cat-item-161"><a href="../category/dairy-farm/index.html">Dairy Farm</a> (3)</li>
+                    <li class="cat-item cat-item-159"><a href="../category/healthy-foods/index.html">Healthy Foods</a> (3)</li>
+                    <li class="cat-item cat-item-158"><a href="../category/lifestyle/index.html">Lifestyle</a> (3)</li>
+                    <li class="cat-item cat-item-160"><a href="../category/tips-tricks/index.html">Tips &amp; Tricks</a> (1)</li>
+                    <li class="cat-item cat-item-1"><a href="../category/uncategorized/index.html">Uncategorized</a> (17)</li>
+                </ul>
+            </div>
+            <div id="recent-posts-2" class="widget widget_recent_entries">
+                <span class="gamma widget-title">Recent Posts</span>
+                <ul>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="../2019/12/28/what-you-should-know-about-detox/index.html">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="../2019/12/28/what-you-should-know-about-detox/index.html"><span>What You Should Know About Detox</span></a> <span class="post-date">December 28, 2019</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="../2019/12/10/pizza-with-chicken-tomatoes-and-basil/index.html">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="../2019/12/10/pizza-with-chicken-tomatoes-and-basil/index.html"><span>Pizza With Chicken, Tomatoes and Basil</span></a> <span class="post-date">December 10, 2019</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="../2019/12/01/5-reasons-you-must-eat-greens-everyday/index.html">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="../2019/12/01/5-reasons-you-must-eat-greens-everyday/index.html"><span>5 Reasons You Must Eat Greens Everyday</span></a> <span class="post-date">December 1, 2019</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="tag_cloud-2" class="widget widget_tag_cloud">
+                <span class="gamma widget-title">Tags</span>
+                <div class="tagcloud">
+                    <a href="../tag/business/index.html" class="tag-cloud-link tag-link-205 tag-link-position-1" style="font-size: 8pt;">Business</a>
+                    <a href="../tag/healthy/index.html" class="tag-cloud-link tag-link-169 tag-link-position-2" style="font-size: 8pt;">healthy</a>
+                    <a href="../tag/natural/index.html" class="tag-cloud-link tag-link-167 tag-link-position-3" style="font-size: 8pt;">natural</a>
+                    <a href="../tag/organic/index.html" class="tag-cloud-link tag-link-168 tag-link-position-4" style="font-size: 8pt;">organic</a>
+                    <a href="../tag/posts/index.html" class="tag-cloud-link tag-link-206 tag-link-position-5" style="font-size: 8pt;">Posts</a>
+                    <a href="../tag/tomato/index.html" class="tag-cloud-link tag-link-170 tag-link-position-6" style="font-size: 8pt;">tomato</a>
+                    <a href="../tag/topics/index.html" class="tag-cloud-link tag-link-207 tag-link-position-7" style="font-size: 8pt;">Topics</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

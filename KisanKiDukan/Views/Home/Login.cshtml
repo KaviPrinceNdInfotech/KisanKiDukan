@@ -1,0 +1,132 @@
+﻿@model KisanKiDukan.Models.ViewModels.LoginDTOModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css' type='text/css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css' type='text/css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<noscript>
+    <style>
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        }
+    </style>
+</noscript>
+<style type="text/css" id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+        font-display: swap;
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+        font-display: swap;
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../wp-content/uploads/2020/08/breadcrumb_bkg.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../wp-content/uploads/2020/08/breadcrumb_woo.jpg');
+    }
+</style>
+@*<h2>Login</h2>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">
+            My account
+        </h1>
+        <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>My account</nav>
+    </div>
+</div>
+<main id="main" class="site-main" role="main">
+    <article id="post-79" class="post-79 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="woocommerce">
+                <div class="woocommerce-notices-wrapper"></div>
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "woocommerce-form woocommerce-form-login login" }))
+                {
+                    @Html.HiddenFor(a => a.url)
+                    <div class="woocommerce-form-login-wrap">
+                        <h2 class="login-form-title">Login</h2>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">Username or email address &nbsp;<span class="required">*</span></label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="Email_Id" id="username" autocomplete="username" value="" />
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="password">Password &nbsp;<span class="required">*</span></label>
+                            <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
+                        </p>
+                        <button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">Log in</button>
+                    </div>
+                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                        <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" />
+                        <span>Remember me</span>
+                    </label>
+                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="19ef6d5b1e" /><input type="hidden" name="_wp_http_referer" value="/freshio/my-account/" />
+                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                        <span style="padding:23px;"><a href="/Home/UserRegister">Create New Account</a></span>
+                    </label>
+                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                        <span style="padding:22px;"><a href="#">Forgot Password</a></span>
+                    </label>
+                    if (TempData["msg"] != null)
+                    {
+                        @TempData["msg"]
+                    }
+                }
+            </div>
+        </div>
+    </article>
+</main>
+<script type="text/template" id="tmpl-variation-template">
+    <div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
+    <div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
+    <div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
+</script>

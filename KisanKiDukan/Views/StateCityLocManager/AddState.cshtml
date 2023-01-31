@@ -1,0 +1,28 @@
+﻿@model KisanKiDukan.Models.ViewModels.StateModel
+@{
+    ViewBag.Title = "AddState";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>AddState</h2>*@
+@using (Html.BeginForm("AddState", "StateCityLocManager", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div style="width:50%">
+        <h4>Add State</h4>
+        <div class="form-group">
+            Name * @Html.TextBoxFor(a => a.StateName, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.StateName)</span>
+        </div>
+        <div class="form-group">
+            @if (TempData["msg"] != null)
+            {
+                <span style="color:red;">@TempData["msg"]</span>
+            }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/StateCityLocManager/ShowState">Show All</a>
+        </div>
+    </div>
+}
+

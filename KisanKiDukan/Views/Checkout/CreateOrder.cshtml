@@ -1,0 +1,287 @@
+﻿@model KisanKiDukan.Models.ViewModels.Cust_OrderInfo
+@{
+    ViewBag.Title = "CreateOrder";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id="rs-plugin-settings-inline-css" type="text/css">
+    #rs-demo-id {
+    }
+</style>
+<style id="woocommerce-inline-inline-css" type="text/css">
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id="woosw-frontend-inline-css" type="text/css">
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id="woo-variation-swatches-inline-css" type="text/css">
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style>
+    .woocommerce-product-gallery {
+        opacity: 1 !important;
+    }
+</style>
+<style type="text/css" id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+        font-display: swap;
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+        font-display: swap;
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+</style>
+
+@*<h2>CreateOrder</h2>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">Checkout</h1>
+        <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>Checkout</nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div id="primary">
+            <main id="main" class="site-main" role="main">
+                <article id="post-77" class="post-77 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div class="woocommerce">
+                            <div class="woocommerce-notices-wrapper"></div>
+                            @*<div class="woocommerce-form-coupon-toggle">
+                                    <div class="woocommerce-info">
+                                        Have a coupon? <a href="https://demo2.pavothemes.com/freshio/checkout/#" class="showcoupon">Click here to enter your code</a>
+                                    </div>
+                                </div>*@
+                            <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
+                                <p>If you have a coupon code, please apply it below.</p>
+                                <p class="form-row form-row-first">
+                                    <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="">
+                                </p>
+                                <p class="form-row form-row-last">
+                                    <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
+                                </p>
+                                <div class="clear"></div>
+                            </form>
+                            <div class="woocommerce-notices-wrapper"></div>
+                            @using (Html.BeginForm("CreateOrder", "Checkout", FormMethod.Post, new { id = "customer-form", @class = "checkout woocommerce-checkout" }))
+                            {
+                                <div class="woocommerce-NoticeGroup woocommerce-NoticeGroup-checkout">
+                                    @if (TempData["msg"] != null)
+                                    {
+                                        <ul class="woocommerce-error" role="alert">
+                                            <li data-id="billing_first_name">
+                                                @TempData["msg"]
+                                            </li>
+                                        </ul>
+                                    }
+                                </div>
+                                <div class="col2-set" id="customer_details">
+                                    <div class="col-1">
+                                        <div class="woocommerce-billing-fields">
+                                            <h3>Billing details</h3>
+                                            <div class="woocommerce-billing-fields__field-wrapper">
+                                                <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
+                                                    <label for="billing_first_name" class="">Name&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.Name, new { @class = "input-text" })
+                                                        @*<input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="" value="" autocomplete="given-name">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
+                                                    <label for="billing_phone" class="">Phone&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "input-text" })
+                                                        @*<input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value="" autocomplete="tel">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.PhoneNumber)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110">
+                                                    <label for="billing_email" class="">Email address&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.Email, new { @class = "input-text" })
+                                                        @*<input type="email" class="input-text " name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email username">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.Email)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row address-field validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
+                                                    <label for="billing_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextAreaFor(a => a.Address, new { @class = "input-text" })
+                                                        @*<textarea type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" data-placeholder="House number and street name" rows="2" cols="5"></textarea>*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.Address)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row address-field validate-state form-row-wide" id="billing_state_field" data-priority="80" data-o_class="form-row form-row-wide address-field validate-state">
+                                                    <label for="billing_state" class="">State&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.State, new { @class = "input-text" })
+                                                        @*<input type="text" class="input-text " value="" placeholder="" name="billing_state" id="billing_state" autocomplete="address-level1" data-input-classes="">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.State)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row address-field validate-required form-row-wide" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required">
+                                                    <label for="billing_city" class="">Town / City&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.City, new { @class = "input-text" })
+                                                        @*<input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="" value="" autocomplete="address-level2">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.City)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row address-field validate-required validate-postcode form-row-wide" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
+                                                    <label for="billing_postcode" class="">Pin Code&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.TextBoxFor(a => a.PinCode, new { @class = "input-text", required = "required" })
+                                                        @*<input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">*@
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.PinCode)
+                                                    </span>
+                                                </p>
+                                                <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
+                                                    <label for="billing_country" class="">Mode Of Payment&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @*<input type="text" class="input-text " value="" placeholder="" name="billing_country" id="billing_country" autocomplete="address-level1" data-input-classes="">*@
+                                                        @Html.DropDownListFor(a => a.paymentType, Model.paymentMode, "Select", new { @class = "input-text" })
+                                                    </span>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        @Html.ValidationMessageFor(a => a.paymentType)
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="woocommerce-shipping-fields">
+                                        </div>
+                                        <div class="woocommerce-additional-fields">
+                                            <h3>Additional information</h3>
+                                            <div class="woocommerce-additional-fields__field-wrapper">
+                                                <p class="form-row notes" id="order_comments_field" data-priority="">
+                                                    <label for="order_comments" class="">Order notes&nbsp;<span class="optional">(optional)</span></label>
+                                                    <span class="woocommerce-input-wrapper">
+                                                        <textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="order_review" class="woocommerce-checkout-review-order">
+                                    <h3 id="order_review_heading">Your order</h3>
+                                    <div class="checkout-review-order-table-wrapper">
+                                        <table class="shop_table woocommerce-checkout-review-order-table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-name">Product</th>
+                                                    <th class="product-total">Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="cart_item">
+                                                    <td class="product-name">
+                                                        <span>ProductName &nbsp;</span><strong class="product-quantity">×&nbsp;Quantity</strong>
+                                                    </td>
+                                                    <td class="product-total">
+                                                        <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>486.32</bdi></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>486.32</bdi></span></td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>@ViewBag.TotalAmt</bdi></span></strong> </td>
+                                                </tr>
+
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div id="payment" class="woocommerce-checkout-payment">
+                                        <ul class="wc_payment_methods payment_methods methods">
+                                            @*<li class="woocommerce-notice woocommerce-notice--info woocommerce-info">Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.</li>*@
+                                        </ul>
+                                        <div class="form-row place-order">
+                                            <div class="woocommerce-terms-and-conditions-wrapper">
+                                                <div class="woocommerce-privacy-policy-text">
+                                                    <p>
+                                                        Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our
+                                                        <a href="#" class="woocommerce-privacy-policy-link" target="_blank">privacy policy</a>.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-link-action="save-customer" data-value="Place order">Place order</button>
+                                            <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="a2fbd5118a">
+                                            <input type="hidden" name="_wp_http_referer" value="/freshio/?wc-ajax=update_order_review">
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+

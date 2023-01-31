@@ -1,0 +1,192 @@
+﻿@model KisanKiDukan.Models.ViewModels.ShippingAddressModel
+@{
+    ViewBag.Title = "UserProfle";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+@*<h2>UserProfle</h2>*@
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>profile</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- personal deatail section start -->
+<section class="contact-page register-page section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="mb-3">PERSONAL DETAIL</h3>
+                <form class="theme-form">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">User Name :</label>
+                                <label for="name">@Model.CustomerData.FullName</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><div class="form-group"></div></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email ID :</label>
+                                <label for="email">@Model.CustomerData.Email_Id</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><div class="form-group"></div></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="review">Phone number :</label>
+                                <label for="review">@Model.CustomerData.Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><div class="form-group"></div></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="review">Address :</label>
+                                <label for="review">@Model.CustomerData.Address</label>
+                                <label for="review">@Model.CustomerData.State</label>
+                                <label for="review">@Model.CustomerData.City</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><div class="form-group"></div></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Pin Code :</label>
+                                <label for="review">@Model.CustomerData.Pincode</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <label for="review">check your order history :</label>
+                                <label for="review"><a href="/Home/OrderHistory" class="btn btn-link">My Order</a></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form class="theme-form">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h3 for="review">Other Shipping Address</h3>
+                        </div>
+                    </div>
+                    @if (Model.AllShipAddress.Count > 0)
+                    {
+                        foreach (var item in Model.AllShipAddress)
+                        {
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="review">Address :</label>
+                                        <label for="review">@item.Address,</label>
+                                        <label for="review">&nbsp;@item.State,</label>
+                                        <label for="review">&nbsp;@item.City,</label>
+                                        <label for="review">&nbsp;@item.BlockNo,</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"><div class="form-group"></div></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="review">Pin Code :</label>
+                                        <label for="review">@item.PinCode</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"><div class="form-group"></div></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="review">Near Location :</label>
+                                        <label for="review">@item.Location</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-3 spc-responsive">SHIPPING ADDRESS</h3>
+                <h4>
+                    @if (TempData["errmsg"] != null)
+                    {
+                        <span class="text-info">@TempData["errmsg"]</span>
+                    }
+                </h4>
+                @using (Html.BeginForm("UserProfle", "Home", FormMethod.Post, new { id = "customer-form", @class = "theme-form" }))
+                {
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address-two">Address *</label>
+                                @Html.TextBoxFor(a => a.Address, new { placeholder = "Address", @required = "required", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.Address)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="home-ploat">block / flat No.</label>
+                                @Html.TextBoxFor(a => a.BlockNo, new { placeholder = "Block No./Name", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.BlockNo)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="zip-code">Pin Code *</label>
+                                @Html.TextBoxFor(a => a.PinCode, new { Type = "number", placeholder = "Pin Code", @required = "required", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.PinCode)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>State *</label>
+                                @Html.TextBoxFor(a => a.State, new { placeholder = "State Name", @required = "required", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.State)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                @Html.TextBoxFor(a => a.City, new { placeholder = "City Name", @required = "required", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.City)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="region-state">Near Location</label>
+                                @Html.TextBoxFor(a => a.Location, new { placeholder = "Location", @required = "required", @class = "form-control" })
+                                <span class="text-danger">
+                                    @Html.ValidationMessageFor(a => a.Location)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-sm btn-normal mb-lg-5" type="submit">Save setting</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->

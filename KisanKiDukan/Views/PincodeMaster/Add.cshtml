@@ -1,0 +1,45 @@
+﻿@model KisanKiDukan.Models.DTO.DeliveryPincodeDTO
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+<div style="width:50%">
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["msg"]
+        </div>
+    }
+    <div class="row r">
+        <div class="col-md-12">
+            <a class="btn btn-info" href="/PincodeMaster/All">View Pincodes</a>
+        </div>
+    </div>
+   
+    <div class="row r">
+        <div class="col-md-12">
+            <h3>Add Pincode</h3>
+            <div class="form-group">
+                @Html.TextBoxFor(a => a.Pincode, new { @class = "form-control", value = "@Model.PincodeList" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.Pincode)</span>
+            </div>
+            <h4>City Name</h4>
+            <div class="form-group">
+                @Html.TextBoxFor(a => a.City, new { @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.City)</span>
+            </div>
+            <h4>Location Name</h4>
+            <div class="form-group">
+                @Html.TextBoxFor(a => a.Location, new { @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.Location)</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-info" />
+            </div>
+        </div>
+
+    </div>
+</div>
+}

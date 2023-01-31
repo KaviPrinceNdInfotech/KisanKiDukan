@@ -1,0 +1,32 @@
+﻿@model KisanKiDukan.Models.ViewModels.ADCategoryModel
+@{
+    ViewBag.Title = "AddSub";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>AddSub</h2>*@
+@using (Html.BeginForm("AddSub", "ADCategory", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div style="width:50%">
+        <h4>Sub Category For AD</h4>
+        <div class="form-group">
+            Main Category * @Html.DropDownListFor(a => a.Id, Model.CategoryList, new { @class = "form-control", required = "required" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.Id)</span>
+        </div>
+        <div class="form-group">
+            Sub Category * @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control", required = "required" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.CategoryName)</span>
+        </div>
+        <div class="form-group">
+            @if (TempData["msg"] != null)
+            {
+                <span style="color:green;">@TempData["msg"]</span>
+            }
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/ADCategory/AdSubCategories">Show All</a>
+        </div>
+
+    </div>
+}

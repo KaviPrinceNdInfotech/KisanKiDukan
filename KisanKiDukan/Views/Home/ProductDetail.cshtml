@@ -1,0 +1,744 @@
+﻿@model KisanKiDukan.Models.ViewModels.ProductModel
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+<script src="/HomLayout/Js/kart.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+</style>
+
+@*<h2>ProductDetail</h2>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">@Model.ProductName</h1>
+        <nav class="woocommerce-breadcrumb">
+            <a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>
+            <a href="#">ProductDetail</a><span class="breadcrumb-separator"> / </span>@Model.ProductName
+        </nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div class="woocommerce"></div>
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="woocommerce-notices-wrapper"></div>
+                <div id="product-259"
+                     class="product type-product post-259 status-publish first outofstock product_cat-fruits-vegetables product_cat-uncategorized has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+                    <div class="content-single-wrapper">
+                        <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images woocommerce-product-gallery-horizontal"
+                             data-columns="4"
+                             style="opacity: 0; transition: opacity 0.25s ease-in-out;">
+                            <figure class="woocommerce-product-gallery__wrapper">
+                                <div data-thumb="~/Images/@Model.ProductImage" data-thumb-alt="" class="woocommerce-product-gallery__image">
+                                    <a href="~/Images/@Model.ProductImage">
+                                        <img width="800"
+                                             height="693"
+                                             src="./Intelligent Concrete Chair – freshio_files/20-800x693.jpg"
+                                             class="wp-post-image"
+                                             alt=""
+                                             title="20"
+                                             data-caption=""
+                                             data-src="~/Images/@Model.ProductImage"
+                                             data-large_image="~/Images/@Model.ProductImage"
+                                             data-large_image_width="900"
+                                             data-large_image_height="780"
+                                             srcset="~/Images/@Model.ProductImage 800w, ~/Images/@Model.ProductImage 300w, ~/Images/@Model.ProductImage 768w,
+                                        ~/Images/@Model.ProductImage 900w" sizes="(max-width: 800px) 100vw, 800px" />
+                                    </a>
+                                    <img role="presentation" alt="" src="~/Images/@Model.ProductImage" class="zoomImg" style="position: absolute; top: -48.4347px; left: -220.55px; opacity: 0; width: 900px; height: 780px; border: none; max-width: none; max-height: none;">
+                                </div>
+                            </figure>
+                        </div>
+                        <div id="content-wrapper">
+                            <div id="main">
+                                <div id="products">
+                                    <div id="js-product-list">
+                                        <div class="summary entry-summary" id="productDiv">
+                                            <div class="freshio-product-pagination-wrap">
+                                                <nav class="freshio-product-pagination">
+                                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/aerodynamic-wooden-knife/index.html" rel="prev">
+                                                        <span class="pagination-prev">Prev</span>
+                                                        <div class="product-item">
+                                                            <img width="450"
+                                                                 height="420"
+                                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/11-450x420.jpg"
+                                                                 class="lazyload attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                                 alt="" />
+                                                            <div class="freshio-product-pagination-content">
+                                                                <span class="freshio-product-pagination__title">Aerodynamic Wooden Knife</span>
+                                                                <span class="price">
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>898.11</bdi>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a><span class="shop-tooltip">.</span></a>
+                                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/aerodynamic-linen-knife/index.html" rel="next">
+                                                        <span class="pagination-next">Next</span>
+                                                        <div class="product-item">
+                                                            <img width="450"
+                                                                 height="420"
+                                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/23-450x420.jpg"
+                                                                 class="lazyload attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                                 alt="" />
+                                                            <div class="freshio-product-pagination-content">
+                                                                <span class="freshio-product-pagination__title">Aerodynamic Linen Knife</span>
+                                                                <span class="price">
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>671.73</bdi>
+                                                                    </span>
+                                                                    –
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <bdi><span class="woocommerce-Price-currencySymbol">£</span>921.45</bdi>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </nav>
+                                            </div>
+                                            @if (Model.IsStock == true)
+                                            {
+                                                <span class="inventory_status out-stock" style="background-color:white; color:green;">In Stock</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="inventory_status out-stock" style="background-color:white; color:red;">Out of Stock</span>
+                                            }
+                                            <h2 class="product_title entry-title">@Model.ProductName</h2>
+                                            <div class="woocommerce-product-rating">
+                                                <div class="star-rating">
+                                                    <span style="width: 84%;">Rated <strong class="rating">4.20</strong> out of 5 based on <span class="rating">5</span> customer ratings</span>
+                                                </div>
+                                                <a href="#" class="woocommerce-review-link" rel="nofollow">
+                                                    (<span class="count">5</span> customer reviews)
+                                                </a>
+                                            </div>
+                                            <p class="price">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>@Model.Price</bdi>
+                                                </span>
+                                            </p>
+                                            <!--=======Variant start=======-->
+                                            <div class="product_meta">
+                                                @if (Model.IsVariant)
+                                                {
+
+                                                    <select id="variants" onchange="prodAvailable(this)">
+                                                        @foreach (var v in Model.Variants)
+                                                        {
+                                                            <option value="@v.Metric_Id" productId="@Model.Id" weight="@v.Weight" isAvail="@if (v.IsStock) {<text>1</text> } else {<text>0</text> }">
+                                                                @v.Weight @v.Metric - Rs. @v.Price
+                                                            </option>
+                                                        }
+                                                    </select>
+                                                }
+                                                else
+                                                {
+                                                    <select id="variants" style="display:none;">
+                                                        <option value="@Model.Metric_Id" productId="@Model.Id" weight="@Model.Quantity"></option>
+                                                    </select>
+                                                    <div style="height:2.4px;"> </div>
+                                                }
+                                            </div>
+                                            <!--========Variant end========-->
+                                            @if (Model.IsStock == true)
+                                            {
+                                                <a href="#" class="single_add_to_cart_button button alt" title="Add to Cart" prodId="@Model.Id" id="btnCart" onclick="addToCart(this)">Add to cart</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" class="single_add_to_cart_button button alt" title="Add to Cart" prodId="@Model.Id">Add to cart</a>
+                                            }
+                                            <button class="wooscp-btn wooscp-btn-259" data-id="259">Compare</button>&nbsp;<button class="woosw-btn woosw-btn-259" data-id="259">Add to wishlist</button>
+                                            <div class="woocommerce-product-details__short-description">
+                                                <p>@Model.ProductDescription</p>
+                                            </div>
+                                            <div class="product_meta">
+                                                <span class="sku_wrapper">SKU: <span class="sku">@Model.ProductName</span></span>
+                                                <span class="posted_in">
+                                                    Categories: <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product-category/fruits-vegetables/index.html" rel="tag">Fruits &amp; Vegetables</a><span>, </span>
+                                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product-category/uncategorized/index.html" rel="tag">Uncategorized</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="woocommerce-tabs wc-tabs-wrapper">
+                        <ul class="tabs wc-tabs">
+                            <li class="description_tab" id="tab-title-description" aria-controls="tab-description">
+                                <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index.html#tab-description"> Description </a>
+                            </li>
+                            <li class="additional_information_tab" id="tab-title-additional_information" aria-controls="tab-additional_information">
+                                <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index.html#tab-additional_information"> Additional information </a>
+                            </li>
+                            <li class="reviews_tab" id="tab-title-reviews" aria-controls="tab-reviews">
+                                <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index.html#tab-reviews"> Reviews (5) </a>
+                            </li>
+                        </ul>
+                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" aria-labelledby="tab-title-description">
+                            <h2>Description</h2>
+                            <p>Molestias temporibus enim voluptates ex rerum explicabo. Et incidunt sed quo magnam. Nam et harum ullam accusamus ut quisquam.</p>
+                            <p>
+                                Commodi molestias maxime totam ipsa esse minus unde at. Consequatur recusandae et perferendis ut explicabo nihil perspiciatis. Ducimus ab quis tenetur magnam amet debitis et. Qui qui et reiciendis dolor vel
+                                sapiente. Ut voluptas mollitia consequatur est non enim nostrum.
+                            </p>
+                            <p>Est eum itaque maiores qui blanditiis architecto. Eligendi saepe rem ut. Cumque quia earum eligendi. Sunt nemo iusto voluptas est maxime eligendi.</p>
+                            <p>Deserunt reiciendis sit ad unde. Ex doloremque ea eum. Repellendus officia facere enim.</p>
+                        </div>
+                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-additional_information" aria-labelledby="tab-title-additional_information">
+                            <h2>Additional information</h2>
+                            <table class="woocommerce-product-attributes shop_attributes">
+                                <tbody>
+                                    <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--weight">
+                                        <th class="woocommerce-product-attributes-item__label">Weight</th>
+                                        <td class="woocommerce-product-attributes-item__value">140 kg</td>
+                                    </tr>
+                                    <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--dimensions">
+                                        <th class="woocommerce-product-attributes-item__label">Dimensions</th>
+                                        <td class="woocommerce-product-attributes-item__value">137 × 3 × 175 cm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" aria-labelledby="tab-title-reviews">
+                            <div id="reviews" class="woocommerce-Reviews">
+                                <div id="comments">
+                                    <h2 class="woocommerce-Reviews-title">5 reviews for <span>Intelligent Concrete Chair</span></h2>
+                                    <ol class="commentlist">
+                                        <li class="review even thread-even depth-1" id="li-comment-261">
+                                            <div id="comment-261" class="comment_container">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2060%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=60&amp;d=mm&amp;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/58339abbf7950af484818a32567a68b2?s=120&amp;d=mm&amp;r=g 2x"
+                                                     class="lazyload avatar avatar-60 photo"
+                                                     height="60"
+                                                     width="60" />
+                                                <div class="comment-text">
+                                                    <div class="star-rating">
+                                                        <span style="width: 80%;">Rated <strong class="rating">4</strong> out of 5</span>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong class="woocommerce-review__author">Duc Pham </strong> <span class="woocommerce-review__dash">–</span>
+                                                        <time class="woocommerce-review__published-date" datetime="2020-08-11T08:23:55+00:00">August 11, 2020</time>
+                                                    </p>
+                                                    <div class="description">
+                                                        <p>
+                                                            I am 6 feet tall and 220 lbs. This shirt fit me perfectly in the chest and shoulders. My only complaint is that it is so long! I like to wear polo shirts untucked. This shirt goes
+                                                            completely past my rear end. If I wore it with ordinary shorts, you probably wouldnt be able to see the shorts at all – completely hidden by the shirt. It needs to be 4 to 5 inches
+                                                            shorter in terms of length to suit me. I have many RL polo shirts, and this one is by far the longest. I dont understand why.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="review odd alt thread-odd thread-alt depth-1" id="li-comment-262">
+                                            <div id="comment-262" class="comment_container">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2060%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=60&amp;d=mm&amp;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=120&amp;d=mm&amp;r=g 2x"
+                                                     class="lazyload avatar avatar-60 photo"
+                                                     height="60"
+                                                     width="60" />
+                                                <div class="comment-text">
+                                                    <div class="star-rating">
+                                                        <span style="width: 80%;">Rated <strong class="rating">4</strong> out of 5</span>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong class="woocommerce-review__author">Kenneth R. Myers </strong> <span class="woocommerce-review__dash">–</span>
+                                                        <time class="woocommerce-review__published-date" datetime="2020-08-11T08:23:56+00:00">August 11, 2020</time>
+                                                    </p>
+                                                    <div class="description">
+                                                        <p>
+                                                            The shirt was not the fabric I believed it to be. It says Classic Fit but was made like the older versions, not the soft cotton like my others. I don’t understand how the labels
+                                                            are the same but a completely different shirt. Oh well, stuck with it now.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="review even thread-even depth-1" id="li-comment-263">
+                                            <div id="comment-263" class="comment_container">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2060%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=60&amp;d=mm&amp;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=120&amp;d=mm&amp;r=g 2x"
+                                                     class="lazyload avatar avatar-60 photo"
+                                                     height="60"
+                                                     width="60" />
+                                                <div class="comment-text">
+                                                    <div class="star-rating">
+                                                        <span style="width: 80%;">Rated <strong class="rating">4</strong> out of 5</span>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong class="woocommerce-review__author">Mike Addington </strong> <span class="woocommerce-review__dash">–</span>
+                                                        <time class="woocommerce-review__published-date" datetime="2020-08-11T08:23:58+00:00">August 11, 2020</time>
+                                                    </p>
+                                                    <div class="description"><p>Real authentic genuine quality however it fit me like an XL size when In fact Im L. Beware</p></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="review odd alt thread-odd thread-alt depth-1" id="li-comment-264">
+                                            <div id="comment-264" class="comment_container">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2060%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=60&amp;d=mm&amp;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=120&amp;d=mm&amp;r=g 2x"
+                                                     class="lazyload avatar avatar-60 photo"
+                                                     height="60"
+                                                     width="60" />
+                                                <div class="comment-text">
+                                                    <div class="star-rating">
+                                                        <span style="width: 80%;">Rated <strong class="rating">4</strong> out of 5</span>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong class="woocommerce-review__author">Ervin Arlington </strong> <span class="woocommerce-review__dash">–</span>
+                                                        <time class="woocommerce-review__published-date" datetime="2020-08-11T08:23:59+00:00">August 11, 2020</time>
+                                                    </p>
+                                                    <div class="description">
+                                                        <p>
+                                                            The Ralph Lauren quaility is here in abundance. My husband always says that the Lauren polos fit better and last longer than any other brand.I love the new “heathered” color and
+                                                            the price is always excellent through shop
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="review even thread-even depth-1" id="li-comment-265">
+                                            <div id="comment-265" class="comment_container">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2060%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=60&amp;d=mm&amp;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=120&amp;d=mm&amp;r=g 2x"
+                                                     class="lazyload avatar avatar-60 photo"
+                                                     height="60"
+                                                     width="60" />
+                                                <div class="comment-text">
+                                                    <div class="star-rating">
+                                                        <span style="width: 100%;">Rated <strong class="rating">5</strong> out of 5</span>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong class="woocommerce-review__author">Patrick M. Newman </strong> <span class="woocommerce-review__dash">–</span>
+                                                        <time class="woocommerce-review__published-date" datetime="2020-08-11T08:24:01+00:00">August 11, 2020</time>
+                                                    </p>
+                                                    <div class="description">
+                                                        <p>My son loved this Jacket for his Senior Prom… He got sooo many compliments! He is slim build 5’11 and 150lbs … I ordered a large … it was a little big … but it was fine!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div id="review_form_wrapper">
+                                    <div id="review_form">
+                                        <div id="respond" class="comment-respond">
+                                            <span id="reply-title" class="comment-reply-title">
+                                                Add a review
+                                                <small>
+                                                    <a rel="nofollow"
+                                                       id="cancel-comment-reply-link"
+                                                       href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index.html#respond"
+                                                       style="display: none;">
+                                                        Cancel reply
+                                                    </a>
+                                                </small>
+                                            </span>
+                                            <form action="https://demo2.pavothemes.com/freshio/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+                                                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                                <div class="comment-form-rating">
+                                                    <label for="rating">Your rating&nbsp;<span class="required">*</span></label>
+                                                    <select name="rating" id="rating" required="">
+                                                        <option value="">Rate…</option>
+                                                        <option value="5">Perfect</option>
+                                                        <option value="4">Good</option>
+                                                        <option value="3">Average</option>
+                                                        <option value="2">Not that bad</option>
+                                                        <option value="1">Very poor</option>
+                                                    </select>
+                                                </div>
+                                                <p class="comment-form-comment">
+                                                    <label for="comment">Your review&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
+                                                </p>
+                                                <p class="comment-form-author">
+                                                    <label for="author">Name&nbsp;<span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" required="" />
+                                                </p>
+                                                <p class="comment-form-email">
+                                                    <label for="email">Email&nbsp;<span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" required="" />
+                                                </p>
+                                                <p class="comment-form-cookies-consent">
+                                                    <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" />
+                                                    <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                                </p>
+                                                <p class="form-submit">
+                                                    <input name="submit" type="submit" id="submit" class="submit" value="Submit" /> <input type="hidden" name="comment_post_ID" value="259" id="comment_post_ID" />
+                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0" />
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="up-sells upsells products">
+                        <h2>You may also like…</h2>
+                        <ul class="products columns-4">
+                            <li class="product type-product post-239 status-publish first onbackorder product_cat-uncategorized product_cat-leafy-green has-post-thumbnail featured shipping-taxable purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-image">
+                                            <img width="450"
+                                                 height="420"
+                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/8-450x420.jpg"
+                                                 class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                 alt="" />
+                                        </div>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-239" data-id="239">Add to wishlist</button><button class="wooscp-btn wooscp-btn-239" data-id="239">Compare</button>
+                                                <button class="woosq-btn woosq-btn-239" data-id="239" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/fantastic-granite-pants/index.html"
+                                           class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 90%;">Rated <strong class="rating">4.50</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title">
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/fantastic-granite-pants/index.html">Fantastic Granite Pants</a>
+                                    </h3>
+                                    <span class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>35.12</bdi>
+                                        </span>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/indexe134.html?add-to-cart=239"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="239"
+                                       data-product_sku="fantastic-granite-pants-27555569"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="product type-product post-258 status-publish instock product_cat-health-wellness has-post-thumbnail sold-individually shipping-taxable purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-image">
+                                            <img width="450"
+                                                 height="420"
+                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/19-450x420.jpg"
+                                                 class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                 alt="" />
+                                        </div>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-258" data-id="258">Add to wishlist</button><button class="wooscp-btn wooscp-btn-258" data-id="258">Compare</button>
+                                                <button class="woosq-btn woosq-btn-258" data-id="258" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/sleek-bronze-pants/index.html" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 90%;">Rated <strong class="rating">4.50</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title"><a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/sleek-bronze-pants/index.html">Sleek Bronze Pants</a></h3>
+                                    <span class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>555.00</bdi>
+                                        </span>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index69ea.html?add-to-cart=258"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="258"
+                                       data-product_sku="sleek-bronze-pants-11231417"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="related products">
+                        <h2>Related products</h2>
+                        <ul class="products columns-4">
+                            <li class="product type-product post-269 status-publish first instock product_cat-uncategorized product_cat-dairy-bread-eggs has-post-thumbnail featured virtual purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-img-wrap default">
+                                            <div class="inner">
+                                                <div class="product-image">
+                                                    <img width="450"
+                                                         height="420"
+                                                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                         data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/29-450x420.jpg"
+                                                         class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                         alt="" />
+                                                </div>
+                                                <div class="product-image second-image">
+                                                    <img width="450"
+                                                         height="420"
+                                                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                         data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-56-copyright-min-1-450x420.jpg"
+                                                         class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-269" data-id="269">Add to wishlist</button><button class="wooscp-btn wooscp-btn-269" data-id="269">Compare</button>
+                                                <button class="woosq-btn woosq-btn-269" data-id="269" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/sleek-rubber-watch/index.html" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 85%;">Rated <strong class="rating">4.25</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title"><a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/sleek-rubber-watch/index.html">Sleek Rubber Watch</a></h3>
+                                    <span class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>756.45</bdi>
+                                        </span>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index7bc6.html?add-to-cart=269"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="269"
+                                       data-product_sku="sleek-rubber-watch-72833582"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="product type-product post-251 status-publish instock product_cat-uncategorized product_cat-leafy-green has-post-thumbnail sale featured virtual purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-image">
+                                            <img width="450"
+                                                 height="420"
+                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/12-450x420.jpg"
+                                                 class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                 alt="" />
+                                        </div>
+                                        <span class="onsale">Sale!</span>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-251" data-id="251">Add to wishlist</button><button class="wooscp-btn wooscp-btn-251" data-id="251">Compare</button>
+                                                <button class="woosq-btn woosq-btn-251" data-id="251" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/awesome-iron-computer/index.html"
+                                           class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 70%;">Rated <strong class="rating">3.50</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title">
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/awesome-iron-computer/index.html">Awesome Iron Computer</a>
+                                    </h3>
+                                    <span class="price">
+                                        <del>
+                                            <span class="woocommerce-Price-amount amount">
+                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>705.60</bdi>
+                                            </span>
+                                        </del>
+                                        <ins>
+                                            <span class="woocommerce-Price-amount amount">
+                                                <bdi><span class="woocommerce-Price-currencySymbol">£</span>96.42</bdi>
+                                            </span>
+                                        </ins>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/indexa528.html?add-to-cart=251"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="251"
+                                       data-product_sku="awesome-iron-computer-11992325"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="product type-product post-168 status-publish instock product_cat-uncategorized product_cat-grocery-staples has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-image">
+                                            <img width="450"
+                                                 height="420"
+                                                 src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                 data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/3-450x420.jpg"
+                                                 class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                 alt="" />
+                                        </div>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-168" data-id="168">Add to wishlist</button><button class="wooscp-btn wooscp-btn-168" data-id="168">Compare</button>
+                                                <button class="woosq-btn woosq-btn-168" data-id="168" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/enormous-marble-shoes/index.html"
+                                           class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 80%;">Rated <strong class="rating">4.00</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title">
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/enormous-marble-shoes/index.html">Enormous Marble Shoes</a>
+                                    </h3>
+                                    <span class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>671.73</bdi>
+                                        </span>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/index0a67.html?add-to-cart=168"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="168"
+                                       data-product_sku="enormous-marble-shoes-61666849"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="product type-product post-253 status-publish last instock product_cat-uncategorized product_cat-fruits-vegetables has-post-thumbnail virtual purchasable product-type-simple">
+                                <div class="product-block">
+                                    <div class="product-transition">
+                                        <div class="product-img-wrap default">
+                                            <div class="inner">
+                                                <div class="product-image">
+                                                    <img width="450"
+                                                         height="420"
+                                                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20450%20420%22%3E%3C/svg%3E"
+                                                         data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/14-450x420.jpg"
+                                                         class="lazyload attachment-shop_catalog size-shop_catalog"
+                                                         alt="" />
+                                                </div>
+                                                <div class="product-image second-image"></div>
+                                            </div>
+                                        </div>
+                                        <div class="group-action">
+                                            <div class="shop-action">
+                                                <button class="woosw-btn woosw-btn-253" data-id="253">Add to wishlist</button><button class="wooscp-btn wooscp-btn-253" data-id="253">Compare</button>
+                                                <button class="woosq-btn woosq-btn-253" data-id="253" data-effect="mfp-3d-unfold">Quick view</button>
+                                            </div>
+                                        </div>
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/mediocre-plastic-computer/index.html"
+                                           class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                    </div>
+                                    <div class="star-rating">
+                                        <span style="width: 84%;">Rated <strong class="rating">4.20</strong> out of 5</span>
+                                    </div>
+                                    <h3 class="woocommerce-loop-product__title">
+                                        <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/mediocre-plastic-computer/index.html">Mediocre Plastic Computer</a>
+                                    </h3>
+                                    <span class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">£</span>535.94</bdi>
+                                        </span>
+                                    </span>
+                                    <a href="file:///D:/Amit%20Kumar/ProjectKisanKiDukan/kisan3/demo2.pavothemes.com/freshio/product/intelligent-concrete-chair/indexe187.html?add-to-cart=253"
+                                       data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="253"
+                                       data-product_sku="mediocre-plastic-computer-20778415"
+                                       rel="nofollow">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

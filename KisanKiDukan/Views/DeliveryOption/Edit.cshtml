@@ -1,0 +1,49 @@
+﻿@model KisanKiDukan.Models.DTO.DeliveryOptionDTO
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 1% !important;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div style="width:50%">
+        <div class="row r">
+            <div class="col-md-12">
+                <a href="/DeliveryOption/All" class="btn btn-info">Show all</a>
+            </div>
+        </div>
+        <div class="row r">
+            <div class="col-md-12">
+                <h2>Edit Delivery Option</h2>
+            </div>
+        </div>
+        @if (TempData["msg"] != null)
+        {
+            <div class="row r">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        @TempData["msg"]
+                    </div>
+                </div>
+            </div>
+        }
+        @Html.HiddenFor(a=>a.Id)
+        <div class="row r">
+            <div class="col-md-12">
+                <div class="form-group">
+                    Option Name *
+                    @Html.TextBoxFor(a => a.OptionName, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.OptionName)
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+}

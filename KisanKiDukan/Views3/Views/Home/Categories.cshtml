@@ -1,0 +1,18 @@
+﻿@model KisanKiDukan.Models.ViewModels.AllCategoryModel
+<div>
+    @{
+        if (Model.CategoryLists != null && Model.CategoryLists.Count > 0)
+        {
+            <ul class="nav-cat title-font mt-0">
+                @foreach (var mitem in Model.CategoryLists)
+                {
+                    <li> <img src="~/Images/@mitem.CategoryImage" alt="category-product"> 
+                        <a href="~/Home/AllProducts?categoryId=@mitem.Id">
+                            @mitem.CategoryName
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+    }
+</div>

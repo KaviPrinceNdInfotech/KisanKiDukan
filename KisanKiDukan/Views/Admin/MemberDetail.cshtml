@@ -1,0 +1,123 @@
+﻿@model KisanKiDukan.Models.ViewModels.MemberDetailShowListAdmin
+@{
+    ViewBag.Title = "MemberDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 1%;
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+@*<h2>MemberDetail</h2>*@
+<div style="width:100%;overflow-x:scroll">
+    <h4>Member Detail</h4>
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/Admin/JoinMembers" class="btn btn-primary">Back</a>
+        </div>
+   </div>
+    <hr />
+    @if (Model.MbDetail.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <form id="cbform">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>User ID</th>
+                            <td>Name</td>
+                            <th>Phone</th>
+                            <th>Email Id</th>
+                            <th>Address</th>
+                           <th>Wallet Amount</th>
+                            <th>Reference Id</th>
+                            <th>Join Date</th>
+                            <th>
+                                Cashback <i class="fa fa-percent" style="font-size:20px;color:orangered">
+                                </i>
+                            </th>
+                        </tr>
+                        @foreach (var item in Model.MbDetail)
+                        {
+                            <tr>
+                                <td>@item.Login_Id</td>
+                                <td>@item.FullName</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email_Id</td>
+                                <td>@item.Address</td>
+                                <td><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;@item.Wallet_Amount</td>
+                                <td>@item.Refer_Id</td>
+                                <td>
+                                    @if (string.IsNullOrEmpty(item.CreateDate.ToString()))
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@item.CreateDate.Value.ToShortDateString()</span>
+                                    }
+                                </td>
+                                <td class="form-inline">
+                                    <input type="hidden" Id="@item.Id" />
+                                    <input type="number" id="cb" min="0" class="form-control" style="width:65px;margin-right:2%" />
+                                    <button class="btn btn-info" type="button" Id="@item.Id" onclick="cashback(this)">Send</button>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </form>
+                <ul class="pagination">
+                    @for (int i = 1; i <= Model.NumberOfPages; i++)
+                    {
+                        if (Model.Page == i)
+                        {
+                            <li class="active"><a href="/Admin/MemberDetail?page=@i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Admin/MemberDetail?page=@i">@i</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        < h4 > No records found</ h4 >
+    }
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+    function cashback(obj)
+    {
+        let currentElem = $(obj);
+        currentElem.text("wait..");
+        let mid = currentElem.attr("Id");
+        let txtcb = currentElem.parent().parent().find("#cb");
+        window.aa = txtcb;
+        let cbamt = txtcb.val();
+        $.ajax({
+            url: '/Admin/SubmitCashback?Id=' + mid + '&cbamt=' + cbamt,
+            type: 'get',
+            success:function(response)
+            {
+                if(response=="ok")
+                {
+                    alert('Cashback has been send to user wallet');
+                    txtcb.val("");
+                }
+                else {
+                    console.log("error");
+                }
+                currentElem.text("Send");
+            },
+            error: function (er) {
+                console.log(er.responseText);
+                currentElem.text("Send");
+            }
+        });
+    }
+</script>
+

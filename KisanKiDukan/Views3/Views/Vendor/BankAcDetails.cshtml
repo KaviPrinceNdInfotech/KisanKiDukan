@@ -1,0 +1,101 @@
+﻿@model KisanKiDukan.Models.DTO.VendorBankAcDetailsDTO
+@{
+    ViewBag.Title = "BankAcDetails";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@*<h2>BankAcDetails</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Bank Account Details</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">Bank Account Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+               @using (Html.BeginForm("BankAcDetails", "Vendor", FormMethod.Post))
+               {
+                    <div class="container">
+                        <div>
+                            <div class="checkout-title">
+                                <h3></h3>
+                            </div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Pay To Name *
+                                        @Html.TextBoxFor(a => a.PayToName, new { placeholder = "Pay To Name", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.PayToName)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Bank Name *
+                                        @Html.TextBoxFor(a => a.BankName, new { placeholder = "Bank Name", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.BankName)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        Account Number *
+                                        @Html.TextBoxFor(a => a.BankName, new { placeholder = "Account Number", @type = "number", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.AccountNumber)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        IFSC Code *
+                                        @Html.TextBoxFor(a => a.IFSC_Code, new { placeholder = "IFSC Code", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.IFSC_Code)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Branch Address *
+                                        @Html.TextBoxFor(a => a.BranchAddress, new { placeholder = "Branch Address", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.BranchAddress)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="prevBtn" class="text-right" value="Previous" style="border:none;">
+                                            <span class="btn-normal btn">Previous</span>
+                                        </button>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="nextBtn" class="text-right" value="Next" style="border:none;">
+                                            <span class="btn-normal btn">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+
+
+

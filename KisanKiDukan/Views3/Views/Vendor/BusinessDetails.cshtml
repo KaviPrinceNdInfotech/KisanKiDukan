@@ -1,0 +1,106 @@
+﻿@model KisanKiDukan.Models.DTO.VendorBusinessDetailsDTO
+@{
+    ViewBag.Title = "BusinessDetails";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@*<h2>BusinessDetails</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Business Details</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">Business Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                @using (Html.BeginForm("BusinessDetails", "Vendor", FormMethod.Post))
+                {
+                    <div class="container">
+                        <div>
+                            <div class="checkout-title">
+                                <h3></h3>
+                            </div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Brand Name *
+                                        @Html.TextBoxFor(a => a.CompanyName, new { placeholder = "Company Name", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.CompanyName)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Legal Company Name *
+                                        @Html.TextBoxFor(a => a.LegalCompanyName, new { placeholder = "Legal Company Name", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.LegalCompanyName)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        Business Filing Status *
+                                        @Html.DropDownListFor(a => a.BusinessFilingStatus, Model.BusinessStatuList, "Select Business Filing Status ", new { @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.BusinessFilingStatus)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        PAN Details *
+                                        @Html.TextBoxFor(a => a.PAN_No, new { placeholder = "Pan Card Number", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.PAN_No)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Registered Address *
+                                        @Html.TextBoxFor(a => a.RegisteredAddress, new { placeholder = "Registered Address", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.RegisteredAddress)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        Operating Address *
+                                        @Html.TextBoxFor(a => a.OperatingAddress, new { placeholder = "Operating Address", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.OperatingAddress)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="prevBtn" class="text-right" value="Previous" style="border:none;">
+                                            <span class="btn-normal btn">Previous</span>
+                                        </button>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="nextBtn" class="text-right" value="Next" style="border:none;">
+                                            <span class="btn-normal btn">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+
