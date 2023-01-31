@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.IdentityModel.Protocols.WSTrust;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
@@ -184,8 +185,9 @@ namespace KisanKiDukan.Controllers
                     {
                         result.otp = 0;
                     }
-                    ent.SaveChanges();
-                    return Ok("Registration Successfully");
+                    ent.SaveChanges();                    
+                    return Ok(new { result.User_Id, result.FullName, result.Phone, result.Password, Status = 200, Message = "Registration Successfully" });
+
                 }
                 return BadRequest("Otp Invalid");
             }
@@ -283,7 +285,7 @@ namespace KisanKiDukan.Controllers
                         result.otp = 0;
                     }
                     ent.SaveChanges();
-                    return Ok("login Successfully");
+                    return Ok(new {result.User_Id,result.FullName,result.Phone,result.Password, Status = 200, Message = "Login Successfully" });
                 }
                 return BadRequest("Otp Invalid");
             }
@@ -311,7 +313,7 @@ namespace KisanKiDukan.Controllers
                     //    result.Token = token;
                     //}                   
                     //ent.SaveChanges();
-                    return Ok("Login Successfully");
+                    return Ok(new { result.User_Id, result.FullName, result.Phone, result.Password, Status = 200, Message = "Login Successfully" });
 
                 }
                 else
