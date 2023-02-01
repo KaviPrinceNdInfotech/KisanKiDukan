@@ -22,7 +22,7 @@ namespace KisanKiDukan
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "admin", action = "login", id = UrlParameter.Optional }
+                defaults: new { controller = "Admin", action = "login", id = UrlParameter.Optional }
             );
             
         }

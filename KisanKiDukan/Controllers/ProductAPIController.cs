@@ -15,6 +15,9 @@ using System.Web.Http;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
+using System.IO;
+using AutoMapper;
+
 
 
 namespace KisanKiDukan.Controllers
@@ -1151,6 +1154,46 @@ from DeliveryTimeSlot";
                 return BadRequest("Server Error");
             }
         }
+
+        //[HttpPost, Route("api/ProductAPI/AddBlog")]
+        //public IHttpActionResult AddBlog(BlogMasterDTO model)
+        //{
+        //    try
+        //    {
+        //        if (model.BlogFile != null)
+        //        {
+        //            if (model.BlogFile.ContentLength > 3 * 1024 * 1024)
+        //            {
+        //                return Ok("Image should not exceed 3 mb");
+        //                return Ok(model);
+        //            }
+        //            var allowedExtensions = new[] { ".jpeg", ".jpg", ".png", ".gif" };
+        //            string ext = Path.GetExtension(model.BlogFile.FileName);
+        //            if (!allowedExtensions.Contains(ext))
+        //            {
+        //                return Ok("only .jpg, .jpeg, .gif and .png files are allowed");
+        //                return Ok(model);
+        //            }
+        //            var filrName = Guid.NewGuid().ToString() + Path.GetExtension(model.BlogFile.FileName);
+        //            model.BlogFile.SaveAs(Server.MapPath("/BlogImages/") + filrName);
+        //            model.BlogImage = "/BlogImages/" + filrName;
+        //        }
+        //        var domain = Mapper.Map<BlogMaster>(model);
+        //        string encodeUrl = model.Url.Replace(" ", "-");
+        //        domain.Url = Convert.ToString(encodeUrl);
+        //        domain.BlogImage = model.BlogImage;
+        //        domain.Date = DateTime.Now;
+        //        ent.BlogMasters.Add(domain);
+        //        ent.SaveChanges();
+        //        return Ok("Successfully Saved");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Ok ("Server error..");
+        //        return BadRequest("AddBlog");
+        //    }
+        //    return BadRequest("AddBlog");
+        //}
 
     }
 }

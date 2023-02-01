@@ -14,11 +14,7 @@ using AutoMapper;
 using System.Data.Entity;
 using System.Web.Security;
 using System.Data.Entity.SqlServer;
-using System.Web.Http;
-using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
-using AllowAnonymousAttribute = System.Web.Http.AllowAnonymousAttribute;
-using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
-using AuthorizeAttribute = System.Web.Http.AuthorizeAttribute;
+
 
 namespace KisanKiDukan.Controllers
 {
@@ -495,7 +491,52 @@ namespace KisanKiDukan.Controllers
 
         //======Add Blog=======
 
-        [HttpGet]
+        //[HttpGet]
+        //public ActionResult AddBlog()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult AddBlog(BlogMasterDTO model)
+        //{
+        //    try
+        //    {
+        //        if (model.BlogFile != null)
+        //        {
+        //            if (model.BlogFile.ContentLength > 3 * 1024 * 1024)
+        //            {
+        //                TempData["msg"] = "Image should not exceed 3 mb";
+        //                return View(model);
+        //            }
+        //            var allowedExtensions = new[] { ".jpeg", ".jpg", ".png", ".gif" };
+        //            string ext = Path.GetExtension(model.BlogFile.FileName);
+        //            if (!allowedExtensions.Contains(ext))
+        //            {
+        //                TempData["msg"] = "only .jpg, .jpeg, .gif and .png files are allowed";
+        //                return View(model);
+        //            }
+        //            var filrName = Guid.NewGuid().ToString() + Path.GetExtension(model.BlogFile.FileName);
+        //            model.BlogFile.SaveAs(Server.MapPath("/BlogImages/") + filrName);
+        //            model.BlogImage = "/BlogImages/" + filrName;
+        //        }
+        //        var domain = Mapper.Map<BlogMaster>(model);
+        //        string encodeUrl = model.Url.Replace(" ", "-");
+        //        domain.Url = Convert.ToString(encodeUrl);
+        //        domain.BlogImage = model.BlogImage;
+        //        domain.Date = DateTime.Now;
+        //        ent.BlogMasters.Add(domain);
+        //        ent.SaveChanges();
+        //        TempData["msg"] = "Successfully Saved";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["msg"] = "Server error..";
+        //        return RedirectToAction("AddBlog");
+        //    }
+        //    return RedirectToAction("AddBlog");
+        //}
+       
         public ActionResult AddBlog()
         {
             return View();
@@ -533,13 +574,14 @@ namespace KisanKiDukan.Controllers
                 ent.SaveChanges();
                 TempData["msg"] = "Successfully Saved";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 TempData["msg"] = "Server error..";
                 return RedirectToAction("AddBlog");
             }
             return RedirectToAction("AddBlog");
         }
+
         public ActionResult BlogDetails()
         {
             var model = new BlogMasterDTO();

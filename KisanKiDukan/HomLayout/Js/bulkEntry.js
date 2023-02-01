@@ -1,5 +1,6 @@
 ﻿
 $("#addNewabt").click(function () {
+    debugger
     let table = $("#attrTable");
     let lastRow = table.find("tr").last();
     let firstInput = lastRow.find(":input").first();
@@ -26,6 +27,7 @@ $("#addNewabt").click(function () {
 
 // deleting attribue
 $("#attrTable").on("click", "#btnDeleteAttr", function () {
+    debugger
     var btn = $(this);
     var currentRow = btn.parent().parent();
     // finding all rows after this row ad increase their index by 1

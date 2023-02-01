@@ -181,6 +181,8 @@
                                         <th>Metrics</th>
                                         <th>Price</th>
                                         <th>DiscountPrice(%)</th>
+                                        <th>OurPrice</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -189,6 +191,7 @@
                                         <td>@Html.DropDownListFor(a => a.PAvail[0].Metrics_Id, Model.MetricList, "Select", new { @class = "form-control" })</td>
                                         <td>@Html.TextBoxFor(a => a.PAvail[0].Price, new { type = "number", @class = "form-control" })</td>
                                         <td>@Html.TextBoxFor(a => a.PAvail[0].DiscountPrice, new { type = "number", @class = "form-control" })</td>
+                                        <td>@Html.TextBoxFor(a => a.PAvail[0].OurPrice, new { type = "number", @class = "form-control" })</td>
 
                                     </tr>
                                 </tbody>
