@@ -128,7 +128,7 @@ left join Metric mtr on prd.Metric_Id=mtr.MetricCode order by prd.Id desc").ToLi
                     product.ProductDescription = model.ProductDescription;
                     product.Metric_Id = model.Metric_Id;
                     product.IsStock = model.IsStock;
-                    //product.IsStock = model.IsStocks == true ? "yes" : "No";
+                    model.IsStocks = product.IsStock == true ? "In-Stock" : "Out Of-Stock";
                     product.IsReplacement = model.IsReplacement;
                     product.Quantity = model.Quantity;
                     product.IsFeatured = model.IsFeatured;

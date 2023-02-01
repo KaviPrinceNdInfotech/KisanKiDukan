@@ -25,6 +25,8 @@ namespace KisanKiDukan.Models.DTO
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public IEnumerable<Blogs> Blog { get; set; }
+
+        public HttpPostedFileBase ImageBase { get; set; }
     }
     public class Blogs
     {
@@ -36,5 +38,7 @@ namespace KisanKiDukan.Models.DTO
         public string Short { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+
+        public HttpPostedFileBase ImageBase { get; set; }
     }
 }

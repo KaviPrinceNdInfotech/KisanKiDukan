@@ -763,7 +763,7 @@ from DeliveryTimeSlot";
                                    //OurPrice = p.OurPrice,
                                    ProductDescription = p.ProductDescription,
                                    IsStock = p.IsStock,
-                                   IsStocks = p.IsStock == true ? "yes" : "No",
+                                   IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
                                    Quantity = p.Quantity,
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
@@ -833,7 +833,7 @@ from DeliveryTimeSlot";
                                 DiscountPrice = p.DiscountPrice,
                                 ProductDescription = p.ProductDescription,
                                 IsStock = p.IsStock,
-                                IsStocks = p.IsStock == true ? "yes" : "No",
+                                 IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 IsVariant = p.IsVariant,
                                 Metric_Id = p.Metric_Id
@@ -899,7 +899,7 @@ from DeliveryTimeSlot";
                                        DiscountPrice = p.DiscountPrice,
                                        ProductDescription = p.ProductDescription,
                                        IsStock = p.IsStock,
-                                       IsStocks = p.IsStock == true ? "yes" : "No",
+                                       IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
                                        Quantity = p.Quantity,
                                        IsVariant = p.IsVariant,
                                        Metric_Id = p.Metric_Id,
@@ -966,7 +966,7 @@ from DeliveryTimeSlot";
                                    DiscountPrice = p.DiscountPrice,
                                    ProductDescription = p.ProductDescription,
                                    IsStock = p.IsStock,
-                                   IsStocks = p.IsStock == true ? "yes" : "No",
+                                   IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
                                    Quantity = p.Quantity,
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
@@ -1033,7 +1033,7 @@ from DeliveryTimeSlot";
                                         DiscountPrice = p.DiscountPrice,
                                         ProductDescription = p.ProductDescription,
                                         IsStock = p.IsStock,
-                                        IsStocks = p.IsStock == true ? "yes" : "No",
+                                        IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
                                         Quantity = p.Quantity,
                                         IsVariant = p.IsVariant,
                                         Metric_Id = p.Metric_Id,
@@ -1155,45 +1155,26 @@ from DeliveryTimeSlot";
             }
         }
 
-        //[HttpPost, Route("api/ProductAPI/AddBlog")]
-        //public IHttpActionResult AddBlog(BlogMasterDTO model)
-        //{
-        //    try
-        //    {
-        //        if (model.BlogFile != null)
-        //        {
-        //            if (model.BlogFile.ContentLength > 3 * 1024 * 1024)
-        //            {
-        //                return Ok("Image should not exceed 3 mb");
-        //                return Ok(model);
-        //            }
-        //            var allowedExtensions = new[] { ".jpeg", ".jpg", ".png", ".gif" };
-        //            string ext = Path.GetExtension(model.BlogFile.FileName);
-        //            if (!allowedExtensions.Contains(ext))
-        //            {
-        //                return Ok("only .jpg, .jpeg, .gif and .png files are allowed");
-        //                return Ok(model);
-        //            }
-        //            var filrName = Guid.NewGuid().ToString() + Path.GetExtension(model.BlogFile.FileName);
-        //            model.BlogFile.SaveAs(Server.MapPath("/BlogImages/") + filrName);
-        //            model.BlogImage = "/BlogImages/" + filrName;
-        //        }
-        //        var domain = Mapper.Map<BlogMaster>(model);
-        //        string encodeUrl = model.Url.Replace(" ", "-");
-        //        domain.Url = Convert.ToString(encodeUrl);
-        //        domain.BlogImage = model.BlogImage;
-        //        domain.Date = DateTime.Now;
-        //        ent.BlogMasters.Add(domain);
-        //        ent.SaveChanges();
-        //        return Ok("Successfully Saved");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Ok ("Server error..");
-        //        return BadRequest("AddBlog");
-        //    }
-        //    return BadRequest("AddBlog");
-        //}
+        [HttpGet, Route("api/ProductAPI/Blog")]
+        public IHttpActionResult Blog()
+        {
+            try
+            {
+                var result = ent.BlogMasters.ToList();
+                if (result != null)
+                {
+                    return Ok(new { result, status = 200, message = "Blog" });
+                }
+                else
+                {
+                    return BadRequest("No Any Blog");
+                }
+            }
+            catch
+            {
+                return BadRequest("Server Error");
+            }
+        }
 
     }
 }
