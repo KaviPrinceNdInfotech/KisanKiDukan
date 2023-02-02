@@ -20,6 +20,18 @@
           <Property Name="Pincode" Type="nvarchar" MaxLength="6" />
           <Property Name="Message" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="Discount_Coupon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="CouponCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Flat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="MinimumAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MaximumAmount" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="ADCategory">
           <Key>
             <PropertyRef Name="Id" />
@@ -904,6 +916,7 @@
         </Function>
         <EntityContainer Name="admin_KisanKiDukanModelStoreContainer">
           <EntitySet Name="Bulkorder" EntityType="Self.Bulkorder" Schema="admin_KisaanKiDukaan" store:Type="Tables" />
+          <EntitySet Name="Discount_Coupon" EntityType="Self.Discount_Coupon" Schema="admin_KisaanKiDukaan" store:Type="Tables" />
           <EntitySet Name="ADCategory" EntityType="Self.ADCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ADProduct" EntityType="Self.ADProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ADProductDetail" EntityType="Self.ADProductDetail" Schema="dbo" store:Type="Tables" />
@@ -1730,6 +1743,7 @@
           <EntitySet Name="ShippingAddresses" EntityType="admin_KisanKiDukanModel.ShippingAddress" />
           <EntitySet Name="VendorPincodes" EntityType="admin_KisanKiDukanModel.VendorPincode" />
           <EntitySet Name="Bulkorders" EntityType="admin_KisanKiDukanModel.Bulkorder" />
+          <EntitySet Name="Discount_Coupon" EntityType="admin_KisanKiDukanModel.Discount_Coupon" />
         </EntityContainer>
         <ComplexType Name="getCSExistProductBy_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1812,6 +1826,18 @@
           <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Pincode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Discount_Coupon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="CouponCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MinimumAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MaximumAmount" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2533,6 +2559,19 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discount_Coupon">
+            <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Discount_Coupon">
+              <MappingFragment StoreEntitySet="Discount_Coupon">
+                <ScalarProperty Name="MaximumAmount" ColumnName="MaximumAmount" />
+                <ScalarProperty Name="MinimumAmount" ColumnName="MinimumAmount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

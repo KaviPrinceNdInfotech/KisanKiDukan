@@ -653,7 +653,37 @@ namespace KisanKiDukan.Controllers
         }
         //======End Blog=======
 
+        //====create coupon====
 
-      
+        public ActionResult CreateCuopon()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateCuopon(Discount_Coupon model)
+        {
+            try
+            {
+                int otpValue = new Random().Next(10000, 99999);
+                Discount_Coupon emp = new Discount_Coupon()
+                {
+                    CouponCode = "Gyros" + otpValue,
+                    Amount = model.Amount,
+                    Name = model.Name,
+                    MaximumAmount = model.MaximumAmount,
+                    MinimumAmount = model.MinimumAmount
+                };
+                ent.Discount_Coupon.Add(emp);
+                ent.SaveChanges();
+                ModelState.Clear();
+                TempData["Coupon"] = "Coupon Create SuceeFully";
+                return View();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Server Error");
+            }
+        }
+
     }
 }

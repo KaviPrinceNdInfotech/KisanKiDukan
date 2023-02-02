@@ -404,6 +404,9 @@
     <Compile Include="Models\Domain\DiscountType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Domain\Discount_Coupon.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Domain\DownPyment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1606,6 +1609,7 @@
     <Content Include="Views\Home\AllProducts.cshtml" />
     <Content Include="Views\Home\SubCatProducts.cshtml" />
     <Content Include="Views\Admin\AddBlogs.cshtml" />
+    <Content Include="Views\Admin\CreateCuopon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

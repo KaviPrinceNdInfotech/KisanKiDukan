@@ -80,6 +80,7 @@ namespace KisanKiDukan.Models.Domain
         public virtual DbSet<ShippingAddress> ShippingAddresses { get; set; }
         public virtual DbSet<VendorPincode> VendorPincodes { get; set; }
         public virtual DbSet<Bulkorder> Bulkorders { get; set; }
+        public virtual DbSet<Discount_Coupon> Discount_Coupon { get; set; }
     
         public virtual ObjectResult<getCSExistProductBy_Result> getCSExistProductBy(Nullable<int> productId, Nullable<int> storeId, Nullable<int> wheight, Nullable<int> metricCode)
         {

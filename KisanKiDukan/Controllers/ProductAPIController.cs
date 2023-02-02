@@ -121,6 +121,12 @@ namespace KisanKiDukan.Controllers
             model.Status = "1";
             return Ok(model);
         }
+        [HttpGet]
+        public IHttpActionResult GetProductbycategoryId(int id)
+        {
+          var result = ent.Products.Where(x => x.Category_Id == id).ToList();
+            return Ok(new {products=result});
+        }
 
         [HttpPost, Route("api/ProductAPI/ProductOrder")]
         public IHttpActionResult ProductOrder(OrderModel model)
@@ -1080,9 +1086,8 @@ from DeliveryTimeSlot";
             return Ok(model);
         }
 
-
-        [HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
-        public IHttpActionResult GetProduct(int id)
+        [HttpGet, Route("api/ProductAPI/GetProduct")]
+        public IHttpActionResult GetProduct()
         {
             try
             {
@@ -1090,7 +1095,6 @@ from DeliveryTimeSlot";
                              join c in ent.Categories on p.Category_Id equals c.Id
                              select new Product1()
                              {
-
                                  Id = p.Id,
                                  ProductName = p.ProductName,
                                  ProductImage = p.ProductImage,
@@ -1118,41 +1122,155 @@ from DeliveryTimeSlot";
                 return BadRequest("Server Error");
             }
         }
-        [HttpGet, Route("api/ProductAPI/GetProduct")]
-        public IHttpActionResult GetProduct()
+
+
+        //[HttpGet, Route("api/ProductAPI/GetProduct")]
+        //public IHttpActionResult GetProduct()
+        //{
+        //    try
+        //    {
+        //        var result = from p in ent.Products
+        //                     join c in ent.Categories on p.Category_Id equals c.Id
+        //                     select new Product1()
+        //                     {
+        //                         Id = p.Id,
+        //                         ProductName = p.ProductName,
+        //                         ProductImage = p.ProductImage,
+        //                         ProductDescription = p.ProductDescription,
+        //                         Price = p.Price,
+        //                         IsReviewsAllow = p.IsReviewsAllow,
+        //                         Quantity = p.Quantity,
+        //                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
+        //                         DiscountPrice = p.DiscountPrice,
+        //                         CategoryName = c.CategoryName,
+        //                         CategoryImage = c.CategoryImage,
+        //                         multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
+        //                     };
+        //        if (result != null)
+        //        {
+        //            return Ok(new { result, status = 200, message = "SubCategory" });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest("Category Not Available");
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return BadRequest("Server Error");
+        //    }
+        //}
+
+
+        //[HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
+        //public IHttpActionResult GetProduct(int id)
+        //{
+        //    try
+        //    {
+        //        var result = from p in ent.Products
+        //                     join c in ent.Categories on p.Category_Id equals c.Id
+        //                     select new Product1()
+        //                     {
+
+        //                         Id = p.Id,
+        //                         ProductName = p.ProductName,
+        //                         ProductImage = p.ProductImage,
+        //                         ProductDescription = p.ProductDescription,
+        //                         Price = p.Price,
+        //                         IsReviewsAllow = p.IsReviewsAllow,
+        //                         Quantity = p.Quantity,
+        //                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
+        //                         DiscountPrice = p.DiscountPrice,
+        //                         CategoryName = c.CategoryName,
+        //                         CategoryImage = c.CategoryImage,
+        //                         multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
+        //                     };
+        //        if (result != null)
+        //        {
+        //            return Ok(new { result, status = 200, message = "SubCategory" });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest("Category Not Available");
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return BadRequest("Server Error");
+        //    }
+        //}
+
+
+
+        [HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
+        public IHttpActionResult GetProduct(int categoryId, int? page)
         {
-            try
+            var model = new ProductDisplayModel();
+            page = page ?? 1;
+            int pageSize = 20;
+            decimal noOfPages = Math.Ceiling((decimal)2 / pageSize);
+            var products = (from p in ent.Products
+                            join c in ent.Categories on p.Category_Id equals c.Id
+                            join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                            where p.Category_Id == categoryId
+                            select new ProductModel
+                            {
+                                ProductName = p.ProductName,
+                                ProductImage = p.ProductImage,
+                                CategoryName = c.CategoryName,
+                                Metrics = m.Metrics,
+                                Id = p.Id,
+                                Price = p.Price,
+                                OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
+                                DiscountPrice = p.DiscountPrice,
+                                ProductDescription = p.ProductDescription,
+                                IsStock = p.IsStock,
+                                IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
+                                Quantity = p.Quantity,
+                                IsVariant = p.IsVariant,
+                                Metric_Id = p.Metric_Id
+                            }
+                           ).ToList();
+            foreach (var prod in products)
             {
-                var result = from p in ent.Products
-                             join c in ent.Categories on p.Category_Id equals c.Id
-                             select new Product1()
-                             {
-                                 Id = p.Id,
-                                 ProductName = p.ProductName,
-                                 ProductImage = p.ProductImage,
-                                 ProductDescription = p.ProductDescription,
-                                 Price = p.Price,
-                                 IsReviewsAllow=p.IsReviewsAllow,
-                                 Quantity = p.Quantity,
-                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
-                                 DiscountPrice = p.DiscountPrice,
-                                 CategoryName = c.CategoryName,
-                                 CategoryImage =c.CategoryImage,
-                                 multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
-                             };
-                if (result != null)
+                if (prod.IsVariant)
                 {
-                    return Ok(new { result, status = 200, message = "SubCategory" });
-                }
-                else
-                {
-                    return BadRequest("Category Not Available");
+                    var variants = new List<VariantModel>();
+                    var metric = ent.Metrics.Where(a => a.MetricCode == prod.Metric_Id).FirstOrDefault();
+                    var v = new VariantModel
+                    {
+                        Metric = metric == null ? "" : metric.Metrics,
+                        Metric_Id = prod.Metric_Id ?? 0,
+                        Product_Id = prod.Id,
+                        Weight = prod.Quantity ?? 0,
+                        Price = prod.OurPrice ?? prod.Price ?? 0,
+                        IsStock = prod.IsStock
+                    };
+                    variants.Add(v);
+                    var vars = (from var in ent.Product_Availability
+                                join me in ent.Metrics on var.Metrics_Id equals me.MetricCode into var_me
+                                from vm in var_me.DefaultIfEmpty()
+                                where var.Product_Id == prod.Id
+                                select new VariantModel
+                                {
+                                    Product_Id = var.Product_Id ?? 0,
+                                    Metric_Id = var.Metrics_Id ?? 0,
+                                    Weight = var.Quantity ?? 0,
+                                    Metric = vm.Metrics,
+                                    Price = var.OurPrice ?? var.Price,
+                                    Variant_Id = var.Id,
+                                    IsStock = var.IsAvailable
+                                }
+                                    ).ToList();
+                    variants.AddRange(vars);
+                    prod.Variants = variants;
                 }
             }
-            catch
-            {
-                return BadRequest("Server Error");
-            }
+            model.Products = products;
+            model.Page = page;
+            model.NumberOfPages = (int)noOfPages;
+            return Ok(model);
+
         }
 
         [HttpGet, Route("api/ProductAPI/Blog")]

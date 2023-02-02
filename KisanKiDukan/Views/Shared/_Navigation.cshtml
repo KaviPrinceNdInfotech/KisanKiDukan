@@ -38,136 +38,159 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 @if (User.IsInRole("admin"))
-                    {
-                <li class="treeview">
-                    <a href="/Admin/Dashboard">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Premium MemberShip</span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/AdminOpration/Add"> <i class="fa fa-fw fa-dashboard"></i> Add Membership</a></li>
-                        <li><a href="/AdminOpration/All"> <i class="fa fa-fw fa-dashboard"></i> View All</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                        <span>Product</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/Product/Add"><i class="fa fa-angle-right"></i> Add New Product</a></li>
-                        <li><a href="/Product/Products"><i class="fa fa-angle-right"></i>  View Product</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                        <span>Category</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/Category/Add"><i class="fa fa-angle-right"></i> Add New Category</a></li>
-                        <li><a href="/Category/Categories"><i class="fa fa-angle-right"></i> View Category</a></li>
-                        <li><a href="/Category/AddSub"><i class="fa fa-angle-right"></i>  Add Sub Category</a></li>
-                        <li><a href="/Category/SubCategories"><i class="fa fa-angle-right"></i>  View Sub Category</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                        <span>Stock</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/Store/MultipleProductStockEntry"><i class="fa fa-angle-right"></i> Add Stock</a></li>
-                        <li><a href="/Store/MultipleStock"><i class="fa fa-angle-right"></i> View Stock</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-edit"></i> <span>Master Entries</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/DeliveryTimeSlot/Add"><i class="fa fa-angle-right"></i>  Manage Time Slot</a></li>
-                        <li><a href="/DeliveryCharge/Manage"><i class="fa fa-angle-right"></i> Manage Delivery Charge</a></li>
-                        <li><a href="/DeliveryOption/Add"><i class="fa fa-angle-right"></i> Manage Delivery Option</a></li>
-                        <li><a href="/StateCityLocManager/AddState"><i class="fa fa-angle-right"></i> Add State</a></li>
-                        <li><a href="/StateCityLocManager/AddCity"><i class="fa fa-angle-right"></i> Add City</a></li>
-                        <li><a href="/PincodeMaster/Add"><i class="fa fa-angle-right"></i> Add Pincode</a></li>
-                        <li><a href="/Product/Metrics"><i class="fa fa-angle-right"></i> Add Metrics</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i> <span>Banner</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/OfferBanner/AddOfferBanner"><i class="fa fa-angle-right"></i> Add Banner</a></li>
-                        <li><a href="/OfferBanner/ShowBanner"><i class="fa fa-angle-right"></i> View Banner</a></li>
-                        <li><a href="/OfferBanner/Pbaner"><i class="fa fa-angle-right"></i> Add P-Banner</a></li>
-                        <li><a href="/OfferBanner/ShowPBanner"><i class="fa fa-angle-right"></i> View P-Banner</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                        <span>Category For AD</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/ADCategory/Add"><i class="fa fa-angle-right"></i> Add New ADCategory</a></li>
-                        <li><a href="/ADCategory/AdCategory"><i class="fa fa-angle-right"></i> View ADCategory</a></li>
-                        <li><a href="/ADCategory/AddSub"><i class="fa fa-angle-right"></i>  Add ADSubCategory</a></li>
-                        <li><a href="/ADCategory/AdSubCategories"><i class="fa fa-angle-right"></i>  View ADSubCategory</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-table"></i> <span>Blog</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/Admin/AddBlog"><i class="fa fa-angle-right"></i> Add Blog</a></li>
-                        <li><a href="/Admin/BlogDetails"><i class="fa fa-angle-right"></i> View Blog</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/Admin/Orders">
-                        <i class="fa fa-th"></i> <span>Orders</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Vendor/All">
-                        <i class="fa fa-th"></i> <span>Vendor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Admin/Customers">
-                        <i class="fa fa-th"></i> <span>Customer</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-th"></i> <span>Payout</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ContentPage/Add?menuId=@((int)Menu.AboutUs)">
-                        <i class="fa fa-th"></i> <span>About Us</span>
-                    </a>
-                </li>
+                {
+                    <li class="treeview">
+                        <a href="/Admin/Dashboard">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Premium MemberShip</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/AdminOpration/Add"> <i class="fa fa-fw fa-dashboard"></i> Add Membership</a></li>
+                            <li><a href="/AdminOpration/All"> <i class="fa fa-fw fa-dashboard"></i> View All</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Product</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Product/Add"><i class="fa fa-angle-right"></i> Add New Product</a></li>
+                            <li><a href="/Product/Products"><i class="fa fa-angle-right"></i>  View Product</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Category</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Category/Add"><i class="fa fa-angle-right"></i> Add New Category</a></li>
+                            <li><a href="/Category/Categories"><i class="fa fa-angle-right"></i> View Category</a></li>
+                            <li><a href="/Category/AddSub"><i class="fa fa-angle-right"></i>  Add Sub Category</a></li>
+                            <li><a href="/Category/SubCategories"><i class="fa fa-angle-right"></i>  View Sub Category</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Stock</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Store/MultipleProductStockEntry"><i class="fa fa-angle-right"></i> Add Stock</a></li>
+                            <li><a href="/Store/MultipleStock"><i class="fa fa-angle-right"></i> View Stock</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Master Entries</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/DeliveryTimeSlot/Add"><i class="fa fa-angle-right"></i>  Manage Time Slot</a></li>
+                            <li><a href="/DeliveryCharge/Manage"><i class="fa fa-angle-right"></i> Manage Delivery Charge</a></li>
+                            <li><a href="/DeliveryOption/Add"><i class="fa fa-angle-right"></i> Manage Delivery Option</a></li>
+                            <li><a href="/StateCityLocManager/AddState"><i class="fa fa-angle-right"></i> Add State</a></li>
+                            <li><a href="/StateCityLocManager/AddCity"><i class="fa fa-angle-right"></i> Add City</a></li>
+                            <li><a href="/PincodeMaster/Add"><i class="fa fa-angle-right"></i> Add Pincode</a></li>
+                            <li><a href="/Product/Metrics"><i class="fa fa-angle-right"></i> Add Metrics</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Banner</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/OfferBanner/AddOfferBanner"><i class="fa fa-angle-right"></i> Add Banner</a></li>
+                            <li><a href="/OfferBanner/ShowBanner"><i class="fa fa-angle-right"></i> View Banner</a></li>
+                            <li><a href="/OfferBanner/Pbaner"><i class="fa fa-angle-right"></i> Add P-Banner</a></li>
+                            <li><a href="/OfferBanner/ShowPBanner"><i class="fa fa-angle-right"></i> View P-Banner</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Category For AD</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/ADCategory/Add"><i class="fa fa-angle-right"></i> Add New ADCategory</a></li>
+                            <li><a href="/ADCategory/AdCategory"><i class="fa fa-angle-right"></i> View ADCategory</a></li>
+                            <li><a href="/ADCategory/AddSub"><i class="fa fa-angle-right"></i>  Add ADSubCategory</a></li>
+                            <li><a href="/ADCategory/AdSubCategories"><i class="fa fa-angle-right"></i>  View ADSubCategory</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Blog</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Admin/AddBlog"><i class="fa fa-angle-right"></i> Add Blog</a></li>
+                            <li><a href="/Admin/BlogDetails"><i class="fa fa-angle-right"></i> View Blog</a></li>
+                        </ul>
+                    </li>
+                    /*discoun*/
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Discount Coupon</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Admin/CreateCuopon"><i class="fa fa-angle-right"></i> Create Cuopon</a></li>
+                            <li><a href="/Admin/ListCoupon"><i class="fa fa-angle-right"></i> List of Coupon</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
+
+                    <li>
+
+                        <a href="/Admin/Orders">
+
+                            <i class="fa fa-th"></i> <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Vendor/All">
+                            <i class="fa fa-th"></i> <span>Vendor</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Customers">
+                            <i class="fa fa-th"></i> <span>Customer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-th"></i> <span>Payout</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ContentPage/Add?menuId=@((int)Menu.AboutUs)">
+                            <i class="fa fa-th"></i> <span>About Us</span>
+                        </a>
+                    </li>
                 }
-                    else if (User.IsInRole("Vendor"))
-                    {
-                <!-------------------------Vendor Navigation-------------------->
-                <li class="treeview">
+                else if (User.IsInRole("Vendor"))
+                {
+                    <!-------------------------Vendor Navigation-------------------->
+                    <li class="treeview">
                         <a href="/Vendor/SellerDashboard">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
@@ -249,7 +272,7 @@
                             <i class="fa fa-th"></i> <span>Payout</span>
                         </a>
                     </li>
-                    }
+                }
             </ul>
         </div>
     </nav>
