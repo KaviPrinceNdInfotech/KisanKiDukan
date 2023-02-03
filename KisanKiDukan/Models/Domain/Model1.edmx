@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CouponCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Flat" Type="nvarchar" MaxLength="50" />
           <Property Name="Amount" Type="nvarchar" MaxLength="50" />

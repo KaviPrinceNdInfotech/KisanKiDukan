@@ -1087,40 +1087,65 @@ from DeliveryTimeSlot";
         }
 
         [HttpGet, Route("api/ProductAPI/GetProduct")]
-        public IHttpActionResult GetProduct()
+        public IHttpActionResult GetProduct(int productId)
         {
-            try
+            var products = (from p in ent.Products
+                            join c in ent.Categories on p.Category_Id equals c.Id
+                            join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                            where p.Id == productId
+                            select new ProductModel
+                            {
+                                ProductName = p.ProductName,
+                                ProductImage = p.ProductImage,
+                                CategoryName = c.CategoryName,
+                                Category_Id = p.Category_Id,
+                                Metrics = m.Metrics,
+                                Id = p.Id,
+                                Price = p.Price,
+                                OurPrice = p.OurPrice,
+                                ProductDescription = p.ProductDescription,
+                                IsStock = p.IsStock,
+                                IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
+                                Quantity = p.Quantity,
+                                IsVariant = p.IsVariant,
+                                Metric_Id = p.Metric_Id
+                            }
+                           ).FirstOrDefault();
+
+            if (products != null && products.IsVariant)
             {
-                var result = from p in ent.Products
-                             join c in ent.Categories on p.Category_Id equals c.Id
-                             select new Product1()
-                             {
-                                 Id = p.Id,
-                                 ProductName = p.ProductName,
-                                 ProductImage = p.ProductImage,
-                                 ProductDescription = p.ProductDescription,
-                                 Price = p.Price,
-                                 IsReviewsAllow = p.IsReviewsAllow,
-                                 Quantity = p.Quantity,
-                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
-                                 DiscountPrice = p.DiscountPrice,
-                                 CategoryName = c.CategoryName,
-                                 CategoryImage = c.CategoryImage,
-                                 multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
-                             };
-                if (result != null)
+                var variants = new List<VariantModel>();
+                var metric = ent.Metrics.Find(products.Metric_Id);
+                var v = new VariantModel
                 {
-                    return Ok(new { result, status = 200, message = "SubCategory" });
-                }
-                else
-                {
-                    return BadRequest("Category Not Available");
-                }
+                    Metric = metric == null ? "" : metric.Metrics,
+                    Metric_Id = products.Metric_Id ?? 0,
+                    Product_Id = products.Id,
+                    Weight = products.Quantity ?? 0,
+                    Price = products.OurPrice ?? products.Price ?? 0,
+                    IsStock = products.IsStock
+                };
+                variants.Add(v);
+                var vars = (from var in ent.Product_Availability
+                            join me in ent.Metrics on var.Metrics_Id equals me.MetricCode into var_me
+                            from vm in var_me.DefaultIfEmpty()
+                            where var.Product_Id == productId
+                            select new VariantModel
+                            {
+                                Product_Id = var.Product_Id ?? 0,
+                                Metric_Id = var.Metrics_Id ?? 0,
+                                Weight = var.Quantity ?? 0,
+                                Metric = vm.Metrics,
+                                Price = var.OurPrice ?? var.Price,
+                                Variant_Id = var.Id,
+                                IsStock = var.IsAvailable
+                            }
+                                ).ToList();
+                variants.AddRange(vars);
+                products.Variants = variants;
             }
-            catch
-            {
-                return BadRequest("Server Error");
-            }
+
+            return Ok(products);
         }
 
 
@@ -1199,7 +1224,6 @@ from DeliveryTimeSlot";
         //        return BadRequest("Server Error");
         //    }
         //}
-
 
 
         [HttpGet, Route("api/ProductAPI/GetProduct/{id}")]

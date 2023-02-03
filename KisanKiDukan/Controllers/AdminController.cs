@@ -655,6 +655,30 @@ namespace KisanKiDukan.Controllers
 
         //====create coupon====
 
+        public ActionResult ListCoupon()
+        {
+            return View(ent.Discount_Coupon.ToList());
+        }
+
+        public ActionResult DeleteCoupon(int id)
+        {
+            try
+            {
+                var result = ent.Discount_Coupon.FirstOrDefault(x => x.id == id);
+                if (result != null)
+                {
+                    ent.Discount_Coupon.Remove(result);
+                    ent.SaveChanges();
+
+                }
+                TempData["coumpon-delete"] = "Coupon Delete SuccessFully";
+                return RedirectToAction("ListCoupon");
+            }
+            catch
+            {
+                throw new Exception("Server Error");
+            }
+        }
         public ActionResult CreateCuopon()
         {
             return View();
@@ -676,7 +700,7 @@ namespace KisanKiDukan.Controllers
                 ent.Discount_Coupon.Add(emp);
                 ent.SaveChanges();
                 ModelState.Clear();
-                TempData["Coupon"] = "Coupon Create SuceeFully";
+                TempData["Coupon"] = "Coupon Create successfully";
                 return View();
             }
             catch (Exception ex)
