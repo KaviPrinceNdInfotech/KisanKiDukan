@@ -1,18 +1,61 @@
 ﻿@model KisanKiDukan.Models.Domain.Discount_Coupon
 
 @{
-    ViewBag.Title = "CreateCuopon";
-    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    //ViewBag.Title = "CreateCuopon";
+    //Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>CreateCuopon</h2>
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+    }
+
+    legend a {
+        color: black;
+    }
+
+    legend.legendStyle {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    fieldset.fsStyle {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: small;
+        font-weight: normal;
+        border: 1px solid #999999;
+        padding: 4px;
+        margin: 5px;
+    }
+
+    legend.legendStyle {
+        font-size: 90%;
+        color: #888888;
+        font-weight: bold;
+    }
+
+    legend {
+        width: auto;
+        border-bottom: 0px;
+    }
+
+    .col-lg-1 {
+        width: 25.333333%;
+    }
+</style>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Discount_Coupon</h4>
+        @*<h4>Discount_Coupon</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -71,6 +114,6 @@
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

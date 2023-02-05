@@ -109,6 +109,7 @@ namespace KisanKiDukan.Controllers
 
         }
 
+        //===Registration With verify otp=====
         [HttpPost, Route("api/Customer/Registration")]
         public IHttpActionResult Registration(Customer model)
         {
@@ -171,7 +172,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
-
+        //===Registration verification otp api=====
         [HttpPost, Route("api/Customer/OtpVerifywithRegistration")]
         public IHttpActionResult OtpVerifywithRegistration(MobileLogin model)
         {
@@ -196,8 +197,10 @@ namespace KisanKiDukan.Controllers
                 return BadRequest("Server Error");
             }
         }
-        [HttpPost]
-        [Route("api/Customer/LoginMobileOrEmail")]
+
+        //====LoginMobileOrEmail otp send api==== 
+
+        [HttpPost,Route("api/Customer/LoginMobileOrEmail")]
         public IHttpActionResult LoginMobileOrEmail(MobileLogin model)
         {
             try
@@ -271,6 +274,8 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====MobileOrEmailOtpVerify api====
+
         [HttpPost, Route("api/Customer/MobileOrEmailOtpVerify")]
         public IHttpActionResult MobileOrEmailOtpVerify(MobileLogin model)
         {
@@ -295,6 +300,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====LoginWithEmail api====
 
         [HttpPost, Route("api/Customer/LoginWithEmail")]
         [AllowAnonymous]
@@ -327,6 +333,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====UserProfile api====
 
         [HttpGet, Route("api/Customer/UserProfile")]
         public IHttpActionResult UserProfile(string email)
@@ -342,7 +349,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
-
+        //====ChangePWD api====
         [HttpPost]
         [Route("api/Customer/ChangePWD")]
         public IHttpActionResult ChangePWD(ChangePWDReturnModel log)
@@ -369,6 +376,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====ChangeProfile api====
 
         [HttpPost]
         [Route("api/Customer/ChangeProfile")]
@@ -404,6 +412,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====ForgotPWD api====
         [HttpPost]
         [Route("api/Customer/ForgotPWD")]
         public IHttpActionResult ForgotPWD(ForgotReturnModel ud)
@@ -431,6 +440,8 @@ namespace KisanKiDukan.Controllers
             }
 
         }
+
+        //====GetUserByEmail api====
 
         [HttpPost]
         [Route("api/Customer/GetUserByEmail")]
@@ -460,6 +471,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //=====Wallet api====
         [HttpGet, Route("api/Customer/GetAmountBy")]
         public IHttpActionResult GetAmountBy(int id)
         {
@@ -511,6 +523,9 @@ namespace KisanKiDukan.Controllers
                 return InternalServerError(ex);
             }
         }
+
+        //====Premium=====
+
         [HttpGet, Route("api/Customer/GetPremiumAmt")]
         public IHttpActionResult GetPremiumAmt()
         {
@@ -537,6 +552,7 @@ namespace KisanKiDukan.Controllers
             return Ok(rm);
         }
 
+        //====Bulkorder=====
         [HttpPost, Route("api/Customer/Bulkorder")]
         public IHttpActionResult Bulkorder(Bulkorder model)
         {

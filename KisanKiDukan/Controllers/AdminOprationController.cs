@@ -80,6 +80,7 @@ namespace KisanKiDukan.Controllers
 
                         select new MembershipDTO
                         {
+                            Customer_Id=mbrshp.Customer_Id,
                             FullName = cust.FullName,
                             Phone = cust.Phone,
                             Amount = mbrshp.Amount,

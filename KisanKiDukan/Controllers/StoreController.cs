@@ -24,10 +24,11 @@ namespace KisanKiDukan.Controllers
         [HttpPost]
         public ActionResult MultipleProductStockEntry(ProductSaleModel model)
         {
+            
             int? uId = null;
             if (User.IsInRole("admin"))
             {
-                uId = cr.GetDepotId();
+                  uId = cr.GetDepotId();
             }
             using (var trans = ent.Database.BeginTransaction())
             {
@@ -41,7 +42,7 @@ namespace KisanKiDukan.Controllers
                         var exist = new CentralStore();
                         if (uId != null)
                         {
-                            exist = ent.Database.SqlQuery<CentralStore>(@"exec getCSExistProductBy Product_Id = " + item.Product_Id + " and Store_Id = " + uId + " , @wheight =" + item.Wheight + " , @metricCode = " + item.Metric_Id + "").FirstOrDefault();
+                            exist = ent.Database.SqlQuery<CentralStore>(@"exec getCSExistProductBy @productId= " + item.Product_Id + " , @storeId = " + uId + " , @wheight =" + item.Wheight + " , @metricCode = " + item.Metric_Id + "").FirstOrDefault();
                         }
                         else
                         {

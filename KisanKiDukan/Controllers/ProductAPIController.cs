@@ -25,7 +25,7 @@ namespace KisanKiDukan.Controllers
     public class ProductAPIController : ApiController
     {
         DbEntities ent = new DbEntities();
-
+        //====SearchProducts api====
         [HttpGet, Route("api/ProductAPI/SearchProducts")]
         public IHttpActionResult SearchProducts(string term)
         {
@@ -45,6 +45,8 @@ namespace KisanKiDukan.Controllers
                 return NotFound();
             }
         }
+
+        //====GetProductByCategories api====
 
         [HttpGet, Route("api/ProductAPI/GetProductByCategories")]
         public IHttpActionResult GetProductByCategories(int id, int userId)
@@ -83,6 +85,8 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====GetAllProducts api====
+
         [HttpGet] 
         public IHttpActionResult GetAllProducts(int userId)
         {
@@ -103,6 +107,8 @@ namespace KisanKiDukan.Controllers
 
         }
 
+        //====GetCategory api====
+
         [HttpGet, Route("api/ProductAPI/GetCategory")]
         public IHttpActionResult GetCategory()
         {
@@ -121,6 +127,9 @@ namespace KisanKiDukan.Controllers
             model.Status = "1";
             return Ok(model);
         }
+
+        //====GetProductbycategoryId api====
+
         [HttpGet]
         public IHttpActionResult GetProductbycategoryId(int id)
         {
@@ -128,6 +137,7 @@ namespace KisanKiDukan.Controllers
             return Ok(new {products=result});
         }
 
+        //====ProductOrder api====
         [HttpPost, Route("api/ProductAPI/ProductOrder")]
         public IHttpActionResult ProductOrder(OrderModel model)
         {
@@ -282,6 +292,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====CategoryOrders api====
         [HttpGet, Route("api/ProductAPI/CategoryOrders")]
         public IHttpActionResult CategoryOrders(int id)
         {
@@ -316,6 +327,8 @@ namespace KisanKiDukan.Controllers
             model.Status = "0";
             return Ok(model);
         }
+
+        //====GetProductOrderUser api====
 
         [HttpGet, Route("api/ProductAPI/GetProductOrderUser")]
         public IHttpActionResult GetProductOrderUser(int Order_Id, int User_Id)
@@ -366,6 +379,7 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+        //====CancelledCategoryOrder api====
 
         [HttpGet, Route("api/ProductAPI/CancelledCategoryOrder")]
         public IHttpActionResult CancelledCategoryOrder(int id)
@@ -399,6 +413,8 @@ namespace KisanKiDukan.Controllers
             model.Status = "0";
             return Ok(model);
         }
+
+        //====CancelledSubCategoryOrder api====
 
         [HttpGet, Route("api/ProductAPI/CancelledSubCategoryOrder")]
         public IHttpActionResult CancelledSubCategoryOrder(int Order_Id, int User_Id)
@@ -444,6 +460,8 @@ namespace KisanKiDukan.Controllers
 
             }
         }
+
+        //====CancelOrderBy api====
 
         [HttpPost, Route("api/ProductAPI/CancelOrderBy")]
         public IHttpActionResult CancelOrderBy(CancelOrderReturnModel cod)
@@ -515,6 +533,8 @@ namespace KisanKiDukan.Controllers
 
         }
 
+        //====Banners api====
+
         [HttpGet, Route("api/ProductAPI/Banners")]
         public IHttpActionResult Banners()
         {
@@ -541,6 +561,8 @@ namespace KisanKiDukan.Controllers
             return Ok(model);
 
         }
+
+        //====PBanners api====
 
         [HttpGet, Route("api/ProductAPI/PBanners")]
         public IHttpActionResult PBanners()
@@ -569,6 +591,8 @@ namespace KisanKiDukan.Controllers
 
         }
 
+        //====VariantByProduct api====
+
         [HttpGet, Route("api/ProductAPI/VariantByProduct")]
         public IHttpActionResult VariantByProduct(int id, int userId)
         {
@@ -590,6 +614,8 @@ namespace KisanKiDukan.Controllers
             return Ok(model);
         }
 
+        //====GetOrderDetail api====
+
         [HttpGet]
         public IHttpActionResult GetOrderDetail(int orderId)
         {
@@ -603,6 +629,7 @@ where od.Order_Id=" + orderId;
             return Ok(rm);
         }
 
+        //====CancelSingleItem api====
         [HttpGet]
         public IHttpActionResult CancelSingleItem(int orderDetailId)
         {
@@ -637,6 +664,7 @@ where od.Order_Id=" + orderId;
             return Ok(rm);
         }
 
+        //====GetDeliveryCharge api====
         [HttpGet]
         public IHttpActionResult GetDeliveryCharge()
         {
@@ -654,6 +682,7 @@ where od.Order_Id=" + orderId;
             return Ok(obj);
         }
 
+        //====CheckPincodeAvailability api====
         [HttpGet]
         public IHttpActionResult CheckPincodeAvailability(string pincode)
         {
@@ -662,6 +691,8 @@ where od.Order_Id=" + orderId;
             dta.IsAvailable = isAvailable;
             return Ok(dta);
         }
+
+        //====GetDeliveryTimeSlots api====
 
         [HttpGet]
         public IHttpActionResult GetDeliveryTimeSlots()
@@ -674,6 +705,8 @@ from DeliveryTimeSlot";
             rm.TimeSlots = data;
             return Ok(rm);
         }
+
+        //====GetproductbyIdanduserid api====
 
         [HttpGet, Route("api/ProductAPI/GetproductbyIdanduserid")]
         public IHttpActionResult GetproductbyIdanduserid(int id, int userId)
@@ -745,6 +778,8 @@ from DeliveryTimeSlot";
                 return Ok(model);
             }
         }
+
+        //==== start Giftboxes api====
 
         [HttpGet, Route("api/ProductAPI/HotDetails")]
         public IHttpActionResult HotDetails()
@@ -1086,8 +1121,11 @@ from DeliveryTimeSlot";
             return Ok(model);
         }
 
-        [HttpGet, Route("api/ProductAPI/GetProduct")]
-        public IHttpActionResult GetProduct(int productId)
+        //==== GetProductDetail api====
+
+
+        [HttpGet, Route("api/ProductAPI/GetProductDetail")]
+        public IHttpActionResult GetProductDetail(int productId)
         {
             var products = (from p in ent.Products
                             join c in ent.Categories on p.Category_Id equals c.Id
@@ -1148,43 +1186,46 @@ from DeliveryTimeSlot";
             return Ok(products);
         }
 
+        //==== GetProduct api====
 
-        //[HttpGet, Route("api/ProductAPI/GetProduct")]
-        //public IHttpActionResult GetProduct()
-        //{
-        //    try
-        //    {
-        //        var result = from p in ent.Products
-        //                     join c in ent.Categories on p.Category_Id equals c.Id
-        //                     select new Product1()
-        //                     {
-        //                         Id = p.Id,
-        //                         ProductName = p.ProductName,
-        //                         ProductImage = p.ProductImage,
-        //                         ProductDescription = p.ProductDescription,
-        //                         Price = p.Price,
-        //                         IsReviewsAllow = p.IsReviewsAllow,
-        //                         Quantity = p.Quantity,
-        //                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
-        //                         DiscountPrice = p.DiscountPrice,
-        //                         CategoryName = c.CategoryName,
-        //                         CategoryImage = c.CategoryImage,
-        //                         multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
-        //                     };
-        //        if (result != null)
-        //        {
-        //            return Ok(new { result, status = 200, message = "SubCategory" });
-        //        }
-        //        else
-        //        {
-        //            return BadRequest("Category Not Available");
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        return BadRequest("Server Error");
-        //    }
-        //}
+        [HttpGet, Route("api/ProductAPI/GetProduct")]
+        public IHttpActionResult GetProduct()
+        {
+            try
+            {
+                var result = from p in ent.Products
+                             join c in ent.Categories on p.Category_Id equals c.Id
+                             select new Product1()
+                             {
+                                 Id = p.Id,
+                                 ProductName = p.ProductName,
+                                 ProductImage = p.ProductImage,
+                                 ProductDescription = p.ProductDescription,
+                                 Price = p.Price,
+                                 IsReviewsAllow = p.IsReviewsAllow,
+                                 Quantity = p.Quantity,
+                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
+                                 DiscountPrice = p.DiscountPrice,
+                                 CategoryName = c.CategoryName,
+                                 CategoryImage = c.CategoryImage,
+                                 multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
+                             };
+                if (result != null)
+                {
+                    return Ok(new { result, status = 200, message = "SubCategory" });
+                }
+                else
+                {
+                    return BadRequest("Category Not Available");
+                }
+            }
+            catch
+            {
+                return BadRequest("Server Error");
+            }
+        }
+
+
 
 
         //[HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
@@ -1225,6 +1266,9 @@ from DeliveryTimeSlot";
         //    }
         //}
 
+
+
+        //==== GetProduct/{id} api====
 
         [HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
         public IHttpActionResult GetProduct(int categoryId, int? page)
@@ -1297,6 +1341,8 @@ from DeliveryTimeSlot";
 
         }
 
+
+        //====Blog api====
         [HttpGet, Route("api/ProductAPI/Blog")]
         public IHttpActionResult Blog()
         {
@@ -1310,6 +1356,29 @@ from DeliveryTimeSlot";
                 else
                 {
                     return BadRequest("No Any Blog");
+                }
+            }
+            catch
+            {
+                return BadRequest("Server Error");
+            }
+        }
+
+        //====CouponList api====
+        [HttpGet, Route("api/ProductAPI/CouponList")]
+        public IHttpActionResult CouponList()
+        {
+            try
+            {
+                // var result = (from c in ent.Discount_Coupon select c.CouponCode).ToList();
+                var result = ent.Discount_Coupon.ToList().Select(x => new { x.id, x.CouponCode, x.Amount, x.Name, x.MinimumAmount, x.MaximumAmount });
+                if (result != null)
+                {
+                    return Ok(new { result, status = 200, message = "Coupon List" });
+                }
+                else
+                {
+                    return BadRequest("No Coupon Available");
                 }
             }
             catch
