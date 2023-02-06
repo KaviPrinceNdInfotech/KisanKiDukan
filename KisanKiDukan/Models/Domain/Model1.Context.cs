@@ -102,5 +102,35 @@ namespace KisanKiDukan.Models.Domain
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getCSExistProductBy_Result>("getCSExistProductBy", productIdParameter, storeIdParameter, wheightParameter, metricCodeParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> GETPRODUCTIDBYNAME(string productName)
+        {
+            var productNameParameter = productName != null ?
+                new ObjectParameter("ProductName", productName) :
+                new ObjectParameter("ProductName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GETPRODUCTIDBYNAME", productNameParameter);
+        }
+    
+        public virtual int UpdateVendorDetails(Nullable<int> commission, Nullable<int> paymentgatewayCharge, Nullable<int> deliveryCharge, Nullable<int> id)
+        {
+            var commissionParameter = commission.HasValue ?
+                new ObjectParameter("commission", commission) :
+                new ObjectParameter("commission", typeof(int));
+    
+            var paymentgatewayChargeParameter = paymentgatewayCharge.HasValue ?
+                new ObjectParameter("paymentgatewayCharge", paymentgatewayCharge) :
+                new ObjectParameter("paymentgatewayCharge", typeof(int));
+    
+            var deliveryChargeParameter = deliveryCharge.HasValue ?
+                new ObjectParameter("DeliveryCharge", deliveryCharge) :
+                new ObjectParameter("DeliveryCharge", typeof(int));
+    
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateVendorDetails", commissionParameter, paymentgatewayChargeParameter, deliveryChargeParameter, idParameter);
+        }
     }
 }

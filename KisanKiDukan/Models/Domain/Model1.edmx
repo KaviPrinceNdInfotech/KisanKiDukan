@@ -652,6 +652,10 @@
           <Property Name="FoodLicence" Type="nvarchar(max)" />
           <Property Name="BusinessDocumnet" Type="nvarchar(max)" />
           <Property Name="State" Type="nvarchar" MaxLength="100" />
+          <Property Name="Commission" Type="int" />
+          <Property Name="PaymentGatewayCharge" Type="int" />
+          <Property Name="DeliveryCharge" Type="int" />
+          <Property Name="IsApproved" Type="bit" />
         </EntityType>
         <EntityType Name="VendorPincode">
           <Key>
@@ -898,6 +902,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GETPRODUCTIDBYNAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="admin_KisaanKiDukaan">
+          <Parameter Name="ProductName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateVendorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="admin_KisaanKiDukaan">
+          <Parameter Name="commission" Type="int" Mode="In" />
+          <Parameter Name="paymentgatewayCharge" Type="int" Mode="In" />
+          <Parameter Name="DeliveryCharge" Type="int" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="getCSExistProductBy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="productId" Type="int" Mode="In" />
           <Parameter Name="storeId" Type="int" Mode="In" />
@@ -1626,6 +1639,10 @@
           <Property Name="FoodLicence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BusinessDocumnet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Commission" Type="Int32" />
+          <Property Name="PaymentGatewayCharge" Type="Int32" />
+          <Property Name="DeliveryCharge" Type="Int32" />
+          <Property Name="IsApproved" Type="Boolean" />
         </EntityType>
         <EntityType Name="Wallet">
           <Key>
@@ -1744,6 +1761,15 @@
           <EntitySet Name="VendorPincodes" EntityType="admin_KisanKiDukanModel.VendorPincode" />
           <EntitySet Name="Bulkorders" EntityType="admin_KisanKiDukanModel.Bulkorder" />
           <EntitySet Name="Discount_Coupon" EntityType="admin_KisanKiDukanModel.Discount_Coupon" />
+          <FunctionImport Name="GETPRODUCTIDBYNAME" ReturnType="Collection(Int32)">
+          <Parameter Name="ProductName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateVendorDetails">
+            <Parameter Name="commission" Mode="In" Type="Int32" />
+            <Parameter Name="paymentgatewayCharge" Mode="In" Type="Int32" />
+            <Parameter Name="DeliveryCharge" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="getCSExistProductBy_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2430,6 +2456,10 @@
           <EntitySetMapping Name="Vendors">
             <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Vendor">
               <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="DeliveryCharge" ColumnName="DeliveryCharge" />
+                <ScalarProperty Name="PaymentGatewayCharge" ColumnName="PaymentGatewayCharge" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="VendorName" ColumnName="VendorName" />
                 <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
@@ -2576,6 +2606,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GETPRODUCTIDBYNAME" FunctionName="admin_KisanKiDukanModel.Store.GETPRODUCTIDBYNAME" />
+          <FunctionImportMapping FunctionImportName="UpdateVendorDetails" FunctionName="admin_KisanKiDukanModel.Store.UpdateVendorDetails" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

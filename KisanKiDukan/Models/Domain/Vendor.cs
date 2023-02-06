@@ -43,5 +43,9 @@ namespace KisanKiDukan.Models.Domain
         public string FoodLicence { get; set; }
         public string BusinessDocumnet { get; set; }
         public string State { get; set; }
+        public Nullable<int> Commission { get; set; }
+        public Nullable<int> PaymentGatewayCharge { get; set; }
+        public Nullable<int> DeliveryCharge { get; set; }
+        public Nullable<bool> IsApproved { get; set; }
     }
 }

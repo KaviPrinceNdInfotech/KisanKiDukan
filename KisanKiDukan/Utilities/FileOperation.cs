@@ -9,13 +9,13 @@ namespace KisanKiDukan.Utilities
     public class FileOperation
     {
 
-        public static string UploadImage(HttpPostedFileBase File, string folderName)
+        public static string UploadImage(HttpPostedFileBase File,string Images)
         {
             var allowedExtensions = new[] { ".jpeg", ".jpg", ".png", ".gif" };
-            return UploadFile(File, folderName, allowedExtensions);
+            return UploadFile(File, "Images", allowedExtensions);
         }
 
-        private static string UploadFile(HttpPostedFileBase File, string folderName, string[] allowedExtensions)
+        private static string UploadFile(HttpPostedFileBase File, string Images, string[] allowedExtensions)
         {
             DateTime dt = DateTime.Now;
             //var allowedExtensions = new[] { ".pdf" };
@@ -27,7 +27,7 @@ namespace KisanKiDukan.Utilities
 
             string ext = Path.GetExtension(ImageName);
 
-            string physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/" + folderName + "/" + savedFileName + ext);
+            string physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/" + Images + "/" + savedFileName + ext);
 
             if (!allowedExtensions.Contains(ext))
             {

@@ -37,7 +37,18 @@
                         <th>Contact Person</th>
                         <th>Email</th>
                         <th>Mobile</th>
+                        <th>AccountNumber</th>
+                        <th>IFSC_Code</th>
+                        <th>BankName</th>
                         <th>Registration Date</th>
+                        <th>AddressProof</th>
+                        <th>CancelCheque</th>
+                        <th>SignedDocument</th>
+                        <th>GovtCertificate</th>
+                        <th>FoodLicence</th>
+                        <th>BusinessDocumnet</th>
+                        <th>Commercial</th>
+                        <th>Approval</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -49,12 +60,89 @@
                             <td>@item.ContactPerson</td>
                             <td>@item.EmailId</td>
                             <td>@item.ContactNumber</td>
+                            <td>@item.AccountNumber</td>
+                            <td>@item.IFSC_Code</td>
+                            <td>@item.BankName</td>
                             <td>@item.RegistrationDate.ToString("dd-MMM-yyyy")</td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
-                            <span class="btn btn-danger" onclick="deleteRecord('/Vendor/Delete?id=@item.Id')">Delete</span>
-                        </td>
-                    </tr>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.AddressProof))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.CancelCheque))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.SignedDocument))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.GovtCertificate))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.FoodLicence))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+                            <td>
+                                @if (string.IsNullOrEmpty(item.BusinessDocumnet))
+                                {
+                                    <span>No image</span>
+                                }
+                                else
+                                {
+                                    <img style="width:100px;height:60px" src="~/Images/@item.AddressProof">
+                                }
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Commercial", "Commercial", new { id = item.Id }, new { @class = "btn btn-info" })
+                            </td>
+                            <td>
+                                @if (item.IsApproved)
+                                {
+                                    @Html.ActionLink("Approved", "UpdateStatus", new { id = item.Id }, new { @class = "btn btn-success" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Disapproved", "UpdateStatus", new { id = item.Id }, new { @class = "btn btn-danger" })
+                                }
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+                                <span class="btn btn-danger" onclick="deleteRecord('/Vendor/Delete?id=@item.Id')">Delete</span>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

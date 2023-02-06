@@ -1225,9 +1225,6 @@ from DeliveryTimeSlot";
             }
         }
 
-
-
-
         //[HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
         //public IHttpActionResult GetProduct(int id)
         //{

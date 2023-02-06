@@ -221,7 +221,7 @@ namespace KisanKiDukan.Controllers
         
         public ActionResult All(string term = "", int page = 1)
         {
-            var model = new VendorListVm();
+            var model = new VendorListVm();           
             var data = Mapper.Map<IEnumerable<VendorDTO>>(ent.Vendors.OrderByDescending(a => a.Id).ToList()).ToList();
             if (!string.IsNullOrEmpty(term))
             {
@@ -239,6 +239,35 @@ namespace KisanKiDukan.Controllers
             model.Page = page;
             model.NumberOfPages = (int)totalPages;
             return View(model);
+        }
+
+        public ActionResult UpdateStatus(int id)
+        {
+            ent.Database.ExecuteSqlCommand(@"update Vendor set IsApproved=case when IsApproved=1 then 0 else 1 end where Id= " + id);
+            return RedirectToAction("All");
+        }
+
+        public ActionResult Commercial(int id)
+        {
+            var vendor = ent.Vendors.Find(id);
+            var model = Mapper.Map<VendorDTO>(vendor);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Commercial(VendorDTO model)
+        {
+            try
+            {
+                int executed = ent.UpdateVendorDetails(model.Commission,model.PaymentGatewayCharge,model.DeliveryCharge,model.Id);
+                TempData["msg"] = "Record(s) has saved successfully.";
+                return RedirectToAction("All");
+            }
+            catch (Exception ex)
+            {
+                TempData["msg"] = "Server error.";
+                return View(model);
+            }
         }
         public ActionResult Delete(int id)
         {
@@ -285,6 +314,7 @@ namespace KisanKiDukan.Controllers
                 return View(model);
             }
         }
+
         public ActionResult PaymentHistory()
         {
             return View();

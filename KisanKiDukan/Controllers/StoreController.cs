@@ -34,9 +34,10 @@ namespace KisanKiDukan.Controllers
             {
                 try
                 {
+                    var ProductId=ent.GETPRODUCTIDBYNAME(model.ProductName);
+                    
                     if (model.Products.Count < 1)
                         throw new Exception("You must have products");
-
                     foreach (var item in model.Products)
                     {
                         var exist = new CentralStore();

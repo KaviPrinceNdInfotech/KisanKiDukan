@@ -1611,6 +1611,7 @@
     <Content Include="Views\Admin\AddBlogs.cshtml" />
     <Content Include="Views\Admin\CreateCuopon.cshtml" />
     <Content Include="Views\Admin\ListCoupon.cshtml" />
+    <Content Include="Views\Vendor\Commercial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

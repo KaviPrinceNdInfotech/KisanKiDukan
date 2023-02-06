@@ -76,6 +76,13 @@ namespace KisanKiDukan.Models.DTO
         public SelectList BusinessStatuList { get; set; }
         [Required]
         public string State { get; set; }
+
+        public int Commission { get; set; }
+        public int PaymentGatewayCharge { get; set; }
+        public int DeliveryCharge { get; set; }
+
+
+        public bool IsApproved { get; set; }
         public SelectList StateList { get; set; }
         public string Message { get; set; }
         public string Status { get; set; }
