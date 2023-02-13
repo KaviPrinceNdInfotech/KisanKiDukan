@@ -1,0 +1,71 @@
+﻿@model KisanKiDukan.Models.DTO.ProductSaleModel
+@{
+    ViewBag.Title = "Product Stock";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 2%;
+    }
+
+    #main {
+        width: 95%;
+        margin: auto;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+<div id="main">
+    <h2 class="page-header">Product Stock </h2>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Weight</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Products != null && Model.Products.Count() > 0)
+                    {
+                        foreach (var item in Model.Products)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>
+                                    <span>@item.Wheight</span> <span>@item.MetricName</span>
+                                </td>
+                                <td>
+                                    @item.Stock
+                                </td>
+                                <td>
+                                    <a href="/Store/SingleProductStockEntry?productId=@item.Product_Id" class="btn btn-info"><i class="fa fa-plus"></i>Add More</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+@*<link href="~/css/dataTables.css" rel="stylesheet" />
+<script src="~/js/jquery-2.1.4.min.js"></script>
+<script src="~/js/jquery.dataTables.min.js"></script>*@
+<script>
+    $("#myTable").DataTable();
+</script>

@@ -1,0 +1,411 @@
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\AutoMapper.Net4.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\ApplicationInsights.config
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\csc.exe
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Collections.Immutable.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Reflection.Metadata.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\vbc.exe
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe.config
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll.config
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.pdb
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\AutoMapper.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\EntityFramework.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Web.Infrastructure.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Owin.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Razorpay.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\WebGrease.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\AutoMapper.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.pdb
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\EntityFramework.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.xml
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.dll
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.pdb
+D:\Amit Kumar\ProjectKisanKiDukan\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csprojResolveAssemblyReference.cache
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.Net4.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\ApplicationInsights.config
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\csc.exe
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\vbc.exe
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll.config
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.pdb
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Owin.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Razorpay.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\WebGrease.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.pdb
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.xml
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csprojAssemblyReference.cache
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csproj.CoreCompileInputs.cache
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csproj.CopyComplete
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.dll
+C:\Users\Amit\Desktop\KisanKiDukan (1)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.pdb
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.Net4.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\ApplicationInsights.config
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\csc.exe
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Collections.Immutable.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Reflection.Metadata.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\vbc.exe
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe.config
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll.config
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.pdb
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Web.Infrastructure.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Owin.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Razorpay.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\WebGrease.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.pdb
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.xml
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csprojResolveAssemblyReference.cache
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.dll
+D:\Amit Kumar\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.Net4.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\ApplicationInsights.config
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\csc.exe
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Collections.Immutable.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\System.Reflection.Metadata.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\vbc.exe
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\roslyn\VBCSCompiler.exe.config
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll.config
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\KisanKiDukan.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Agent.Intercept.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Web.Infrastructure.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Owin.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Razorpay.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\WebGrease.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\AutoMapper.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.DependencyCollector.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.Web.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AI.WindowsServer.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.ApplicationInsights.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Newtonsoft.Json.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Net.Http.Formatting.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Helpers.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.WebHost.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Mvc.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Optimization.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Razor.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Deployment.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.WebPages.Razor.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Antlr3.Runtime.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\EntityFramework.SqlServer.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Core.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Facebook.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Cookies.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.OAuth.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Google.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Twitter.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Owin.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csproj.AssemblyReference.cache
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csproj.CoreCompileInputs.cache
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.csproj.CopyComplete
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\obj\Release\KisanKiDukan.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Cors.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Cors.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Web.Http.Cors.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Abstractions.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Logging.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Tokens.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Jwt.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Abstractions.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Logging.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.IdentityModel.Tokens.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Microsoft.Owin.Security.Jwt.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\grpc_csharp_ext.x86.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\grpc_csharp_ext.x64.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\libgrpc_csharp_ext.x64.so
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\libgrpc_csharp_ext.x64.dylib
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.Api.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Buffers.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Memory.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.Api.pdb
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\Grpc.Core.Api.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Buffers.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Memory.xml
+D:\KisanKiDukan (02-24-21)\KisanKiDukan (02-24-21)\KisanKiDukan\KisanKiDukan\bin\System.Runtime.CompilerServices.Unsafe.xml

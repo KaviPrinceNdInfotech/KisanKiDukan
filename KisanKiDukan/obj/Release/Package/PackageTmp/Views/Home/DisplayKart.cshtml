@@ -1,0 +1,82 @@
+﻿@model KisanKiDukan.Models.ViewModels.KartModel
+@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    int i = 1;
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+   
+}
+
+@*<link href="/css/font-awesome.min.css" rel="stylesheet" />*@
+<h1>Display Cart</h1>
+@*<div style="margin-left:2%;margin-top:2%">
+    <h2>My Cart</h2>
+    
+  
+    @if (Model != null && Model.Data != null)
+    {
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td>
+                        <img src="/Images/@item.Image" style="height:90px;width:130px"/>
+                    </td>
+                    <td>@item.Product</td>
+                    <td>@item.Price</td>
+                    <td class="form-inline">
+                        <a href="/Home/MinusOne?Id=@item.Id&Pro_Id=@item.PID"><i class="fa fa-minus-circle"></i></a>                        
+                        
+                        <input type="number" value="@item.Quantity" class="form-control" style="width:50px" readonly />
+                        <a href="/Home/plusOne?Id=@item.Id&Pro_Id=@item.PID"><i class="fa fa-plus-circle"></i></a>
+                    </td>
+                    <td><a href="/Home/RemoveProduct?Id=@item.Id&Pro_Id=@item.PID"><i class="fa fa-trash-o"></i>Delete</a></td>
+                </tr>
+            }
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <th>Total : Rs @Model.Total</th>
+               
+            </tr>
+        </tbody>
+       
+    </table>
+    
+    }
+
+    else
+    {
+        <div style="margin-top:1%">
+            <h4>Your basket is empty. Start shopping now!</h4>
+        </div>
+    }
+    <div class="row" style="margin-bottom:10px">
+        <div class="form-inline" style="float:left">
+            <a href="/Home/Index" class="btn btn-primary" >Continue Shopping</a>
+@if (string.IsNullOrEmpty(user))
+{
+    <a href="/Home/Login" class="btn btn-primary">Order Now</a>
+}
+else
+{
+    <a href="/Checkout/CreateOrder" class="btn btn-primary">Order Now</a>
+}
+
+        </div>
+        
+    </div>
+    
+</div>*@

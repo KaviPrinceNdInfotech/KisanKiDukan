@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Products</h4>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <input name="term" placeholder="Search by name" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Search" class="btn btn-info" />
+            <a href="/Product/Products" class="btn btn-primary">All</a>
+        </div>
+
+        <div class="col-md-1"><a href="/Product/Add" class="btn btn-primary">Add more</a></div>
+    </div>
+}
+@if (Model.Products.Count > 0)
+{
+    <div style="overflow:scroll">
+    <table class="table table-responsive table-striped table-bordered no-break text-nowrap">
+        <tr>
+            <th>Product</th>
+            <th>Bar Code</th>
+            <th>HSN Code</th>
+            <th>Image</th>
+            <th>Category/Sub Category</th>
+            <th>Has Variant</th>
+            <th>Product Status</th>
+            <th>MRP</th>
+            <th>Discount(%)</th>
+            <th>Our Price</th>
+            <th>Weight</th>
+            <th>Shipping Charge</th>
+            <th>Vendor Name</th>
+            <th>Link</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Barcode</td>
+                <td>@item.HsnCode</td>
+                <td>
+                    @if (string.IsNullOrEmpty(item.ProductImage))
+                    {
+                        <span>No image</span>
+                    }
+                    else
+                    {
+                        <img style="width:100px;height:60px" src="~/Images/@item.ProductImage">
+                    }
+                </td>
+                <td>@item.CategoryName / @item.SubCategory</td>
+                <td>
+                    @if (item.IsVariant)
+                    {
+                        <span>Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>
+                    @if (item.IsStock == true)
+                    {
+                        <a href="/Product/PStatus?id=@item.Id" class="btn btn-success">In-Stock</a>
+                    }
+                    else
+                    {
+                        <a href="/Product/PStatus?id=@item.Id" class="btn btn-danger">Out Of-Stock</a>
+                    }
+                </td>
+                <td>@item.Price</td>
+                @*<td>@item.DiscountPrice</td>*@
+                <td>@item.DiscountPrice</td>
+                <td>@item.OurPrice</td>
+                <td>
+                    <span>@item.Quantity</span>&nbsp;<span>
+                        @if (!string.IsNullOrEmpty(item.Metrics))
+                        {
+                            <span>@item.Metrics</span>
+                        }
+                    </span>
+                </td>
+                <td>
+                    @item.ShippingCharge
+                </td>
+                <td>
+                    @item.VendorName
+                </td>
+                <td>
+                    @item.VendorId
+                </td>
+                <td>@item.ProductDescription</td>
+                <td>
+                    <a href="/Product/Edit?id=@item.Id" class="btn btn-info">Edit</a>
+                    @if (item.IsVariant)
+                    {
+                        <a href="/Product/Variant?id=@item.Id" class="btn btn-info">Variant</a>
+                    }
+                    else
+                    {
+                        <a href="/Product/AddMoreVarint?productId=@item.Id" class="btn btn-info">Add Variant</a>
+                    }
+                    @*<a href="/Store/IndividualStock?productId=@item.Id" class="btn btn-info">Stock</a>*@
+                    <span class="btn btn-danger" onclick="deleteRecord('/Product/Delete?id=@item.Id')">Delete</span>
+                </td>
+            </tr>
+    }
+    </table>
+        </div>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.NumberOfPages; i++)
+        {
+            if (Model.Page == i)
+            {
+                <li class="active"><a href="/Product/Products?page=@i">@i</a></li>
+            }
+            else
+            {
+                <li><a href="/Product/Products?page=@i">@i</a></li>
+            }
+        }
+    </ul>
+}
+
+else
+{
+    <h4>No records found</h4>
+}
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+    function deleteRecord(url) {
+        if (window.confirm('do you want to delete?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+</script>
+

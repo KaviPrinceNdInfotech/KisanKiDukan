@@ -1,0 +1,55 @@
+﻿@model KisanKiDukan.Models.DTO.BlogMasterDTO
+@{
+    ViewBag.Title = "AddBlogs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Scripts/js/Library/editor.css" rel="stylesheet" />
+<h2>Add Blog</h2>
+<a href="~/Admin/BlogDetails" class="btn btn-primary" style="margin:auto">View Blog</a>
+@if (TempData["msg"] != null)
+{
+    <br /><span style="color:red;">@TempData["msg"]</span>
+}
+
+@using (Html.BeginForm("AddBlog", "Admin", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div class="form-group">
+        URL Text* :
+        @Html.TextBoxFor(a => a.Url, new { @class = "form-control" })
+        <span style="color:red">@Html.ValidationMessageFor(a => a.Url)</span>
+    </div>
+    <div class="form-group">
+        Blog Image* :
+        @Html.TextBoxFor(a => a.BlogFile, new { @class = "form-control", type = "file" })
+        <span style="color:red">@Html.ValidationMessageFor(a => a.BlogFile)</span>
+    </div>
+    <div class="form-group">
+        Heading Text* :
+        @Html.TextBoxFor(a => a.Heading, new { @class = "form-control" })
+        <span style="color:red">@Html.ValidationMessageFor(a => a.Heading)</span>
+    </div>
+    <div class="form-group">
+        Short Description Text* :
+        @Html.TextAreaFor(a => a.Short, new { @class = "form-control" })
+        <span style="color:red">@Html.ValidationMessageFor(a => a.Short)</span>
+        <span>
+
+        </span>
+    </div>
+    <div class="form-group">
+        Description* :<br />
+        @Html.TextAreaFor(a => a.Description, 8, 7, htmlAttributes: new { id = "editor" })
+        <span style="color:red">@Html.ValidationMessageFor(a => a.Description)</span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+}
+
+<script src="/Scripts/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    CKEDITOR.replace('editor');
+</script>
+
+

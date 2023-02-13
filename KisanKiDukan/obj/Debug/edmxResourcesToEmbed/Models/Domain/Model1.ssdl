@@ -1,0 +1,1058 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="admin_KisanKiDukanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bulkorder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fullname" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="300" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="6" />
+    <Property Name="Message" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Discount_Coupon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CouponCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Flat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="MinimumAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MaximumAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ADCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentCategory" Type="int" />
+    <Property Name="CategoryImage" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsFeature" Type="bit" Nullable="false" />
+    <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ADProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="float" />
+    <Property Name="ADImage" Type="nvarchar(max)" />
+    <Property Name="VendorId" Type="int" />
+  </EntityType>
+  <EntityType Name="ADProductDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADProductId" Type="int" />
+    <Property Name="ADImages" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ADSubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CatImage" Type="nvarchar(max)" />
+    <Property Name="UpToText" Type="nvarchar" MaxLength="50" />
+    <Property Name="MainCat_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="BannerImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BannerPath" Type="nvarchar(max)" />
+    <Property Name="OfferValue" Type="int" />
+    <Property Name="Category_Id" Type="int" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="SortOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="BlogCategory_Id" Type="int" />
+    <Property Name="Author" Type="nvarchar" MaxLength="200" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Publish" Type="date" />
+  </EntityType>
+  <EntityType Name="BlogComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Blog_Id" Type="int" Nullable="false" />
+    <Property Name="CommentAuthor" Type="nvarchar" MaxLength="200" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="AuthorEmail" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="BlogMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="BlogImage" Type="nvarchar(max)" />
+    <Property Name="Heading" Type="nvarchar(max)" />
+    <Property Name="Short" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BusinessStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessFStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentCategory" Type="int" />
+    <Property Name="CategoryImage" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsFeature" Type="bit" Nullable="false" />
+    <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CentralStore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="Store_Id" Type="int" />
+    <Property Name="Metric_Id" Type="int" />
+    <Property Name="wheight" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="100" />
+    <Property Name="State_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContentPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Menu_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="300" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="6" />
+    <Property Name="Mebr_Amount" Type="float" />
+    <Property Name="IsPremiumMember" Type="bit" />
+    <Property Name="PremiumMemberOn" Type="datetime" />
+    <Property Name="otp" Type="int" />
+    <Property Name="Email_Otp" Type="int" />
+    <Property Name="Isverify" Type="bit" />
+  </EntityType>
+  <EntityType Name="DeliveryChargeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryCharge" Type="float" Nullable="false" />
+    <Property Name="MinAmt" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TimeDay" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DeliveryOption">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OptionName" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="DeliveryPincode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DeliveryTimeSlot">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="SlotCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiscountInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="DiscVal_Id" Type="int" />
+    <Property Name="Discount" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="100" />
+    <Property Name="EndDate" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="DiscountType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiscountValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="DownPyment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="MeritalStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" />
+    <Property Name="PinCode" Type="int" />
+    <Property Name="PAN/Aadhar Number" Type="nvarchar" MaxLength="100" />
+    <Property Name="MonthlyIncome" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="product_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Enquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Kart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client_Id" Type="int" Nullable="false" />
+    <Property Name="Sys_Ip" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="KartDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kart_Id" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Metric_Id" Type="int" />
+    <Property Name="IsVariant" Type="bit" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="KartSysIp" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LoginMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Membership">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Percentage" Type="float" Nullable="false" />
+    <Property Name="BenifitAmount" Type="float" Nullable="false" />
+    <Property Name="DistributionMonth" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="350" />
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Metric">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Metrics" Type="varchar" MaxLength="20" />
+    <Property Name="MetricCode" Type="int" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="Total" Type="float" Nullable="false" />
+    <Property Name="OrderStatus_Id" Type="int" Nullable="false" />
+    <Property Name="PaymentType_Id" Type="int" Nullable="false" />
+    <Property Name="PaymentStatus" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="State" Type="nvarchar" MaxLength="30" />
+    <Property Name="Client_Id" Type="int" Nullable="false" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="PaymentMode" Type="varchar" MaxLength="50" />
+    <Property Name="Transaction_No" Type="bigint" Nullable="false" />
+    <Property Name="IsCancel" Type="bit" Nullable="false" />
+    <Property Name="DeliveryDate" Type="date" />
+    <Property Name="IsDelivered" Type="bit" Nullable="false" />
+    <Property Name="IsReturned" Type="bit" Nullable="false" />
+    <Property Name="DeliveryOption_Id" Type="int" />
+    <Property Name="PrivateNote" Type="nvarchar(max)" />
+    <Property Name="DeliveryCharges" Type="float" Nullable="false" />
+    <Property Name="StatusUpdateDate" Type="datetime" />
+    <Property Name="ScheduleDate" Type="datetime" />
+    <Property Name="SlotCode" Type="int" />
+    <Property Name="TimeSlot" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsOffline" Type="bit" Nullable="false" />
+    <Property Name="Store_Id" Type="int" />
+    <Property Name="Invoice_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="350" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="IsOrdered" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="DeliveryDate" Type="datetime" />
+    <Property Name="IsDelivered" Type="bit" Nullable="false" />
+    <Property Name="IfReturned" Type="bit" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+    <Property Name="FinalPrice" Type="float" Nullable="false" />
+    <Property Name="DiscountValue" Type="float" Nullable="false" />
+    <Property Name="ServiceTax" Type="float" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Metrics" Type="varchar" MaxLength="20" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="IsCancel" Type="bit" Nullable="false" />
+    <Property Name="OrderStatus_Id" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="CancellationDate" Type="datetime" />
+    <Property Name="StatusUpdateDate" Type="datetime" />
+    <Property Name="VendorId" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="150" />
+    <Property Name="StatusCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OtherMultipaleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar(max)" />
+    <Property Name="OtheVenderId" Type="int" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentMode" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="premiumMembershipAmount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ValidTill" Type="int" />
+    <Property Name="UpToText" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Category_Id" Type="int" />
+    <Property Name="ProductImage" Type="nvarchar" MaxLength="200" />
+    <Property Name="Price" Type="float" />
+    <Property Name="ProductDescription" Type="nvarchar(max)" />
+    <Property Name="Metric_Id" Type="int" />
+    <Property Name="IsStock" Type="bit" Nullable="false" />
+    <Property Name="OfferValue" Type="int" />
+    <Property Name="OfferType" Type="int" />
+    <Property Name="Page_Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsReplacement" Type="bit" Nullable="false" />
+    <Property Name="ReplacementTC" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="IsFeatured" Type="bit" Nullable="false" />
+    <Property Name="IsFreeShipping" Type="bit" Nullable="false" />
+    <Property Name="ShippingCharge" Type="float" Nullable="false" />
+    <Property Name="IsReviewsAllow" Type="bit" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="200" />
+    <Property Name="Brand_Id" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="DiscountCode_Id" Type="int" />
+    <Property Name="OurPrice" Type="float" />
+    <Property Name="IsVariant" Type="bit" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="HsnCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsRecomend" Type="bit" Nullable="false" />
+    <Property Name="PremiumAmount" Type="float" />
+    <Property Name="SubId" Type="int" />
+    <Property Name="IsHotdeals" Type="bit" />
+    <Property Name="IsFeatureProduct" Type="bit" />
+    <Property Name="IsSpecial" Type="bit" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="CGST" Type="float" />
+    <Property Name="SGST" Type="float" />
+    <Property Name="IGST" Type="float" />
+    <Property Name="DiscountPrice" Type="float" />
+    <Property Name="AvailPincode" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_Availability">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="Metrics_Id" Type="int" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="IsAvailable" Type="bit" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="OurPrice" Type="float" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Product_Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsLead" Type="bit" />
+    <Property Name="AttrValue_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductBrand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="150" />
+    <Property Name="BrandLogo" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Page_Url" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsFeature" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Tittle" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReviewDate" Type="datetime" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="AdminComment" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="promotionalbanner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="promotionalbannerpath" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RefferalMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Refer_Id" Type="int" Nullable="false" />
+    <Property Name="User_Email" Type="varchar" MaxLength="100" />
+    <Property Name="Login_Id" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Rating" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="80" />
+    <Property Name="ReviewTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReviewDesc" Type="nvarchar(max)" />
+    <Property Name="SubmitDate" Type="datetime" />
+    <Property Name="Image" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ShippingAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="BlockNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="LoginMaster_Id" Type="int" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CatImage" Type="nvarchar(max)" />
+    <Property Name="UpToText" Type="nvarchar" MaxLength="50" />
+    <Property Name="MainCat_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="VenderCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityList" Type="nvarchar(max)" />
+    <Property Name="State_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="VenderLocality">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalityList" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="VenderState">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateList" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoginMaster_Id" Type="int" Nullable="false" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="Adress" Type="nvarchar(max)" />
+    <Property Name="city" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="LegalCompanyName" Type="nvarchar(max)" />
+    <Property Name="BusinessFilingStatus" Type="nvarchar(max)" />
+    <Property Name="PAN_No" Type="nvarchar" MaxLength="20" />
+    <Property Name="RegisteredAddress" Type="nvarchar(max)" />
+    <Property Name="OperatingAddress" Type="nvarchar(max)" />
+    <Property Name="PayToName" Type="nvarchar" MaxLength="200" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="IFSC_Code" Type="nvarchar" MaxLength="20" />
+    <Property Name="BranchAddress" Type="nvarchar(max)" />
+    <Property Name="PanCard" Type="nvarchar(max)" />
+    <Property Name="AddressProof" Type="nvarchar(max)" />
+    <Property Name="CancelCheque" Type="nvarchar(max)" />
+    <Property Name="SignedDocument" Type="nvarchar(max)" />
+    <Property Name="GovtCertificate" Type="nvarchar(max)" />
+    <Property Name="FoodLicence" Type="nvarchar(max)" />
+    <Property Name="BusinessDocumnet" Type="nvarchar(max)" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" />
+    <Property Name="Commission" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentGatewayCharge" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DeliveryCharge" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IsApproved" Type="bit" />
+  </EntityType>
+  <EntityType Name="VendorPincode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="pincode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="vendorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wallet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Mebr_Amount" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ADProduct__ADPro__5669C4BE">
+    <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+    <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ADProductDetail">
+        <PropertyRef Name="ADProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADProduct__ADPro__575DE8F7">
+    <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+    <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ADProductDetail">
+        <PropertyRef Name="ADProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADProduct__ADPro__58520D30">
+    <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+    <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ADProductDetail">
+        <PropertyRef Name="ADProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADProduct__ADPro__679450C0">
+    <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+    <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ADProductDetail">
+        <PropertyRef Name="ADProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADProduct__ADPro__6E414E4F">
+    <End Role="ADProduct" Type="Self.ADProduct" Multiplicity="0..1" />
+    <End Role="ADProductDetail" Type="Self.ADProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ADProductDetail">
+        <PropertyRef Name="ADProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__59463169">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5A3A55A2">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5B2E79DB">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5C229E14">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5D16C24D">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5E0AE686">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5EFF0ABF">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__5FF32EF8">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__60E75331">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__61DB776A">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__688874F9">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__697C9932">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__6F357288">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__702996C1">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GETPRODUCTIDBYNAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="admin_KisaanKiDukaan">
+    <Parameter Name="ProductName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateVendorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="admin_KisaanKiDukaan">
+    <Parameter Name="commission" Type="decimal" Mode="In" />
+    <Parameter Name="paymentgatewayCharge" Type="decimal" Mode="In" />
+    <Parameter Name="DeliveryCharge" Type="decimal" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getCSExistProductBy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productId" Type="int" Mode="In" />
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="wheight" Type="int" Mode="In" />
+    <Parameter Name="metricCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetQtyInKart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="client_id" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+    <Parameter Name="metric_id" Type="int" Mode="In" />
+    <Parameter Name="volume" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetQtyInKartDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="client_id" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="admin_KisanKiDukanModelStoreContainer">
+    <EntitySet Name="Bulkorder" EntityType="Self.Bulkorder" Schema="admin_KisaanKiDukaan" store:Type="Tables" />
+    <EntitySet Name="Discount_Coupon" EntityType="Self.Discount_Coupon" Schema="admin_KisaanKiDukaan" store:Type="Tables" />
+    <EntitySet Name="ADCategory" EntityType="Self.ADCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADProduct" EntityType="Self.ADProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADProductDetail" EntityType="Self.ADProductDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADSubCategory" EntityType="Self.ADSubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BannerImage" EntityType="Self.BannerImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlogComment" EntityType="Self.BlogComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlogMaster" EntityType="Self.BlogMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessStatus" EntityType="Self.BusinessStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CentralStore" EntityType="Self.CentralStore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContentPage" EntityType="Self.ContentPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryChargeMaster" EntityType="Self.DeliveryChargeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryLocation" EntityType="Self.DeliveryLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryOption" EntityType="Self.DeliveryOption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryPincode" EntityType="Self.DeliveryPincode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryTimeSlot" EntityType="Self.DeliveryTimeSlot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiscountInfo" EntityType="Self.DiscountInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiscountType" EntityType="Self.DiscountType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DownPyment" EntityType="Self.DownPyment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enquiry" EntityType="Self.Enquiry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kart" EntityType="Self.Kart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KartDetail" EntityType="Self.KartDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginMaster" EntityType="Self.LoginMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Membership" EntityType="Self.Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metric" EntityType="Self.Metric" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherMultipaleImage" EntityType="Self.OtherMultipaleImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="premiumMembershipAmount" EntityType="Self.premiumMembershipAmount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Availability" EntityType="Self.Product_Availability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductBrand" EntityType="Self.ProductBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReview" EntityType="Self.ProductReview" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="promotionalbanner" EntityType="Self.promotionalbanner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefferalMember" EntityType="Self.RefferalMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippingAddress" EntityType="Self.ShippingAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenderCity" EntityType="Self.VenderCity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenderLocality" EntityType="Self.VenderLocality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenderState" EntityType="Self.VenderState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorPincode" EntityType="Self.VendorPincode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wallet" EntityType="Self.Wallet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ADProduct__ADPro__5669C4BE" Association="Self.FK__ADProduct__ADPro__5669C4BE">
+      <End Role="ADProduct" EntitySet="ADProduct" />
+      <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADProduct__ADPro__575DE8F7" Association="Self.FK__ADProduct__ADPro__575DE8F7">
+      <End Role="ADProduct" EntitySet="ADProduct" />
+      <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADProduct__ADPro__58520D30" Association="Self.FK__ADProduct__ADPro__58520D30">
+      <End Role="ADProduct" EntitySet="ADProduct" />
+      <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADProduct__ADPro__679450C0" Association="Self.FK__ADProduct__ADPro__679450C0">
+      <End Role="ADProduct" EntitySet="ADProduct" />
+      <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADProduct__ADPro__6E414E4F" Association="Self.FK__ADProduct__ADPro__6E414E4F">
+      <End Role="ADProduct" EntitySet="ADProduct" />
+      <End Role="ADProductDetail" EntitySet="ADProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__59463169" Association="Self.FK__City__State_Id__59463169">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5A3A55A2" Association="Self.FK__City__State_Id__5A3A55A2">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5B2E79DB" Association="Self.FK__City__State_Id__5B2E79DB">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5C229E14" Association="Self.FK__City__State_Id__5C229E14">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5D16C24D" Association="Self.FK__City__State_Id__5D16C24D">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5E0AE686" Association="Self.FK__City__State_Id__5E0AE686">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5EFF0ABF" Association="Self.FK__City__State_Id__5EFF0ABF">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__5FF32EF8" Association="Self.FK__City__State_Id__5FF32EF8">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__60E75331" Association="Self.FK__City__State_Id__60E75331">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__61DB776A" Association="Self.FK__City__State_Id__61DB776A">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__688874F9" Association="Self.FK__City__State_Id__688874F9">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__697C9932" Association="Self.FK__City__State_Id__697C9932">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__6F357288" Association="Self.FK__City__State_Id__6F357288">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__702996C1" Association="Self.FK__City__State_Id__702996C1">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

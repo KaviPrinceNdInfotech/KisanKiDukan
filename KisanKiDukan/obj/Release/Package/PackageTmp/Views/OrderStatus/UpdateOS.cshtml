@@ -1,0 +1,20 @@
+﻿@model KisanKiDukan.Models.Domain.OrderStatu
+@{
+    ViewBag.Title = "UpdateOS";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form-group">
+    <h1>Update Shipment Status</h1>
+</div>
+@using (Html.BeginForm("UpdateOS", "OrderStatus", FormMethod.Post))
+{
+    @Html.HiddenFor(a=>a.Id)
+    <div class="form-group" style="width:50%">
+        Name:@Html.TextBoxFor(a => a.StatusName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-info" />
+    </div>
+}

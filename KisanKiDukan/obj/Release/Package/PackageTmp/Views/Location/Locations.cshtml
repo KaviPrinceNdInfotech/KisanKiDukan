@@ -1,0 +1,49 @@
+﻿@model KisanKiDukan.Models.ViewModels.LocationListModel
+@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="width:100%">
+    <h4>Locations</h4>
+    <div class="form-group">
+        <a href="/Location/LocationAdd" class="btn btn-info"><i class="fa fa-plus"></i> Add More</a>
+    </div>
+    @if (Model.Location.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr>
+                <th>Location</th>
+                <th>Delivery Day</th>      
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.Location)
+            {
+                <tr>
+                    <td>@item.LocationName</td>
+                    <td>@item.TimeDay</td>
+                    <td>
+                        <a href="/Location/Edit?id=@item.Id" class="btn btn-info">Edit</a>
+                        <a href="/Location/Delete?id=@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.NumberOfPages; i++)
+            {
+                if (Model.Page == i)
+                {
+                    <li class="active"><a href="/Location/Locations?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="/Location/Locations?page=@i">@i</a></li>
+                }
+            }
+        </ul>
+    }
+    else
+    {
+        <h4>No records found</h4>
+    }
+</div>

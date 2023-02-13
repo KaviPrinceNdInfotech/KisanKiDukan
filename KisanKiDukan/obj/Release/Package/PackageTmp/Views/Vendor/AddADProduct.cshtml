@@ -1,0 +1,102 @@
+﻿@model KisanKiDukan.Models.ViewModels.ADProductModel
+@{
+    ViewBag.Title = "AddADProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .row {
+        margin-top: 1% !important;
+    }
+
+    .form-control {
+        height: 50px;
+    }
+
+    .btn-info {
+        width: 130px;
+        height: 45px;
+        float: right;
+        margin-right: 20px;
+    }
+</style>
+@*<h2>AddADProduct</h2>*@
+@using (Html.BeginForm("AddADProduct", "Vendor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <div class="row r">
+        </div>
+        <div class="container r">
+            <div class="col-md-12">
+                <h2>POST YOUR AD</h2>
+            </div>
+        </div>
+        @if (TempData["msg"] != null)
+        {
+            <div class="row r">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        @TempData["msg"]
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="contain" style="width:870px;height:530px;">
+            <div class="row r" style="border:1px solid #7bc002; border-radius:5px;color:black;">
+                <div class="col-md-6" style="margin-top:30px;">
+                    AD Title *
+                    @Html.TextBoxFor(a => a.ADTitle, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.ADTitle)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    Main Image *
+                    @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.ImageFile)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    Description
+                    @Html.TextAreaFor(a => a.Description, 10, 30, new { @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.Description)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    <p></p>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;margin-bottom:25px">
+                    Multipale Image
+                    <input type="file" name="images" multiple="multiple" class="input-files form-control" />
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    Price *
+                    @Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.Price)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    <p></p>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    <p></p>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    <p></p>
+                </div>
+                <div class="col-md-6" style="margin-top:55px;">
+                    <input style="width:142px;" type="submit" name="nextBtn" class="btn btn-info" value="Add Product Now" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+

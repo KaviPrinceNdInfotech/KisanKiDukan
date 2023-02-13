@@ -1,0 +1,463 @@
+﻿@model KisanKiDukan.Models.DTO.BlogMasterDTO
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+</style>
+@*<h2>Blog Details</h2>*@
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">Blog Details</h1>
+        <nav class="woocommerce-breadcrumb">
+            <a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span><a href="#">Blog Details</a>
+        </nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div class="woocommerce"></div>
+        <div id="primary" class="content-area" style="width: 68%;">
+            <main id="main" class="site-main">
+                <article id="post-46" class="post-46 post type-post status-publish format-standard has-post-thumbnail hentry category-healthy-foods category-lifestyle tag-natural tag-organic">
+                    <span class="categories-link">
+                        <span class="screen-reader-text">Categories</span><a href="#" rel="category tag">Healthy Foods</a>
+                        <a href="#" rel="category tag">Lifestyle</a>
+                    </span>
+                    <h1 class="entry-title">@Model.Heading</h1>
+                    <div class="entry-header">
+                        <div class="entry-meta">
+                            <span class="posted-on">
+                                <a href="index.html" rel="bookmark">
+                                    <time class="entry-date published" datetime="2019-12-28T03:46:40+00:00">@Model.Date.Value.Date.ToShortDateString()</time>
+                                    @*<time class="updated" datetime="2020-09-09T06:33:20+00:00">September 9, 2020</time>*@
+                                </a>
+                            </span>
+                            <span class="post-author">
+                                <span>by <a href="#" rel="author">admin</a></span>
+                            </span>
+                            <span class="total-comments"><span>6</span></span>
+                        </div>
+                    </div>
+                    <div class="post-thumbnail">
+                        <img width="800"
+                             height="565"
+                             src="@Model.BlogImage"
+                             data-src="@Model.BlogImage"
+                             class="lazyload attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                             alt="" />
+                    </div>
+                    <div class="entry-content">
+                        <p></p>
+                        <blockquote>
+                        <p> @Model.Heading </p>
+                        </blockquote>
+                        <p>
+                            @Html.Raw(Model.Description)
+                       </p>
+                    </div>
+                    <aside class="entry-taxonomy">
+                        <div class="tags-links"><strong>Tags:</strong> <a href="../../../../tag/natural/index.html" rel="tag">natural</a><a href="../../../../tag/organic/index.html" rel="tag">organic</a></div>
+                    </aside>
+                    <nav id="post-navigation" class="navigation post-navigation">
+                        <h2 class="screen-reader-text">Post navigation</h2>
+                        <div class="nav-links">
+                            <div class="nav-previous">
+                                <a href="../../10/pizza-with-chicken-tomatoes-and-basil/index.html" rel="prev">
+                                    <img width="110"
+                                         height="110"
+                                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20110%20110%22%3E%3C/svg%3E"
+                                         data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-150x150.jpg"
+                                         class="lazyload attachment-110x110 size-110x110 wp-post-image"
+                                         alt=""
+                                         data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-150x150.jpg 150w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-100x100.jpg 100w"
+                                         data-sizes="(max-width: 110px) 100vw, 110px" />
+                                    <span class="nav-content"><span class="reader-text">PREV </span>Pizza With Chicken, Tomatoes and Basil</span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <section id="comments" class="comments-area">
+                        <div class="comment-list-wrap">
+                            <h2 class="comments-title"><span> 6 Comments </span></h2>
+                            <ol class="comment-list">
+                                <li class="comment even thread-even depth-1 parent" id="comment-71">
+                                    <div class="comment-body">
+                                        <div class="comment-meta commentmetadata">
+                                            <div class="comment-author vcard">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                     class="lazyload avatar avatar-128 photo"
+                                                     height="128"
+                                                     width="128" />
+                                                <cite class="fn">Joe Doe</cite>
+                                            </div>
+                                            <a href="index.html#comment-71" class="comment-date"> <time datetime="2020-08-10T08:56:45+00:00">August 10, 2020</time> </a>
+                                        </div>
+                                        <div id="div-comment-71" class="comment-content">
+                                            <div class="comment-text"><p>This is exactly what i was looking for, thank you so much for these tutorials</p></div>
+                                            <div class="reply">
+                                                <a rel="nofollow"
+                                                   class="comment-reply-link"
+                                                   href="index616c.html?replytocom=71#respond"
+                                                   data-commentid="71"
+                                                   data-postid="46"
+                                                   data-belowelement="div-comment-71"
+                                                   data-respondelement="respond"
+                                                   data-replyto="Reply to Joe Doe"
+                                                   aria-label="Reply to Joe Doe">
+                                                    Reply
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ol class="children">
+                                        <li class="comment odd alt depth-2" id="comment-72">
+                                            <div class="comment-body">
+                                                <div class="comment-meta commentmetadata">
+                                                    <div class="comment-author vcard">
+                                                        <img alt=""
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                             data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                             data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                             class="lazyload avatar avatar-128 photo"
+                                                             height="128"
+                                                             width="128" />
+                                                        <cite class="fn">Mike</cite>
+                                                    </div>
+                                                    <a href="index.html#comment-72" class="comment-date"> <time datetime="2020-08-10T08:56:45+00:00">August 10, 2020</time> </a>
+                                                </div>
+                                                <div id="div-comment-72" class="comment-content">
+                                                    <div class="comment-text"><p>It would be great to try this theme for my businesses</p></div>
+                                                    <div class="reply">
+                                                        <a rel="nofollow"
+                                                           class="comment-reply-link"
+                                                           href="indexdb9d.html?replytocom=72#respond"
+                                                           data-commentid="72"
+                                                           data-postid="46"
+                                                           data-belowelement="div-comment-72"
+                                                           data-respondelement="respond"
+                                                           data-replyto="Reply to Mike"
+                                                           aria-label="Reply to Mike">
+                                                            Reply
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="comment even thread-odd thread-alt depth-1" id="comment-73">
+                                    <div class="comment-body">
+                                        <div class="comment-meta commentmetadata">
+                                            <div class="comment-author vcard">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                     class="lazyload avatar avatar-128 photo"
+                                                     height="128"
+                                                     width="128" />
+                                                <cite class="fn">Elicia</cite>
+                                            </div>
+                                            <a href="index.html#comment-73" class="comment-date"> <time datetime="2020-08-10T08:56:45+00:00">August 10, 2020</time> </a>
+                                        </div>
+                                        <div id="div-comment-73" class="comment-content">
+                                            <div class="comment-text"><p>What a nice article. It keeps me reading more and more!</p></div>
+                                            <div class="reply">
+                                                <a rel="nofollow"
+                                                   class="comment-reply-link"
+                                                   href="indexd61b.html?replytocom=73#respond"
+                                                   data-commentid="73"
+                                                   data-postid="46"
+                                                   data-belowelement="div-comment-73"
+                                                   data-respondelement="respond"
+                                                   data-replyto="Reply to Elicia"
+                                                   aria-label="Reply to Elicia">
+                                                    Reply
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="comment odd alt thread-even depth-1 parent" id="comment-83">
+                                    <div class="comment-body">
+                                        <div class="comment-meta commentmetadata">
+                                            <div class="comment-author vcard">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                     class="lazyload avatar avatar-128 photo"
+                                                     height="128"
+                                                     width="128" />
+                                                <cite class="fn">Joe Doe</cite>
+                                            </div>
+                                            <a href="index.html#comment-83" class="comment-date"> <time datetime="2020-08-11T08:20:56+00:00">August 11, 2020</time> </a>
+                                        </div>
+                                        <div id="div-comment-83" class="comment-content">
+                                            <div class="comment-text"><p>This is exactly what i was looking for, thank you so much for these tutorials</p></div>
+                                            <div class="reply">
+                                                <a rel="nofollow"
+                                                   class="comment-reply-link"
+                                                   href="index118b.html?replytocom=83#respond"
+                                                   data-commentid="83"
+                                                   data-postid="46"
+                                                   data-belowelement="div-comment-83"
+                                                   data-respondelement="respond"
+                                                   data-replyto="Reply to Joe Doe"
+                                                   aria-label="Reply to Joe Doe">
+                                                    Reply
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ol class="children">
+                                        <li class="comment even depth-2" id="comment-84">
+                                            <div class="comment-body">
+                                                <div class="comment-meta commentmetadata">
+                                                    <div class="comment-author vcard">
+                                                        <img alt=""
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                             data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                             data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                             class="lazyload avatar avatar-128 photo"
+                                                             height="128"
+                                                             width="128" />
+                                                        <cite class="fn">Mike</cite>
+                                                    </div>
+                                                    <a href="index.html#comment-84" class="comment-date"> <time datetime="2020-08-11T08:20:56+00:00">August 11, 2020</time> </a>
+                                                </div>
+                                                <div id="div-comment-84" class="comment-content">
+                                                    <div class="comment-text"><p>It would be great to try this theme for my businesses</p></div>
+                                                    <div class="reply">
+                                                        <a rel="nofollow"
+                                                           class="comment-reply-link"
+                                                           href="index71fb.html?replytocom=84#respond"
+                                                           data-commentid="84"
+                                                           data-postid="46"
+                                                           data-belowelement="div-comment-84"
+                                                           data-respondelement="respond"
+                                                           data-replyto="Reply to Mike"
+                                                           aria-label="Reply to Mike">
+                                                            Reply
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-85">
+                                    <div class="comment-body">
+                                        <div class="comment-meta commentmetadata">
+                                            <div class="comment-author vcard">
+                                                <img alt=""
+                                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3C/svg%3E"
+                                                     data-src="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=128&#038;d=mm&#038;r=g"
+                                                     data-srcset="https://secure.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=256&#038;d=mm&#038;r=g 2x"
+                                                     class="lazyload avatar avatar-128 photo"
+                                                     height="128"
+                                                     width="128" />
+                                                <cite class="fn">Elicia</cite>
+                                            </div>
+                                            <a href="index.html#comment-85" class="comment-date"> <time datetime="2020-08-11T08:20:56+00:00">August 11, 2020</time> </a>
+                                        </div>
+                                        <div id="div-comment-85" class="comment-content">
+                                            <div class="comment-text"><p>What a nice article. It keeps me reading more and more!</p></div>
+                                            <div class="reply">
+                                                <a rel="nofollow"
+                                                   class="comment-reply-link"
+                                                   href="indexb147.html?replytocom=85#respond"
+                                                   data-commentid="85"
+                                                   data-postid="46"
+                                                   data-belowelement="div-comment-85"
+                                                   data-respondelement="respond"
+                                                   data-replyto="Reply to Elicia"
+                                                   aria-label="Reply to Elicia">
+                                                    Reply
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div id="respond" class="comment-respond">
+                            <span id="reply-title" class="gamma comment-reply-title">
+                                Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display: none;">Cancel reply</a></small>
+                            </span>
+                            <form action="#" method="post" id="commentform" class="comment-form" novalidate>
+                                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="5" maxlength="65525" required="required" placeholder="Comment"></textarea></p>
+                                <p class="comment-form-author"><input id="author" name="author" type="text" placeholder="Your Name *" value="" size="30" aria-required="true" /></p>
+                                <p class="comment-form-email"><input id="email" name="email" type="email" placeholder="Email Address *" value="" size="30" aria-required="true" /></p>
+                                <p class="comment-form-url"><input id="url" name="url" type="url" placeholder="Your Website" value="" size="30" /></p>
+                                <p class="comment-form-cookies-consent">
+                                    <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" />
+                                    <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                </p>
+                                <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type="hidden" name="comment_post_ID" value="46" id="comment_post_ID" />
+                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0" />
+                                </p>
+                            </form>
+                        </div>
+                    </section>
+                </article>
+            </main>
+        </div>
+        <div id="secondary" class="widget-area">
+            <div id="search-3" class="widget widget_search">
+                <form method="get" class="search-form" action="#">
+                    <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" /> </label>
+                    <input type="submit" class="search-submit" value="Search" />
+                </form>
+            </div>
+            <div id="categories-4" class="widget widget_categories">
+                <span class="gamma widget-title">Blog Categories</span>
+                <ul>
+                    @*<li class="cat-item cat-item-161"><a href="../../../../category/dairy-farm/index.html">Dairy Farm</a> (3)</li>
+                    <li class="cat-item cat-item-159"><a href="../../../../category/healthy-foods/index.html">Healthy Foods</a> (3)</li>
+                    <li class="cat-item cat-item-158"><a href="../../../../category/lifestyle/index.html">Lifestyle</a> (3)</li>
+                    <li class="cat-item cat-item-160"><a href="../../../../category/tips-tricks/index.html">Tips &amp; Tricks</a> (1)</li>
+                    <li class="cat-item cat-item-1"><a href="../../../../category/uncategorized/index.html">Uncategorized</a> (17)</li>*@
+                </ul>
+            </div>
+            <div id="recent-posts-3" class="widget widget_recent_entries">
+                <span class="gamma widget-title">Recent Posts</span>
+                <ul>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="#">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-1-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="index.html" aria-current="page"><span>What You Should Know About Detox</span></a> <span class="post-date">December 28, 2019</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="../../10/pizza-with-chicken-tomatoes-and-basil/index.html">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2019/12/blog-6-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="../../10/pizza-with-chicken-tomatoes-and-basil/index.html"><span>Pizza With Chicken, Tomatoes and Basil</span></a> <span class="post-date">December 10, 2019</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="recent-posts-thumbnail">
+                            <a href="../../01/5-reasons-you-must-eat-greens-everyday/index.html">
+                                <img width="100"
+                                     height="100"
+                                     src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3C/svg%3E"
+                                     data-src="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-100x100.jpg"
+                                     class="lazyload attachment-freshio-recent-post size-freshio-recent-post wp-post-image"
+                                     alt=""
+                                     data-srcset="https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-100x100.jpg 100w, https://demo2wpopal.b-cdn.net/freshio/wp-content/uploads/2020/08/image-13-copyright-min-150x150.jpg 150w"
+                                     data-sizes="(max-width: 100px) 100vw, 100px" />
+                            </a>
+                        </div>
+                        <div class="recent-posts-info">
+                            <a class="post-title" href="../../01/5-reasons-you-must-eat-greens-everyday/index.html"><span>5 Reasons You Must Eat Greens Everyday</span></a> <span class="post-date">December 1, 2019</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="tag_cloud-3" class="widget widget_tag_cloud">
+                <span class="gamma widget-title">Tags</span>
+                <div class="tagcloud">
+                    <a href="../../../../tag/business/index.html" class="tag-cloud-link tag-link-205 tag-link-position-1" style="font-size: 8pt;">Business</a>
+                    <a href="../../../../tag/healthy/index.html" class="tag-cloud-link tag-link-169 tag-link-position-2" style="font-size: 8pt;">healthy</a>
+                    <a href="../../../../tag/natural/index.html" class="tag-cloud-link tag-link-167 tag-link-position-3" style="font-size: 8pt;">natural</a>
+                    <a href="../../../../tag/organic/index.html" class="tag-cloud-link tag-link-168 tag-link-position-4" style="font-size: 8pt;">organic</a>
+                    <a href="../../../../tag/posts/index.html" class="tag-cloud-link tag-link-206 tag-link-position-5" style="font-size: 8pt;">Posts</a>
+                    <a href="../../../../tag/tomato/index.html" class="tag-cloud-link tag-link-170 tag-link-position-6" style="font-size: 8pt;">tomato</a>
+                    <a href="../../../../tag/topics/index.html" class="tag-cloud-link tag-link-207 tag-link-position-7" style="font-size: 8pt;">Topics</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

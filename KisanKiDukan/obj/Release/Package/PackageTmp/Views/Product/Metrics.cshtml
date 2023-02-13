@@ -1,0 +1,50 @@
+﻿@model KisanKiDukan.Models.ViewModels.MetricsShowAdminModel
+@{
+    ViewBag.Title = "Metrics";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="width:50%">
+    <h4>Metrics</h4>
+        <div class="row">
+            
+            <div class="col-md-1"><a href="/Product/AddMetric" class="btn btn-primary">Add more</a></div>
+        </div>
+   <hr />
+    @if (Model.Metric.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr>                
+                <th>Metric</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.Metric)
+            {
+                <tr>                             
+                    <td>@item.Metrics</td>
+                    <td>
+                        <a href="/Product/DelMetric?id=@item.Id&&page=@Model.Page" onclick="return window.confirm('Are you sure want to delete?')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.NumberOfPages; i++)
+            {
+                if (Model.Page == i)
+                {
+                    <li class="active"><a href="/Product/Metrics?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="/Product/Metrics?page=@i">@i</a></li>
+                }
+            }
+        </ul>
+    }
+    else
+    {
+        <h4>No records found</h4>
+    }
+</div>
+
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.Review>
+
+@{
+    ViewBag.Title = "GetReviewAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<h2 class="text-warning mt-5">User Review</h2>
+<br />
+
+<table class="table table-responsive-md table-bordered table-hover">
+    <thead>
+        <tr class="bg-info text-white">
+            <th>Rating</th>
+            <th>Name</th>
+            <th>EmailId</th>
+            <th>ReviewTitle</th>
+            <th>ReviewDesc</th>
+            <th>SubmitDate</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Rating</td>
+                <td>@item.Name</td>
+                <td>@item.EmailId</td>
+                <td>@item.ReviewTitle</td>
+                <td>@item.ReviewDesc</td>
+                <td>@item.SubmitDate</td>
+
+                <td>
+                    <a href="/Admin/DeleteReview?id=@item.Id"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

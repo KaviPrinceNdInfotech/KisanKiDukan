@@ -1,0 +1,31 @@
+﻿@model KisanKiDukan.Models.ViewModels.ADCategoryModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>Edit</h2>*@
+@using (Html.BeginForm("Edit", "ADCategory", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div style="width:50%">
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.CategoryImage)
+        <h4>Category For AD</h4>
+        <div class="form-group">
+            Name * @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.CategoryName)</span>
+        </div>
+        <div class="form-group">
+            @if (TempData["msg"] != null)
+            {
+                <span style="color:green;">@TempData["msg"]</span>
+            }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/ADCategory/AdCategory">Show All</a>
+        </div>
+    </div>
+}
+
+
+

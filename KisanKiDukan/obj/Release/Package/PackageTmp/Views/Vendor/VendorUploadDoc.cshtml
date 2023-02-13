@@ -1,0 +1,280 @@
+﻿@model KisanKiDukan.Models.DTO.VendorDTO
+@{
+    ViewBag.Title = "VendorUploadDoc";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+</style>
+
+@*<h2>VendorUploadDoc</h2>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">Contact us</h1>
+        <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>Bank Account Details</nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div class="woocommerce"></div>
+        <div id="primary">
+            <main id="main" class="site-main">
+                <article id="post-88" class="post-88 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div data-elementor-type="wp-page" data-elementor-id="88" class="elementor elementor-88" data-elementor-settings="[]">
+                            <div class="elementor-inner">
+                                <div class="elementor-section-wrap">
+                                    <div class="elementor-element elementor-element-39c81f0 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
+                                         data-id="39c81f0"
+                                         data-element_type="section"
+                                         data-settings='{"stretch_section":"section-stretched"}'>
+                                        <div class="elementor-container elementor-column-gap-no">
+                                            <div class="elementor-row">
+                                                <div class="elementor-element elementor-element-99e7d44 elementor-column elementor-col-50 elementor-top-column" data-id="99e7d44" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-14eefa1 elementor-widget elementor-widget-heading" data-id="14eefa1" data-element_type="widget" data-widget_type="heading.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <h2 class="elementor-heading-title elementor-size-default">Upload Documents</h2>
+                                                                    <p class="elementor-heading-title elementor-size-default">
+                                                                        <a style="text-decoration: none; float: right; font-size: 22px;" href="~/Vendor/Reciept/@Model.Id" class="btn btn-success">Download Recipt</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-3477432 elementor-button-align-stretch elementor-widget elementor-widget-form"
+                                                                 data-id="3477432"
+                                                                 data-element_type="widget"
+                                                                 data-settings='{"button_width":"25","button_width_tablet":"50","step_next_label":"Next","step_previous_label":"Previous","step_type":"number_text","step_icon_shape":"circle"}'
+                                                                 data-widget_type="form.default">
+                                                                <div class="elementor-widget-container">
+                                                                    @using (Html.BeginForm("VendorUploadDoc", "Vendor", new { id = @Model.Id }, FormMethod.Post, new { encType = "multipart/form-data" }))
+                                                                    {
+                                                                        @*<input type="hidden" name="post_id" value="88" />
+                                                                        <input type="hidden" name="form_id" value="3477432" />
+                                                                        <input type="hidden" name="queried_id" value="88" />*@
+                                                                    <div class="elementor-form-fields-wrapper elementor-labels-above">
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                            PAN Card : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile1, new { @type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile1)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                            Address Proof : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile2, new { @type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile2)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+                                                                            Cancel Cheque : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile3, new { @type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile3)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_a6f70fc elementor-col-100">
+                                                                            Upload Signed Document : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile4, new { type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile4)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                            Government Issue Certificate Copy : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile5, new { type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile5)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                            Food Licence : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile6, new { type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile6)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                            Company/Business Document : *
+                                                                            @Html.TextBoxFor(a => a.DocumentFile7, new { type = "file", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                            <span class="text-danger">
+                                                                                @Html.ValidationMessageFor(a => a.DocumentFile7)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-25 e-form__buttons elementor-md-50">
+                                                                            <button type="submit" name="nextBtn" class="elementor-button elementor-size-sm" value="Submit">
+                                                                                <span> <span class="elementor-button-icon"> </span> <span class="elementor-button-text">Submit</span> </span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+
+@*@using (Html.BeginForm("VendorUploadDoc", "Vendor", new { id = @Model.Id }, FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div class="container">
+        <div class="row r">
+        </div>
+        <div class="container r">
+            <div class="col-md-12">
+                <h2 style="text-align:center;font-family:sans-serif;">Vendor Upload Document</h2>
+            </div>
+        </div>
+        @if (TempData["msg"] != null)
+        {
+            <div class="row r">
+                <div class="col-md-12">
+                    <div class="alert alert-info" style="color:red;padding-left:127px;">
+                        @TempData["msg"]
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row r">
+            <div class="col-md-12">
+                <span class="text-danger">
+                    <a style="text-decoration:none;float:initial;padding-left:127px;" href="/Home/Index" class="btn btn-success">Home</a>
+                </span>
+                <a style="text-decoration:none;float:initial;padding:20px;" href="~/Vendor/Reciept/@Model.Id" class="btn btn-success">Download Recipt</a>
+            </div>
+        </div>
+        <div class="contain">
+            <div class="row r" style="border:1px solid #7bc002; border-radius:8px;color:black;width:80%;margin:auto;height:auto;">
+                <div class="col-md-6" style="margin-top:40px;">
+                    PAN Card : *
+                    @Html.TextBoxFor(a => a.DocumentFile1, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile1)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;">
+                    Address Proof : *
+                    @Html.TextBoxFor(a => a.DocumentFile2, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile2)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;">
+                    Cancel Cheque : *
+                    @Html.TextBoxFor(a => a.DocumentFile3, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile3)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;">
+                    Upload Signed Document : *
+                    @Html.TextBoxFor(a => a.DocumentFile4, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile4)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;margin-bottom:25px">
+                    Government Issue Certificate Copy : *
+                    @Html.TextBoxFor(a => a.DocumentFile5, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile5)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;">
+                    Food Licence : *
+                    @Html.TextBoxFor(a => a.DocumentFile6, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.OperatingAddress)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:25px;">
+                    Company/Business Document : *
+                    @Html.TextBoxFor(a => a.DocumentFile7, new { type = "file", @class = "form-control" })
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(a => a.DocumentFile7)
+                    </span>
+                </div>
+                <div class="col-md-6" style="margin-top:30px;">
+                    <input type="submit" name="nextBtn" class="btn btn-info" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+}*@
+

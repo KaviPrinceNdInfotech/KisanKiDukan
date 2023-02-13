@@ -1,0 +1,27 @@
+﻿@model KisanKiDukan.Models.ViewModels.AddMetricsModel
+@{
+    ViewBag.Title = "AddMetric";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a=>a.MetricCode)
+    <div style="width:30%">
+        <h4>Metrics</h4>
+        <div class="form-group">
+            Metrics * @Html.TextBoxFor(a => a.Metrics, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.Metrics)</span>
+        </div>
+        <div class="form-group">
+            @if (TempData["msg"] != null)
+            {
+                <span>@TempData["msg"]</span>
+            }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/Product/Metrics">Show All</a>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,130 @@
+﻿@model KisanKiDukan.Models.ViewModels.OrderDetailShowListModelAdmin
+@{
+    ViewBag.Title = "VendorOrderDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>VendorOrderDetail</h2>*@
+<style>
+    .row {
+        margin-top: 1%;
+    }
+</style>
+<div style="width:100%;overflow-x:scroll">
+    <h4>Order Detail</h4>
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-md-2">
+                <a href="/Vendor/OrderHistory" class="btn btn-info">Back</a>
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.OrderDetail.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Pic</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                        <th>Final Price</th>
+                        <th>Status</th>
+                        <th>Status Updation Date</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach (var item in Model.OrderDetail)
+                    {
+                        <tr>
+                            <td>@item.Order_Id</td>
+                            <td><img src="/Images/@item.ProductImage" style="width:90px; height:90px" /> </td>
+                            <td>@item.ProductName</td>
+                            <td>@item.Product_Price</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Weight @item.Metrics</td>
+                            <td>@item.FinalPrice</td>
+                            <td style="text-transform:uppercase">
+                                @item.OrderStatus
+                            </td>
+                            <td>
+                                @if (item.OrderStatusDate != null)
+                                {
+                                    <span>@item.OrderStatusDate.Value.ToString("dd-MMM-yyyy")</span>
+                                }
+                            <td>
+                                <span class="btn btn-info" data-toggle="modal" data-target="#model_@item.Id">Update Status</span>
+                                <div id="model_@item.Id" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Update Status</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <input type="hidden" id="orderDetailId" value="@item.Id" />
+                                                    @Html.DropDownList("StatusCode", Model.OrderStatusList, "Select Status", new { id = "statusCode", @class = "form-control" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="button" class="btn bnt-primary" onclick="UpdateStatus(this)">Save</button>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <table>
+                    <tr>
+                        <td style="float:right"><span style="font-size:17px;color:#ff6a00;font-weight:bold">Total:&nbsp;<i class="fa fa-inr" aria-hidden="true"></i>&nbsp;@Model.Total_Price</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+    function UpdateStatus(obj) {
+        var el = $(obj);
+        var frm = el.parent().parent();
+        var orderDetailId = frm.find("#orderDetailId").val();
+        var statusCode = frm.find("#statusCode").val();
+        var data = JSON.stringify({
+            OrderDetailId: orderDetailId,
+            StatusCode: statusCode
+        });
+        var url = window.location.href;
+        $.ajax({
+            url: '/Admin/UpdateOrderStatus',
+            type: 'post',
+            contentType: 'application/json',
+            data:data
+        }).done(function (response) {
+            if(response!="ok")
+            {
+                console.log("server error");
+            }
+            window.location.href = url;
+        })
+        .fail(function (err) {
+            console.log(err.statusText);
+            window.location.href = url;
+        });
+    }
+</script>
+
+
+

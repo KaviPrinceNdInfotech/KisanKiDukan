@@ -1,0 +1,45 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.Category>
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>Categories</h2>*@
+<div style="width:60%">
+    <h4>Categories</h4>
+    <a href="/Category/Add" class="btn btn-primary">Add more</a>
+    <table class="table table-striped">
+        <tr>
+            <th>CategoryName</th>
+            <th>Image</th>
+            <th>Up To</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>
+                    @if (string.IsNullOrEmpty(item.CategoryImage))
+                    {
+                        <span>No image</span>
+                    }
+                    else
+                    {
+                        <img style="width:100px;height:60px" src="/Images/@item.CategoryImage">
+                    }
+                </td>
+                <td>@item.UpToText</td>
+                <td>
+                    <a href="/Category/Edit?id=@item.Id" class="btn btn-info">Edit</a>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="/Category/Delete?id=@item.Id" class="btn btn-danger">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

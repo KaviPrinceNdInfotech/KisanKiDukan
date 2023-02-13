@@ -1,0 +1,234 @@
+﻿@model KisanKiDukan.Models.APIModels.RequstModels.AllKartDetailModel
+@{
+    ViewBag.Title = "DisplayKart";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    int i = 1;
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+
+<style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id="rs-plugin-settings-inline-css" type="text/css">
+    #rs-demo-id {
+    }
+</style>
+<style id="woocommerce-inline-inline-css" type="text/css">
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id="woosw-frontend-inline-css" type="text/css">
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id="woo-variation-swatches-inline-css" type="text/css">
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style>
+    .woocommerce-product-gallery {
+        opacity: 1 !important;
+    }
+</style>
+<style type="text/css" id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+        font-display: swap;
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+        font-display: swap;
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/HeadingImage.jpg');
+    }
+</style>
+
+@*<h2>DisplayKart</h2>*@
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <div class="freshio-breadcrumb">
+            <div class="col-full">
+                <h1 class="breadcrumb-heading">
+                    Cart
+                </h1>
+                <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>Cart</nav>
+            </div>
+        </div>
+        <div id="content" class="site-content" tabindex="-1">
+            <div class="col-full">
+                <div class="woocommerce"></div>
+                <div id="primary">
+                    <main id="main" class="site-main" role="main">
+                        <article id="post-75" class="post-75 page type-page status-publish hentry">
+                            <div class="entry-content">
+
+                                @if (Model != null && Model.KartDetail != null && Model.KartDetail.Count() > 0)
+                                {
+                                    <div class="woocommerce">
+                                        <div class="woocommerce-notices-wrapper"></div>
+                                        <form class="woocommerce-cart-form" action="https://demo2.pavothemes.com/freshio/cart/" method="post">
+                                            <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="product-thumbnail">Image</th>
+                                                        <th class="product-name">Product</th>
+                                                        <th class="product-price">Price</th>
+                                                        <th class="product-quantity" style="width:13%;">Quantity</th>
+                                                        <th class="product-remove" style="width:11%;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.KartDetail)
+                                                    {
+                                                    <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                        <td class="product-thumbnail">
+                                                            <a href="/Home/ProductDetail?productId=@item.Product_Id">
+                                                                <img width="450" height="420" src="~/Images/@item.ProductImage" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                                            </a>
+                                                        </td>
+                                                        <td class="product-name" data-title="Product">
+                                                            <a href="#">@item.ProductName</a>
+                                                        </td>
+                                                        <td class="product-price" data-title="Price">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>
+                                                                    <span id="price">@item.Price</span>
+                                                            </bdi></span>
+                                                        </td>
+                                                        <td class="product-quantity" data-title="Quantity" style="width:10%;">
+                                                            <a href="/Kart/MinusOne?kartDetailId=@item.CartDetail_Id"><i class="fa fa-minus-circle"></i></a>
+                                                            @item.Quantity
+                                                            <a href="/Kart/plusOne?kartDetailId=@item.CartDetail_Id"><i class="fa fa-plus-circle"></i></a>
+                                                        </td>
+                                                        <td class="product-remove">
+                                                            <a href="/Kart/RemoveProduct?kartDetailId=@item.CartDetail_Id"><i class="fa fa-trash-o"></i>Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                        <div class="cart-collaterals">
+                                            <div class="cart_totals ">
+                                                <h2>Cart totals</h2>
+                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+                                                    <tbody>
+                                                        <tr class="order-total">
+                                                            <th style="font-size:16px;">Total</th>
+                                                            <td data-title="Total"><strong><span class="woocommerce-Price-amount amount">
+                                                                <bdi><span class="woocommerce-Price-currencySymbol">Rs.</span>
+                                                                    @Model.KartDetail.Sum(a => a.Quantity * a.Price)
+                                                                </bdi></span></strong> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="wc-proceed-to-checkout">
+                                                    <a href="/Checkout/CreateOrder" class="checkout-button button alt wc-forward">
+                                                        Proceed to checkout
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cross-sells">
+                                            <h2>You may be interested in…</h2>
+                                            <ul class="products columns-4">
+                                                <li class="product type-product post-167 status-publish first instock product_cat-fruits-vegetables product_cat-health-wellness has-post-thumbnail featured virtual purchasable product-type-simple">
+                                                    <div class="product-block">
+                                                        <div class="product-transition">
+                                                            <div class="product-image"><img width="450" height="420" src="https://demo2.pavothemes.com/freshio/wp-content/uploads/2020/08/2-450x420.jpg" class="attachment-shop_catalog size-shop_catalog" alt=""></div> <div class="group-action">
+                                                                <div class="shop-action">
+                                                                    <button class="woosw-btn woosw-btn-167" data-id="167">Add to wishlist</button><button class="wooscp-btn wooscp-btn-167 " data-id="167">Compare</button><button class="woosq-btn woosq-btn-167 " data-id="167" data-effect="mfp-3d-unfold">Quick view</button>
+                                                                </div>
+                                                            </div>
+                                                            <a href="https://demo2.pavothemes.com/freshio/product/aerodynamic-marble-chair/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                                        </div>
+                                                        <div class="star-rating" role="img" aria-label="Rated 3.50 out of 5"><span style="width:70%">Rated <strong class="rating">3.50</strong> out of 5</span></div><h3 class="woocommerce-loop-product__title"><a href="https://demo2.pavothemes.com/freshio/product/aerodynamic-marble-chair/">Aerodynamic Marble Chair</a></h3>
+                                                        <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>921.45</bdi></span></span>
+                                                        <a href="?add-to-cart=167" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="167" data-product_sku="aerodynamic-marble-chair-78144507" aria-label="Add “Aerodynamic Marble Chair” to your cart" rel="nofollow">Add to cart</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="return-to-shop">
+                                            <a class="button wc-backward" href="/Home/Products">
+                                                Return to shop
+                                            </a>
+                                        </p>
+                                    </div>
+                                }
+                                else
+                                {
+                                <div class="woocommerce">
+                                    <div class="woocommerce-notices-wrapper"></div>
+                                    <p class="cart-empty woocommerce-info">Your cart is currently empty.</p>
+                                    <p class="return-to-shop">
+                                        <a class="button wc-backward" href="/Home/Index">
+                                            Return to shop
+                                        </a>
+                                    </p>
+                                </div>
+                                }
+                            </div>
+                        </article>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+	$(document).ready(function(){
+	   $("#quantity").change(function () {
+			$(this).keyup(function(){
+				calculateSum();
+			});
+		});
+	});
+
+	function calculateSum() {
+	    var subTotalAmt = 0;
+	    var Amt = $("#price").val();
+		$("#quantity").change(function () {
+			if(!isNaN(this.value) && this.value.length!=0) {
+			    subTotalAmt = Amt*parseFloat(this.value);
+			}
+		});
+		$("#subTotal").html(sum.toFixed(2));
+	}
+</script>

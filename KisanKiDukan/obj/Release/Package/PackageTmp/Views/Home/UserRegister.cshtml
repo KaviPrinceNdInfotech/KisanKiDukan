@@ -1,0 +1,362 @@
+﻿@model KisanKiDukan.Models.ViewModels.CustomerDTO
+@{
+    ViewBag.Title = "UserRegister";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style>
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<style id='rs-plugin-settings-inline-css'>
+    #rs-demo-id {
+    }
+</style>
+<style id='woocommerce-inline-inline-css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+</style>
+<style id='woosw-frontend-inline-css'>
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-notice {
+        background-color: #5fbd74;
+    }
+
+    .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-page a:hover, .woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner .woosw-continue:hover {
+        color: #5fbd74;
+    }
+</style>
+<style id='woo-variation-swatches-inline-css'>
+    .variable-item:not(.radio-variable-item) {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wvs-style-squared .button-variable-item {
+        min-width: 30px;
+    }
+
+    .button-variable-item span {
+        font-size: 16px;
+    }
+</style>
+<style id="freshio_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    body, button, input, textarea {
+    }
+
+    h1, h2, h3, h4, h5, h6, blockquote, .widget .widget-title {
+    }
+
+    .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+
+    body.woocommerce-page:not(.single-product) .freshio-breadcrumb {
+        background-position: center center;
+        background-image: url('../Images/1.jpg');
+    }
+</style>
+
+@*<h1>UserRegister</h1>*@
+
+<div class="freshio-breadcrumb">
+    <div class="col-full">
+        <h1 class="breadcrumb-heading">Create an account</h1>
+        <nav class="woocommerce-breadcrumb"><a href="/Home/Index">Home</a><span class="breadcrumb-separator"> / </span>Create an account</nav>
+    </div>
+</div>
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full">
+        <div class="woocommerce"></div>
+        <div id="primary">
+            <main id="main" class="site-main">
+                <article id="post-88" class="post-88 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div data-elementor-type="wp-page" data-elementor-id="88" class="elementor elementor-88" data-elementor-settings="[]">
+                            <div class="elementor-inner">
+                                <div class="elementor-section-wrap">
+                                    <div class="elementor-element elementor-element-39c81f0 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
+                                         data-id="39c81f0"
+                                         data-element_type="section"
+                                         data-settings='{"stretch_section":"section-stretched"}'>
+                                        <div class="elementor-container elementor-column-gap-no">
+                                            <div class="elementor-row">
+                                                <div class="elementor-element elementor-element-99e7d44 elementor-column elementor-col-50 elementor-top-column" data-id="99e7d44" data-element_type="column">
+                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                        <div class="elementor-widget-wrap">
+                                                            <div class="elementor-element elementor-element-14eefa1 elementor-widget elementor-widget-heading" data-id="14eefa1" data-element_type="widget" data-widget_type="heading.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <h2 class="elementor-heading-title elementor-size-default">Create an account</h2>
+                                                                    <p class="elementor-heading-title elementor-size-default">
+                                                                        <a style="text-decoration: none; float: right; font-size: 16px;" href="/Home/login" class="btn btn-success">Already have an account</a>
+                                                                    </p>
+                                                                    <p class="elementor-heading-title elementor-size-default">
+                                                                        @if (TempData["msg"] != null)
+                                                                        {
+                                                                            @TempData["msg"]
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-3477432 elementor-button-align-stretch elementor-widget elementor-widget-form"
+                                                                 data-id="3477432"
+                                                                 data-element_type="widget"
+                                                                 data-settings='{"button_width":"25","button_width_tablet":"50","step_next_label":"Next","step_previous_label":"Previous","step_type":"number_text","step_icon_shape":"circle"}'
+                                                                 data-widget_type="form.default">
+                                                                <div class="elementor-widget-container">
+                                                                    @using (Html.BeginForm("UserRegister", "Home", FormMethod.Post, new { id = "customer-form", @class = "js-customer-form" }))
+                                                                    {
+                                                                        <input type="hidden" name="post_id" value="88" />
+                                                                        <input type="hidden" name="form_id" value="3477432" />
+                                                                        <input type="hidden" name="queried_id" value="88" />
+                                                                        <div class="elementor-form-fields-wrapper elementor-labels-above">
+                                                                            <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                                Your Name *
+                                                                                @Html.TextBoxFor(a => a.FullName, new { placeholder = "Your Name", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.FullName)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+                                                                                Mobile Number *
+                                                                                @Html.TextBoxFor(a => a.Phone, new { placeholder = "Mobile Number", @type = "number", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.Phone)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+                                                                                Email Address *
+                                                                                @Html.TextBoxFor(a => a.Email_Id, new { placeholder = "Email Id", @type = "email", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.Email_Id)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_a6f70fc elementor-col-100">
+                                                                                Password *
+                                                                                @Html.TextBoxFor(a => a.Password, new { placeholder = "Password", @type = "password", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.Password)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_a6f70fc elementor-col-100">
+                                                                                Confirm Password *
+                                                                                @Html.TextBoxFor(a => a.ConfirmPassword, new { placeholder = "Confirm Password", @type = "password", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.ConfirmPassword)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+                                                                                Address *
+                                                                                @Html.TextBoxFor(a => a.Address, new { placeholder = "Address", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.Address)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+                                                                                Pincode *
+                                                                                @Html.TextBoxFor(a => a.Pincode, new { placeholder = "Pincode", @type = "number", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                                                                <span class="text-danger">
+                                                                                    @Html.ValidationMessageFor(a => a.Pincode)
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-25 e-form__buttons elementor-md-50">
+                                                                                <button type="submit" name="nextBtn" class="elementor-button elementor-size-sm" value="Next">
+                                                                                    <span> <span class="elementor-button-icon"> </span> <span class="elementor-button-text">Submit</span> </span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<section id="wrapper">
+        <div class="container">
+
+
+            <div class="col-md-12">
+
+
+                <div id="content-wrapper">
+
+                    <section id="main">
+
+
+                        <header class="page-header">
+                            <h1>
+                                Create an account
+                            </h1>
+                        </header>
+
+
+
+                        <section id="content" class="page-content card card-block">
+
+
+
+    @using (Html.BeginForm("UserRegister", "Home", FormMethod.Post, new { id = "customer-form", @class = "js-customer-form" }))
+    {
+                            <section class="register-form">
+                                <p>Already have an account? <a href="/home/login">Log in instead!</a></p>
+                                <section>
+                                    @if (TempData["msg"] != null)
+                                    {
+                                        <div class="form-group row ">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-info">
+                                                    @TempData["msg"]
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label required">
+                                            Name *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            @Html.TextBoxFor(a => a.FullName, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.FullName)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label required">
+                                            Mobile No. *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            @Html.TextBoxFor(a => a.Phone, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.Phone)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label required">
+                                            Email Address*
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            @Html.TextBoxFor(a => a.Email_Id, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.Email_Id)
+                                        </div>
+                                    </div>
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label required">
+                                            Password *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            <div class="input-group js-parent-focus">
+                                                @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.Password)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label required">
+                                            Confirm Password *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            <div class="input-group js-parent-focus">
+                                                @Html.PasswordFor(a => a.ConfirmPassword, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.ConfirmPassword)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label">
+                                            Address *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            @Html.TextAreaFor(a => a.Address, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.Address)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row ">
+                                        <label class="col-md-3 form-control-label">
+                                            Pincode *
+                                        </label>
+                                        <div class="popup-login-col col-md-6">
+                                            @Html.TextBoxFor(a => a.Pincode, new { @class = "form-control",required="required" })
+                                        </div>
+                                        <div class="col-md-3 form-control-comment">
+                                            @Html.ValidationMessageFor(a => a.Pincode)
+                                        </div>
+                                    </div>
+                                </section>
+                                    <footer class="form-footer clearfix">
+
+                                        <button class="btn btn-primary form-control-submit pull-xs-right" data-link-action="save-customer" type="submit">
+                                            Save
+                                        </button>
+
+                                    </footer>
+
+
+                            </section>
+    }
+
+
+
+
+                        </section>
+
+
+                        <footer class="page-footer">
+
+
+                        </footer>
+
+                    </section>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>*@
