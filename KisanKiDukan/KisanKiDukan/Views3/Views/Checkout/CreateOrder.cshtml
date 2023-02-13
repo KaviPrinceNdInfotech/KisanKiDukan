@@ -1,0 +1,206 @@
+﻿@model KisanKiDukan.Models.ViewModels.Cust_OrderInfo
+@{
+    ViewBag.Title = "CreateOrder";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@*<h2>CreateOrder</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>checkout</h2>
+                        <ul>
+                            <li><a href="#">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">checkout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                @using (Html.BeginForm("CreateOrder", "Checkout", FormMethod.Post, new { id = "customer-form", @class = "" }))
+                {
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-title">
+                                <h3>Billing Details</h3>
+                            </div>
+                            <div class="checkout-title">
+                                @if (TempData["msg"] != null)
+                                {
+                                    <p style="color:red;">@TempData["msg"]</p>
+                                }
+                            </div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
+
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>Name</label>
+                                        @Html.TextBoxFor(a => a.Name, new { @class = "" })
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>Phone Number</label>
+                                        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "input-text" })
+                                        @Html.ValidationMessageFor(a => a.PhoneNumber)
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Email Address</label>
+                                        @Html.TextBoxFor(a => a.Email, new { @class = "input-text" })
+                                        <span>@Html.ValidationMessageFor(a => a.Email)</span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">State</label>
+                                        @Html.TextBoxFor(a => a.State, new { Id = "stateId", @class = "input-text" })
+                                        <span>@Html.ValidationMessageFor(a => a.State)</span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">City</label>
+                                        @Html.TextBoxFor(a => a.City, new { Id = "cityId", @class = "input-text" })
+                                        <span>@Html.ValidationMessageFor(a => a.City)</span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Address</label>
+                                        @Html.TextAreaFor(a => a.Address, new { Id = "addrId", @class = "input-text" })
+                                        <span>@Html.ValidationMessageFor(a => a.Address)</span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <label class="field-label">Postal Code</label>
+                                        @Html.TextBoxFor(a => a.PinCode, new { Id = "pinId", @class = "input-text", required = "required" })
+                                        <span>@Html.ValidationMessageFor(a => a.PinCode)</span>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        @*<input type="checkbox" name="shipping-option" id="account-option"> &ensp;*@
+                                        @*<label for="account-option">Create An Account?</label>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-details theme-form  section-big-mt-space">
+                                <div class="order-box">
+                                    <div class="title-box">
+                                        <div>Product <span>Total</span></div>
+                                    </div>
+                                    @foreach (var item in Model.AllKartDetails.KartDetail)
+                                    {
+                                        <ul class="qty">
+                                            <li>@item.ProductName × @item.Quantity <span>Rs. @item.Price</span></li>
+                                        </ul>
+                                    }
+                                    @*<ul class="sub-total">
+                                            <li>Subtotal <span class="count">$380.10</span></li>
+                                            <li>
+                                                Shipping
+                                                <div class="shipping">
+                                                    <div class="shopping-option">
+                                                        <input type="checkbox" name="free-shipping" id="free-shipping">
+                                                        <label for="free-shipping">Free Shipping</label>
+                                                    </div>
+                                                    <div class="shopping-option">
+                                                        <input type="checkbox" name="local-pickup" id="local-pickup">
+                                                        <label for="local-pickup">Local Pickup</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>*@
+                                    <ul class="total">
+                                        <li>Total <span class="count">Rs. @ViewBag.TotalAmount</span></li>
+                                    </ul>
+                                </div>
+                                <div class="payment-box">
+                                    <div class="upper-box">
+                                        <div class="payment-options">
+                                            <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                                <label class="field-label">Mode Of Payment *</label>
+                                                @Html.DropDownListFor(a => a.paymentType, Model.paymentMode, "Select", new { @class = "input-text" })
+                                                <span>@Html.ValidationMessageFor(a => a.paymentType)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn-normal btn" id="place_order" value="Place order" data-link-action="save-customer" data-value="Place order">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-6 col-sm-12 col-xs-12">
+                    <div class="checkout-details theme-form  section-big-mt-space">
+                        <div class="order-box">
+                            <div class="title-box">
+                                <div>Select Your Shipping Address</div>
+                            </div>
+                            <div style="font-size:16px;" class="row">
+                                @{ int i = 1;}
+                                @foreach (var item in Model.AddressList)
+                                {
+                                    <div class="col-md-12 col-sm-6 col-xs-12">
+                                        <b><span>Address <text>@i</text> :<br /></span></b>
+                                        <div class="col-md-6 col-sm-6 col-xs-12" style="float: left;">
+                                            <span>@item.Address, &nbsp; @item.City, &nbsp; @item.State, &nbsp; @item.PinCode,</span><br />
+                                            <span>Block No. : @item.BlockNo, &nbsp; @item.Location</span>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6" style="float: right;">
+                                            @*<a href="/Checkout/GetAllAddress?id=@item.Id" class="btn btn-danger">Select</a>*@
+                                            <button type="submit" class="btn-normal btn addressId" id="@item.Id" value="@item.Id" style="margin-left:auto;">Select</button>
+                                        </div>
+                                    </div><br />
+                                    i++;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+<script src="~/HomeLayout/js/jquery-3.3.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=YOUR_APIKEY&sensor=false">
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".addressId").click(function () {
+            var id = $(this).val();
+            debugger
+            $.ajax({
+                type: "GET",
+                url: "/Checkout/GetAllAddress?addressId=" + id,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        debugger
+                        $('#stateId').val(response.State);
+                        $('#cityId').val(response.City);
+                        $('#addrId').val(response.Address + ', ' + response.Location);
+                        $('#pinId').val(response.PinCode);
+                    } else {
+                        alert("Something went wrong");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+

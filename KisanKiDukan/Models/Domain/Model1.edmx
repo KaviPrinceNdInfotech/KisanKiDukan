@@ -546,14 +546,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="Rating" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="EmailId" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="ReviewTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="ReviewDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="80" />
+          <Property Name="ReviewTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ReviewDesc" Type="nvarchar(max)" />
           <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ShippingAddress">
           <Key>
@@ -652,9 +653,9 @@
           <Property Name="FoodLicence" Type="nvarchar(max)" />
           <Property Name="BusinessDocumnet" Type="nvarchar(max)" />
           <Property Name="State" Type="nvarchar" MaxLength="100" />
-          <Property Name="Commission" Type="int" />
-          <Property Name="PaymentGatewayCharge" Type="int" />
-          <Property Name="DeliveryCharge" Type="int" />
+          <Property Name="Commission" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PaymentGatewayCharge" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeliveryCharge" Type="decimal" Precision="18" Scale="0" />
           <Property Name="IsApproved" Type="bit" />
         </EntityType>
         <EntityType Name="VendorPincode">
@@ -906,9 +907,9 @@
           <Parameter Name="ProductName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="UpdateVendorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="admin_KisaanKiDukaan">
-          <Parameter Name="commission" Type="int" Mode="In" />
-          <Parameter Name="paymentgatewayCharge" Type="int" Mode="In" />
-          <Parameter Name="DeliveryCharge" Type="int" Mode="In" />
+          <Parameter Name="commission" Type="decimal" Mode="In" />
+          <Parameter Name="paymentgatewayCharge" Type="decimal" Mode="In" />
+          <Parameter Name="DeliveryCharge" Type="decimal" Mode="In" />
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="getCSExistProductBy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1765,9 +1766,9 @@
           <Parameter Name="ProductName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UpdateVendorDetails">
-            <Parameter Name="commission" Mode="In" Type="Int32" />
-            <Parameter Name="paymentgatewayCharge" Mode="In" Type="Int32" />
-            <Parameter Name="DeliveryCharge" Mode="In" Type="Int32" />
+            <Parameter Name="commission" Mode="In" Type="Decimal" />
+            <Parameter Name="paymentgatewayCharge" Mode="In" Type="Decimal" />
+            <Parameter Name="DeliveryCharge" Mode="In" Type="Decimal" />
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1805,14 +1806,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Rating" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="ReviewTitle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ReviewDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ShippingAddress">
           <Key>
@@ -2539,6 +2541,7 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Review">
               <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
                 <ScalarProperty Name="ReviewDesc" ColumnName="ReviewDesc" />
                 <ScalarProperty Name="ReviewTitle" ColumnName="ReviewTitle" />

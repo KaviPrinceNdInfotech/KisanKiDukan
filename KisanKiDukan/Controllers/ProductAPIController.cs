@@ -87,7 +87,7 @@ namespace KisanKiDukan.Controllers
 
         //====GetAllProducts api====
 
-        [HttpGet] 
+        [HttpGet]
         public IHttpActionResult GetAllProducts(int userId)
         {
             var model = new ProductShowListModel();
@@ -133,8 +133,8 @@ namespace KisanKiDukan.Controllers
         [HttpGet]
         public IHttpActionResult GetProductbycategoryId(int id)
         {
-          var result = ent.Products.Where(x => x.Category_Id == id).ToList();
-            return Ok(new {products=result});
+            var result = ent.Products.Where(x => x.Category_Id == id).ToList();
+            return Ok(new { products = result });
         }
 
         //====ProductOrder api====
@@ -789,6 +789,7 @@ from DeliveryTimeSlot";
             var HotProducts = (from p in ent.Products
                                join c in ent.Categories on p.Category_Id equals c.Id
                                join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                               join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                                where p.IsHotdeals == true
 
                                select new ProductModel
@@ -799,13 +800,15 @@ from DeliveryTimeSlot";
                                    Metrics = m.Metrics,
                                    Id = p.Id,
                                    Price = p.Price,
+                                   VendorId = p.VendorId,
                                    OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                    DiscountPrice = p.DiscountPrice,
                                    //OurPrice = p.OurPrice,
                                    ProductDescription = p.ProductDescription,
                                    IsStock = p.IsStock,
-                                   IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
+                                   IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                    Quantity = p.Quantity,
+                                   VendorName = vd.VendorName,
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
                                    PremiumAmount = p.PremiumAmount,
@@ -860,7 +863,7 @@ from DeliveryTimeSlot";
             var products = (from p in ent.Products
                             join c in ent.Categories on p.Category_Id equals c.Id
                             join m in ent.Metrics on p.Metric_Id equals m.MetricCode
-                           
+                            join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                             select new ProductModel
                             {
                                 ProductName = p.ProductName,
@@ -870,12 +873,14 @@ from DeliveryTimeSlot";
                                 Metrics = m.Metrics,
                                 Id = p.Id,
                                 Price = p.Price,
+                                VendorId = p.VendorId,
                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                 DiscountPrice = p.DiscountPrice,
                                 ProductDescription = p.ProductDescription,
                                 IsStock = p.IsStock,
-                                 IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
+                                IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
+                                VendorName = vd.VendorName,
                                 IsVariant = p.IsVariant,
                                 Metric_Id = p.Metric_Id
                             }
@@ -926,6 +931,7 @@ from DeliveryTimeSlot";
             var FeatureProducts = (from p in ent.Products
                                    join c in ent.Categories on p.Category_Id equals c.Id
                                    join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                                   join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                                    where p.IsFeatureProduct == true
 
                                    select new ProductModel
@@ -936,12 +942,14 @@ from DeliveryTimeSlot";
                                        Metrics = m.Metrics,
                                        Id = p.Id,
                                        Price = p.Price,
+                                       VendorId = p.VendorId,
                                        OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                        DiscountPrice = p.DiscountPrice,
                                        ProductDescription = p.ProductDescription,
                                        IsStock = p.IsStock,
-                                       IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
+                                       IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                        Quantity = p.Quantity,
+                                       VendorName = vd.VendorName,
                                        IsVariant = p.IsVariant,
                                        Metric_Id = p.Metric_Id,
                                        PremiumAmount = p.PremiumAmount,
@@ -993,6 +1001,7 @@ from DeliveryTimeSlot";
             var rmdProducts = (from p in ent.Products
                                join c in ent.Categories on p.Category_Id equals c.Id
                                join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                               join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                                where p.IsRecomend == true
 
                                select new ProductModel
@@ -1003,12 +1012,14 @@ from DeliveryTimeSlot";
                                    Metrics = m.Metrics,
                                    Id = p.Id,
                                    Price = p.Price,
+                                   VendorId = p.VendorId,
                                    OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                    DiscountPrice = p.DiscountPrice,
                                    ProductDescription = p.ProductDescription,
                                    IsStock = p.IsStock,
-                                   IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
+                                   IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                    Quantity = p.Quantity,
+                                   VendorName = vd.VendorName,
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
                                    PremiumAmount = p.PremiumAmount,
@@ -1060,6 +1071,7 @@ from DeliveryTimeSlot";
             var SpeacialProducts = (from p in ent.Products
                                     join c in ent.Categories on p.Category_Id equals c.Id
                                     join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                                    join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                                     where p.IsSpecial == true
 
                                     select new ProductModel
@@ -1070,12 +1082,14 @@ from DeliveryTimeSlot";
                                         Metrics = m.Metrics,
                                         Id = p.Id,
                                         Price = p.Price,
+                                        VendorId = p.VendorId,
                                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                         DiscountPrice = p.DiscountPrice,
                                         ProductDescription = p.ProductDescription,
                                         IsStock = p.IsStock,
-                                        IsStocks=p.IsStock==true? "In-Stock" : "Out Of-Stock",
+                                        IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                         Quantity = p.Quantity,
+                                        VendorName = vd.VendorName,
                                         IsVariant = p.IsVariant,
                                         Metric_Id = p.Metric_Id,
                                         PremiumAmount = p.PremiumAmount,
@@ -1130,6 +1144,7 @@ from DeliveryTimeSlot";
             var products = (from p in ent.Products
                             join c in ent.Categories on p.Category_Id equals c.Id
                             join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                            join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                             where p.Id == productId
                             select new ProductModel
                             {
@@ -1140,9 +1155,11 @@ from DeliveryTimeSlot";
                                 Metrics = m.Metrics,
                                 Id = p.Id,
                                 Price = p.Price,
+                                VendorId = p.VendorId,
                                 OurPrice = p.OurPrice,
                                 ProductDescription = p.ProductDescription,
                                 IsStock = p.IsStock,
+                                VendorName = vd.VendorName,
                                 IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 IsVariant = p.IsVariant,
@@ -1195,6 +1212,7 @@ from DeliveryTimeSlot";
             {
                 var result = from p in ent.Products
                              join c in ent.Categories on p.Category_Id equals c.Id
+                             join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                              select new Product1()
                              {
                                  Id = p.Id,
@@ -1202,11 +1220,13 @@ from DeliveryTimeSlot";
                                  ProductImage = p.ProductImage,
                                  ProductDescription = p.ProductDescription,
                                  Price = p.Price,
+                                 VendorId = p.VendorId,
                                  IsReviewsAllow = p.IsReviewsAllow,
                                  Quantity = p.Quantity,
                                  OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                  DiscountPrice = p.DiscountPrice,
                                  CategoryName = c.CategoryName,
+                                 VendorName = vd.VendorName,
                                  CategoryImage = c.CategoryImage,
                                  multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                              };
@@ -1277,6 +1297,7 @@ from DeliveryTimeSlot";
             var products = (from p in ent.Products
                             join c in ent.Categories on p.Category_Id equals c.Id
                             join m in ent.Metrics on p.Metric_Id equals m.MetricCode
+                            join vd in ent.Vendors on p.VendorId equals vd.LoginMaster_Id
                             where p.Category_Id == categoryId
                             select new ProductModel
                             {
@@ -1284,12 +1305,15 @@ from DeliveryTimeSlot";
                                 ProductImage = p.ProductImage,
                                 CategoryName = c.CategoryName,
                                 Metrics = m.Metrics,
+                                IsReviewsAllow = p.IsReviewsAllow,
                                 Id = p.Id,
                                 Price = p.Price,
+                                VendorId = p.VendorId,
                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                 DiscountPrice = p.DiscountPrice,
                                 ProductDescription = p.ProductDescription,
                                 IsStock = p.IsStock,
+                                VendorName = vd.VendorName,
                                 IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 IsVariant = p.IsVariant,
@@ -1384,5 +1408,81 @@ from DeliveryTimeSlot";
             }
         }
 
+        //====Review api====
+
+        [HttpPost, Route("api/ProductAPI/AddReview")]
+        public IHttpActionResult AddReview(Rating1 model)
+        {
+            try
+            {
+                string[] allowedExtensions = { ".jpg", ".jpeg", ".png" };
+                if (model.ImageBase != null)
+                {
+                    var Img = FileOperation.UploadFileWithBase64("Images", model.ImageName, model.ImageBase, allowedExtensions);
+                    if (Img == "not allowed")
+                    {
+                        return Ok("Only png,jpg,jpeg files are allowed as Aadhar/PAN card document");
+                    }
+                    model.Image = Img;
+                }
+
+                Review emp = new Review()
+                {
+                    UserId = model.UserId,
+                    Name = model.Name,
+                    EmailId = model.EmailId,
+                    ReviewTitle = model.ReviewTitle,
+                    Image = model.ImageName ?? null,
+                    ReviewDesc = model.ReviewDesc,
+                    Rating = model.Rating,
+                    ProductId = model.ProductId,
+                    SubmitDate = model.SubmitDate,
+
+                };
+                ent.Reviews.Add(emp);
+                ent.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Server Error" + ex.Message);
+            }
+        }
+
+
+
+        [HttpGet, Route("api/ProductAPI/ViewReview/{pid}")]
+
+        public IHttpActionResult ViewReview(int pid)
+        {
+
+            try
+            {
+                var result = ent.Reviews.Where(x => x.ProductId == pid).Select(x => new ReviewModel()
+                {
+
+                    Name = x.Name,
+                    EmailId = x.EmailId,
+                    ReviewTitle = x.ReviewTitle,
+                    ReviewDesc = x.ReviewDesc,
+                    Rating = (int)x.Rating,
+                    ProductId = (int)x.ProductId,
+                    SubmitDate = x.SubmitDate
+                }).ToList();
+
+                if (result != null)
+                {
+                    return Ok(new { result, status = 200, message = "Review List" });
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch
+            {
+                return BadRequest("Server Error");
+            }
+        }
     }
 }

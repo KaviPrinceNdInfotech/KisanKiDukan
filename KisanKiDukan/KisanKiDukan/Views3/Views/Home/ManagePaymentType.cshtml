@@ -1,0 +1,26 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.PaymentType>
+@{
+    ViewBag.Title = "ManagePaymentType";
+    Layout = "~/Views/Shared/_dashboard.cshtml";
+}
+
+<h2>ManagePaymentType</h2>
+@*<a href="/PaymentType/AddPaymentType" class="button btn-danger">Add Payment Type</a>*@ 
+@*<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>PaymentType</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var v in Model)
+        {
+            <tr>
+                <td>@v.PaymentType1</td>
+                <td>@Html.ActionLink("Remove", "RemovePaymentType",new {Id=@v.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+

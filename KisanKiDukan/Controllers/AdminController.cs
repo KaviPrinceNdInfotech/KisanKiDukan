@@ -709,5 +709,38 @@ namespace KisanKiDukan.Controllers
             }
         }
 
+
+        //====GetReviewAdmin====
+        [HttpGet]
+        public ActionResult GetReviewAdmin()
+        {
+            try
+            {
+                var result = ent.Reviews.ToList();
+                return View(result);
+            }
+            catch
+            {
+                throw new Exception("Server Error");
+            }
+        }
+
+        public ActionResult DeleteReview(int id)
+        {
+            try
+            {
+                var result = ent.Reviews.FirstOrDefault(x => x.Id == id);
+                if (result != null)
+                {
+                    ent.Reviews.Remove(result);
+                    ent.SaveChanges();
+                }
+                return RedirectToAction("GetReviewAdmin");
+            }
+            catch
+            {
+                throw new Exception("Server Error");
+            }
+        }
     }
 }

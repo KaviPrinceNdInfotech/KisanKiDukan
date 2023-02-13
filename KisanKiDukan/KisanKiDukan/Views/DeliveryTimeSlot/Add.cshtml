@@ -1,0 +1,44 @@
+﻿@model KisanKiDukan.Models.DTO.DeliveryTimeSlotDTO
+@{
+    ViewBag.Title = "Add Time Slot";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+<div style="width:20%">
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["msg"]
+        </div>
+    }
+    <div class="row r">
+        <div class="col-md-12">
+            <a class="btn btn-info" href="/DeliveryTimeSlot/All">View All Slots</a>
+        </div>
+    </div>
+    <div class="row r">
+        <div class="col-md-12">
+            <h3>Add Time Slot</h3>
+            <div class="form-group">
+                Slot Code *
+                @Html.TextBoxFor(a => a.SlotCode, new { @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.SlotCode)</span>
+            </div>
+            <div class="form-group">
+                StartTime * 
+                @Html.TextBoxFor(a => a.StartTime, new { @class = "form-control tp" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.StartTime)</span>
+            </div>
+            <div class="form-group">
+                End Time *
+                @Html.TextBoxFor(a => a.EndTime, new { @class = "form-control tp" })
+                <span class="text-danger">@Html.ValidationMessageFor(a => a.EndTime)</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -24,16 +24,18 @@ namespace KisanKiDukan.Models.DTO
         public bool IsStock { get; set; }
         public string IsStocks { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<int> VendorId { get; set; }
         public bool IsReviewsAllow { get; set; }
         public Nullable<double> DiscountPrice { get; set; }
         //public Nullable<int> Ourprice { get; set; }
         public Nullable<double> OurPrice { get; set; }
         public string CategoryImage { get; set; }
+        public string VendorName { get; set; }
 
 
         public List<string> multipleImage { get; set; }
 
-        public List<ProductImageModel> ProductImageList { get; set; }
+        //public List<ProductImageModel> ProductImageList { get; set; }
         public List<HttpPostedFileBase> MultiImageFile { get; set; }
 
     }

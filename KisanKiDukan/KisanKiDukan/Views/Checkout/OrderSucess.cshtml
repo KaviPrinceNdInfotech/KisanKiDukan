@@ -1,0 +1,48 @@
+﻿@model KisanKiDukan.Models.ViewModels.OrderSuccessViewModel
+
+@{
+    ViewBag.Title = "OrderSucess";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+
+<h2 style="margin-top:30px;">OrderSucess</h2>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Home</a>
+                    <i>|</i>
+                </li>
+                <li>
+                    Order Success
+                    <i>|</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(user))
+{
+    <h4 style="color:green">Your Order has been successfully placed</h4>
+    <div>
+        <span>check your order<a href="/Home/OrderHistory" class="btn btn-link">My Order</a></span>
+    </div>
+}
+@if (Model != null)
+{
+    <div style="width:95%;margin:auto;margin-top:5%">
+        <div class="form-group">
+            <h4>Order Date: @Model.OrderDate.ToString("dd-MMM-yyyy")</h4>
+        </div>
+        <div class="form-group">
+            <h4>Order No#: @Model.Order_No</h4>
+        </div>
+        <div class="form-group">
+            <h4>Amount: ₹ @Model.Total</h4>
+        </div>
+    </div>
+}
+
+

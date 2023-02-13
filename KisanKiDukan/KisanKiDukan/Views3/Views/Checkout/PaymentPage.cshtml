@@ -1,0 +1,60 @@
+﻿@model KisanKiDukan.Models.DTO.CheckoutDetail
+@{
+    Layout = null;
+}
+<button id="rzp-button1" hidden>Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  
+    var options = {
+        "key": "@Html.DisplayFor(model => model.razorpayKey)", // Enter the Key ID generated from the Dashboard
+        "amount": "@Html.DisplayFor(model => model.Total)", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "name": "@Html.DisplayFor(model => model.FirstName)",
+        "image": "https://kisankidukaan.in/Images/Logo1.png",
+        "order_id": "@Html.DisplayFor(model => model.razorId)",
+        "OrderId": "@Html.DisplayFor(model => model.OrderId)",
+        "handler": function (response) {
+            // After payment successfully made response will come here
+            // Set the data in hidden form            
+            document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+            document.getElementById('rzp_orderid').value = response.razorpay_order_id;
+            // Let's submit the form automatically
+            document.getElementById('rzp-paymentresponse').click();
+        },
+        "prefill": {
+            "name": "@Html.DisplayFor(model => model.FirstName)",
+            "email": "@Html.DisplayFor(model => model.Email)",
+            "contact": "@Html.DisplayFor(model => model.Mobile)"
+        },
+        "notes": {
+            "address": "@Html.DisplayFor(model => model.Address)"
+        },
+        "theme": {
+            "color": "#F37254"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    //<!-- onload function -->
+    window.onload = function () {
+        document.getElementById('rzp-button1').click();
+    };
+
+    document.getElementById('rzp-button1').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+<!-- This form is hidden, and submit when payment successfully made -->
+@using (Html.BeginForm("Complete", "Checkout"))
+{
+    @Html.AntiForgeryToken()    
+    @Html.Hidden("rzp_paymentid")
+    @Html.Hidden("rzp_orderid")    
+    @Html.HiddenFor(a => a.FirstName)
+    @Html.HiddenFor(a => a.Email)
+    @Html.HiddenFor(a => a.PurchasedItems)
+    @Html.HiddenFor(a => a.Mobile)
+    @Html.HiddenFor(a => a.OrderId)
+    @Html.HiddenFor(a => a.Total)
+    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
+}

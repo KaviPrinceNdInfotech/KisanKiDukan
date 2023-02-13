@@ -1,0 +1,64 @@
+﻿@model KisanKiDukan.Models.ViewModels.DiscountInfoDataShowModel 
+@{
+    ViewBag.Title = "ShowDiscountInfo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string str = "edit";
+}
+
+<h2>Show Discount Information</h2>
+<hr />
+<h2 style="margin-bottom:3%;"></h2>
+<table class="table table-striped">
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Discount Type</th>
+        <th>Discount Price</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>@Model.DiscountDatas.ProductName</td>
+        <td>@Model.DiscountDatas.Price</td>
+        <td>@Model.DiscountDatas.Discount</td>
+        <td>@Model.DiscountDatas.DiscountType</td>
+        <td>@Model.DiscountDatas.DiscountPrice</td>
+        <td>@Model.DiscountDatas.StartDate</td>
+        <td>@Model.DiscountDatas.EndDate</td>
+        <td>@Model.DiscountDatas.Description</td>
+        <td>@Model.DiscountDatas.Status</td>
+        <td>
+            <a href="/Product/ProductDiscount?id=@Model.DiscountDatas.Id&strg=@str" class="btn btn-info">Edit</a>
+            <a href="/Product/DiscountStatus?id=@Model.DiscountDatas.Id" id="status" class="btn btn-info">Status</a>
+            @*<span class="btn btn-danger" onclick="deleteRecord('/Product/Delete?id=@Model.DiscountDatas.Id')">Delete</span>*@
+        </td>
+    </tr>
+
+</table>
+
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#status").click(function () {
+            alert("Want to change status..")
+        });
+    });
+</script>
+<script>
+    function deleteRecord(url) {
+        if (window.confirm('do you want to delete?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+</script>

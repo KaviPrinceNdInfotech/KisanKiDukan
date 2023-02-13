@@ -1,0 +1,118 @@
+﻿@model KisanKiDukan.Models.DTO.VendorDTO
+@{
+    ViewBag.Title = "VendorUploadDoc";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+@*<h2>VendorUploadDoc</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Upload Document</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">Upload Document</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                @using (Html.BeginForm("VendorUploadDoc", "Vendor", new { id = @Model.Id }, FormMethod.Post, new { encType = "multipart/form-data" }))
+                {
+                    <div class="container">
+                        <div>
+                            <div class="checkout-title">
+                                <h3><a href="~/Vendor/Reciept/@Model.Id">Download Recipt</a></h3>
+                                <p>
+                                    @if (TempData["msg"] != null)
+                                    {
+                                        @TempData["msg"]
+                                    }
+                                </p>
+                            </div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:30%;">PAN Card : *</span>
+                                        @Html.TextBoxFor(a => a.DocumentFile1, new { @type = "file", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.DocumentFile1)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:27%;">Address Proof : *</span>
+                                        @Html.TextBoxFor(a => a.DocumentFile2, new { @type = "file", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.DocumentFile2)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:26.4%;">Cancel Cheque : *</span>
+                                            @Html.TextBoxFor(a => a.DocumentFile3, new { @type = "file", @required = "required", @class = "" })
+                                            <span class="text-danger">
+                                                @Html.ValidationMessageFor(a => a.DocumentFile3)
+                                            </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:20%;">Upload Signed Document : *</span>
+                                            @Html.TextBoxFor(a => a.DocumentFile4, new { type = "file", @required = "required", @class = "" })
+                                            <span class="text-danger">
+                                                @Html.ValidationMessageFor(a => a.DocumentFile4)
+                                            </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:14.8%;">Government Issue Certificate Copy : *</span>
+                                            @Html.TextBoxFor(a => a.DocumentFile5, new { type = "file", @required = "required", @class = "" })
+                                            <span class="text-danger">
+                                                @Html.ValidationMessageFor(a => a.DocumentFile5)
+                                            </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:27.6%;">Food Licence : *</span>
+                                            @Html.TextBoxFor(a => a.DocumentFile6, new { type = "file", @required = "required", @class = "" })
+                                            <span class="text-danger">
+                                                @Html.ValidationMessageFor(a => a.DocumentFile6)
+                                            </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <span style="margin-right:17.6%;">Company/Business Document : *</span>
+                                            @Html.TextBoxFor(a => a.DocumentFile7, new { type = "file", @required = "required", @class = "" })
+                                            <span class="text-danger">
+                                                @Html.ValidationMessageFor(a => a.DocumentFile7)
+                                            </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="nextBtn" class="text-right" value="Next" style="border:none;">
+                                            <span class="btn-normal btn">Submit</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@model KisanKiDukan.Models.DTO.PremiumAmount
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    #main {
+        width: 40%;
+        margin: 1% 1%;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div id="main">
+        <h2> Premium MemberShip Amount</h2>
+        <div class="form-group">
+            @Html.HiddenFor(a => a.Id)
+            Amount * :
+            @Html.TextBoxFor(a => a.Amount, new { type = "number", @class = "form-control" })
+        </div>
+        <div class="form-group">
+            Valid Till (In Months) * :
+            @Html.TextBoxFor(a => a.TillDate, new { type = "number", @class = "form-control" })
+        </div>
+        @if (ViewBag.msg != null)
+        {
+            <div class="form-group">
+                @ViewBag.msg
+            </div>
+        }
+        <div class="form-group">
+            <input type="submit" class="btn btn-info" value="Save" />
+        </div>
+    </div>
+}
+

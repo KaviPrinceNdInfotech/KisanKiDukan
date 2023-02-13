@@ -1,14 +1,16 @@
-﻿using System;
+﻿using AutoMapper;
+using KisanKiDukan.Models.Domain;
+using KisanKiDukan.Models.DTO;
+using KisanKiDukan.Models.ViewModels;
+using KisanKiDukan.Repository.Implementation;
+using KisanKiDukan.Repository.Services;
+using KisanKiDukan.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using KisanKiDukan.Models.Domain;
-using KisanKiDukan.Models.ViewModels;
-using KisanKiDukan.Models.DTO;
-using AutoMapper;
-using KisanKiDukan.Utilities;
-using System.Data.Entity;
 using Product = KisanKiDukan.Models.Domain.Product;
 
 namespace KisanKiDukan.Controllers
@@ -17,16 +19,19 @@ namespace KisanKiDukan.Controllers
     {
         DbEntities ent = new DbEntities();
         #region Product Master entry
+        IProductRepository repos = new ProductRepository();
+        ProductRepository repo = new ProductRepository();
         public ActionResult Products(int? page, string term)
         {
             var model = new ProductDisplayModelAdmin();
             int vendorID = Convert.ToInt32(Session["AddBy"]);
             if (vendorID > 1)
             {
-                var pro = ent.Database.SqlQuery<ProductModel>(@"select prd.*,IsNull(mtr.Metrics,'')Metrics,c.CategoryName,sc.Name as SubCategory  from Product prd
-join Category c on prd.Category_Id = c.Id
-left join SubCategory sc on prd.SubId = sc.Id
-left join Metric mtr on prd.Metric_Id=mtr.MetricCode where VendorId= " + vendorID + " order by prd.Id desc").ToList();
+                var pro = ent.Database.SqlQuery<ProductModel>(@"select prd.*,IsNull(mtr.Metrics,'')Metrics,c.CategoryName,sc.Name as SubCategory,ISNULL(VD.VendorName,'') AS VendorName  from Product prd
+        join Category c on prd.Category_Id = c.Id
+        left join SubCategory sc on prd.SubId = sc.Id
+left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
+        left join Metric mtr on prd.Metric_Id=mtr.MetricCode where VendorId= " + vendorID + " order by prd.Id desc").ToList();
 
                 if (!string.IsNullOrEmpty(term))
                 {
@@ -45,10 +50,11 @@ left join Metric mtr on prd.Metric_Id=mtr.MetricCode where VendorId= " + vendorI
             }
             else
             {
-                var pro = ent.Database.SqlQuery<ProductModel>(@"select prd.*,IsNull(mtr.Metrics,'')Metrics,c.CategoryName,sc.Name as SubCategory  from Product prd
-join Category c on prd.Category_Id = c.Id
-left join SubCategory sc on prd.SubId = sc.Id
-left join Metric mtr on prd.Metric_Id=mtr.MetricCode order by prd.Id desc").ToList();
+                var pro = ent.Database.SqlQuery<ProductModel>(@"select prd.*,IsNull(mtr.Metrics,'')Metrics,c.CategoryName,sc.Name as SubCategory,ISNULL(VD.VendorName,'') AS VendorName  from Product prd
+        join Category c on prd.Category_Id = c.Id
+        left join SubCategory sc on prd.SubId = sc.Id
+left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
+        left join Metric mtr on prd.Metric_Id=mtr.MetricCode order by prd.Id desc").ToList();
 
                 if (!string.IsNullOrEmpty(term))
                 {

@@ -1,0 +1,65 @@
+﻿@model KisanKiDukan.Models.ViewModels.AllCategoryModel
+<div>
+    @{
+        if (Model.CategoryLists != null && Model.CategoryLists.Count > 0)
+        {
+            <ul id="menu-shop-by-department" class="menu">
+                @foreach (var mitem in Model.CategoryLists)
+                {
+                    <li id="menu-item-944" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-944">
+                        <a href="~/Home/AllProducts?categoryId=@mitem.Id" title="Automotive & Industrial">
+                            <span class="menu-title" style="padding-left:10px;">@mitem.CategoryName</span>
+                        </a>
+                        @*@{
+                            var data = Model.SubCategoryLists.Where(a => a.MainCat_Id == mitem.Id).ToList();
+                            if (data != null && data.Count > 0)
+                            {
+                                <ul class="sub-menu mega-menu custom-subwidth" style="width: 260px;">
+                                    @foreach (var sitem in data)
+                                    {
+                                        <li class="mega-menu-item">
+                                            <div data-elementor-type="page" data-elementor-id="946" class="elementor elementor-946" data-elementor-settings="[]">
+                                                <div class="elementor-inner">
+                                                    <div class="elementor-section-wrap">
+                                                        <div class="elementor-element elementor-element-794fb97 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
+                                                             data-id="794fb97"
+                                                             data-element_type="section">
+                                                            <div class="elementor-container elementor-column-gap-no">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-element elementor-element-230dca1 elementor-column elementor-col-100 elementor-top-column" data-id="230dca1" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-21341ef elementor-icon-list--layout-traditional elementor-widget elementor-widget-icon-list"
+                                                                                     data-id="21341ef"
+                                                                                     data-element_type="widget"
+                                                                                     data-widget_type="icon-list.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <ul class="elementor-icon-list-items">
+                                                                                            <li class="elementor-icon-list-item">
+                                                                                                <a href="~/Home/Products?categoryId=@sitem.Id">
+                                                                                                    <span class="elementor-icon-list-text">@sitem.Name</span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        }*@
+                    </li>
+                 }
+            </ul>
+        }
+    }
+</div>

@@ -1,0 +1,150 @@
+﻿@model KisanKiDukan.Models.APIModels.RequstModels.AllKartDetailModel
+@{
+    ViewBag.Title = "DisplayKart";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    int i = 1;
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+
+@*<h2>DisplayKart</h2>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>cart</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="cart-section section-big-py-space bg-light">
+    <div class="custom-container">
+        @if (Model != null && Model.KartDetail != null && Model.KartDetail.Count() > 0)
+        {
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table cart-table table-responsive-xs">
+                    <thead>
+                        <tr class="table-head">
+                            <th scope="col">image</th>
+                            <th scope="col">product name</th>
+                            <th scope="col">price</th>
+                            <th scope="col">quantity</th>
+                            <th scope="col">action</th>
+                            <th scope="col">total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.KartDetail)
+                        {
+                        <tr>
+                            <td>
+                                <a href="/Home/ProductDetail?productId=@item.Product_Id">
+                                    <img src="~/Images/@item.ProductImage" alt="cart" class="">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#">@item.ProductName</a>
+                                <div class="mobile-cart-content row">
+                                    <div class="col-xs-3">
+                                        <div class="qty-box">
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <h2 class="td-color">Rs. @item.Price</h2>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <h2>Rs. @item.Price</h2>
+                            </td>
+                            <td>
+                                <div class="qty-box">
+                                    <div class="input-group">
+                                        <a href="/Kart/MinusOne?kartDetailId=@item.CartDetail_Id"><i class="fa fa-minus-circle"></i></a>
+                                        @item.Quantity
+                                        <a href="/Kart/plusOne?kartDetailId=@item.CartDetail_Id"><i class="fa fa-plus-circle"></i></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="/Kart/RemoveProduct?kartDetailId=@item.CartDetail_Id"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                            <td>
+                                <h2 class="td-color">--</h2>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <table class="table cart-table table-responsive-md">
+                    <tfoot>
+                        <tr>
+                            <td>total price :</td>
+                            <td>
+                                <h2>Rs. @Model.KartDetail.Sum(a => a.Quantity * a.Price)</h2>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row cart-buttons">
+            <div class="col-12">
+                <a href="/Home/Index" class="btn btn-normal">continue shopping</a>
+                <a href="/Checkout/CreateOrder" class="btn btn-normal ml-3">check out</a>
+            </div>
+        </div>
+        }
+        else
+        {
+            <div class="row cart-buttons">
+                <div class="col-12">
+                    <p>Your cart is empty.</p>
+                    <a href="/Home/Index" class="btn btn-normal">continue shopping</a>
+                    <a href="/Checkout/CreateOrder" class="btn btn-normal ml-3">check out</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!--section end-->
+
+<script>
+	$(document).ready(function(){
+	   $("#quantity").change(function () {
+			$(this).keyup(function(){
+				calculateSum();
+			});
+		});
+	});
+
+	function calculateSum() {
+	    var subTotalAmt = 0;
+	    var Amt = $("#price").val();
+		$("#quantity").change(function () {
+			if(!isNaN(this.value) && this.value.length!=0) {
+			    subTotalAmt = Amt*parseFloat(this.value);
+			}
+		});
+		$("#subTotal").html(sum.toFixed(2));
+	}
+</script>

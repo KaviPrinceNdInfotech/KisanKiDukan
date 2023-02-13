@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Details</h2>
+@if (Model.Blog == null)
+{
+
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Url</th>
+                <th>Blog Image</th>
+                <th>Heading </th>
+                <th>Short Description</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model.Blog)
+            {
+                <tr>
+                    <td>@a.Url</td>
+                    <td><img src="@a.BlogImage" width="100px" height="100px" /></td>
+                    <td>@a.Heading</td>
+                    <td>@a.Short</td>
+                    <td>@Html.Raw(@a.Description)</td>
+                    <td>
+                        <a href="/Admin/DeleteBlog?Id=@a.Id" class="btn btn-primary">Delete</a>
+                        <a href="/Admin/EditBlog?Id=@a.Id" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

@@ -1,0 +1,61 @@
+﻿@model KisanKiDukan.Models.DTO.BrandDTO
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>Edit</h2>*@
+<div class="col-lg-12">
+    <h2 class="page-header">Update Brand</h2>
+</div>
+<div class="form-group">
+    @if (TempData["scs"] != null)
+    {
+        <h3 class="text-success text-center">@TempData["scs"]</h3>
+    }
+</div>
+<div class="form-group">
+    @if (TempData["err"] != null)
+    {
+        <h3 class="text-danger text-center">@TempData["err"]</h3>
+    }
+</div>
+<div style="width:50%;margin:auto">
+    @using (Html.BeginForm("Update", "Brand", FormMethod.Post, new { encType = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.BrandLogo)
+        @Html.HiddenFor(a => a.IsActive)
+        @Html.HiddenFor(a => a.IsFeature)
+        <div class="form-group">
+            Brand Name :@Html.TextBoxFor(a => a.BrandName, new { @class = "form-control", required = "required" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.BrandName)</span>
+        </div>
+        <div class="form-group">
+            Page Url :@Html.TextBoxFor(a => a.Page_Url, new { @class = "form-control", @readolny = "readolny" })
+        </div>
+        <div class="form-group">
+            @if (!string.IsNullOrEmpty(Model.BrandLogo))
+            {
+                <img src="/BrandLogo/@Model.BrandLogo" width="150" height="150" /><br />
+            }
+            Brand Logo :@Html.TextBoxFor(a => a.Logo, new { type = "file", @class = "form-control" })
+        </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info"><i class="fa fa-floppy-o"></i> Save</button>
+                <a href="/Brand/ShowRecords" class="btn btn-info">All Brand</a>
+            </div>
+    }
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+    $("#BrandName").keyup(function () {
+        var pageVal = $(this).val();
+        pageVal = pageVal.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+        $("#Page_Url").val(pageVal.toLowerCase());
+    });
+</script>
+
+
+
+
+

@@ -1,0 +1,32 @@
+@model IEnumerable<KisanKiDukan.Models.Domain.State>
+@{
+    ViewBag.Title = "ShowState";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>ShowState</h2>*@
+<div style="width:60%">
+    <h4>States</h4>
+    <a href="/StateCityLocManager/AddState" class="btn btn-primary">Add more</a>
+    <table class="table table-striped">
+        <tr>
+            <th>State Name</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StateName</td>
+                <td>
+                    @*<a href="/Category/Edit?id=@item.Id" class="btn btn-info">Edit</a>*@
+                    @*<a href="/StateCityLocManager/DeleteState?id=@item.Id" class="btn btn-danger">Delete</a>*@
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="/StateCityLocManager/DeleteState?id=@item.Id" class="btn btn-danger">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

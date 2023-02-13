@@ -1,0 +1,17 @@
+﻿@model KisanKiDukan.Models.ViewModels.AllCategoryModel
+
+@{
+    if (Model.CategoryLists != null && Model.CategoryLists.Count > 0)
+    {
+
+        foreach (var mitem in Model.CategoryLists)
+        {
+            <li>
+                <a href="~/Home/AllProducts?categoryId=@mitem.Id">
+                    @mitem.CategoryName
+                </a>
+            </li>
+        }
+
+    }
+}

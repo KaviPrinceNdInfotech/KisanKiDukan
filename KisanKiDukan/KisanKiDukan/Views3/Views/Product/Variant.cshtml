@@ -1,0 +1,69 @@
+﻿@model KisanKiDukan.Models.ViewModels.VarientVM
+@{
+    ViewBag.Title = "Variant";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Variant of @Model.ProductName</h2>
+<div class="form-group">
+    <a href="/Product/AddMoreVarint?productId=@Model.Product_Id" class="btn btn-info">Add More</a>
+    <a href="/Product/Products" class="btn btn-primary">Back</a> 
+</div>
+<div class="form-group">
+    <table class="table table-bordered">
+        <tr>
+            <th>Weight</th>
+            <th>Market Price(Rs.)</th>
+            <th>Our Price(Rs.)</th>
+            <th>Is in stock</th>
+            <th>Action</th>
+        </tr>
+        <tbody>
+            @if (Model.VarientList != null && Model.VarientList.Count() > 0)
+            {
+                foreach (var item in Model.VarientList)
+                {
+                    <tr>
+                        <td><span>@item.Quantity</span>&nbsp;<span>@item.Metrics</span> </td>
+                        <td>@item.Price</td>
+                        <td>@item.OurPrice</td>
+                        <td>
+                        @if (item.IsAvailable)
+                        {
+                        <span>Yes</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+                        </td>
+                        <td>
+                            <a href="/Product/EditVarient?id=@item.Id" class="btn btn-info">Edit</a>
+                            <span class="btn btn-danger" onclick="deleteRecord('/Product/DeleteVarient?id=@item.Id')">Delete</span>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <h3>No record found</h3>
+            }
+
+        </tbody>
+    </table>
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+    function deleteRecord(url) {
+        if (window.confirm('do you want to delete?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+</script>
+

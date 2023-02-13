@@ -1,0 +1,104 @@
+﻿@model KisanKiDukan.Models.DTO.VendorDTO
+@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@*<h1>Add Vendor</h1>*@
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-main ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-contain">
+                    <div>
+                        <h2>Contact Person Details</h2>
+                        <ul>
+                            <li><a href="/Home/Index">home</a></li>
+                            <li><i class="fa fa-angle-double-right"></i></li>
+                            <li><a href="#">Contact Person Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                @using (Html.BeginForm("Add", "Vendor", FormMethod.Post))
+                {
+                    <div class="container">
+                        <div>
+                            <div class="checkout-title">
+                                <h3></h3>
+                            </div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Vendor Name *
+                                        @Html.TextBoxFor(a => a.VendorName, new { placeholder = "Your Name", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.VendorName)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Mobile Number *
+                                        @Html.TextBoxFor(a => a.ContactNumber, new { placeholder = "Mobile Number", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.ContactNumber)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        Email Address *
+                                        @Html.TextBoxFor(a => a.EmailId, new { placeholder = "Email Id", @type = "email", @required = "required", @class = "" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.EmailId)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        Password *
+                                        @Html.TextBoxFor(a => a.Password, new { placeholder = "Password", @type = "password", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.Password)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        State *
+                                        @Html.DropDownListFor(a => a.State, Model.StateList, "Select State ", new { @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.State)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        City *
+                                        @Html.TextBoxFor(a => a.city, new { placeholder = "City", @required = "required", @class = "elementor-field elementor-size-sm elementor-field-textual" })
+                                        <span class="text-danger">
+                                            @Html.ValidationMessageFor(a => a.city)
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        @*<a href="/Home/login">Already have an account</a>*@
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <button type="submit" name="nextBtn" class="text-right" value="Next" style="border:none;">
+                                            <span class="btn-normal btn">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+
+

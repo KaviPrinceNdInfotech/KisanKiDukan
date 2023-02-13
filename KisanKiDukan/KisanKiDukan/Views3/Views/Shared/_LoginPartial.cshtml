@@ -1,0 +1,38 @@
+﻿@*@model KisanKiDukan.Models.ViewModels.LoginDTOModel*@
+@model KisanKiDukan.Models.ViewModels.HomeModel
+<!-- My account bar start-->
+<div>
+    <a href="javascript:void(0)" class="overlay" onclick="closeAccount()"></a>
+    <div class="cart-inner">
+        <div class="cart_top">
+            <h3>my account</h3>
+            <div class="close-cart">
+                <a href="javascript:void(0)" onclick="closeAccount()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "theme-form" }))
+        {
+            @Html.HiddenFor(a => a.LoginModel.url)
+            @*<form class="theme-form">*@
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="Email_Id" id="username" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                    <label for="review">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required="">
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="login" class="btn btn-rounded btn-block ">Login</button>
+                </div>
+                <div>
+                    <h5 class="forget-class"><a href="forget-pwd.html" class="d-block">forget password?</a></h5>
+                    <h6 class="forget-class"><a href="/Home/UserRegister" class="d-block">new to store? Signup now</a></h6>
+                </div>
+            @*</form>*@
+        }
+    </div>
+</div>
+<!-- Add to account bar end-->

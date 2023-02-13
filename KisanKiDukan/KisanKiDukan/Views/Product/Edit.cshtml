@@ -1,0 +1,266 @@
+﻿@model KisanKiDukan.Models.ViewModels.ProductModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+    $("#Category_Id").change(function () {
+        let mainId = $(this).val();
+        var childDd = $("#subId");
+        childDd.empty();
+        childDd.append('<option value="">Select</option>')
+        $.get('/Product/GetSubCategory?subId=' + mainId).then(function (response) {
+            $.each(response, function (key, val) {
+                childDd.append(`<option value="${val.Id}">${va.Name}</option>`);
+            });
+        }).error(function (response) {
+            console.log(response.responseText);
+        });
+    });
+</script>
+
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    legend a {
+        color: black;
+    }
+
+    legend.legendStyle {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    fieldset.fsStyle {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: small;
+        font-weight: normal;
+        border: 1px solid #999999;
+        padding: 4px;
+        margin: 5px;
+    }
+
+    legend.legendStyle {
+        font-size: 90%;
+        color: #888888;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    legend {
+        width: auto;
+        border-bottom: 0px;
+    }
+
+
+    .col-lg-1 {
+        width: 25.333333%;
+    }
+</style>
+<div class="form-group">
+    <a href="/Product/Products" class="btn btn-primary">All Products</a>
+
+</div>
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.HiddenFor(a=>a.Id)
+    @Html.HiddenFor(a=>a.ProductImage)
+    @Html.HiddenFor(a => a.IsStock)
+    @Html.HiddenFor(a => a.IsVariant)
+    <div style="color:black;">
+        <fieldset class="fsStyle">
+            <legend class="legendStyle">
+                <a data-toggle="collapse" data-target="#demo1" href="#"> Product Detail</a>
+            </legend>
+            <div class="collapse in" id="demo1" style="width:80%">
+                <div class="form-group">
+                    @if (TempData["msg"] != null)
+                    {
+                        <div class="alert alert-info text-center">
+                            @TempData["msg"]
+                        </div>
+                    }
+                </div>
+                <div class="form-group">
+                    Name * @Html.TextBoxFor(a => a.ProductName, new { @class = "form-control" })
+                    <span style="color:red">@Html.ValidationMessageFor(a => a.ProductName)</span>
+                </div>
+                <div class="form-group">
+                    Weight
+                    @Html.TextBoxFor(a => a.Quantity, new { type = "number", @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Metric_Id)</span>*@
+                </div>
+                <div class="form-group">
+                    Metrics
+                    @Html.DropDownListFor(a => a.Metric_Id, Model.MetricList, "Select Metric", new { @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Metric_Id)</span>*@
+                </div>
+                <div class="form-group">
+                    Category
+                    @Html.DropDownListFor(a => a.Category_Id, Model.CategoryList, "Select Category", new { @class = "form-control", required = "required" })
+                    <span style="color:red">@Html.ValidationMessageFor(a => a.Category_Id)</span>
+
+                </div>
+                <div class="form-group">
+                    Sub Category * @Html.DropDownListFor(a => a.subId,
+Enumerable.Empty<SelectListItem>()
+, "Select", new { @class = "form-control" })
+                    <span class="red">
+                        @Html.ValidationMessageFor(a => a.subId)
+                    </span>
+                </div>
+                <div class="form-group">
+                    Image
+                    @if (!string.IsNullOrEmpty(Model.ProductImage))
+                    {
+                        <img src="~/Images/@Model.ProductImage" width="150" height="150" />
+                    }
+                    @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Price * @Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
+                </div>
+
+                <div class="form-group">
+                    DiscountPrice % @Html.TextBoxFor(a => a.DiscountPrice, new { type = "number", @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
+                </div>
+                <div class="form-group">
+                    OurPrice % @Html.TextBoxFor(a => a.OurPrice, new { type = "number", @class = "form-control" })
+                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
+                </div>
+
+                <div class="form-group">
+                    Bar Code @Html.TextBoxFor(a => a.Barcode, new { type = "text", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    HSN Code @Html.TextBoxFor(a => a.HsnCode, new { type = "text", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    Description @Html.TextAreaFor(a => a.ProductDescription, 10, 30, new { @class = "form-control" })
+                    <span style="color:red">@Html.ValidationMessageFor(a => a.ProductDescription)</span>
+                </div>
+                <div class="form-group">
+                    Shipping Charge @Html.TextBoxFor(a => a.ShippingCharge, new { @class = "form-control" })
+                    <span style="color:red">@Html.ValidationMessageFor(a => a.ShippingCharge)</span>
+                </div>
+                <div class="form-group">
+                    Is this product has Hot Deals product (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsHotdeals)
+                </div>
+                <div class="form-group">
+                    Is this product has New Arrival (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsFeatureProduct)
+                </div>
+
+                <div class="form-group">
+                    Is this product has Special Product (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsSpecial)
+                </div>
+                <div class="form-group">
+                    Is this product has recommendation (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsRecomend)
+                </div>
+                <div class="form-group">
+                    Is this product under replacement (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsReplacement)
+                    <br />
+                    @if (Model.IsReplacement)
+                    {
+                        <div class="form-group">
+                            @Html.TextAreaFor(a => a.ReplacementTC, 5, 30, new { @class = "form-control", placeholder = "Describe Replacement T&C" })
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-group" id="divRepTC" style="display:none;">
+                            @Html.TextAreaFor(a => a.ReplacementTC, 5, 30, new { id = "ReplaceTC", @class = "form-control", placeholder = "Describe Replacement T&C" })
+                        </div>
+                    }
+                </div>
+                <div class="form-group">
+                    Is this product has multiple variant (Please Tick)
+                    @Html.CheckBoxFor(a => a.IsVariant)
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div style="display:none;" id="divVariant">
+        <fieldset class="fsStyle">
+            <legend class="legendStyle">
+                <a data-toggle="collapse" data-target="#demo" href="#"> Product Available In</a>
+            </legend>
+
+            <div class="collapse in" id="demo" style="width:100%;color: black;">
+                <span id="addNewabt" class="btn btn-info">
+                    + Add new
+                </span>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered" id="attrTable">
+                            <thead>
+                                <tr>
+                                    <th>Weight</th>
+                                    <th>Metrics</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.TextBoxFor(a => a.PAvail[0].Quantity, new { type = "number", @class = "form-control" })</td>
+                                    <td>@Html.DropDownListFor(a => a.PAvail[0].Metrics_Id, Model.MetricList, "Select", new { @class = "form-control" })</td>
+                                    <td>@Html.TextBoxFor(a => a.PAvail[0].Price, new { type = "number", @class = "form-control" })</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-info btn-block" />
+        </div>
+}
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/bulkEntry.js"></script>
+<script src="/js/product.js"></script>
+<script>
+    $('#IsReplacement').click(function () {
+        if ($(this).prop("checked") == true) {
+            $("#divRepTC").show();
+            $("#ReplaceTC").attr("required", true);
+        }
+        else {
+            $("#divRepTC").hide();
+            $("#ReplaceTC").attr("required", false);
+            $("#ReplaceTC").val('');
+        }
+    });
+    $('#IsVariant').click(function () {
+        if ($(this).prop("checked") == true) {
+            $("#divVariant").show();
+        }
+        else {
+            $("#divVariant").hide();
+        }
+    });
+    $('#cgst').change(function () {
+        $('#sgst').val(parseInt($("#cgst").val()));
+        $('#sgst').attr('readonly', true);
+    });
+</script>
+

@@ -10,6 +10,9 @@ namespace KisanKiDukan.Repository.Implementation
     public class ProductRepository : IProductRepository
     {
         private DbEntities ent = new DbEntities();
+
+        //IProductRepository repos = new ProductRepository();
+
         public int? OfferType { get; private set; }
         public int AddProduct(Product product)
         {
@@ -41,6 +44,17 @@ namespace KisanKiDukan.Repository.Implementation
             {
                 return null;
             }
+        }
+
+        public int GetUserVenderId()
+        {
+            int Id = int.Parse(HttpContext.Current.User.Identity.Name);
+            var userData = ent.Vendors.Where(A => A.LoginMaster_Id == Id).FirstOrDefault();
+            if (userData != null)
+            {
+                return userData.Id;
+            }
+            return 0;
         }
 
         public Product GetProductById(int Id)

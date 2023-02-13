@@ -1,0 +1,150 @@
+﻿@model KisanKiDukan.Models.ViewModels.OrderSuccessViewModel
+
+@{
+    ViewBag.Title = "OrderSucess";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var user = Request.Cookies["user"] == null ? "" : Request.Cookies["user"].Value;
+}
+
+<!-- thank-you section start -->
+@if (Model != null)
+{
+    <section class="section-big-py-space light-layout">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="success-text">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        <h2>thank you</h2>
+                        <p>Your order is received it will be dispatch as well as soon..</p>
+                        <p>Order No#: @Model.Order_No</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<!-- Section ends -->
+<!-- order-detail section start -->
+<section class="section-big-py-space mt--5 bg-light">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-order">
+                    <h3>your order details</h3>
+                    @foreach (var item in Model.OrdDetail)
+                    {
+                        <div class="row product-order-detail">
+                            <div class="col-3"><img src="../assets/images/layout-4/product/1.jpg" alt="" class="img-fluid "></div>
+                            <div class="col-3 order_detail">
+                                <div>
+                                    <h4>Product Name</h4>
+                                    <h5>@item.ProductName</h5>
+                                </div>
+                            </div>
+                            <div class="col-3 order_detail">
+                                <div>
+                                    <h4>quantity</h4>
+                                    <h5>@item.Quantity</h5>
+                                </div>
+                            </div>
+                            <div class="col-3 order_detail">
+                                <div>
+                                    <h4>price</h4>
+                                    <h5>Rs. @item.Price</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="total-sec">
+                        <ul>
+                            <li>subtotal <span>Rs. @Model.Total.00</span></li>
+                            <li>shipping <span>Rs. 00.00</span></li>
+                            <li>tax(GST) <span>Rs. 00.00</span></li>
+                        </ul>
+                    </div>
+                    <div class="final-total">
+                        <h3>total <span>Rs. @Model.Total.00</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row order-success-sec">
+                    <div class="col-sm-6">
+                        <h4>summery</h4>
+                        <ul class="order-detail">
+                            <li>order ID: @Model.Order_No</li>
+                            <li>Order Date: @Model.OrderDate</li>
+                            <li>Order Total: Rs. @Model.Total.00</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>shipping address</h4>
+                        <ul class="order-detail">
+                            <li>Address :@Model.ordData.Address</li>
+                            <li>State :@Model.ordData.State, City :@Model.ordData.City</li>
+                            <li>Pin :@Model.ordData.PinCode</li>
+                            <li>Contact No.: @Model.ordData.PhoneNumber</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 payment-mode">
+                        <h4>payment method</h4>
+                        <p>@Model.PaymentMode</p>
+                        <p>Note :*Pay on Delivery (Cash/Card). Cash on delivery (COD) availabel. Card/Net banking acceptance subject to device availability.*</p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="delivery-sec">
+                            <h3>expected date of delivery</h3>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+
+
+
+@*<h2 style="margin-top:30px;">OrderSucess</h2>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Home</a>
+                    <i>|</i>
+                </li>
+                <li>
+                    Order Success
+                    <i>|</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(user))
+{
+    <h4 style="color:green">Your Order has been successfully placed</h4>
+    <div>
+        <span>check your order<a href="/Home/OrderHistory" class="btn btn-link">My Order</a></span>
+    </div>
+}
+@if (Model != null)
+{
+    <div style="width:95%;margin:auto;margin-top:5%">
+        <div class="form-group">
+            <h4>Order Date: @Model.OrderDate.ToString("dd-MMM-yyyy")</h4>
+        </div>
+        <div class="form-group">
+            <h4>Order No#: @Model.Order_No</h4>
+        </div>
+        <div class="form-group">
+            <h4>Amount: ₹ @Model.Total</h4>
+        </div>
+    </div>
+}*@
+
+

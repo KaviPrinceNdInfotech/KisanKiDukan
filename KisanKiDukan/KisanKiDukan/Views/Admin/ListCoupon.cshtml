@@ -1,0 +1,99 @@
+﻿@model IEnumerable<KisanKiDukan.Models.Domain.Discount_Coupon>
+
+@{
+    ViewBag.Title = "ListCoupon";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ListCoupon</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CouponCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinimumAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaximumAmount)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.Action)
+            </th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Action)
+            </td>
+            <td>
+                <a href="/Product/DeleteCoupon?id=@item.id"><i class="fa fa-trash h2 text-danger"></i></a>
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<table class="table table-hover table-bordered">
+    <tr class="bg-info text-white">
+        <th>Name</th>
+        <th>
+            @Html.DisplayNameFor(model => model.CouponCode)
+        </th>
+
+        <th> Discount Percentage</th>
+        <th>Minimum Amount</th>
+        <th>Maximum Amount</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponCode)
+            </td>
+
+            <td>@item.Amount</td>
+            <td> @item.MinimumAmount</td>
+            <td>@item.MaximumAmount</td>
+            <td>
+                <a href="/Admin/DeleteCoupon?id=@item.id"><i class="fa fa-trash h2 text-danger"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

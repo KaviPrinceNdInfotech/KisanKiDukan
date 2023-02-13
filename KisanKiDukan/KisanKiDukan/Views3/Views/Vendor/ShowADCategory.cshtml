@@ -1,0 +1,39 @@
+﻿@model KisanKiDukan.Models.ViewModels.AllADCategoriesModel
+@{
+    ViewBag.Title = "ShowADCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <center>
+        <u><h2 style="padding-top: 39px; font-size: 25px; font-weight: 600; padding-bottom: 40px;">POST YOUR AD</h2></u>
+    </center>
+    <div class="nestedsidemenu">
+        @{
+            if (Model.ADCategoryList != null && Model.ADCategoryList.Count > 0)
+            {
+                <ul>
+                    @foreach (var mitem in Model.ADCategoryList)
+                     {
+                        <li>
+                            <a href="javascript:vold(0)">@mitem.CategoryName</a>
+                            @{
+                                var data = Model.SubCategoryList.Where(a => a.MainCat_Id == mitem.Id).ToList();
+                                if (data != null && data.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var sitem in data)
+                                        {
+                                            <li><a href="/Vendor/AddADProduct">@sitem.Name</a></li>
+                                        }
+                                    </ul>
+                                }
+                            }
+                        </li>
+                     }
+                </ul>
+            }
+        }
+        <br style="clear: left" />
+    </div>
+</div>

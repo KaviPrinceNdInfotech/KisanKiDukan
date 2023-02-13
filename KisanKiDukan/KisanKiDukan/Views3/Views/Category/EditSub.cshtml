@@ -1,0 +1,40 @@
+﻿@model KisanKiDukan.Models.ViewModels.CategoryModel
+@{
+    ViewBag.Title = "EditSub";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<h2>EditSub</h2>*@
+@using (Html.BeginForm("EditSub", "Category", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <div style="width:50%">
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.CategoryImage)
+        <h4>Sub Categories</h4>
+        <div class="form-group">
+            Main Category *
+            @Html.DropDownListFor(a => a.MainCat_Id, Model.CategoryList, "Select Category ", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            Sub Category * @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control", required = "required" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.CategoryName)</span>
+        </div>
+        <div class="form-group">
+            Image
+            @if (!string.IsNullOrEmpty(Model.CategoryImage))
+            {
+                <img src="/Images/@Model.CategoryImage" style="width:100px;height:60px" />
+            }
+            @Html.TextBoxFor(a => a.ImageFile, new { type = "file" })
+        </div>
+        <div class="form-group">
+            @if (TempData["msg"] != null)
+            {
+                <span style="color:red;">@TempData["msg"]</span>
+            }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-info" />
+            <a class="btn btn-info" href="/Category/SubCategories">Show All</a>
+        </div>
+    </div>
+}

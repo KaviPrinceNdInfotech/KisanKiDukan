@@ -1,0 +1,75 @@
+﻿@model IEnumerable<KisanKiDukan.Models.DTO.MembershipDTO>
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<h2>All</h2>*@
+<div class="col-lg-12">
+    <h2 class="page-header">Membership User</h2>
+</div>
+<div class="form-group">
+    <a href="/AdminOpration/Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
+</div>
+<div style="width:100%">
+
+    <table class="table  table-bordered" id="brand">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Mobile No</th>
+                <th>Join Amount</th>
+                <th>Benefit Amount</th>
+                <th>Remain Month</th>
+                <th>Wallet Amount Per month</th>
+                <th>Create Date</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var v in Model)
+                {
+                    <tr>
+                        <td>@v.FullName</td>
+                        <td>@v.Phone</td>
+                        <td>&#8377; @v.Amount</td>
+                        <td>&#8377; @v.BenifitAmount</td>
+                        <td>@v.DistributionMonth month</td>
+                        <td>&#8377; @v.Percentage</td>
+                        <td>@v.CreateDate.ToString("dd-MMM-yyyy")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(v.Remark))
+                        {
+                            <span>@v.Remark</span>
+                        }
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+    $("#brand").DataTable();
+    </script>
+    <script>
+    function deleteRecord(url) {
+        if (window.confirm('do you want to delete?')) {
+            $.get(url).then(function (r) {
+                if (r == "ok") {
+                    var loc = window.location.href;
+                    window.location.href = loc;
+                }
+            }, function (e) {
+                alert("Server error");
+            })
+        }
+    }
+    </script>
+</div>
+
+

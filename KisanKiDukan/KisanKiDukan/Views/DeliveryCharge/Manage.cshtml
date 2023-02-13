@@ -1,0 +1,38 @@
+﻿@model KisanKiDukan.Models.DTO.DeliveryChargeMasterDTO
+@{
+    ViewBag.Title = "Manage Delivery Charge";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div style="width:50%">
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["msg"]
+            </div>
+        }
+       
+
+        <div class="row r">
+            <div class="col-md-12">
+                <h3>Manage Delivery Charge</h3>
+                @Html.HiddenFor(a=>a.Id)
+                <div class="form-group">
+                    Deilvery Charge *
+                    @Html.TextBoxFor(a => a.DeliveryCharge, new { @class = "form-control" })
+                    <span class="text-danger">@Html.ValidationMessageFor(a => a.DeliveryCharge)</span>
+                </div>
+                <div class="form-group">
+                    Minimum Amount for free delivery *
+                    @Html.TextBoxFor(a => a.MinAmt, new { @class = "form-control" })
+                    <span class="text-danger">@Html.ValidationMessageFor(a => a.MinAmt)</span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-info" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

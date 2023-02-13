@@ -68,6 +68,7 @@ namespace KisanKiDukan.Models.ViewModels
         public Nullable<double> SGST { get; set; }
         public Nullable<double> IGST { get; set; }
 
+        public string VendorName { get; set; }
         public List<string> multipleImage { get; set; }
 
         public List<ProductImageModel> ProductImageList { get; set; }

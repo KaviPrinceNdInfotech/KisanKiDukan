@@ -1,0 +1,103 @@
+﻿@model KisanKiDukan.Models.DTO.ProductSaleModel
+@{
+    ViewBag.Title = "Product Stock Entry";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<link href="/css/font-awesome.min.css" rel="stylesheet" />*@ 
+<style>
+    .row{
+        margin-top:2%;
+    }
+
+    #main{
+        width:95%;
+        margin:auto;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
+<div id="main">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/Admin/Dashboard" class="btn btn-info"> << Back To Dashboard</a>
+        </div>
+    </div>
+   
+    <h2 class="page-header">Product Stock Entry</h2>
+  
+     @if (TempData["msg"] != null)
+    {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                @TempData["msg"]
+            </div>
+        </div>
+    </div>
+    }
+    
+    @using (Html.BeginForm())
+    {
+        
+        <div class="row">          
+            <div class="col-md-12">
+                <h3>Prdouct Detail</h3>
+                <span id="addNewabt" class="btn btn-info">
+                    + Add new
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered" id="attrTable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Weight</th>
+                            <th>Metric</th>
+                            <th>Quantity</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(a => a.Products[0].Product_Id, new { id = "Product_Id" })
+                                <input type="text" name="term" id="txtPd" class="form-control txtPd" placeholder="Enter product name" required/>
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(a => a.Products[0].Wheight, new { @class = "form-control", type = "number"})
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(a => a.Products[0].Metric_Id, Model.MetricList,"Select", new { @class = "form-control",required= "required" })
+                            </td>
+                           <td>
+                                @Html.TextBoxFor(a => a.Products[0].Stock, new { @class = "form-control", type = "number", required = "required" })
+                            </td>
+                            
+                            <td></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>           
+        <div class="row text-center">
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-info form-control" value="Submit" />
+            </div>
+        </div>
+    }
+</div>
+@*<link href="/css/jquery-ui.min.css" rel="stylesheet" />
+<script src="/Scripts/Library/jquery-1.7.1.min.js"></script>
+<script src="/Scripts/Library/jquery-ui-1.8.20.min.js"></script>
+<script src="/js/purchaseOrder.js"></script>*@
+
+   
+

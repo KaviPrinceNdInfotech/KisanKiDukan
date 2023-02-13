@@ -538,6 +538,7 @@
     <Compile Include="Models\DTO\product1.cs" />
     <Compile Include="Models\DTO\ProductSaleModel.cs" />
     <Compile Include="Models\DTO\promotionalbannerDTO.cs" />
+    <Compile Include="Models\DTO\Rating1.cs" />
     <Compile Include="Models\DTO\VendorBankAcDetailsDTO.cs" />
     <Compile Include="Models\DTO\VendorBusinessDetailsDTO.cs" />
     <Compile Include="Models\DTO\VendorDashboardModel.cs" />
@@ -618,6 +619,7 @@
     <Compile Include="Models\ViewModels\ProductShowByCategoriesModel.cs" />
     <Compile Include="Models\ViewModels\ProductShowByIdAndUserIDModel.cs" />
     <Compile Include="Models\ViewModels\ProductShowListModel.cs" />
+    <Compile Include="Models\ViewModels\ReviewModel.cs" />
     <Compile Include="Models\ViewModels\SignupCustomerReturnModel.cs" />
     <Compile Include="Models\ViewModels\StateModel.cs" />
     <Compile Include="Models\ViewModels\SubCategorymodal.cs" />
@@ -1425,6 +1427,7 @@
     <Content Include="Layout\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Layout\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Layout\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Models\ViewModels\app.manifest" />
     <None Include="Properties\PublishProfiles\KisanKiDukaan.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1612,6 +1615,7 @@
     <Content Include="Views\Admin\CreateCuopon.cshtml" />
     <Content Include="Views\Admin\ListCoupon.cshtml" />
     <Content Include="Views\Vendor\Commercial.cshtml" />
+    <Content Include="Views\Admin\GetReviewAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1640,6 +1644,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Models\ViewModels\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

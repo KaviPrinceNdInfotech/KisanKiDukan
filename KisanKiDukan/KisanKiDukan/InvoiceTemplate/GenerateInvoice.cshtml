@@ -1,0 +1,247 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Invoicebus Invoice Template">
+    <meta name="author" content="Invoicebus">
+
+    <meta name="template-hash" content="91216e926eab41d8aa403bf4b00f4e19">
+
+    <link href="/stylesheets/template.css" rel="stylesheet" />
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style media="print">
+        .noprint {
+            display: none;
+        }
+        th{
+            font-weight:bold !important;
+        }
+    </style>
+</head>
+<body>
+    @if (Model.Order != null && Model.OrderDetail != null && Model.OrderDetail.Count() > 0)
+    {
+        <div id="container">
+
+
+            <div class="right-invoice">
+                <section id="memo">
+                    <button type="button" class="btn btn-info noprint" onclick="window.print()">Print</button>
+                    <div class="company-info">
+                        <div>ORPS BUSINESS PRIVATE LIMITED</div>
+                        <br>
+                        <span>14/6, Lakhi Nagar, Sector 31, Faridabad, Haryana </span>
+                        <span>121003</span>
+                        <br>
+                        <span>Contact No. 8920 939 897   </span>
+                        <br />
+                        <span>CIN: U70103HR2018PTC076238 </span>
+                        <br/>
+                        <span>GSTN : 06AACCO7930Q1ZW </span>
+                        <br/>
+                        <span>PAN : AACCO7930Q</span>
+                    </div>
+
+                    <div class="logo">
+                        <img src="/Images/logoors.png" />
+                    </div>
+                </section>
+
+                <section id="invoice-title-number">
+
+                    <div class="title-top">
+                        <span class="x-hidden"></span>
+                        <span>@Model.Order.OrderDate.Value.ToString("dd-MMM-yyyy")</span>
+                        <span id="number">@Model.Order.InvoiceNo</span>
+                    </div>
+
+                    <div id="title">Invoice</div>
+
+                </section>
+
+                <section id="client-info">
+                    <div class="client-name">
+                        <span>@Model.Order.Name</span>
+                    </div>
+
+                    <div>
+                        <span>@Model.Order.PhoneNumber</span>
+                    </div>
+
+                    <div>
+                        <span>@Model.Order.Address</span>
+                    </div>
+                    <div>
+                        <span>@Model.State</span>
+                    </div>
+
+                </section>
+
+                <div class="clearfix"></div>
+
+
+
+
+                <section>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th style="width:280px">Product</th> <!-- Dummy cell for the row number and row commands -->
+                            <th>M.R.P.</th>
+                            <th>@Model.PriceText</th>
+                            <th>Qty</th>
+                            <th>Net Amt.</th>
+                            <th>Tax Rate</th>
+                            <th>Taxable Amt.</th>
+                            <th>Total Amt.</th>
+                        </tr>
+
+                        @foreach (var item in Model.OrderDetail)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.MRP</td>
+                                <td>@item.UnitPrice</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.NetAmount</td>
+                                <td>@item.TaxInPercent %</td>
+                                <td>@(item.TaxableAmount*item.Quantity)</td>
+                                <td>@item.Total</td>
+                            </tr>
+                        }
+                        <tr>
+                            <th>TOTAL</th>
+                            <th>@Model.OrderDetail.Sum(a => a.MRP) </th>
+                            <th>@Model.OrderDetail.Sum(a=>a.UnitPrice) </th>
+                            <th>&nbsp;</th>
+                            <th>@Model.OrderDetail.Sum(a=>a.NetAmount) </th>
+                            <td>&nbsp;</td>
+                            <td>@Model.TotalTaxableAmount </td>
+                            <th>@Model.GrandTotal </th>
+                        </tr>
+                    </table>
+
+                </section>
+
+                <section id="sums">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>Total Taxable Amt. (@Model.TaxRate %) </th>
+                            <td>Rs. @Model.TotalTaxableAmount</td>
+                        </tr>
+                        @if (Model.IgstAmount > 0)
+                        {
+                            <tr>
+                                <th>IGST (@Model.IgstRate %) </th>
+                                <td>Rs. @Model.IgstAmount</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <th>CGST (@Model.CgstRate %)</th>
+                                <td>Rs. @Model.CgstAmount</td>
+                            </tr>
+
+                            <tr>
+                                <th>SGST (@Model.SgstRate %)</th>
+                                <td>Rs. @Model.SgstAmount</td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <th>Net Amt.(Rs.)</th>
+                            <td>Rs. @Model.TotalNetAmount</td>
+                        </tr>
+
+                       
+
+                        <tr>
+                            <th>Total Amt.(Rs.)</th>
+                            <td>
+                                Rs. @Model.GrandTotal
+                               
+                            </td>
+                        </tr>
+                      
+                        @if (!string.IsNullOrEmpty(Model.Order.ModeOfPayment))
+                        {
+                            <tr>
+                                <th>M.O.P.</th>
+                                <td>
+                                   @Model.Order.ModeOfPayment
+
+                                @if(Model.Order.WalletAmountUsed>0 && Model.Order.ModeOfPayment== "Cash+Wallet")
+                                {
+                                    <span>
+                                        <br/>
+                                        <b>Cash : </b>Rs.  @(Model.GrandTotal-Model.Order.WalletAmountUsed)<br />
+                                        <b>Wallet :</b> Rs. @Model.Order.WalletAmountUsed
+                                    </span>
+                                }
+                                else if (Model.Order.WalletAmountUsed > 0 && Model.Order.ModeOfPayment == "CrediCard+Wallet")
+                                {
+                                    <span>
+                                        <br />
+                                        <b>Credit Card : </b> Rs. @(Model.GrandTotal - Model.Order.WalletAmountUsed)<br />
+                                        <b>Wallet :</b>Rs. @Model.Order.WalletAmountUsed
+                                    </span>
+                                }
+                                else if (Model.Order.WalletAmountUsed > 0 && Model.Order.ModeOfPayment == "DebitCard+Wallet")
+                                {
+                                    <span>
+                                        <br />
+                                        <b>Debit Card : </b> Rs. @(Model.GrandTotal - Model.Order.WalletAmountUsed)<br />
+                                        <b>Wallet :</b>Rs.  @Model.Order.WalletAmountUsed
+                                    </span>
+                                }
+                                else if (Model.Order.WalletAmountUsed > 0 && Model.Order.ModeOfPayment == "Online+Wallet")
+                                {
+                                    <span>
+                                        <br />
+                                        <b>Online : </b>Rs. @(Model.GrandTotal - Model.Order.WalletAmountUsed)<br />
+                                        <b>Wallet :</b>Rs. @Model.Order.WalletAmountUsed
+                                    </span>
+                                }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                   <table cellpadding="0" cellspacing="0">
+                       <tr>
+                           
+                           <td>
+                              <b>Amt in words : </b> @(orps.Utilities.Converter.NumberToText(Convert.ToInt32(Model.GrandTotal), true, false)) Rupees Only
+                           </td>
+                       </tr>
+                   </table>
+
+
+                </section>
+
+
+                <div class="clearfix"></div>
+
+
+            </div>
+        </div>
+    }
+
+    else
+    {
+        <h4>No record found</h4>
+    }
+
+</body>
+</html>

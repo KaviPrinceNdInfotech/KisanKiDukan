@@ -1,0 +1,69 @@
+﻿@model KisanKiDukan.Models.ViewModels.CustomerListModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 1%;
+    }
+</style>
+
+<div style="width:100%;overflow-x:scroll">
+    <h2>Customers</h2>
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <input name="term" placeholder="Search by name/email/phone" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="Search" class="btn btn-info" />
+                <a href="/Admin/Customers" class="btn btn-primary">All</a>
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.Customer.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td>Name</td>
+                        <th>Phone</th>
+                        <th>Email Id</th>
+                        <th>Address</th>
+                    </tr>
+                    @foreach (var item in Model.Customer)
+                    {
+                        <tr style="background-color: @(item.IsPremiumMember == true ? "orange" : "white");">
+                            <td>@item.Name</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Email_Id</td>
+                            <td>@item.Address</td>
+                       </tr>
+                    }
+                </table>
+                <ul class="pagination">
+                    @for (int i = 1; i <= Model.NumberOfPages; i++)
+                    {
+                        if (Model.Page == i)
+                        {
+                            <li class="active"><a href="/Admin/Customers?page=@i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Admin/Customers?page=@i">@i</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h4>No records found</h4>
+    }
+</div>
+
