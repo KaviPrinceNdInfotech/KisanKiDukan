@@ -25,7 +25,7 @@ namespace KisanKiDukan.Controllers
         {
             var model = new ProductDisplayModelAdmin();
             int vendorID = Convert.ToInt32(Session["AddBy"]);
-            if (vendorID > 1)
+            if (vendorID != 1)
             {
                 var pro = ent.Database.SqlQuery<ProductModel>(@"select prd.*,IsNull(mtr.Metrics,'')Metrics,c.CategoryName,sc.Name as SubCategory,ISNULL(VD.VendorName,'') AS VendorName  from Product prd
         join Category c on prd.Category_Id = c.Id
@@ -125,6 +125,7 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                         }
                         model.ProductImage = uploadResult;
                     }
+                     
                     product.ProductName = model.ProductName;
                     product.Category_Id = model.Category_Id;
                     product.ProductImage = model.ProductImage;
@@ -134,7 +135,7 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                     product.ProductDescription = model.ProductDescription;
                     product.Metric_Id = model.Metric_Id;
                     product.IsStock = model.IsStock;
-                    model.IsStocks = product.IsStock == true ?   "In-Stock" : "Out Of-Stock";
+                    model.IsStocks = product.IsStock == true ? "Out Of-Stock" : "In-Stock" ;
                     product.IsReplacement = model.IsReplacement;
                     product.Quantity = model.Quantity;
                     product.IsFeatured = model.IsFeatured;
@@ -148,7 +149,9 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                     product.IsHotdeals = model.IsHotdeals;
                     product.IsFeatureProduct = model.IsFeatureProduct;
                     product.IsSpecial = model.IsSpecial;
+                    product.VideoLink=model.VideoLink;
                     product.VendorId = VID;
+                    
                     if (product.Category_Id != null && product.Price != null && product.SubId != null && (product.VendorId != null || product.VendorId != 0))
                     {
                         ent.Products.Add(product);
@@ -189,7 +192,7 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                                         productImages.Add(imgList);
                                     }
                                 }
-                                product.ProductMultiImages = productImages;
+                                model.ProductMultiImages = productImages;
                                 ent.Products.Add(product);
                             }
                             else
@@ -234,6 +237,8 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                 model.CategoryList = new SelectList(ent.Categories.ToList(), "Id", "CategoryName", model.Category_Id);
                 model.MetricList = new SelectList(ent.Metrics.ToList(), "MetricCode", "Metrics", model.Metric_Id);
                 model.SubCategory = new SelectList(ent.SubCategories.ToList(), "Id", "Name");
+                var VID = Convert.ToInt32(Session["AddBy"]);
+                var vdData = ent.Vendors.Find(VID);
                 var product = Mapper.Map<Product>(model);
                 if (model.ImageFile != null)
                 {

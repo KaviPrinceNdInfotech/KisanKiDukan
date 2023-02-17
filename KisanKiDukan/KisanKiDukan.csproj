@@ -298,8 +298,9 @@
     <Compile Include="Controllers\CartApiController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CheckoutapiController.cs" />
     <Compile Include="Controllers\ContentPageController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerapiController.cs" />
     <Compile Include="Controllers\DCMasterController.cs" />
     <Compile Include="Controllers\DeliveryChargeController.cs" />
     <Compile Include="Controllers\DeliveryOptionController.cs" />
@@ -539,6 +540,7 @@
     <Compile Include="Models\DTO\ProductSaleModel.cs" />
     <Compile Include="Models\DTO\promotionalbannerDTO.cs" />
     <Compile Include="Models\DTO\Rating1.cs" />
+    <Compile Include="Models\DTO\ShippingAddressModel.cs" />
     <Compile Include="Models\DTO\VendorBankAcDetailsDTO.cs" />
     <Compile Include="Models\DTO\VendorBusinessDetailsDTO.cs" />
     <Compile Include="Models\DTO\VendorDashboardModel.cs" />

@@ -475,6 +475,7 @@
           <Property Name="IGST" Type="float" />
           <Property Name="DiscountPrice" Type="float" />
           <Property Name="AvailPincode" Type="int" />
+          <Property Name="VideoLink" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Product_Availability">
           <Key>
@@ -1490,6 +1491,7 @@
           <Property Name="IGST" Type="Double" />
           <Property Name="DiscountPrice" Type="Double" />
           <Property Name="AvailPincode" Type="Int32" />
+          <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Product_Availability">
           <Key>
@@ -2288,6 +2290,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
                 <ScalarProperty Name="AvailPincode" ColumnName="AvailPincode" />
                 <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

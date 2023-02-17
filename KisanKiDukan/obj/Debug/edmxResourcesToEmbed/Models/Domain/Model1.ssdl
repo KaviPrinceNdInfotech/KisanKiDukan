@@ -470,6 +470,7 @@
     <Property Name="IGST" Type="float" />
     <Property Name="DiscountPrice" Type="float" />
     <Property Name="AvailPincode" Type="int" />
+    <Property Name="VideoLink" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Product_Availability">
     <Key>

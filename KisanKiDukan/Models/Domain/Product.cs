@@ -93,7 +93,8 @@ public partial class Product
     public Nullable<double> DiscountPrice { get; set; }
 
     public Nullable<int> AvailPincode { get; set; }
-        public List<Product_Image> ProductMultiImages { get; internal set; }
+
+    public string VideoLink { get; set; }
     }
 
 }

@@ -426,6 +426,7 @@
     <Property Name="IGST" Type="Double" />
     <Property Name="DiscountPrice" Type="Double" />
     <Property Name="AvailPincode" Type="Int32" />
+    <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Product_Availability">
     <Key>

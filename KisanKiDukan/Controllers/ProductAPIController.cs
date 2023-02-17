@@ -616,7 +616,7 @@ namespace KisanKiDukan.Controllers
 
         //====GetOrderDetail api====
 
-        [HttpGet]
+        [HttpGet, Route("api/ProductAPI/GetOrderDetail")]
         public IHttpActionResult GetOrderDetail(int orderId)
         {
             var rm = new OrderDetailRm();
@@ -630,7 +630,7 @@ where od.Order_Id=" + orderId;
         }
 
         //====CancelSingleItem api====
-        [HttpGet]
+        [HttpGet, Route("api/ProductAPI/CancelSingleItem")]
         public IHttpActionResult CancelSingleItem(int orderDetailId)
         {
             var rm = new MessageModel();
@@ -665,7 +665,7 @@ where od.Order_Id=" + orderId;
         }
 
         //====GetDeliveryCharge api====
-        [HttpGet]
+        [HttpGet, Route("api/ProductAPI/GetDeliveryCharge")]
         public IHttpActionResult GetDeliveryCharge()
         {
             var data = ent.DeliveryChargeMasters.FirstOrDefault();
@@ -683,18 +683,18 @@ where od.Order_Id=" + orderId;
         }
 
         //====CheckPincodeAvailability api====
-        [HttpGet]
+        [HttpGet, Route("api/ProductAPI/CheckPincodeAvailability")]
         public IHttpActionResult CheckPincodeAvailability(string pincode)
         {
             var isAvailable = ent.DeliveryPincodes.Any(a => a.Pincode == pincode);
             dynamic dta = new ExpandoObject();
-            dta.IsAvailable = isAvailable;
+            dta.IsAvailable = isAvailable == true ? "Product available at this pincode" : "Product not available at this pincode";
             return Ok(dta);
         }
 
         //====GetDeliveryTimeSlots api====
 
-        [HttpGet]
+        [HttpGet, Route("api/ProductAPI/GetDeliveryTimeSlots")]
         public IHttpActionResult GetDeliveryTimeSlots()
         {
             string query = @"select SlotCode,
@@ -804,6 +804,7 @@ from DeliveryTimeSlot";
                                    OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                    DiscountPrice = p.DiscountPrice,
                                    //OurPrice = p.OurPrice,
+                                   VideoLink = p.VideoLink,
                                    ProductDescription = p.ProductDescription,
                                    IsStock = p.IsStock,
                                    IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
@@ -812,6 +813,7 @@ from DeliveryTimeSlot";
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
                                    PremiumAmount = p.PremiumAmount,
+                                   multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                                }
                                ).OrderByDescending(a => a.Id).Take(8).ToList();
             foreach (var rprod in HotProducts)
@@ -876,13 +878,15 @@ from DeliveryTimeSlot";
                                 VendorId = p.VendorId,
                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                 DiscountPrice = p.DiscountPrice,
+                                VideoLink = p.VideoLink,
                                 ProductDescription = p.ProductDescription,
                                 IsStock = p.IsStock,
                                 IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 VendorName = vd.VendorName,
                                 IsVariant = p.IsVariant,
-                                Metric_Id = p.Metric_Id
+                                Metric_Id = p.Metric_Id,
+                                multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                             }
                            ).OrderByDescending(a => a.Id).ToList();
             foreach (var prod in products)
@@ -946,6 +950,7 @@ from DeliveryTimeSlot";
                                        OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                        DiscountPrice = p.DiscountPrice,
                                        ProductDescription = p.ProductDescription,
+                                       VideoLink = p.VideoLink,
                                        IsStock = p.IsStock,
                                        IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                        Quantity = p.Quantity,
@@ -953,6 +958,7 @@ from DeliveryTimeSlot";
                                        IsVariant = p.IsVariant,
                                        Metric_Id = p.Metric_Id,
                                        PremiumAmount = p.PremiumAmount,
+                                       multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                                    }
                                ).ToList();
             foreach (var rprod in FeatureProducts)
@@ -1016,6 +1022,7 @@ from DeliveryTimeSlot";
                                    OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                    DiscountPrice = p.DiscountPrice,
                                    ProductDescription = p.ProductDescription,
+                                   VideoLink = p.VideoLink,
                                    IsStock = p.IsStock,
                                    IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                    Quantity = p.Quantity,
@@ -1023,6 +1030,7 @@ from DeliveryTimeSlot";
                                    IsVariant = p.IsVariant,
                                    Metric_Id = p.Metric_Id,
                                    PremiumAmount = p.PremiumAmount,
+                                   multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                                }
                            ).OrderByDescending(a => a.Id).ToList();
             foreach (var rprod in rmdProducts)
@@ -1086,6 +1094,7 @@ from DeliveryTimeSlot";
                                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                         DiscountPrice = p.DiscountPrice,
                                         ProductDescription = p.ProductDescription,
+                                        VideoLink = p.VideoLink,
                                         IsStock = p.IsStock,
                                         IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                         Quantity = p.Quantity,
@@ -1093,6 +1102,7 @@ from DeliveryTimeSlot";
                                         IsVariant = p.IsVariant,
                                         Metric_Id = p.Metric_Id,
                                         PremiumAmount = p.PremiumAmount,
+                                        multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                                     }
                              ).OrderByDescending(a => a.Id).ToList();
             foreach (var rprod in SpeacialProducts)
@@ -1158,12 +1168,15 @@ from DeliveryTimeSlot";
                                 VendorId = p.VendorId,
                                 OurPrice = p.OurPrice,
                                 ProductDescription = p.ProductDescription,
+                                VideoLink = p.VideoLink,
                                 IsStock = p.IsStock,
                                 VendorName = vd.VendorName,
                                 IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 IsVariant = p.IsVariant,
-                                Metric_Id = p.Metric_Id
+                                Metric_Id = p.Metric_Id,
+                               multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
+
                             }
                            ).FirstOrDefault();
 
@@ -1225,6 +1238,7 @@ from DeliveryTimeSlot";
                                  Quantity = p.Quantity,
                                  OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                  DiscountPrice = p.DiscountPrice,
+                                 VideoLink = p.VideoLink,
                                  CategoryName = c.CategoryName,
                                  VendorName = vd.VendorName,
                                  CategoryImage = c.CategoryImage,
@@ -1245,48 +1259,7 @@ from DeliveryTimeSlot";
             }
         }
 
-        //[HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
-        //public IHttpActionResult GetProduct(int id)
-        //{
-        //    try
-        //    {
-        //        var result = from p in ent.Products
-        //                     join c in ent.Categories on p.Category_Id equals c.Id
-        //                     select new Product1()
-        //                     {
-
-        //                         Id = p.Id,
-        //                         ProductName = p.ProductName,
-        //                         ProductImage = p.ProductImage,
-        //                         ProductDescription = p.ProductDescription,
-        //                         Price = p.Price,
-        //                         IsReviewsAllow = p.IsReviewsAllow,
-        //                         Quantity = p.Quantity,
-        //                         OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
-        //                         DiscountPrice = p.DiscountPrice,
-        //                         CategoryName = c.CategoryName,
-        //                         CategoryImage = c.CategoryImage,
-        //                         multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
-        //                     };
-        //        if (result != null)
-        //        {
-        //            return Ok(new { result, status = 200, message = "SubCategory" });
-        //        }
-        //        else
-        //        {
-        //            return BadRequest("Category Not Available");
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        return BadRequest("Server Error");
-        //    }
-        //}
-
-
-
-        //==== GetProduct/{id} api====
-
+       
         [HttpGet, Route("api/ProductAPI/GetProduct/{id}")]
         public IHttpActionResult GetProduct(int categoryId, int? page)
         {
@@ -1312,12 +1285,14 @@ from DeliveryTimeSlot";
                                 OurPrice = p.Price - ((p.Price * p.DiscountPrice) / 100),
                                 DiscountPrice = p.DiscountPrice,
                                 ProductDescription = p.ProductDescription,
+                                VideoLink = p.VideoLink,
                                 IsStock = p.IsStock,
                                 VendorName = vd.VendorName,
                                 IsStocks = p.IsStock == true ? "In-Stock" : "Out Of-Stock",
                                 Quantity = p.Quantity,
                                 IsVariant = p.IsVariant,
-                                Metric_Id = p.Metric_Id
+                                Metric_Id = p.Metric_Id,
+                                multipleImage = (from s1 in ent.Product_Image where s1.Product_Id == p.Id select s1.ImageName).ToList()
                             }
                            ).ToList();
             foreach (var prod in products)
@@ -1449,8 +1424,6 @@ from DeliveryTimeSlot";
             }
         }
 
-
-
         [HttpGet, Route("api/ProductAPI/ViewReview/{pid}")]
 
         public IHttpActionResult ViewReview(int pid)
@@ -1483,6 +1456,36 @@ from DeliveryTimeSlot";
             {
                 return BadRequest("Server Error");
             }
+        }
+
+        [HttpPost, Route("api/ProductAPI/TotalProductRating")]
+        public IHttpActionResult TotalProductRating(Wallet model)
+        {
+            try
+            {
+                if (model.Mebr_Amount != null)
+                {
+                    var emp = ent.Customers.FirstOrDefault(a => a.User_Id == model.Id);
+                    emp.Mebr_Amount = emp.Mebr_Amount - model.Mebr_Amount;
+                    ent.SaveChanges();
+                    return Ok("Add Update SuccessFully");
+                }
+                else
+                {
+                    return Ok("Please enter the amount");
+                }
+            }
+            catch
+            {
+                return BadRequest("Server Error");
+            }
+        }
+
+        [HttpGet, Route("api/ProductAPI/OverallRating/{PId}")]
+        public IHttpActionResult OverallRating(int PId)
+        {
+            var rating = ent.Database.SqlQuery<int>(@"select  AVG(Rating) AS Rating from Review WHERE ProductId =" + PId + "").FirstOrDefault();
+            return Ok(new { Rating = rating });
         }
     }
 }

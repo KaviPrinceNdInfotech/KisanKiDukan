@@ -20,6 +20,7 @@
             <th>ReviewTitle</th>
             <th>ReviewDesc</th>
             <th>SubmitDate</th>
+            <th>Image</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -33,6 +34,17 @@
                 <td>@item.ReviewTitle</td>
                 <td>@item.ReviewDesc</td>
                 <td>@item.SubmitDate</td>
+                @*<td>@item.Image</td>*@
+                <td>
+                    @if (string.IsNullOrEmpty(item.Image))
+                    {
+                        <span>No image</span>
+                    }
+                    else
+                    {
+                        <img style="width:100px;height:60px" src="~/Images/@item.Image">
+                    }
+                </td>
 
                 <td>
                     <a href="/Admin/DeleteReview?id=@item.Id"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a>

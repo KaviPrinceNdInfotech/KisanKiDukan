@@ -104,18 +104,15 @@
                 </div>
 
                 <div class="form-group">
-                    Ourprice @Html.TextBoxFor(a => a.OurPrice, new { type = "number", @class = "form-control" })
-                    @*<span style="color:red">@Html.ValidationMessageFor(a => a.Price)</span>*@
-                </div>
-
-
-
-                <div class="form-group">
                     Bar Code @Html.TextBoxFor(a => a.Barcode, new { type = "text", @class = "form-control" })
                 </div>
                 <div class="form-group">
                     HSN Code @Html.TextBoxFor(a => a.HsnCode, new { type = "text", @class = "form-control" })
                 </div>
+                <div class="form-group">
+                 Youtube VideoLink @Html.TextBoxFor(a => a.VideoLink, new { type = "text", @class = "form-control" })
+                </div>
+
                 <div class="form-group">
                     Description @Html.TextAreaFor(a => a.ProductDescription, 10, 30, new { @class = "form-control" })
                     <span style="color:red">@Html.ValidationMessageFor(a => a.ProductDescription)</span>
@@ -125,39 +122,42 @@
                     Shipping Charge @Html.TextBoxFor(a => a.ShippingCharge, new { @class = "form-control" })
                     <span style="color:red">@Html.ValidationMessageFor(a => a.ShippingCharge)</span>
                 </div>
-                <div class="form-group">
-                    Is this product has recommendation (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsRecomend)
-                </div>
-
-                <div class="form-group">
-                    Is this product has Hot Deals product (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsHotdeals)
-                </div>
-                <div class="form-group">
-                    Is this product has New Arrival (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsFeatureProduct)
-                </div>
-
-                <div class="form-group">
-                    Is this product has Special Product (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsSpecial)
-                </div>
-
-                <div class="form-group">
-                    Is this product under replacement (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsReplacement)
-                    <br />
-                    <div class="form-group" id="divRepTC" style="display:none;">
-                        @Html.TextAreaFor(a => a.ReplacementTC, 5, 30, new { @class = "form-control", placeholder = "Describe Replacement T&C" })
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="form-group">
+                        Is this product has recommendation (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsRecomend)
                     </div>
-                </div>
-                <div class="form-group">
-                    Is this product has multiple variant (Please Tick)
-                    @Html.CheckBoxFor(a => a.IsVariant)
-                </div>
+
+                    <div class="form-group">
+                        Is this product has Hot Deals product (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsHotdeals)
+                    </div>
+                    <div class="form-group">
+                        Is this product has New Arrival (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsFeatureProduct)
+                    </div>
+
+                    <div class="form-group">
+                        Is this product has Special Product (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsSpecial)
+                    </div>
+
+                    <div class="form-group">
+                        Is this product under replacement (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsReplacement)
+                        <br />
+                        <div class="form-group" id="divRepTC" style="display:none;">
+                            @Html.TextAreaFor(a => a.ReplacementTC, 5, 30, new { @class = "form-control", placeholder = "Describe Replacement T&C" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        Is this product has multiple variant (Please Tick)
+                        @Html.CheckBoxFor(a => a.IsVariant)
+                    </div>
+                }
             </div>
-        </fieldset>
+</fieldset>
     </div>
 
         <div style="display:none;" id="divVariant">
@@ -181,7 +181,7 @@
                                         <th>Metrics</th>
                                         <th>Price</th>
                                         <th>DiscountPrice(%)</th>
-                                        <th>OurPrice</th>
+                                        
 
                                     </tr>
                                 </thead>
@@ -191,7 +191,6 @@
                                         <td>@Html.DropDownListFor(a => a.PAvail[0].Metrics_Id, Model.MetricList, "Select", new { @class = "form-control" })</td>
                                         <td>@Html.TextBoxFor(a => a.PAvail[0].Price, new { type = "number", @class = "form-control" })</td>
                                         <td>@Html.TextBoxFor(a => a.PAvail[0].DiscountPrice, new { type = "number", @class = "form-control" })</td>
-                                        <td>@Html.TextBoxFor(a => a.PAvail[0].OurPrice, new { type = "number", @class = "form-control" })</td>
 
                                     </tr>
                                 </tbody>
@@ -205,6 +204,7 @@
             <input type="submit" value="submit" class="btn btn-info btn-block" />
         </div>
 }
+                
 <script src="~/HomLayout/Js/jquery-2.1.4.min.js"></script>
 <script src="~/HomLayout/Js/bulkEntry.js"></script>
 <script src="~/HomLayout/Js/product.js"></script>

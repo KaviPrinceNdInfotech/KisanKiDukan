@@ -32,6 +32,7 @@ namespace KisanKiDukan.Models.DTO
         public string CategoryImage { get; set; }
         public string VendorName { get; set; }
 
+        public string VideoLink { get; set; }
 
         public List<string> multipleImage { get; set; }
 

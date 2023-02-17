@@ -36,8 +36,11 @@
                 <th>Our Price</th>
                 <th>Weight</th>
                 <th>Shipping Charge</th>
-                <th>Vendor Name</th>
-                <th>Link</th>
+                @if (User.IsInRole("admin"))
+                {
+                    <th>Vendor Name</th>
+                }
+                    <th>VideoLink</th>
                 <th>Description</th>
                 <th>Action</th>
             </tr>
@@ -93,27 +96,30 @@
                     <td>
                         @item.ShippingCharge
                     </td>
-                    <td>
-                        @item.VendorName
-                    </td>
-                    <td>
-                        @item.VendorId
-                    </td>
-                    <td>@item.ProductDescription</td>
-                    <td>
-                        <a href="/Product/Edit?id=@item.Id" class="btn btn-info">Edit</a>
-                        @if (item.IsVariant)
-                        {
-                            <a href="/Product/Variant?id=@item.Id" class="btn btn-info">Variant</a>
-                        }
-                        else
-                        {
-                            <a href="/Product/AddMoreVarint?productId=@item.Id" class="btn btn-info">Add Variant</a>
-                        }
-                        @*<a href="/Store/IndividualStock?productId=@item.Id" class="btn btn-info">Stock</a>*@
-                        <span class="btn btn-danger" onclick="deleteRecord('/Product/Delete?id=@item.Id')">Delete</span>
-                    </td>
-                </tr>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <td>
+                            @item.VendorName
+                        </td>
+                    }
+                        <td>
+                            <iframe width="100vw" height="70vh" src="//www.youtube.com/embed/@item.VideoLink" frameborder="0" allowfullscreen></iframe>                            
+                        </td>
+                        <td>@item.ProductDescription</td>
+                        <td>
+                            <a href="/Product/Edit?id=@item.Id" class="btn btn-info">Edit</a>
+                            @if (item.IsVariant)
+                            {
+                                <a href="/Product/Variant?id=@item.Id" class="btn btn-info">Variant</a>
+                            }
+                            else
+                            {
+                                <a href="/Product/AddMoreVarint?productId=@item.Id" class="btn btn-info">Add Variant</a>
+                            }
+                            @*<a href="/Store/IndividualStock?productId=@item.Id" class="btn btn-info">Stock</a>*@
+                            <span class="btn btn-danger" onclick="deleteRecord('/Product/Delete?id=@item.Id')">Delete</span>
+                        </td>
+                    </tr>
             }
         </table>
     </div>

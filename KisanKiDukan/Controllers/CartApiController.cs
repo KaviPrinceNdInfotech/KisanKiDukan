@@ -16,7 +16,7 @@ namespace KisanKiDukan.Controllers
         KartOperation kartOp = new KartOperation();
 
 
-        [HttpPost]
+        [HttpPost, Route("api/CartApi/AddToCart")]
         public IHttpActionResult AddToCart(AddToCartReq model)
         {
             var rm = new AddToCartReturnModel();
@@ -111,14 +111,14 @@ ModelState.Values
             return Ok(rm);
         }
 
-        [HttpGet]
+        [HttpGet, Route("api/CartApi/GetCart")]
         public IHttpActionResult GetCart(int userId)
         {
             var cart = kartOp.GetCart(userId);
             return Ok(cart);
         }
 
-        [HttpGet]
+        [HttpGet, Route("api/CartApi/RemoveItemFromCart")]
         public IHttpActionResult RemoveItemFromCart(int cartDetail_Id)
         {
             var rm = new AddToCartReturnModel();
@@ -154,7 +154,7 @@ ModelState.Values
             return Ok(rm);
         }
 
-        [HttpPost]
+        [HttpPost, Route("api/CartApi/UpdateQuantity")]
         public IHttpActionResult UpdateQuantity(UpdateCarReq model)
         {
             var rm = new AddToCartReturnModel();

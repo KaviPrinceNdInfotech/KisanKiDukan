@@ -416,6 +416,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product">
         <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
           <ScalarProperty Name="AvailPincode" ColumnName="AvailPincode" />
           <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -669,6 +670,7 @@
     <EntitySetMapping Name="Reviews">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Review">
         <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
           <ScalarProperty Name="ReviewDesc" ColumnName="ReviewDesc" />
           <ScalarProperty Name="ReviewTitle" ColumnName="ReviewTitle" />

@@ -416,6 +416,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Product">
         <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
           <ScalarProperty Name="AvailPincode" ColumnName="AvailPincode" />
           <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
           <ScalarProperty Name="Id" ColumnName="Id" />

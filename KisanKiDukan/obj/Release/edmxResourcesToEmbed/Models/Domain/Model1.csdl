@@ -426,6 +426,7 @@
     <Property Name="IGST" Type="Double" />
     <Property Name="DiscountPrice" Type="Double" />
     <Property Name="AvailPincode" Type="Int32" />
+    <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Product_Availability">
     <Key>
@@ -750,6 +751,7 @@
     <Property Name="ReviewTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ReviewDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ShippingAddress">
     <Key>

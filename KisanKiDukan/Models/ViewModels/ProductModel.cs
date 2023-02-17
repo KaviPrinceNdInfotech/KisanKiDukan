@@ -1,4 +1,5 @@
-﻿using KisanKiDukan.Models.DTO;
+﻿using KisanKiDukan.Models.Domain;
+using KisanKiDukan.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -71,8 +72,11 @@ namespace KisanKiDukan.Models.ViewModels
         public string VendorName { get; set; }
         public List<string> multipleImage { get; set; }
 
+        public string VideoLink { get; set; }
         public List<ProductImageModel> ProductImageList { get; set; }
         public List<HttpPostedFileBase> MultiImageFile { get; set; }
+        public List<Product_Image> ProductMultiImages { get; internal set; }
+
     }
     public class VariantModel
     {

@@ -470,6 +470,7 @@
     <Property Name="IGST" Type="float" />
     <Property Name="DiscountPrice" Type="float" />
     <Property Name="AvailPincode" Type="int" />
+    <Property Name="VideoLink" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Product_Availability">
     <Key>
@@ -549,6 +550,7 @@
     <Property Name="ReviewTitle" Type="nvarchar" MaxLength="200" />
     <Property Name="ReviewDesc" Type="nvarchar(max)" />
     <Property Name="SubmitDate" Type="datetime" />
+    <Property Name="Image" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="ShippingAddress">
     <Key>

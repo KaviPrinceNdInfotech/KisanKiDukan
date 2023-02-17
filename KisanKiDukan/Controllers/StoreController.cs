@@ -88,7 +88,7 @@ namespace KisanKiDukan.Controllers
                         }
                     }
                     ent.SaveChanges();
-                    trans.Commit();
+                    //trans.Commit();
                     TempData["msg"] = "Record added successfully";
                 }
                 catch (Exception ex)

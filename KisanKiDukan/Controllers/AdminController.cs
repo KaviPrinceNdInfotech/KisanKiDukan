@@ -651,8 +651,7 @@ namespace KisanKiDukan.Controllers
             ent.Database.ExecuteSqlCommand(q);
             return RedirectToAction("BlogDetails");
         }
-        //======End Blog=======
-
+        
         //====create coupon====
 
         public ActionResult ListCoupon()
