@@ -692,6 +692,36 @@ where od.Order_Id=" + orderId;
             return Ok(dta);
         }
 
+
+        [HttpGet, Route("api/ProductAPI/CheckPincodeAvailabile")]
+        public IHttpActionResult CheckPincodeAvailabile()
+        {
+            try
+            {
+                var data = (from d in ent.DeliveryPincodes
+                             select new DeliveryPincodeDTO
+                             {
+                                 Id = d.Id,
+                                 Pincode = d.Pincode
+                             }).ToList();              
+
+                if (data != null)
+                {
+                    return Json(new { Status = 200, Message = "Success", data});
+                }
+
+                return Json(new { Status = 400, Message = "Data Not Found" });
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Server Error" + ex.Message);
+            }
+
+
+        }
+
         //====GetDeliveryTimeSlots api====
 
         [HttpGet, Route("api/ProductAPI/GetDeliveryTimeSlots")]

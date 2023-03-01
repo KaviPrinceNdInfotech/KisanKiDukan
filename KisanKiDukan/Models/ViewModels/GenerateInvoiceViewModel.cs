@@ -16,6 +16,7 @@ namespace KisanKiDukan.Models.ViewModels
         public string CompanyName { get; set; }
         public string Adress { get; set; }
         public string city { get; set; }
+        public System.DateTime OrderDate { get; set; }
     }
     public class InvoiceDetailModel
     {

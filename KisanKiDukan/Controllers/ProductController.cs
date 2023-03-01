@@ -257,7 +257,7 @@ left outer join Vendor VD ON VD.LoginMaster_id=prd.VendorID
                 }
                 product.VendorId = Convert.ToInt32(Session["AddBy"]);
 
-                if (product.Category_Id != null && product.Price != null && product.SubId != null && product.VendorId != null)
+                if (product.Category_Id != null && product.Price != null && product.SubId != null && product.VendorId != null && product.VideoLink != null)
                 {
                     ent.Entry<Product>(product).State = EntityState.Modified;
                     ent.SaveChanges();

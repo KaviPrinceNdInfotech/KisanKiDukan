@@ -15,6 +15,7 @@ namespace KisanKiDukan.Models.DTO
 
         public string BlockNo { get; set; }
 
+        public string Email { get; set; }
         public string PinCode { get; set; }
 
         public string State { get; set; }

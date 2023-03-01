@@ -11,12 +11,11 @@
 </div>
 @using (Html.BeginForm("AddOfferBanner", "OfferBanner", FormMethod.Post, new { encType = "multipart/form-data" }))
 {
-    <div style="width:50%;margin:auto">
-        <h4>OfferBanner</h4>
+    <div style="width:50%;margin:auto">     
         <div class="form-group">
-            Image *
-            @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control",required= "required" })
-        </div>
+            OfferBanner *
+            @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control", required = "required" })
+        </div> 
         <div class="form-group">
             <input type="submit" value="Submit" class="btn btn-info" />
             <a class="btn btn-info" href="/OfferBanner/ShowBanner">Show All</a>

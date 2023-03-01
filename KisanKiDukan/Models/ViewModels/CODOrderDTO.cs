@@ -13,7 +13,9 @@ namespace KisanKiDukan.Models.ViewModels
         public double Price { get; set; }
         public double Total_Price { get; set; }
         public string PaymentMode { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
@@ -29,5 +31,6 @@ namespace KisanKiDukan.Models.ViewModels
         public int Quantity { get; set; }
         public double FinalPrice { get; set; }
         public int Total_Items { get; set; }
+        public string Invoice { get; set; }
     }
 }

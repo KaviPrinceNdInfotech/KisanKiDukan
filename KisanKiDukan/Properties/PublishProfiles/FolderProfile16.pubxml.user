@@ -118,10 +118,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/11/2023 05:49:06</publishTime>
     </File>
     <File Include="bin/KisanKiDukan.dll">
-      <publishTime>02/16/2023 17:16:09</publishTime>
+      <publishTime>02/28/2023 17:07:27</publishTime>
     </File>
     <File Include="bin/KisanKiDukan.pdb">
-      <publishTime>02/16/2023 17:16:09</publishTime>
+      <publishTime>02/28/2023 17:07:27</publishTime>
     </File>
     <File Include="bin/libgrpc_csharp_ext.x64.dylib">
       <publishTime>01/10/2023 03:50:26</publishTime>
@@ -2911,7 +2911,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/10/2023 18:49:32</publishTime>
     </File>
     <File Include="Views/OfferBanner/AddOfferBanner.cshtml">
-      <publishTime>02/10/2023 18:49:32</publishTime>
+      <publishTime>02/21/2023 11:51:11</publishTime>
     </File>
     <File Include="Views/OfferBanner/Pbaner.cshtml">
       <publishTime>02/10/2023 18:49:32</publishTime>
@@ -2941,7 +2941,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/10/2023 18:49:32</publishTime>
     </File>
     <File Include="Views/Product/Add.cshtml">
-      <publishTime>02/15/2023 15:32:40</publishTime>
+      <publishTime>02/17/2023 16:14:47</publishTime>
     </File>
     <File Include="Views/Product/AddMetric.cshtml">
       <publishTime>02/10/2023 18:49:33</publishTime>
@@ -2950,7 +2950,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/10/2023 18:49:33</publishTime>
     </File>
     <File Include="Views/Product/Edit.cshtml">
-      <publishTime>02/15/2023 12:48:42</publishTime>
+      <publishTime>02/17/2023 16:23:34</publishTime>
     </File>
     <File Include="Views/Product/EditVarient.cshtml">
       <publishTime>02/10/2023 18:49:33</publishTime>
