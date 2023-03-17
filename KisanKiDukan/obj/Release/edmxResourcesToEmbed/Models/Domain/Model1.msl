@@ -514,6 +514,9 @@
     <EntitySetMapping Name="promotionalbanners">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.promotionalbanner">
         <MappingFragment StoreEntitySet="promotionalbanner">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="promotionalbannerpath" ColumnName="promotionalbannerpath" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -688,6 +691,7 @@
     <EntitySetMapping Name="ShippingAddresses">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.ShippingAddress">
         <MappingFragment StoreEntitySet="ShippingAddress">
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Location" ColumnName="Location" />

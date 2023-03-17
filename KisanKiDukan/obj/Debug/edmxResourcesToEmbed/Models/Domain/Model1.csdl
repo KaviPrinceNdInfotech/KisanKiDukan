@@ -164,6 +164,8 @@
     <Property Name="otp" Type="Int32" />
     <Property Name="Email_Otp" Type="Int32" />
     <Property Name="Isverify" Type="Boolean" />
+    <Property Name="Rgx" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DeliveryChargeMaster">
     <Key>
@@ -482,6 +484,9 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="promotionalbannerpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" />
+    <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RefferalMember">
     <Key>
@@ -767,6 +772,7 @@
     <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="VendorPincode">
     <Key>

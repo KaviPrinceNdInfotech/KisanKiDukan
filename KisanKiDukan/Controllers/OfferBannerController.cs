@@ -128,13 +128,19 @@ namespace KisanKiDukan.Controllers
                     TempData["msg"] = "Only .jpg,.jpeg,.png and .gif files are allowed";
                     return View(model);
                 }
-                banner.promotionalbannerpath = uploadResult;
+                banner.promotionalbannerpath = uploadResult;              
             }
+            banner.IsActive = true;
+            banner.url = model.Url;
+            banner.productName = model.productName;
+            banner.Discount = model.Discount;
             ent.promotionalbanners.Add(banner);
             ent.SaveChanges();
             TempData["msg"] = "Records has added successfully.";
             return RedirectToAction("Pbaner");
         }
+        
+
         public ActionResult ShowPBanner(int? page)
         {
             var model = new pbannershowmodel();
@@ -143,10 +149,12 @@ namespace KisanKiDukan.Controllers
                           select new PBannersModel
                           {
                               Id = bi.Id,
-                              promotionalbannerpath = bi.promotionalbannerpath
+                              BannerPath = bi.promotionalbannerpath,
+                              Url=bi.url,
+                              productName=bi.productName,
+                              Discount=bi.Discount,
                           }
                            ).ToList();
-
             int total = banner.Count;
             page = page ?? 1;
             int pageSize = 100;

@@ -15,7 +15,19 @@
         <h4>Promotional Banner</h4>
         <div class="form-group">
             Image *
-            @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control",required= "required" })
+            @Html.TextBoxFor(a => a.ImageFile, new { type = "file", @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            Url * @Html.TextBoxFor(a => a.Url, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.Url)</span>
+        </div>
+        <div class="form-group">
+            productName * @Html.TextBoxFor(a => a.productName, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.productName)</span>
+        </div>
+        <div class="form-group">
+            Discount * @Html.TextBoxFor(a => a.Discount, new { @class = "form-control" })
+            <span style="color:red">@Html.ValidationMessageFor(a => a.Discount)</span>
         </div>
         <div class="form-group">
             <input type="submit" value="Submit" class="btn btn-info" />

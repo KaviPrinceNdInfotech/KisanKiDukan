@@ -16,7 +16,13 @@ namespace KisanKiDukan.Models.ViewModels
     public class PBannersModel
     {
         public int Id { get; set; }
-        public string promotionalbannerpath { get; set; }
+        public string BannerPath { get; set; }
+        public string Url { get; set; }
+        public bool IsActive { get; set; }
+ 
+        public string productName { get; set; }
 
+        public string Discount { get; set; }
+        public Nullable<int> SortOrder { get; set; }
     }
 }

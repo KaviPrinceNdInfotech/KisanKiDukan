@@ -187,6 +187,8 @@
     <Property Name="otp" Type="int" />
     <Property Name="Email_Otp" Type="int" />
     <Property Name="Isverify" Type="bit" />
+    <Property Name="Rgx" Type="nvarchar(max)" />
+    <Property Name="Token" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DeliveryChargeMaster">
     <Key>
@@ -526,6 +528,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="promotionalbannerpath" Type="nvarchar(max)" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="url" Type="nvarchar(max)" />
+    <Property Name="productName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Discount" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="RefferalMember">
     <Key>
@@ -566,6 +571,7 @@
     <Property Name="Location" Type="nvarchar" MaxLength="100" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" />
     <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="State">
     <Key>

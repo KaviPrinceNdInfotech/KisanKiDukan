@@ -13,7 +13,9 @@
             <tr>
                 <th>Sr. No.</th>
                 <th>Image</th>
-                
+                <th>url</th>
+                <th>productName</th>
+                <th>Discount</th>
                 <th>Action</th>
             </tr>
             @foreach (var item in Model.ProBanner)
@@ -22,15 +24,18 @@
                 <tr>
                     <td>@sn</td>
                     <td>
-                        @if (string.IsNullOrEmpty(item.promotionalbannerpath))
+                        @if (string.IsNullOrEmpty(item.BannerPath))
                         {
                             <span>No image</span>
                         }
                         else
                         {
-                            <img style="width:250px;height:150px" src="/Images/@item.promotionalbannerpath">
+                            <img style="width:250px;height:150px" src="/Images/@item.BannerPath">
                         }
                     </td>
+                    <td>@item.Url</td>
+                    <td>@item.productName</td>
+                    <td>@item.Discount</td>
                     <td>
                         <a href="/OfferBanner/PBDelete?id=@item.Id" class="btn btn-danger">Delete</a>
                     </td>
@@ -42,14 +47,13 @@
             {
                 if (Model.Page == i)
                 {
-                    <li class="active"><a href="/OfferBanner/ShowBanner?page=@i">@i</a></li>
+                    <li class="active"><a href="/OfferBanner/ShowPBanner?page=@i">@i</a></li>
                 }
                 else
                 {
-                    <li><a href="/OfferBanner/ShowBanner?page=@i">@i</a></li>
+                    <li><a href="/OfferBanner/ShowPBanner?page=@i">@i</a></li>
                 }
             }
-
         </ul>
     }
     else
@@ -57,4 +61,3 @@
         <h4>No records found</h4>
     }
 </div>
-

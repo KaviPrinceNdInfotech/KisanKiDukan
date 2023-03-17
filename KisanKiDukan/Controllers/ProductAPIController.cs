@@ -574,7 +574,10 @@ namespace KisanKiDukan.Controllers
                           {
 
                               Id = bi.Id,
-                              promotionalbannerpath = bi.promotionalbannerpath
+                              BannerPath = bi.promotionalbannerpath,
+                              Url=bi.url,
+                              productName=bi.productName,
+                              Discount=bi.Discount,
                           }
                            ).ToList();
             if (banner.Count > 0)

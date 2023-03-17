@@ -24,6 +24,12 @@ public partial class promotionalbanner
 
     public Nullable<bool> IsActive { get; set; }
 
+    public string url { get; set; }
+
+    public string productName { get; set; }
+
+    public string Discount { get; set; }
+
 }
 
 }

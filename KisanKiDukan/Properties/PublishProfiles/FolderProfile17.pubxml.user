@@ -116,10 +116,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/11/2023 05:49:06</publishTime>
     </File>
     <File Include="bin/KisanKiDukan.dll">
-      <publishTime>03/17/2023 11:49:58</publishTime>
+      <publishTime>03/17/2023 18:10:31</publishTime>
     </File>
     <File Include="bin/KisanKiDukan.pdb">
-      <publishTime>03/17/2023 11:49:58</publishTime>
+      <publishTime>03/17/2023 18:10:31</publishTime>
     </File>
     <File Include="bin/libgrpc_csharp_ext.x64.dylib">
       <publishTime>01/10/2023 03:50:26</publishTime>
@@ -2912,13 +2912,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/21/2023 11:51:11</publishTime>
     </File>
     <File Include="Views/OfferBanner/Pbaner.cshtml">
-      <publishTime>02/10/2023 18:49:32</publishTime>
+      <publishTime>03/17/2023 17:28:30</publishTime>
     </File>
     <File Include="Views/OfferBanner/ShowBanner.cshtml">
       <publishTime>02/10/2023 18:49:32</publishTime>
     </File>
     <File Include="Views/OfferBanner/ShowPBanner.cshtml">
-      <publishTime>02/10/2023 18:49:32</publishTime>
+      <publishTime>03/17/2023 18:06:33</publishTime>
     </File>
     <File Include="Views/OrderStatus/Add.cshtml">
       <publishTime>02/10/2023 18:49:32</publishTime>
@@ -2972,7 +2972,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/10/2023 18:49:33</publishTime>
     </File>
     <File Include="Views/Shared/_Navigation.cshtml">
-      <publishTime>03/01/2023 13:18:16</publishTime>
+      <publishTime>03/17/2023 15:58:13</publishTime>
     </File>
     <File Include="Views/StateCityLocManager/AddCity.cshtml">
       <publishTime>02/10/2023 18:49:33</publishTime>

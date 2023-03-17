@@ -33,6 +33,7 @@ namespace KisanKiDukan.Controllers
                     State = model.State,
                     City = model.City,
                     Address = model.Address,
+                    Email = model.Email,
                     PinCode = model.PinCode,
                     UserId = sr
                 };
