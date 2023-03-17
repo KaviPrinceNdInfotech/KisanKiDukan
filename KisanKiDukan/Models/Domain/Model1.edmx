@@ -192,6 +192,8 @@
           <Property Name="otp" Type="int" />
           <Property Name="Email_Otp" Type="int" />
           <Property Name="Isverify" Type="bit" />
+          <Property Name="Rgx" Type="nvarchar(max)" />
+          <Property Name="Token" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DeliveryChargeMaster">
           <Key>
@@ -1229,6 +1231,8 @@
           <Property Name="otp" Type="Int32" />
           <Property Name="Email_Otp" Type="Int32" />
           <Property Name="Isverify" Type="Boolean" />
+          <Property Name="Rgx" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DeliveryChargeMaster">
           <Key>
@@ -2032,6 +2036,8 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Rgx" ColumnName="Rgx" />
                 <ScalarProperty Name="Isverify" ColumnName="Isverify" />
                 <ScalarProperty Name="Email_Otp" ColumnName="Email_Otp" />
                 <ScalarProperty Name="otp" ColumnName="otp" />

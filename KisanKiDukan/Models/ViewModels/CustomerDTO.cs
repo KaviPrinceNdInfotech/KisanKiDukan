@@ -22,6 +22,7 @@ namespace KisanKiDukan.Models.ViewModels
         [Required]
         public string Address { get; set; }
         public int Refer_Id { get; set; }
+        public string Rgx { get; set; }
         public double Wallet_Amount { get; set; }
         [Required]
         public string Pincode { get; set; }

@@ -187,6 +187,8 @@
     <Property Name="otp" Type="int" />
     <Property Name="Email_Otp" Type="int" />
     <Property Name="Isverify" Type="bit" />
+    <Property Name="Rgx" Type="nvarchar(max)" />
+    <Property Name="Token" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DeliveryChargeMaster">
     <Key>

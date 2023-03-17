@@ -158,6 +158,8 @@
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="admin_KisanKiDukanModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Rgx" ColumnName="Rgx" />
           <ScalarProperty Name="Isverify" ColumnName="Isverify" />
           <ScalarProperty Name="Email_Otp" ColumnName="Email_Otp" />
           <ScalarProperty Name="otp" ColumnName="otp" />

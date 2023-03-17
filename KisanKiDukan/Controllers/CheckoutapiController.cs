@@ -11,6 +11,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.Http.Results;
 using System.Web.Helpers;
+using KisanKiDukan.Utilities;
+using Razorpay.Api;
 
 namespace KisanKiDukan.Controllers
 {
@@ -216,14 +218,14 @@ namespace KisanKiDukan.Controllers
             }
         }
 
-        //[HttpPost, Route("api/Order/Orders/{sr}")]
+        [HttpPost, Route("api/Checkoutapi/Orders/{sr}")]
         //public IHttpActionResult Orders(int sr)
         //{
         //    try
         //    {
         //        if (User.Identity.IsAuthenticated)
         //        {
-        //            bool isvalid = ent.Orders(sr);
+        //            //bool isvalid = Orderes(sr);
         //            if (isvalid)
         //            {
         //                return Ok("Order SucessFully");
@@ -244,5 +246,68 @@ namespace KisanKiDukan.Controllers
         //        return BadRequest("Server Error");
         //    }
         //}
+
+        //public bool Orderes(int sr)
+        //{
+        //    try
+        //    {
+        //        var result = ent.ShippingAddresses.FirstOrDefault(x => x.UserId == sr);
+        //        var emaiid = ent.Customers.FirstOrDefault(x => x.User_Id == sr);
+        //        string InvoiceNos = InvoiceNo();
+        //        Order emp = new Order()
+        //        {
+                   
+
+        //        };
+        //        ent.Reviews.Add(emp);
+        //        ent.SaveChanges();
+        //        return Ok();
+           
+
+        //        string message = "Health is calling.Order with order id " + InvoiceNos + "  is confirmed, Gyros is entering your life soon";
+        //        string DltIt = "1207167143986864882";
+        //        SMSMessage.SendSms(emaiid.Email_Id, message, DltIt);
+
+        //        string msg = "<span style='color:#000000;font-weight:bold;'>Welcome to this ever growing family  </span>" + "<span style='color: #38761d;font-weight:bold;font-family:arial black,sans-serif'>GYROS FARM.</span>" + "" + "<br/>" + "<br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> We are delighted to be your trusted choice. " + "<span style='color: #38761d;font-weight:bold;font-family:arial black,sans-serif'>GYROS FARM.</span>" + "   is a family, it’s not a one way conversation. You, Our customer, are as important a part of this journey as anything else.</span>" + "<br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> Let’s communicate, talk, solve problems together, and build a community that is so deeply committed to giving back to the farmers who give us these great products.</span>" + "<br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> We support farmer communities, their children’s education and give them the best price and all support they require.</span>" + "<br/>" + "<br/>" + "";
+        //        msg += "<span style='color:#38761d;font-weight:bold;font-family:arial,sans-serif'> How do we do it? </span>" + "<br/>" + "<br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> The answer is simple </span> - " + "<span style='color: #6aa84f;font-weight:bold;'>YOU MAKE IT POSSIBLE.</span>" + "" + "<br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> What you think is just a simple purchase of an oil , sets in motion a long chain of effects that reach the most marginalized farmer communities. You should be proud of your contribution. </span> " + " <br/>" + " <br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> Write to us, ask questions if you have any, and give us another chance to be a part of your life.In return you get a chance to change another life.See you soon. </span> " + " <br/>" + " <br/>" + "";
+        //        msg += "<span style='color:#000000;font-weight:bold;'> Health and nutrition on the way. </span>" + " <br/>" + " <br/>" + "";
+        //        msg += "<span style='color: #6aa84f;font-weight:bold;'>Regards</span>" + " <br/>" + "";
+        //        msg += "<span style='color: #38761d;font-weight:bold;font-family:arial black,sans-serif'>GYROS FARM.</span>" + " <br/>" + "";
+        //        MessageEmail.SendEmail(emaiid.Email_Id, msg);
+
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
+        public string InvoiceNo()
+        {
+            try
+            {
+                var data = ent.Orders.OrderByDescending(a => a.Id).FirstOrDefault();
+                string UserName = "2023BNW1";
+                if (data != null)
+                {
+                    string IncrementValue = data.Invoice_No.Substring(7, data.Invoice_No.Length - 7);
+                    int NewVal = Convert.ToInt32(IncrementValue) + 1;
+                    return "2023BNW" + NewVal;
+                }
+                return UserName;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
     }
 }

@@ -1396,7 +1396,6 @@ from DeliveryTimeSlot";
         {
             try
             {
-                // var result = (from c in ent.Discount_Coupon select c.CouponCode).ToList();
                 var result = ent.Discount_Coupon.ToList().Select(x => new { x.id, x.CouponCode, x.Amount, x.Name, x.MinimumAmount, x.MaximumAmount });
                 if (result != null)
                 {

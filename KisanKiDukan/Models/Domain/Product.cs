@@ -95,6 +95,7 @@ public partial class Product
     public Nullable<int> AvailPincode { get; set; }
 
     public string VideoLink { get; set; }
-    }
+
+}
 
 }

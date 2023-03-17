@@ -164,6 +164,8 @@
     <Property Name="otp" Type="Int32" />
     <Property Name="Email_Otp" Type="Int32" />
     <Property Name="Isverify" Type="Boolean" />
+    <Property Name="Rgx" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DeliveryChargeMaster">
     <Key>

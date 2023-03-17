@@ -568,6 +568,7 @@ namespace KisanKiDukan.Controllers
                 model.EmailId = order.Email;
                 model.ContactNumber = order.PhoneNumber;
                 model.FinalPrice = order.Total;
+                model.Invoice_No = order.Invoice_No;
                 ViewBag.OrderDate = order.OrderDate;
                 ViewBag.UserData = "" + order.Name + "\r\n" + order.Address + " " + order.City + "\r\n" + order.State + " " + order.PinCode + "\r\nMo. :" + order.PhoneNumber + "";
                 if (Data.Count > 0)

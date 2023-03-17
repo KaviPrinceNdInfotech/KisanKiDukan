@@ -48,6 +48,10 @@ public partial class Customer
 
     public Nullable<bool> Isverify { get; set; }
 
+    public string Rgx { get; set; }
+
+    public string Token { get; set; }
+
 }
 
 }

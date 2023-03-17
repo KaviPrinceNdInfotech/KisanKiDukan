@@ -109,6 +109,35 @@ namespace KisanKiDukan.Controllers
 
         }
 
+
+        public bool Add(CustomerDTO model)
+        {
+            try
+            {
+                if (model.Password == model.ConfirmPassword)
+                {
+                    Customer regs = new Customer();
+                    {
+                        regs.FullName = model.FullName;
+                        regs.Phone = model.Phone;
+                        regs.Email_Id = model.Email_Id;
+                        regs.Password = model.Password;
+                        regs.Rgx = Guid.NewGuid().ToString().Substring(0, 25);
+                        //regs.walletAmount = 0;
+                    }
+                    ent.Customers.Add(regs);
+                    ent.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
+
+
         //===Registration With verify otp=====
         [HttpPost, Route("api/Customerapi/Registration")]
         public IHttpActionResult Registration(Customer model)
@@ -290,7 +319,7 @@ namespace KisanKiDukan.Controllers
                         result.otp = 0;
                     }
                     ent.SaveChanges();
-                    return Ok(new {result.User_Id,result.FullName,result.Phone,result.Password, Status = 200, Message = "Login Successfully" });
+                    return Ok(new {result.User_Id,result.FullName,result.Phone,result.Password,result.Rgx, Status = 200, Message = "Login Successfully" });
                 }
                 return BadRequest("Otp Invalid");
             }
@@ -319,7 +348,7 @@ namespace KisanKiDukan.Controllers
                     //    result.Token = token;
                     //}                   
                     //ent.SaveChanges();
-                    return Ok(new { result.User_Id, result.FullName, result.Phone, result.Password, Status = 200, Message = "Login Successfully" });
+                    return Ok(new { result.User_Id, result.FullName, result.Phone, result.Password,result.Rgx, Status = 200, Message = "Login Successfully" });
 
                 }
                 else
